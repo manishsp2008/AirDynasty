@@ -1,0 +1,38 @@
+INSERT INTO airdyna.air_craft (`AC_NAME`, `AC_SERIALNUM`, `AC_AFHRS`, `AC_ENGHRS`, `AC_LANDINGCOUNT`, `AC_STARTCOUNT`, `AC_ENGNGCYCS`, `AC_NPCYCS`, `AC_FORMNUM`) VALUES ('9N-AEX', '1612', 9267.2, 7998.4, '19139', '10255', 11092.7, 10255.0, 'ADH 310 A');
+--------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO airdyna.components (`COMP_PARTNAME`, `COMP_PARTNUM`, `COMP_AC_ID`) VALUES ('Main Rotor Blade', '355A11-0010-07', 1);
+	
+INSERT INTO airdyna.cmp_serial_number (`SERIALNUM_VALUE`, `SERIALNUM_COMP_ID`) VALUES ('5081', 1);
+INSERT INTO airdyna.cmp_serial_number (`SERIALNUM_VALUE`, `SERIALNUM_COMP_ID`) VALUES ('7195', 1);
+INSERT INTO airdyna.cmp_serial_number (`SERIALNUM_VALUE`, `SERIALNUM_COMP_ID`) VALUES ('5505', 1);
+
+INSERT INTO airdyna.cmp_finitelife (`CMP_FINITELIFE_HRS`, `CMP_FINITELIFE_COMP_ID`) VALUES (20000.0, 1);
+
+INSERT INTO airdyna.cmp_liferem_inst (`CMPLIFE_REM_HRS`, `CMPLIFES_COMP_ID`) VALUES (17854.8, 1);
+INSERT INTO airdyna.cmp_liferem_inst (`CMPLIFE_REM_HRS`, `CMPLIFES_COMP_ID`) VALUES (17440.6, 1);
+INSERT INTO airdyna.cmp_liferem_inst (`CMPLIFE_REM_HRS`, `CMPLIFES_COMP_ID`) VALUES (17658.8, 1);
+
+INSERT INTO airdyna.cmp_afhrs_inst (`CMP_AFHRS_INST_HRS`, `CMP_AFHRS_INST_COMP_ID`) VALUES (6923.8, 1);
+
+INSERT INTO airdyna.cmp_date_inst (`CMP_DATE_INST_DATE`, `CMP_DATE_INST_COMP_ID`) VALUES ('2005-10-10', 1);
+
+INSERT INTO airdyna.comp_dueoff_afhrs_inst (`CDA_HRS`, `CDA_COMP_ID`) VALUES (24778.6, 1);
+INSERT INTO airdyna.comp_dueoff_afhrs_inst (`CDA_HRS`, `CDA_COMP_ID`) VALUES (24368.4, 1);
+INSERT INTO airdyna.comp_dueoff_afhrs_inst (`CDA_HRS`, `CDA_COMP_ID`) VALUES (24582.6, 1);
+
+INSERT INTO airdyna.cmp_cur_afhrs (`CMP_CUR_AFHRS_HRS`, `CMP_CUR_AFHRS_COMP_ID`) VALUES (9267.2, 1);
+
+INSERT INTO airdyna.comp_rem_life ( `CRL_HRS`, `CRL_COMP_ID`) VALUES ( 15511.4, 1);
+INSERT INTO airdyna.comp_rem_life ( `CRL_HRS`, `CRL_COMP_ID`) VALUES ( 15101.2, 1);
+INSERT INTO airdyna.comp_rem_life ( `CRL_HRS`, `CRL_COMP_ID`) VALUES ( 15315.4, 1);
+
+INSERT INTO airdyna.cmp_remarks ( `CMP_REMARKS_TEXT`, `CMP_REMARKS_COMP_ID`) VALUES ( 'InHours', 1);
+INSERT INTO airdyna.cmp_remarks ( `CMP_REMARKS_TEXT`, `CMP_REMARKS_COMP_ID`) VALUES ( 'InHours', 1);
+INSERT INTO airdyna.cmp_remarks ( `CMP_REMARKS_TEXT`, `CMP_REMARKS_COMP_ID`) VALUES ( 'InHours', 1);
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+	

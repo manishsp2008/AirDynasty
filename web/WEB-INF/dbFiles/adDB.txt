@@ -1,0 +1,251 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
+
+DROP SCHEMA IF EXISTS `airdyna` ;
+CREATE SCHEMA IF NOT EXISTS `airdyna` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
+USE `airdyna` ;
+
+-- -----------------------------------------------------
+-- Table `airdyna`.`AIR_CRAFT`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `airdyna`.`AIR_CRAFT` ;
+
+CREATE  TABLE IF NOT EXISTS `airdyna`.`AIR_CRAFT` (
+  `AC_ID` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+  `AC_NAME` VARCHAR(255) NOT NULL ,
+  `AC_SERIALNUM` VARCHAR(255) NOT NULL ,
+  `AC_AFHRS` DOUBLE NOT NULL ,
+  `AC_ENGHRS` DOUBLE NOT NULL ,
+  `AC_LANDINGCOUNT` MEDIUMTEXT  NOT NULL ,
+  `AC_STARTCOUNT` MEDIUMTEXT  NOT NULL ,
+  `AC_ENGNGCYCS` DOUBLE NOT NULL ,
+  `AC_NPCYCS` DOUBLE NOT NULL ,
+  `AC_FORMNUM` VARCHAR(255) NOT NULL ,
+  PRIMARY KEY (`AC_ID`) )
+ENGINE = InnoDB
+COMMENT = 'Stores basic details about an each air craft.' ;
+
+
+-- -----------------------------------------------------
+-- Table `airdyna`.`COMPONENTS`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `airdyna`.`COMPONENTS` ;
+
+CREATE  TABLE IF NOT EXISTS `airdyna`.`COMPONENTS` (
+  `COMP_ID` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+  `COMP_PARTNAME` VARCHAR(255) NOT NULL ,
+  `COMP_PARTNUM` VARCHAR(255) NOT NULL ,
+  `COMP_AC_ID` INT UNSIGNED NOT NULL ,
+  PRIMARY KEY (`COMP_ID`) ,
+  INDEX `fk_COMPONENTS_AIR_CRAFT` (`COMP_AC_ID` ASC) ,
+  CONSTRAINT `fk_COMPONENTS_AIR_CRAFT`
+    FOREIGN KEY (`COMP_AC_ID` )
+    REFERENCES `airdyna`.`AIR_CRAFT` (`AC_ID` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB, 
+COMMENT = 'Stores details of an air craft components.' ;
+
+
+-- -----------------------------------------------------
+-- Table `airdyna`.`CMP_SERIAL_NUMBER`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `airdyna`.`CMP_SERIAL_NUMBER` ;
+
+CREATE  TABLE IF NOT EXISTS `airdyna`.`CMP_SERIAL_NUMBER` (
+  `SERIALNUM_ID` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+  `SERIALNUM_VALUE` VARCHAR(255) NOT NULL ,
+  `SERIALNUM_COMP_ID` INT UNSIGNED NOT NULL ,
+  PRIMARY KEY (`SERIALNUM_ID`) ,
+  INDEX `fk_CMP_SERIAL_NUMBER_COMPONENTS1` (`SERIALNUM_COMP_ID` ASC) ,
+  CONSTRAINT `fk_CMP_SERIAL_NUMBER_COMPONENTS1`
+    FOREIGN KEY (`SERIALNUM_COMP_ID` )
+    REFERENCES `airdyna`.`COMPONENTS` (`COMP_ID` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB, 
+COMMENT = 'Serial Number of each component is maintained in this table.' ;
+
+
+-- -----------------------------------------------------
+-- Table `airdyna`.`CMP_LIFEREM_INST`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `airdyna`.`CMP_LIFEREM_INST` ;
+
+CREATE  TABLE IF NOT EXISTS `airdyna`.`CMP_LIFEREM_INST` (
+  `CMPLIFE_REM_ID` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+  `CMPLIFE_REM_HRS` DOUBLE NOT NULL ,
+  `CMPLIFES_COMP_ID` INT UNSIGNED NOT NULL ,
+  PRIMARY KEY (`CMPLIFE_REM_ID`) ,
+  INDEX `fk_CMPLIFE_REMAINING_COMPONENTS1` (`CMPLIFES_COMP_ID` ASC) ,
+  CONSTRAINT `fk_CMPLIFE_REMAINING_COMPONENTS1`
+    FOREIGN KEY (`CMPLIFES_COMP_ID` )
+    REFERENCES `airdyna`.`COMPONENTS` (`COMP_ID` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB, 
+COMMENT = 'Component Remaining Life Hours are stored in this table.' ;
+
+
+-- -----------------------------------------------------
+-- Table `airdyna`.`COMP_DUEOFF_AFHRS_INST`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `airdyna`.`COMP_DUEOFF_AFHRS_INST` ;
+
+CREATE  TABLE IF NOT EXISTS `airdyna`.`COMP_DUEOFF_AFHRS_INST` (
+  `CDA_ID` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+  `CDA_HRS` DOUBLE NOT NULL ,
+  `CDA_COMP_ID` INT UNSIGNED NOT NULL ,
+  PRIMARY KEY (`CDA_ID`) ,
+  INDEX `fk_COMP_DUEOFF_AFHRS_COMPONENTS1` (`CDA_COMP_ID` ASC) ,
+  CONSTRAINT `fk_COMP_DUEOFF_AFHRS_COMPONENTS1`
+    FOREIGN KEY (`CDA_COMP_ID` )
+    REFERENCES `airdyna`.`COMPONENTS` (`COMP_ID` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB, 
+COMMENT = 'Componenet remaining Air Frame Hours are maintained in this ' /* comment truncated */ ;
+
+
+-- -----------------------------------------------------
+-- Table `airdyna`.`COMP_REM_LIFE`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `airdyna`.`COMP_REM_LIFE` ;
+
+CREATE  TABLE IF NOT EXISTS `airdyna`.`COMP_REM_LIFE` (
+  `CRL_ID` INT NOT NULL ,
+  `CRL_HRS` DOUBLE NOT NULL ,
+  `CRL_COMP_ID` INT UNSIGNED NOT NULL ,
+  PRIMARY KEY (`CRL_ID`) ,
+  INDEX `fk_COMP_REM_LIFE_COMPONENTS1` (`CRL_COMP_ID` ASC) ,
+  CONSTRAINT `fk_COMP_REM_LIFE_COMPONENTS1`
+    FOREIGN KEY (`CRL_COMP_ID` )
+    REFERENCES `airdyna`.`COMPONENTS` (`COMP_ID` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB, 
+COMMENT = 'Component Remaining Life hours are stored in this table.' ;
+
+
+-- -----------------------------------------------------
+-- Table `airdyna`.`USER`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `airdyna`.`USER` ;
+
+CREATE  TABLE IF NOT EXISTS `airdyna`.`USER` (
+  `USER_ID` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+  `USER_NAME` VARCHAR(255) NOT NULL ,
+  `USER_REALNAME` VARCHAR(255) NULL ,
+  `USER_PASSWORD` VARCHAR(255) NOT NULL ,
+  `USER_EMAILID` VARCHAR(255) NULL ,
+  `USER_ROLE` VARCHAR(10) NOT NULL ,
+  PRIMARY KEY (`USER_ID`) )
+ENGINE = InnoDB, 
+COMMENT = 'User details are maintained in this table.' ;
+
+
+-- -----------------------------------------------------
+-- Table `airdyna`.`CMP_AFHRS_INST`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `airdyna`.`CMP_AFHRS_INST` ;
+
+CREATE  TABLE IF NOT EXISTS `airdyna`.`CMP_AFHRS_INST` (
+  `CMP_AFHRS_INST_ID` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+  `CMP_AFHRS_INST_HRS` DOUBLE NOT NULL ,
+  `CMP_AFHRS_INST_COMP_ID` INT UNSIGNED NOT NULL ,
+  PRIMARY KEY (`CMP_AFHRS_INST_ID`) ,
+  INDEX `fk_CMP_AFHRS_INST_COMPONENTS1` (`CMP_AFHRS_INST_COMP_ID` ASC) ,
+  CONSTRAINT `fk_CMP_AFHRS_INST_COMPONENTS1`
+    FOREIGN KEY (`CMP_AFHRS_INST_COMP_ID` )
+    REFERENCES `airdyna`.`COMPONENTS` (`COMP_ID` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB, 
+COMMENT = 'Stores installation air frame hours.' ;
+
+
+-- -----------------------------------------------------
+-- Table `airdyna`.`CMP_DATE_INST`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `airdyna`.`CMP_DATE_INST` ;
+
+CREATE  TABLE IF NOT EXISTS `airdyna`.`CMP_DATE_INST` (
+  `CMP_DATE_INST_ID` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+  `CMP_DATE_INST_DATE` DATE NOT NULL ,
+  `CMP_DATE_INST_COMP_ID` INT UNSIGNED NOT NULL ,
+  PRIMARY KEY (`CMP_DATE_INST_ID`) ,
+  INDEX `fk_CMP_DATE_INST_COMPONENTS1` (`CMP_DATE_INST_COMP_ID` ASC) ,
+  CONSTRAINT `fk_CMP_DATE_INST_COMPONENTS1`
+    FOREIGN KEY (`CMP_DATE_INST_COMP_ID` )
+    REFERENCES `airdyna`.`COMPONENTS` (`COMP_ID` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB, 
+COMMENT = 'Stores installation details for component.' ;
+
+
+-- -----------------------------------------------------
+-- Table `airdyna`.`CMP_FINITELIFE`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `airdyna`.`CMP_FINITELIFE` ;
+
+CREATE  TABLE IF NOT EXISTS `airdyna`.`CMP_FINITELIFE` (
+  `CMP_FINITELIFE_ID` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+  `CMP_FINITELIFE_HRS` DOUBLE UNSIGNED NOT NULL ,
+  `CMP_FINITELIFE_COMP_ID` INT UNSIGNED NOT NULL ,
+  PRIMARY KEY (`CMP_FINITELIFE_ID`) ,
+  INDEX `fk_CMP_FINITELIFE_COMPONENTS1` (`CMP_FINITELIFE_COMP_ID` ASC) ,
+  CONSTRAINT `fk_CMP_FINITELIFE_COMPONENTS1`
+    FOREIGN KEY (`CMP_FINITELIFE_COMP_ID` )
+    REFERENCES `airdyna`.`COMPONENTS` (`COMP_ID` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB, 
+COMMENT = 'Components finite life hours are stored here.' ;
+
+
+-- -----------------------------------------------------
+-- Table `airdyna`.`CMP_CUR_AFHRS`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `airdyna`.`CMP_CUR_AFHRS` ;
+
+CREATE  TABLE IF NOT EXISTS `airdyna`.`CMP_CUR_AFHRS` (
+  `CMP_CUR_AFHRS_ID` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+  `CMP_CUR_AFHRS_HRS` DOUBLE NOT NULL ,
+  `CMP_CUR_AFHRS_COMP_ID` INT UNSIGNED NOT NULL ,
+  PRIMARY KEY (`CMP_CUR_AFHRS_ID`) ,
+  INDEX `fk_CMP_CUR_AFHRS_COMPONENTS1` (`CMP_CUR_AFHRS_COMP_ID` ASC) ,
+  CONSTRAINT `fk_CMP_CUR_AFHRS_COMPONENTS1`
+    FOREIGN KEY (`CMP_CUR_AFHRS_COMP_ID` )
+    REFERENCES `airdyna`.`COMPONENTS` (`COMP_ID` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB, 
+COMMENT = 'Stores current air frame hours.' ;
+
+
+-- -----------------------------------------------------
+-- Table `airdyna`.`CMP_REMARKS`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `airdyna`.`CMP_REMARKS` ;
+
+CREATE  TABLE IF NOT EXISTS `airdyna`.`CMP_REMARKS` (
+  `CMP_REMARKS_ID` INT NOT NULL ,
+  `CMP_REMARKS_TEXT` TINYBLOB NULL ,
+  `CMP_REMARKS_COMP_ID` INT UNSIGNED NOT NULL ,
+  PRIMARY KEY (`CMP_REMARKS_ID`) ,
+  INDEX `fk_CMP_REMARKS_COMPONENTS1` (`CMP_REMARKS_COMP_ID` ASC) ,
+  CONSTRAINT `fk_CMP_REMARKS_COMPONENTS1`
+    FOREIGN KEY (`CMP_REMARKS_COMP_ID` )
+    REFERENCES `airdyna`.`COMPONENTS` (`COMP_ID` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB, 
+COMMENT = 'Component remarks are stored here' ;
+
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
