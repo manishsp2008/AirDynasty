@@ -4,6 +4,7 @@
     Author     : Dell
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +13,13 @@
         <title>Air Dynasty - Air Craft Details Page</title>
     </head>
     <body>
-        
+        <h2>List of Air Crafts</h2>
+        <ol>
+            <li>
+                <c:forEach var="craft" items="${aircrafts}">
+                    <a href="<c:url value="viewCraft?${craft.acId}"/>">${craft.acName}&nbsp;(${craft.acSerialnum})</a>
+                </c:forEach>
+            </li>
+        </ol>
     </body>
 </html>

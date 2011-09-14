@@ -15,8 +15,11 @@ import adsessionbeans.CmpSerialNumberFacade;
 import adsessionbeans.CompDueoffAfhrsInstFacade;
 import adsessionbeans.CompRemLifeFacade;
 import adsessionbeans.ComponentsFacade;
+import airdynasty.AirCraft;
+import airdynasty.Components;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Collection;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,9 +34,9 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name="ControllerServlet",
         loadOnStartup=1,
-        urlPatterns={ "/viewCraft","/addCraft","/editCraft",
+        urlPatterns={ "/viewCraft","/addCraft","/editCraft","/viewCraftList",
                       "/addCraftHRS","/addComponent",
-                      "/editComponent","/viewComponent",
+                      "/editComponent","/viewComponents",
                       "/addUser","/viewUser" }
         )
 public class ControllerServlet extends HttpServlet {
@@ -97,11 +100,39 @@ public class ControllerServlet extends HttpServlet {
         try {
    
         // Retrieve URL path of servlet.
-        String userPath = request.getQueryString();
+        String userPath = request.getServletPath();
         
-        if(userPath.equals("/viewCraft"))
+        AirCraft acObj;
+        Collection<Components> cmpObj; 
+        
+        if(userPath.equals("/viewCraftList"))
         {
            userPath = "/aircraft";
+        }
+        else if(userPath.equals("/viewCraft"))
+        {
+           // Retirieve craft id from rquest. 
+            String id = request.getQueryString();
+            
+            if(id != null) {
+            
+            // Retrieve Aircraft Object for request id.
+            acObj = acFacade.find(Integer.parseInt(id));
+            
+            // Set object in servlet context
+            getServletContext().setAttribute("craftObj", acObj);
+            
+            // Retrieve the Components of air craft.
+            cmpObj = acObj.getComponentsCollection();
+            
+            // Set COmponents in servlet context
+            getServletContext().setAttribute("craftComps", cmpObj);
+            
+            
+            }
+            
+            userPath = "/viewcraft";
+            
         }
         else if(userPath.equals("/addCraft"))
         {
@@ -123,7 +154,7 @@ public class ControllerServlet extends HttpServlet {
         {
             // TODO : Edit component details needed to be written here.
         }
-        else if(userPath.equals("/viewComponent"))
+        else if(userPath.equals("/viewComponents"))
         {
             // TODO : View Component Code needed to be written here.
         }
