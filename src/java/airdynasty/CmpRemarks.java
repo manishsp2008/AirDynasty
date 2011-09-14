@@ -60,8 +60,8 @@ public class CmpRemarks implements Serializable {
         this.cmpRemarksId = cmpRemarksId;
     }
 
-    public byte[] getCmpRemarksText() {
-        return cmpRemarksText;
+    public String getCmpRemarksText() {
+        return new String(cmpRemarksText);
     }
 
     public void setCmpRemarksText(byte[] cmpRemarksText) {

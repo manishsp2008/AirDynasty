@@ -125,7 +125,7 @@ public class ControllerServlet extends HttpServlet {
             // Retrieve the Components of air craft.
             cmpObj = acObj.getComponentsCollection();
             
-            // Set COmponents in servlet context
+            // Set Components in servlet context
             getServletContext().setAttribute("craftComps", cmpObj);
             
             
@@ -145,6 +145,7 @@ public class ControllerServlet extends HttpServlet {
         else if(userPath.equals("/addCraftHRS"))
         {
             // TODO : Add Craft Hours code to be written here.
+            // Before writing this logic i need to understand the basics of air craft sheet.
         }
         else if(userPath.equals("/addComponent"))
         {
