@@ -31,7 +31,7 @@
             <li>Engine Ng. Cycs. : ${craftObj.acEngngcycs}</li>
             <li>Np. Cycs. : ${craftObj.acNpcycs}</li>
         </ol>
-
+        <strong><a href="/AirDynasty/addHours.jsp">Add Air Craft Hours</a></strong>
         <h3>Components</h3>
         <table border="3">
         <tr><th>Sr. No.</th><th>Component Name</th><th>Part No.</th><th>Serial No.</th><th>Finite Life(TBO)</th>

@@ -36,6 +36,10 @@
         <servlet-name>ControllerServlet</servlet-name>
         <url-pattern>/viewComponents</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>/updateCraftHRS</url-pattern>
+    </servlet-mapping>
     
     <session-config>
         <session-timeout>

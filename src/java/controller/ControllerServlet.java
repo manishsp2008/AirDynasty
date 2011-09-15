@@ -17,6 +17,9 @@ import adsessionbeans.CompRemLifeFacade;
 import adsessionbeans.ComponentsFacade;
 import airdynasty.AirCraft;
 import airdynasty.Components;
+
+import airdynasty.bean.AirFrameBean;
+import airdynasty.utils.AirFrameLogic;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Collection;
@@ -35,7 +38,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name="ControllerServlet",
         loadOnStartup=1,
         urlPatterns={ "/viewCraft","/addCraft","/editCraft","/viewCraftList",
-                      "/addCraftHRS","/addComponent",
+                      "/addCraftHRS","/updateCraftHRS","/addComponent",
                       "/editComponent","/viewComponents",
                       "/addUser","/viewUser" }
         )
@@ -68,12 +71,13 @@ public class ControllerServlet extends HttpServlet {
     @Override
     public void init()
     {
+        
      // Load all air craft details in servlet.
      getServletContext().setAttribute("aircrafts", acFacade.findAll());
      
      // Load all component details in servlet context.
      getServletContext().setAttribute("components", cmpFacade.findAll());
-     
+     /*
      getServletContext().setAttribute("cmp_srnum", cmp_sr_num_Facade.findAll());
      getServletContext().setAttribute("cmp_finite_life", cmp_finite_life_Facade.findAll());
      getServletContext().setAttribute("cmp_liferem_inst", cmp_life_rem_inst_Facade.findAll());
@@ -83,7 +87,7 @@ public class ControllerServlet extends HttpServlet {
      getServletContext().setAttribute("cmp_curr_afhrs", cmp_cur_afhrs_Facade.findAll());
      getServletContext().setAttribute("cmp_remlife", cmp_rem_life_Facade.findAll());
      getServletContext().setAttribute("cmp_remarks", cmp_remarks_Facade.findAll());
-     
+     */
     }
     
     /** 
@@ -101,9 +105,10 @@ public class ControllerServlet extends HttpServlet {
    
         // Retrieve URL path of servlet.
         String userPath = request.getServletPath();
-        
-        AirCraft acObj;
-        Collection<Components> cmpObj; 
+            
+        AirCraft acObj = null;
+        Collection<Components> cmpObj = null; 
+        Double afHrs = null;
         
         if(userPath.equals("/viewCraftList"))
         {
@@ -144,8 +149,50 @@ public class ControllerServlet extends HttpServlet {
         }
         else if(userPath.equals("/addCraftHRS"))
         {
-            // TODO : Add Craft Hours code to be written here.
-            // Before writing this logic i need to understand the basics of air craft sheet.
+            // Retireve parameters from request.
+            afHrs = Double.parseDouble(request.getParameter("afHRS"));
+            
+            //Integer stCount = Integer.parseInt(request.getParameter("acStCnt"));
+            //Integer lndCount = Integer.parseInt(request.getParameter("acLndCnt"));
+            
+            //String flightDate = request.getParameter("flDate");
+            
+            // Set a hours to be substracted in servlet context.
+            getServletContext().setAttribute("afHrs",afHrs);
+            
+            userPath = "/viewaddHrsRes";
+            
+            
+        }
+        else if(userPath.equals("/updateCraftHRS"))
+        {
+            
+            
+            afHrs = (Double) getServletContext().getAttribute("afHrs");
+            
+            acObj = (AirCraft) getServletContext().getAttribute("craftObj");
+            
+            AirFrameBean afbObj = new AirFrameBean();
+            
+            if(afHrs != null)   {
+                
+                // Update Current Air Frame hours in Database. 
+                //AirFrameLogic.setCurrentAFHrs(acObj, afHrs);
+                afbObj.setCurrentAFHrs(acObj, afHrs);
+                
+                // Update remaining Life Hours in Database.
+                //AirFrameLogic.setRemAFHrs(acObj, afHrs);
+                afbObj.setRemAFHrs(acObj, afHrs);
+                
+                userPath = "/AddHrsConfirm";
+                
+            }
+            else
+            {
+                userPath="/aircraft";
+            }
+                
+            
         }
         else if(userPath.equals("/addComponent"))
         {

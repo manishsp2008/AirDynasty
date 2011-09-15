@@ -12,6 +12,10 @@
         <title>Air Dynasty</title>
     </head>
     <body>
-        <h1>Air Dynasty</h1>
+        <h1>Air Dynasty Air Craft management System</h1>
+        <ol>
+            <li><a href="/AirDynasty/viewCraftList">View Air Crafts</a></li>
+        </ol>
+        
     </body>
 </html>
