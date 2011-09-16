@@ -6,8 +6,10 @@ package airdynasty.bean;
 
 import airdynasty.AirCraft;
 import airdynasty.CmpCurAfhrs;
+import airdynasty.CompDueoffAfhrsInst;
 import airdynasty.CompRemLife;
 import airdynasty.Components;
+import airdynasty.utils.AirFrameLogic;
 import java.util.Collection;
 import java.util.Iterator;
 import javax.annotation.Resource;
@@ -18,9 +20,9 @@ import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
 
 /**
  *
@@ -32,7 +34,7 @@ import javax.persistence.PersistenceContext;
 public class AirFrameBean {
     
     
-    @PersistenceContext(unitName = "AirDynastyPU")
+    @PersistenceContext(unitName="AirDynastyPU")
     private EntityManager em;
     
     @Resource
@@ -40,7 +42,41 @@ public class AirFrameBean {
     
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
     public void setRemAFHrs(AirCraft acObj, Double afHrs) {
+        try {
         
+        Collection<Components> cmps = acObj.getComponentsCollection();
+        
+        for(Iterator itr = cmps.iterator(); itr.hasNext();)  {
+            Components cmp = (Components)itr.next();
+        
+            Collection<CompDueoffAfhrsInst> caObj = cmp.getCompDueoffAfhrsInstCollection();
+            
+            for(Iterator it = caObj.iterator(); it.hasNext();)  {
+                
+                CompDueoffAfhrsInst ccaTemp = (CompDueoffAfhrsInst) it.next();
+                
+                // Persisit CompRemLife Object.
+                
+                // Find Related value from database.
+                Double remHrs = ccaTemp.getCdaHrs() - afHrs ;
+               
+                setRLHrs(acObj, remHrs);
+        }
+        
+    }
+        }
+        catch(Exception e)
+        {
+            context.setRollbackOnly();
+            
+        }
+        finally {
+            //emTemp.close();
+        }
+    }
+    
+    public void setRLHrs(AirCraft acObj, Double Hrs)
+    {
         try {
         
         Collection<Components> cmps = acObj.getComponentsCollection();
@@ -54,26 +90,19 @@ public class AirFrameBean {
                 
                 CompRemLife ccaTemp = (CompRemLife) it.next();
                 
-                // Find Related value from database.
-                //CompRemLife ccaTemp = em.find( CompRemLife.class , cca.getCrlId());
+                ccaTemp.setCrlHrs(AirFrameLogic.roundTwoDec(Hrs));
                 
-                ccaTemp.setCrlHrs(ccaTemp.getCrlHrs() - afHrs);
-                
-                // Persisit CompRemLife Object.
-                //em.getTransaction().commit();
                 em.merge(ccaTemp);
-            
+                
         }
         
-    }
+    }    
+            
+            
         }
         catch(Exception e)
         {
-            context.setRollbackOnly();
-            
-        }
-        finally {
-            //em.close();
+           context.setRollbackOnly(); 
         }
     }
     
@@ -81,6 +110,7 @@ public class AirFrameBean {
     public void setCurrentAFHrs(AirCraft acObj, Double afHrs)
     {
     
+       
         try {
             
         //em.getTransaction().begin();
@@ -111,13 +141,10 @@ public class AirFrameBean {
             
             
         }
-        
-        finally {
-            //em.close();
-            
+        catch(Exception e)
+        {
+            context.setRollbackOnly();
         }
-        
-        
     }
 
 }

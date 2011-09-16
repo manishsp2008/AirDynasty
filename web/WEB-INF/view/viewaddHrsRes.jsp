@@ -22,7 +22,7 @@
         <h1>Status after adding Air Frame hours.</h1>
         <table border="3">
         <tr><th>Sr. No.</th><th>Component Name</th><th>Part No.</th><th>Due-Off Installation hours(AF Hrs.)</th>
-        <th>Remaining Life Hours</th><th>Hours after subtraction</th></tr>
+        <th>Current Air Craft Hours(User Input)</th><th>Remaining Life Hours</th></tr>
         <c:forEach var="comp" items="${craftComps}">
         
         <tr><td>1. </td><td>${comp.compPartname}</td><td>${comp.compPartnum}</td>

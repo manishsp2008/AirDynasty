@@ -16,7 +16,7 @@
             Hours are successfully updated in database.
         </strong>
         <br/>
-        <a href="/AirDynasty/aircraft.jsp" >Main Page</a>
+        <a href="/AirDynasty/viewCraftList" >Main Page</a>
         
     </body>
 </html>

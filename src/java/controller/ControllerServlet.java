@@ -66,6 +66,8 @@ public class ControllerServlet extends HttpServlet {
     private CompRemLifeFacade cmp_rem_life_Facade;
     @EJB
     private CmpRemarksFacade cmp_remarks_Facade;
+    @EJB
+    private AirFrameBean afbObj;
     
     
     @Override
@@ -166,22 +168,16 @@ public class ControllerServlet extends HttpServlet {
         }
         else if(userPath.equals("/updateCraftHRS"))
         {
-            
-            
             afHrs = (Double) getServletContext().getAttribute("afHrs");
             
             acObj = (AirCraft) getServletContext().getAttribute("craftObj");
             
-            AirFrameBean afbObj = new AirFrameBean();
-            
             if(afHrs != null)   {
                 
                 // Update Current Air Frame hours in Database. 
-                //AirFrameLogic.setCurrentAFHrs(acObj, afHrs);
                 afbObj.setCurrentAFHrs(acObj, afHrs);
                 
                 // Update remaining Life Hours in Database.
-                //AirFrameLogic.setRemAFHrs(acObj, afHrs);
                 afbObj.setRemAFHrs(acObj, afHrs);
                 
                 userPath = "/AddHrsConfirm";
