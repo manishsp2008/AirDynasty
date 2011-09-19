@@ -17,6 +17,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -29,7 +30,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "CompDueoffAfhrsInst.findAll", query = "SELECT c FROM CompDueoffAfhrsInst c"),
     @NamedQuery(name = "CompDueoffAfhrsInst.findByCdaId", query = "SELECT c FROM CompDueoffAfhrsInst c WHERE c.cdaId = :cdaId"),
-    @NamedQuery(name = "CompDueoffAfhrsInst.findByCdaHrs", query = "SELECT c FROM CompDueoffAfhrsInst c WHERE c.cdaHrs = :cdaHrs")})
+    @NamedQuery(name = "CompDueoffAfhrsInst.findByCdaHrs", query = "SELECT c FROM CompDueoffAfhrsInst c WHERE c.cdaHrs = :cdaHrs"),
+    @NamedQuery(name = "CompDueoffAfhrsInst.findByCdaHrsType", query = "SELECT c FROM CompDueoffAfhrsInst c WHERE c.cdaHrsType = :cdaHrsType")})
 public class CompDueoffAfhrsInst implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -40,8 +42,14 @@ public class CompDueoffAfhrsInst implements Serializable {
     private Integer cdaId;
     @Basic(optional = false)
     @NotNull
+    @Size(min = 1, max = 255)
     @Column(name = "CDA_HRS")
-    private double cdaHrs;
+    private String cdaHrs;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 1)
+    @Column(name = "CDA_HRS_TYPE")
+    private String cdaHrsType;
     @JoinColumn(name = "CDA_COMP_ID", referencedColumnName = "COMP_ID")
     @ManyToOne(optional = false)
     private Components cdaCompId;
@@ -53,9 +61,10 @@ public class CompDueoffAfhrsInst implements Serializable {
         this.cdaId = cdaId;
     }
 
-    public CompDueoffAfhrsInst(Integer cdaId, double cdaHrs) {
+    public CompDueoffAfhrsInst(Integer cdaId, String cdaHrs, String cdaHrsType) {
         this.cdaId = cdaId;
         this.cdaHrs = cdaHrs;
+        this.cdaHrsType = cdaHrsType;
     }
 
     public Integer getCdaId() {
@@ -66,12 +75,20 @@ public class CompDueoffAfhrsInst implements Serializable {
         this.cdaId = cdaId;
     }
 
-    public double getCdaHrs() {
+    public String getCdaHrs() {
         return cdaHrs;
     }
 
-    public void setCdaHrs(double cdaHrs) {
+    public void setCdaHrs(String cdaHrs) {
         this.cdaHrs = cdaHrs;
+    }
+
+    public String getCdaHrsType() {
+        return cdaHrsType;
+    }
+
+    public void setCdaHrsType(String cdaHrsType) {
+        this.cdaHrsType = cdaHrsType;
     }
 
     public Components getCdaCompId() {

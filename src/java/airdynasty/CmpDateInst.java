@@ -5,7 +5,6 @@
 package airdynasty;
 
 import java.io.Serializable;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -74,8 +73,10 @@ public class CmpDateInst implements Serializable {
 
     public String getCmpDateInstDate() {
         
-        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-        return df.format(cmpDateInstDate) ; 
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        return sdf.format(cmpDateInstDate)        ;
+        
+        
     }
 
     public void setCmpDateInstDate(Date cmpDateInstDate) {

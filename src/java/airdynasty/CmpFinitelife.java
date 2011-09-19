@@ -17,6 +17,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -29,7 +30,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "CmpFinitelife.findAll", query = "SELECT c FROM CmpFinitelife c"),
     @NamedQuery(name = "CmpFinitelife.findByCmpFinitelifeId", query = "SELECT c FROM CmpFinitelife c WHERE c.cmpFinitelifeId = :cmpFinitelifeId"),
-    @NamedQuery(name = "CmpFinitelife.findByCmpFinitelifeHrs", query = "SELECT c FROM CmpFinitelife c WHERE c.cmpFinitelifeHrs = :cmpFinitelifeHrs")})
+    @NamedQuery(name = "CmpFinitelife.findByCmpFinitelifeHrs", query = "SELECT c FROM CmpFinitelife c WHERE c.cmpFinitelifeHrs = :cmpFinitelifeHrs"),
+    @NamedQuery(name = "CmpFinitelife.findByCmpFinitelifeHrsType", query = "SELECT c FROM CmpFinitelife c WHERE c.cmpFinitelifeHrsType = :cmpFinitelifeHrsType")})
 public class CmpFinitelife implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -40,8 +42,14 @@ public class CmpFinitelife implements Serializable {
     private Integer cmpFinitelifeId;
     @Basic(optional = false)
     @NotNull
+    @Size(min = 1, max = 255)
     @Column(name = "CMP_FINITELIFE_HRS")
-    private double cmpFinitelifeHrs;
+    private String cmpFinitelifeHrs;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 1)
+    @Column(name = "CMP_FINITELIFE_HRS_TYPE")
+    private String cmpFinitelifeHrsType;
     @JoinColumn(name = "CMP_FINITELIFE_COMP_ID", referencedColumnName = "COMP_ID")
     @ManyToOne(optional = false)
     private Components cmpFinitelifeCompId;
@@ -53,9 +61,10 @@ public class CmpFinitelife implements Serializable {
         this.cmpFinitelifeId = cmpFinitelifeId;
     }
 
-    public CmpFinitelife(Integer cmpFinitelifeId, double cmpFinitelifeHrs) {
+    public CmpFinitelife(Integer cmpFinitelifeId, String cmpFinitelifeHrs, String cmpFinitelifeHrsType) {
         this.cmpFinitelifeId = cmpFinitelifeId;
         this.cmpFinitelifeHrs = cmpFinitelifeHrs;
+        this.cmpFinitelifeHrsType = cmpFinitelifeHrsType;
     }
 
     public Integer getCmpFinitelifeId() {
@@ -66,12 +75,20 @@ public class CmpFinitelife implements Serializable {
         this.cmpFinitelifeId = cmpFinitelifeId;
     }
 
-    public double getCmpFinitelifeHrs() {
+    public String getCmpFinitelifeHrs() {
         return cmpFinitelifeHrs;
     }
 
-    public void setCmpFinitelifeHrs(double cmpFinitelifeHrs) {
+    public void setCmpFinitelifeHrs(String cmpFinitelifeHrs) {
         this.cmpFinitelifeHrs = cmpFinitelifeHrs;
+    }
+
+    public String getCmpFinitelifeHrsType() {
+        return cmpFinitelifeHrsType;
+    }
+
+    public void setCmpFinitelifeHrsType(String cmpFinitelifeHrsType) {
+        this.cmpFinitelifeHrsType = cmpFinitelifeHrsType;
     }
 
     public Components getCmpFinitelifeCompId() {

@@ -58,7 +58,7 @@ public class AirFrameBean {
                 // Persisit CompRemLife Object.
                 
                 // Find Related value from database.
-                Double remHrs = ccaTemp.getCdaHrs() - afHrs ;
+                Double remHrs = Double.parseDouble(ccaTemp.getCdaHrs()) - afHrs ;
                
                 setRLHrs(acObj, remHrs);
         }
@@ -90,7 +90,7 @@ public class AirFrameBean {
                 
                 CompRemLife ccaTemp = (CompRemLife) it.next();
                 
-                ccaTemp.setCrlHrs(AirFrameLogic.roundTwoDec(Hrs));
+                ccaTemp.setCrlHrs(String.valueOf(AirFrameLogic.roundTwoDec(Hrs)));
                 
                 em.merge(ccaTemp);
                 
@@ -129,7 +129,7 @@ public class AirFrameBean {
                 // Find a iterated object in database.
                 //CmpCurAfhrs ccaTemp = em.find(CmpCurAfhrs.class, cca.getCmpCurAfhrsId());
                 
-                ccaTemp.setCmpCurAfhrsHrs(afHrs);
+                ccaTemp.setCmpCurAfhrsHrs(String.valueOf(afHrs));
                 
                 em.merge(ccaTemp);
                 

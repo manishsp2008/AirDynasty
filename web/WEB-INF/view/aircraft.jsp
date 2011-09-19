@@ -15,11 +15,12 @@
     <body>
         <h2>List of Air Crafts</h2>
         <ol>
-            <li>
                 <c:forEach var="craft" items="${aircrafts}">
-                    <a href="<c:url value="viewCraft?${craft.acId}"/>">${craft.acName}&nbsp;(${craft.acSerialnum})</a>
+                <li>
+                <a href="<c:url value="viewCraft?${craft.acId}"/>">${craft.acName}&nbsp;(${craft.acSerialnum})</a>
+                </li>
                 </c:forEach>
-            </li>
+            
         </ol>
     </body>
 </html>

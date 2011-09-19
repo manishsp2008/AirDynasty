@@ -17,6 +17,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -29,7 +30,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "CmpLiferemInst.findAll", query = "SELECT c FROM CmpLiferemInst c"),
     @NamedQuery(name = "CmpLiferemInst.findByCmplifeRemId", query = "SELECT c FROM CmpLiferemInst c WHERE c.cmplifeRemId = :cmplifeRemId"),
-    @NamedQuery(name = "CmpLiferemInst.findByCmplifeRemHrs", query = "SELECT c FROM CmpLiferemInst c WHERE c.cmplifeRemHrs = :cmplifeRemHrs")})
+    @NamedQuery(name = "CmpLiferemInst.findByCmplifeRemHrs", query = "SELECT c FROM CmpLiferemInst c WHERE c.cmplifeRemHrs = :cmplifeRemHrs"),
+    @NamedQuery(name = "CmpLiferemInst.findByCmplifeRemHrsType", query = "SELECT c FROM CmpLiferemInst c WHERE c.cmplifeRemHrsType = :cmplifeRemHrsType")})
 public class CmpLiferemInst implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -40,8 +42,14 @@ public class CmpLiferemInst implements Serializable {
     private Integer cmplifeRemId;
     @Basic(optional = false)
     @NotNull
+    @Size(min = 1, max = 255)
     @Column(name = "CMPLIFE_REM_HRS")
-    private double cmplifeRemHrs;
+    private String cmplifeRemHrs;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 1)
+    @Column(name = "CMPLIFE_REM_HRS_TYPE")
+    private String cmplifeRemHrsType;
     @JoinColumn(name = "CMPLIFES_COMP_ID", referencedColumnName = "COMP_ID")
     @ManyToOne(optional = false)
     private Components cmplifesCompId;
@@ -53,9 +61,10 @@ public class CmpLiferemInst implements Serializable {
         this.cmplifeRemId = cmplifeRemId;
     }
 
-    public CmpLiferemInst(Integer cmplifeRemId, double cmplifeRemHrs) {
+    public CmpLiferemInst(Integer cmplifeRemId, String cmplifeRemHrs, String cmplifeRemHrsType) {
         this.cmplifeRemId = cmplifeRemId;
         this.cmplifeRemHrs = cmplifeRemHrs;
+        this.cmplifeRemHrsType = cmplifeRemHrsType;
     }
 
     public Integer getCmplifeRemId() {
@@ -66,12 +75,20 @@ public class CmpLiferemInst implements Serializable {
         this.cmplifeRemId = cmplifeRemId;
     }
 
-    public double getCmplifeRemHrs() {
+    public String getCmplifeRemHrs() {
         return cmplifeRemHrs;
     }
 
-    public void setCmplifeRemHrs(double cmplifeRemHrs) {
+    public void setCmplifeRemHrs(String cmplifeRemHrs) {
         this.cmplifeRemHrs = cmplifeRemHrs;
+    }
+
+    public String getCmplifeRemHrsType() {
+        return cmplifeRemHrsType;
+    }
+
+    public void setCmplifeRemHrsType(String cmplifeRemHrsType) {
+        this.cmplifeRemHrsType = cmplifeRemHrsType;
     }
 
     public Components getCmplifesCompId() {

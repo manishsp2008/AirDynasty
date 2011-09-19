@@ -17,6 +17,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -29,7 +30,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "CmpCurAfhrs.findAll", query = "SELECT c FROM CmpCurAfhrs c"),
     @NamedQuery(name = "CmpCurAfhrs.findByCmpCurAfhrsId", query = "SELECT c FROM CmpCurAfhrs c WHERE c.cmpCurAfhrsId = :cmpCurAfhrsId"),
-    @NamedQuery(name = "CmpCurAfhrs.findByCmpCurAfhrsHrs", query = "SELECT c FROM CmpCurAfhrs c WHERE c.cmpCurAfhrsHrs = :cmpCurAfhrsHrs")})
+    @NamedQuery(name = "CmpCurAfhrs.findByCmpCurAfhrsHrs", query = "SELECT c FROM CmpCurAfhrs c WHERE c.cmpCurAfhrsHrs = :cmpCurAfhrsHrs"),
+    @NamedQuery(name = "CmpCurAfhrs.findByCmpCurAfhrsHrsType", query = "SELECT c FROM CmpCurAfhrs c WHERE c.cmpCurAfhrsHrsType = :cmpCurAfhrsHrsType")})
 public class CmpCurAfhrs implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -40,8 +42,14 @@ public class CmpCurAfhrs implements Serializable {
     private Integer cmpCurAfhrsId;
     @Basic(optional = false)
     @NotNull
+    @Size(min = 1, max = 255)
     @Column(name = "CMP_CUR_AFHRS_HRS")
-    private double cmpCurAfhrsHrs;
+    private String cmpCurAfhrsHrs;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 1)
+    @Column(name = "CMP_CUR_AFHRS_HRS_TYPE")
+    private String cmpCurAfhrsHrsType;
     @JoinColumn(name = "CMP_CUR_AFHRS_COMP_ID", referencedColumnName = "COMP_ID")
     @ManyToOne(optional = false)
     private Components cmpCurAfhrsCompId;
@@ -53,9 +61,10 @@ public class CmpCurAfhrs implements Serializable {
         this.cmpCurAfhrsId = cmpCurAfhrsId;
     }
 
-    public CmpCurAfhrs(Integer cmpCurAfhrsId, double cmpCurAfhrsHrs) {
+    public CmpCurAfhrs(Integer cmpCurAfhrsId, String cmpCurAfhrsHrs, String cmpCurAfhrsHrsType) {
         this.cmpCurAfhrsId = cmpCurAfhrsId;
         this.cmpCurAfhrsHrs = cmpCurAfhrsHrs;
+        this.cmpCurAfhrsHrsType = cmpCurAfhrsHrsType;
     }
 
     public Integer getCmpCurAfhrsId() {
@@ -66,12 +75,20 @@ public class CmpCurAfhrs implements Serializable {
         this.cmpCurAfhrsId = cmpCurAfhrsId;
     }
 
-    public double getCmpCurAfhrsHrs() {
+    public String getCmpCurAfhrsHrs() {
         return cmpCurAfhrsHrs;
     }
 
-    public void setCmpCurAfhrsHrs(double cmpCurAfhrsHrs) {
+    public void setCmpCurAfhrsHrs(String cmpCurAfhrsHrs) {
         this.cmpCurAfhrsHrs = cmpCurAfhrsHrs;
+    }
+
+    public String getCmpCurAfhrsHrsType() {
+        return cmpCurAfhrsHrsType;
+    }
+
+    public void setCmpCurAfhrsHrsType(String cmpCurAfhrsHrsType) {
+        this.cmpCurAfhrsHrsType = cmpCurAfhrsHrsType;
     }
 
     public Components getCmpCurAfhrsCompId() {
