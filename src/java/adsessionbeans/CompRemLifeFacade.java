@@ -11,7 +11,7 @@ import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author Dell
+ * @author A187252
  */
 @Stateless
 public class CompRemLifeFacade extends AbstractFacade<CompRemLife> {

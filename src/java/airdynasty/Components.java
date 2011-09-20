@@ -5,7 +5,7 @@
 package airdynasty;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -26,7 +26,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Dell
+ * @author A187252
  */
 @Entity
 @Table(name = "components")
@@ -55,26 +55,26 @@ public class Components implements Serializable {
     @Column(name = "COMP_PARTNUM")
     private String compPartnum;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cmpAfhrsInstCompId")
-    private Collection<CmpAfhrsInst> cmpAfhrsInstCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "crlCompId")
-    private Collection<CompRemLife> compRemLifeCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cmpFinitelifeCompId")
-    private Collection<CmpFinitelife> cmpFinitelifeCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cmplifesCompId")
-    private Collection<CmpLiferemInst> cmpLiferemInstCollection;
+    private Set<CmpAfhrsInst> cmpAfhrsInstSet;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cmpCurAfhrsCompId")
-    private Collection<CmpCurAfhrs> cmpCurAfhrsCollection;
+    private Set<CmpCurAfhrs> cmpCurAfhrsSet;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cmpDateInstCompId")
-    private Collection<CmpDateInst> cmpDateInstCollection;
+    private Set<CmpDateInst> cmpDateInstSet;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "crlCompId")
+    private Set<CompRemLife> compRemLifeSet;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cmpFinitelifeCompId")
+    private Set<CmpFinitelife> cmpFinitelifeSet;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cmplifesCompId")
+    private Set<CmpLiferemInst> cmpLiferemInstSet;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cmpRemarksCompId")
-    private Collection<CmpRemarks> cmpRemarksCollection;
+    private Set<CmpRemarks> cmpRemarksSet;
     @JoinColumn(name = "COMP_AC_ID", referencedColumnName = "AC_ID")
     @ManyToOne(optional = false)
     private AirCraft compAcId;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cdaCompId")
-    private Collection<CompDueoffAfhrsInst> compDueoffAfhrsInstCollection;
+    private Set<CompDueoffAfhrsInst> compDueoffAfhrsInstSet;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "serialnumCompId")
-    private Collection<CmpSerialNumber> cmpSerialNumberCollection;
+    private Set<CmpSerialNumber> cmpSerialNumberSet;
 
     public Components() {
     }
@@ -114,66 +114,66 @@ public class Components implements Serializable {
     }
 
     @XmlTransient
-    public Collection<CmpAfhrsInst> getCmpAfhrsInstCollection() {
-        return cmpAfhrsInstCollection;
+    public Set<CmpAfhrsInst> getCmpAfhrsInstSet() {
+        return cmpAfhrsInstSet;
     }
 
-    public void setCmpAfhrsInstCollection(Collection<CmpAfhrsInst> cmpAfhrsInstCollection) {
-        this.cmpAfhrsInstCollection = cmpAfhrsInstCollection;
-    }
-
-    @XmlTransient
-    public Collection<CompRemLife> getCompRemLifeCollection() {
-        return compRemLifeCollection;
-    }
-
-    public void setCompRemLifeCollection(Collection<CompRemLife> compRemLifeCollection) {
-        this.compRemLifeCollection = compRemLifeCollection;
+    public void setCmpAfhrsInstSet(Set<CmpAfhrsInst> cmpAfhrsInstSet) {
+        this.cmpAfhrsInstSet = cmpAfhrsInstSet;
     }
 
     @XmlTransient
-    public Collection<CmpFinitelife> getCmpFinitelifeCollection() {
-        return cmpFinitelifeCollection;
+    public Set<CmpCurAfhrs> getCmpCurAfhrsSet() {
+        return cmpCurAfhrsSet;
     }
 
-    public void setCmpFinitelifeCollection(Collection<CmpFinitelife> cmpFinitelifeCollection) {
-        this.cmpFinitelifeCollection = cmpFinitelifeCollection;
-    }
-
-    @XmlTransient
-    public Collection<CmpLiferemInst> getCmpLiferemInstCollection() {
-        return cmpLiferemInstCollection;
-    }
-
-    public void setCmpLiferemInstCollection(Collection<CmpLiferemInst> cmpLiferemInstCollection) {
-        this.cmpLiferemInstCollection = cmpLiferemInstCollection;
+    public void setCmpCurAfhrsSet(Set<CmpCurAfhrs> cmpCurAfhrsSet) {
+        this.cmpCurAfhrsSet = cmpCurAfhrsSet;
     }
 
     @XmlTransient
-    public Collection<CmpCurAfhrs> getCmpCurAfhrsCollection() {
-        return cmpCurAfhrsCollection;
+    public Set<CmpDateInst> getCmpDateInstSet() {
+        return cmpDateInstSet;
     }
 
-    public void setCmpCurAfhrsCollection(Collection<CmpCurAfhrs> cmpCurAfhrsCollection) {
-        this.cmpCurAfhrsCollection = cmpCurAfhrsCollection;
-    }
-
-    @XmlTransient
-    public Collection<CmpDateInst> getCmpDateInstCollection() {
-        return cmpDateInstCollection;
-    }
-
-    public void setCmpDateInstCollection(Collection<CmpDateInst> cmpDateInstCollection) {
-        this.cmpDateInstCollection = cmpDateInstCollection;
+    public void setCmpDateInstSet(Set<CmpDateInst> cmpDateInstSet) {
+        this.cmpDateInstSet = cmpDateInstSet;
     }
 
     @XmlTransient
-    public Collection<CmpRemarks> getCmpRemarksCollection() {
-        return cmpRemarksCollection;
+    public Set<CompRemLife> getCompRemLifeSet() {
+        return compRemLifeSet;
     }
 
-    public void setCmpRemarksCollection(Collection<CmpRemarks> cmpRemarksCollection) {
-        this.cmpRemarksCollection = cmpRemarksCollection;
+    public void setCompRemLifeSet(Set<CompRemLife> compRemLifeSet) {
+        this.compRemLifeSet = compRemLifeSet;
+    }
+
+    @XmlTransient
+    public Set<CmpFinitelife> getCmpFinitelifeSet() {
+        return cmpFinitelifeSet;
+    }
+
+    public void setCmpFinitelifeSet(Set<CmpFinitelife> cmpFinitelifeSet) {
+        this.cmpFinitelifeSet = cmpFinitelifeSet;
+    }
+
+    @XmlTransient
+    public Set<CmpLiferemInst> getCmpLiferemInstSet() {
+        return cmpLiferemInstSet;
+    }
+
+    public void setCmpLiferemInstSet(Set<CmpLiferemInst> cmpLiferemInstSet) {
+        this.cmpLiferemInstSet = cmpLiferemInstSet;
+    }
+
+    @XmlTransient
+    public Set<CmpRemarks> getCmpRemarksSet() {
+        return cmpRemarksSet;
+    }
+
+    public void setCmpRemarksSet(Set<CmpRemarks> cmpRemarksSet) {
+        this.cmpRemarksSet = cmpRemarksSet;
     }
 
     public AirCraft getCompAcId() {
@@ -185,21 +185,21 @@ public class Components implements Serializable {
     }
 
     @XmlTransient
-    public Collection<CompDueoffAfhrsInst> getCompDueoffAfhrsInstCollection() {
-        return compDueoffAfhrsInstCollection;
+    public Set<CompDueoffAfhrsInst> getCompDueoffAfhrsInstSet() {
+        return compDueoffAfhrsInstSet;
     }
 
-    public void setCompDueoffAfhrsInstCollection(Collection<CompDueoffAfhrsInst> compDueoffAfhrsInstCollection) {
-        this.compDueoffAfhrsInstCollection = compDueoffAfhrsInstCollection;
+    public void setCompDueoffAfhrsInstSet(Set<CompDueoffAfhrsInst> compDueoffAfhrsInstSet) {
+        this.compDueoffAfhrsInstSet = compDueoffAfhrsInstSet;
     }
 
     @XmlTransient
-    public Collection<CmpSerialNumber> getCmpSerialNumberCollection() {
-        return cmpSerialNumberCollection;
+    public Set<CmpSerialNumber> getCmpSerialNumberSet() {
+        return cmpSerialNumberSet;
     }
 
-    public void setCmpSerialNumberCollection(Collection<CmpSerialNumber> cmpSerialNumberCollection) {
-        this.cmpSerialNumberCollection = cmpSerialNumberCollection;
+    public void setCmpSerialNumberSet(Set<CmpSerialNumber> cmpSerialNumberSet) {
+        this.cmpSerialNumberSet = cmpSerialNumberSet;
     }
 
     @Override

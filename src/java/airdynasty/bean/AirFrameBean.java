@@ -10,7 +10,7 @@ import airdynasty.CompDueoffAfhrsInst;
 import airdynasty.CompRemLife;
 import airdynasty.Components;
 import airdynasty.utils.AirFrameLogic;
-import java.util.Collection;
+import java.util.Set;
 import java.util.Iterator;
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
@@ -44,12 +44,12 @@ public class AirFrameBean {
     public void setRemAFHrs(AirCraft acObj, Double afHrs) {
         try {
         
-        Collection<Components> cmps = acObj.getComponentsCollection();
+        Set<Components> cmps = acObj.getComponentsSet();
         
         for(Iterator itr = cmps.iterator(); itr.hasNext();)  {
             Components cmp = (Components)itr.next();
         
-            Collection<CompDueoffAfhrsInst> caObj = cmp.getCompDueoffAfhrsInstCollection();
+            Set<CompDueoffAfhrsInst> caObj = cmp.getCompDueoffAfhrsInstSet();
             
             for(Iterator it = caObj.iterator(); it.hasNext();)  {
                 
@@ -79,12 +79,12 @@ public class AirFrameBean {
     {
         try {
         
-        Collection<Components> cmps = acObj.getComponentsCollection();
+        Set<Components> cmps = acObj.getComponentsSet();
         
         for(Iterator itr = cmps.iterator(); itr.hasNext();)  {
             Components cmp = (Components)itr.next();
         
-            Collection<CompRemLife> caObj = cmp.getCompRemLifeCollection();
+            Set<CompRemLife> caObj = cmp.getCompRemLifeSet();
             
             for(Iterator it = caObj.iterator(); it.hasNext();)  {
                 
@@ -115,12 +115,12 @@ public class AirFrameBean {
             
         //em.getTransaction().begin();
             
-        Collection<Components> cmps = acObj.getComponentsCollection();
+        Set<Components> cmps = acObj.getComponentsSet();
         
         for(Iterator itr = cmps.iterator(); itr.hasNext();)  {
             Components cmp = (Components)itr.next();
             
-            Collection<CmpCurAfhrs> caObj = cmp.getCmpCurAfhrsCollection();
+            Set<CmpCurAfhrs> caObj = cmp.getCmpCurAfhrsSet();
             
             for(Iterator it = caObj.iterator(); it.hasNext();)  {
                 

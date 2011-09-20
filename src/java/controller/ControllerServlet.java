@@ -15,14 +15,15 @@ import adsessionbeans.CmpSerialNumberFacade;
 import adsessionbeans.CompDueoffAfhrsInstFacade;
 import adsessionbeans.CompRemLifeFacade;
 import adsessionbeans.ComponentsFacade;
+import airdynasty.AfEngInsp;
 import airdynasty.AirCraft;
 import airdynasty.Components;
-
+import airdynasty.OafChangeInt;
+import airdynasty.OutPhaseMnt;
 import airdynasty.bean.AirFrameBean;
-import airdynasty.utils.AirFrameLogic;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Collection;
+import java.util.Set;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -39,8 +40,12 @@ import javax.servlet.http.HttpServletResponse;
         loadOnStartup=1,
         urlPatterns={ "/viewCraft","/addCraft","/editCraft","/viewCraftList",
                       "/addCraftHRS","/updateCraftHRS","/addComponent",
-                      "/editComponent","/viewComponents",
-                      "/addUser","/viewUser" }
+                      "/editComponent","/viewComponents","/addCmpRec",
+                      "/addUser","/viewUser",
+                      "/viewEngInspec","/addEngInspec","/editEngInspec",
+                      "/viewOAFCIntvl","/addOAFCIntvl","/editOAFCIntvl",
+                      "/viewOPMRec","/addOPMRec","/editOPMRec"
+                    }
         )
 public class ControllerServlet extends HttpServlet {
 
@@ -107,9 +112,9 @@ public class ControllerServlet extends HttpServlet {
    
         // Retrieve URL path of servlet.
         String userPath = request.getServletPath();
-            
+            System.out.println(userPath);    
         AirCraft acObj = null;
-        Collection<Components> cmpObj = null; 
+        Set<Components> cmpObj = null; 
         Double afHrs = null;
         
         if(userPath.equals("/viewCraftList"))
@@ -130,7 +135,7 @@ public class ControllerServlet extends HttpServlet {
             getServletContext().setAttribute("craftObj", acObj);
             
             // Retrieve the Components of air craft.
-            cmpObj = acObj.getComponentsCollection();
+            cmpObj = acObj.getComponentsSet();
             
             // Set Components in servlet context
             getServletContext().setAttribute("craftComps", cmpObj);
@@ -190,9 +195,18 @@ public class ControllerServlet extends HttpServlet {
                 
             
         }
-        else if(userPath.equals("/addComponent"))
+        else if(userPath.equals("/addCmpRec"))
         {
-            // TODO : Add Component logic needed to be written here.
+            
+            // Steps to implement this logic.
+            
+            // 1. read all Parameters from request
+            
+            // 2. Insert all into DB using Insert Query.
+            
+            // 3. Send User a Notification about added hours.
+            
+            // Function to be written : AddComponent; editComponent; RemoveComponent; 
         }
         else if(userPath.equals("/editComponent"))
         {
@@ -202,7 +216,53 @@ public class ControllerServlet extends HttpServlet {
         {
             // TODO : View Component Code needed to be written here.
         }
+        else if(userPath.equals("/viewEngInspec"))   {
+            
+            AirCraft tempAcObj = (AirCraft) getServletContext().getAttribute("craftObj");    
+            
+            if(tempAcObj != null)   {
+            
+            Set<AfEngInsp> aeiObj =  (Set<AfEngInsp>)tempAcObj.getAfEngInspSet();    
+            
+            getServletContext().setAttribute("EngInspSet", aeiObj);
+            
+            userPath="/viewEngInspec";
+            
+            }
+            
+        }
+        else if(userPath.equals("/viewOAFCIntvl"))  {
+          
+           AirCraft tempAcObj = (AirCraft) getServletContext().getAttribute("craftObj"); 
+            
+           if(tempAcObj != null)   {
+               
+           Set<OafChangeInt> ociObj =  (Set<OafChangeInt>)tempAcObj.getOafChangeIntSet();  
+            
+           getServletContext().setAttribute("OAFCIntvlSet", ociObj);
+           
+           userPath="/viewOAFCIntvl";
+
+           } 
+            
+        }
         
+        else if(userPath.equals("/viewOPMRec"))   {
+            
+            AirCraft tempAcObj = (AirCraft) getServletContext().getAttribute("craftObj"); 
+            
+           if(tempAcObj != null)   {
+               
+           Set<OutPhaseMnt> opmrObj =  (Set<OutPhaseMnt>)tempAcObj.getOutPhaseMntSet();
+            
+           getServletContext().setAttribute("OPMRecSet", opmrObj);
+           
+           userPath="/viewOPMRec";
+            
+            
+        }
+                
+        }
         // Creates URL for Servlet redirect.
         String url = "/WEB-INF/view" + userPath + ".jsp";
         

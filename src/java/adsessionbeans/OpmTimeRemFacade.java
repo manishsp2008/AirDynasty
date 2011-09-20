@@ -4,7 +4,7 @@
  */
 package adsessionbeans;
 
-import airdynasty.CmpAfhrsInst;
+import airdynasty.OpmTimeRem;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -14,7 +14,7 @@ import javax.persistence.PersistenceContext;
  * @author A187252
  */
 @Stateless
-public class CmpAfhrsInstFacade extends AbstractFacade<CmpAfhrsInst> {
+public class OpmTimeRemFacade extends AbstractFacade<OpmTimeRem> {
     @PersistenceContext(unitName = "AirDynastyPU")
     private EntityManager em;
 
@@ -22,8 +22,8 @@ public class CmpAfhrsInstFacade extends AbstractFacade<CmpAfhrsInst> {
         return em;
     }
 
-    public CmpAfhrsInstFacade() {
-        super(CmpAfhrsInst.class);
+    public OpmTimeRemFacade() {
+        super(OpmTimeRem.class);
     }
     
 }

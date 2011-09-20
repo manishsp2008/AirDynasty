@@ -40,7 +40,22 @@
         <servlet-name>ControllerServlet</servlet-name>
         <url-pattern>/updateCraftHRS</url-pattern>
     </servlet-mapping>
-    
+    <servlet-mapping>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>/viewEngInspec</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>/viewOAFCIntvl</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>/viewOPMRec</url-pattern>
+    </servlet-mapping>
+      <servlet-mapping>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>/addCmpRec</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

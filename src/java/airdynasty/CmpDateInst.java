@@ -5,7 +5,6 @@
 package airdynasty;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -25,7 +24,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Dell
+ * @author A187252
  */
 @Entity
 @Table(name = "cmp_date_inst")
@@ -71,12 +70,8 @@ public class CmpDateInst implements Serializable {
         this.cmpDateInstId = cmpDateInstId;
     }
 
-    public String getCmpDateInstDate() {
-        
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        return sdf.format(cmpDateInstDate)        ;
-        
-        
+    public Date getCmpDateInstDate() {
+        return cmpDateInstDate;
     }
 
     public void setCmpDateInstDate(Date cmpDateInstDate) {

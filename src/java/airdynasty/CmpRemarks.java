@@ -18,12 +18,11 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Dell
+ * @author A187252
  */
 @Entity
 @Table(name = "cmp_remarks")
@@ -32,9 +31,6 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "CmpRemarks.findAll", query = "SELECT c FROM CmpRemarks c"),
     @NamedQuery(name = "CmpRemarks.findByCmpRemarksId", query = "SELECT c FROM CmpRemarks c WHERE c.cmpRemarksId = :cmpRemarksId")})
 public class CmpRemarks implements Serializable {
-    @Size(max = 255)
-    @Column(name = "CMP_REMARKS_TEXT")
-    private String cmpRemarksText;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,6 +38,9 @@ public class CmpRemarks implements Serializable {
     @NotNull
     @Column(name = "CMP_REMARKS_ID")
     private Integer cmpRemarksId;
+    @Lob
+    @Column(name = "CMP_REMARKS_TEXT")
+    private String cmpRemarksText;
     @JoinColumn(name = "CMP_REMARKS_COMP_ID", referencedColumnName = "COMP_ID")
     @ManyToOne(optional = false)
     private Components cmpRemarksCompId;
@@ -101,7 +100,5 @@ public class CmpRemarks implements Serializable {
     public String toString() {
         return "airdynasty.CmpRemarks[ cmpRemarksId=" + cmpRemarksId + " ]";
     }
-
-   
     
 }

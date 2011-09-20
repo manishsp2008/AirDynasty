@@ -5,7 +5,7 @@
 package airdynasty;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -13,7 +13,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -25,7 +24,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Dell
+ * @author A187252
  */
 @Entity
 @Table(name = "air_craft")
@@ -37,6 +36,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "AirCraft.findByAcSerialnum", query = "SELECT a FROM AirCraft a WHERE a.acSerialnum = :acSerialnum"),
     @NamedQuery(name = "AirCraft.findByAcAfhrs", query = "SELECT a FROM AirCraft a WHERE a.acAfhrs = :acAfhrs"),
     @NamedQuery(name = "AirCraft.findByAcEnghrs", query = "SELECT a FROM AirCraft a WHERE a.acEnghrs = :acEnghrs"),
+    @NamedQuery(name = "AirCraft.findByAcLandingcount", query = "SELECT a FROM AirCraft a WHERE a.acLandingcount = :acLandingcount"),
+    @NamedQuery(name = "AirCraft.findByAcStartcount", query = "SELECT a FROM AirCraft a WHERE a.acStartcount = :acStartcount"),
     @NamedQuery(name = "AirCraft.findByAcEngngcycs", query = "SELECT a FROM AirCraft a WHERE a.acEngngcycs = :acEngngcycs"),
     @NamedQuery(name = "AirCraft.findByAcNpcycs", query = "SELECT a FROM AirCraft a WHERE a.acNpcycs = :acNpcycs"),
     @NamedQuery(name = "AirCraft.findByAcFormnum", query = "SELECT a FROM AirCraft a WHERE a.acFormnum = :acFormnum")})
@@ -60,39 +61,47 @@ public class AirCraft implements Serializable {
     private String acSerialnum;
     @Basic(optional = false)
     @NotNull
+    @Size(min = 1, max = 255)
     @Column(name = "AC_AFHRS")
-    private double acAfhrs;
+    private String acAfhrs;
     @Basic(optional = false)
     @NotNull
+    @Size(min = 1, max = 255)
     @Column(name = "AC_ENGHRS")
-    private double acEnghrs;
+    private String acEnghrs;
     @Basic(optional = false)
     @NotNull
-    @Lob
-    @Size(min = 1, max = 16777215)
+    @Size(min = 1, max = 255)
     @Column(name = "AC_LANDINGCOUNT")
     private String acLandingcount;
     @Basic(optional = false)
     @NotNull
-    @Lob
-    @Size(min = 1, max = 16777215)
+    @Size(min = 1, max = 255)
     @Column(name = "AC_STARTCOUNT")
     private String acStartcount;
     @Basic(optional = false)
     @NotNull
+    @Size(min = 1, max = 255)
     @Column(name = "AC_ENGNGCYCS")
-    private double acEngngcycs;
+    private String acEngngcycs;
     @Basic(optional = false)
     @NotNull
+    @Size(min = 1, max = 255)
     @Column(name = "AC_NPCYCS")
-    private double acNpcycs;
+    private String acNpcycs;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
     @Column(name = "AC_FORMNUM")
     private String acFormnum;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "aesAcId")
+    private Set<AfEngInsp> afEngInspSet;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "opmAcId")
+    private Set<OutPhaseMnt> outPhaseMntSet;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "oafciAcId")
+    private Set<OafChangeInt> oafChangeIntSet;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "compAcId")
-    private Collection<Components> componentsCollection;
+    private Set<Components> componentsSet;
 
     public AirCraft() {
     }
@@ -101,7 +110,7 @@ public class AirCraft implements Serializable {
         this.acId = acId;
     }
 
-    public AirCraft(Integer acId, String acName, String acSerialnum, double acAfhrs, double acEnghrs, String acLandingcount, String acStartcount, double acEngngcycs, double acNpcycs, String acFormnum) {
+    public AirCraft(Integer acId, String acName, String acSerialnum, String acAfhrs, String acEnghrs, String acLandingcount, String acStartcount, String acEngngcycs, String acNpcycs, String acFormnum) {
         this.acId = acId;
         this.acName = acName;
         this.acSerialnum = acSerialnum;
@@ -138,19 +147,19 @@ public class AirCraft implements Serializable {
         this.acSerialnum = acSerialnum;
     }
 
-    public double getAcAfhrs() {
+    public String getAcAfhrs() {
         return acAfhrs;
     }
 
-    public void setAcAfhrs(double acAfhrs) {
+    public void setAcAfhrs(String acAfhrs) {
         this.acAfhrs = acAfhrs;
     }
 
-    public double getAcEnghrs() {
+    public String getAcEnghrs() {
         return acEnghrs;
     }
 
-    public void setAcEnghrs(double acEnghrs) {
+    public void setAcEnghrs(String acEnghrs) {
         this.acEnghrs = acEnghrs;
     }
 
@@ -170,19 +179,19 @@ public class AirCraft implements Serializable {
         this.acStartcount = acStartcount;
     }
 
-    public double getAcEngngcycs() {
+    public String getAcEngngcycs() {
         return acEngngcycs;
     }
 
-    public void setAcEngngcycs(double acEngngcycs) {
+    public void setAcEngngcycs(String acEngngcycs) {
         this.acEngngcycs = acEngngcycs;
     }
 
-    public double getAcNpcycs() {
+    public String getAcNpcycs() {
         return acNpcycs;
     }
 
-    public void setAcNpcycs(double acNpcycs) {
+    public void setAcNpcycs(String acNpcycs) {
         this.acNpcycs = acNpcycs;
     }
 
@@ -195,12 +204,39 @@ public class AirCraft implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Components> getComponentsCollection() {
-        return componentsCollection;
+    public Set<AfEngInsp> getAfEngInspSet() {
+        return afEngInspSet;
     }
 
-    public void setComponentsCollection(Collection<Components> componentsCollection) {
-        this.componentsCollection = componentsCollection;
+    public void setAfEngInspSet(Set<AfEngInsp> afEngInspSet) {
+        this.afEngInspSet = afEngInspSet;
+    }
+
+    @XmlTransient
+    public Set<OutPhaseMnt> getOutPhaseMntSet() {
+        return outPhaseMntSet;
+    }
+
+    public void setOutPhaseMntSet(Set<OutPhaseMnt> outPhaseMntSet) {
+        this.outPhaseMntSet = outPhaseMntSet;
+    }
+
+    @XmlTransient
+    public Set<OafChangeInt> getOafChangeIntSet() {
+        return oafChangeIntSet;
+    }
+
+    public void setOafChangeIntSet(Set<OafChangeInt> oafChangeIntSet) {
+        this.oafChangeIntSet = oafChangeIntSet;
+    }
+
+    @XmlTransient
+    public Set<Components> getComponentsSet() {
+        return componentsSet;
+    }
+
+    public void setComponentsSet(Set<Components> componentsSet) {
+        this.componentsSet = componentsSet;
     }
 
     @Override
