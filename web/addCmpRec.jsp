@@ -14,7 +14,7 @@
     <body>
         <h1>Add New Air Frame Component Record</h1>
         
-        <form name="myForm" action="/addCmpRec" method="get">
+        <form name="myForm" action="/AirDynasty/addCmpRec" method="get">
             <h4>Basic Details</h4>
             <table>
                 <tr>
@@ -27,31 +27,31 @@
                     <td>Serial Number</td><td><input name="srNum" type="text"/></td>
                 </tr>
                 <tr>
-                    <td>Finite Life Hrs</td><td><input name="flHrs" type="text"/></td>
+                    <td>Finite Life Hrs</td><td><input name="flHrs" type="text"/>&nbsp;&nbsp;<select name="flHrsType"><option value="H">Hours</option><option value="D" >Date</option></select></td>
                 </tr>
             </table>
             <h4>Installation Details</h4>
             <table>
                  <tr>
-                    <td>Life Remaining Hrs</td><td><input name="lrInstHrs" type="text"/></td>
+                    <td>Life Remaining Hrs</td><td><input name="lrInstHrs" type="text"/>&nbsp;&nbsp;<select name="lrInstHrsType"><option value="H">Hours</option><option value="D" >Date</option></select></td>
                  </tr>
                  <tr>
-                    <td>Installation A/F Hrs</td><td><input name="afInstHrs" type="text"/></td>
+                    <td>Installation A/F Hrs</td><td><input name="afInstHrs" type="text"/>&nbsp;&nbsp;<select name="afInstHrsType"><option value="H">Hours</option><option value="D" >Date</option></select></td>
                  </tr>
                  <tr>
-                    <td>Installation Date</td><td><input name="InstDate" type="text"/></td>
+                    <td>Installation Date</td><td><input name="InstDate" type="text"/>(dd-mm-yyyy)</td>
                  </tr>
                  <tr>
-                    <td>Installation Due Hrs</td><td><input name="InstDueHrs" type="text"/></td>
+                    <td>Installation Due Hrs</td><td><input name="InstDueHrs" type="text"/>&nbsp;&nbsp;<select name="InstDueHrsType"><option value="H">Hours</option><option value="D" >Date</option></select></td>
                  </tr>
             </table>
             <h4>Current Component Details</h4>
             <table>
                 <tr>
-                    <td>Current A/F Hrs</td><td><input name="crAFHrs" type="text"/></td>
+                    <td>Current A/F Hrs</td><td><input name="crAFHrs" type="text"/>&nbsp;&nbsp;<select name="crAFHrsType"><option value="H">Hours</option><option value="D" >Date</option></select></td>
                 </tr>
                 <tr>
-                    <td>Remaining Life Hrs</td><td><input name="rLifeHrs" type="text"/></td>
+                    <td>Remaining Life Hrs</td><td><input name="rLifeHrs" type="text"/>&nbsp;&nbsp;<select name="rLifeHrsType"><option value="H">Hours</option><option value="D" >Date</option></select></td>
                 </tr>
                 <tr>
                     <td>Remarks</td><td><input name="remtext" type="text"/></td>

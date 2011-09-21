@@ -21,6 +21,7 @@ import airdynasty.Components;
 import airdynasty.OafChangeInt;
 import airdynasty.OutPhaseMnt;
 import airdynasty.bean.AirFrameBean;
+import airdynasty.bean.ComponentUtils;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Set;
@@ -54,26 +55,9 @@ public class ControllerServlet extends HttpServlet {
     @EJB
     private ComponentsFacade cmpFacade;
     @EJB
-    private CmpSerialNumberFacade cmp_sr_num_Facade;
-    @EJB
-    private CmpFinitelifeFacade cmp_finite_life_Facade;
-    @EJB
-    private CmpLiferemInstFacade cmp_life_rem_inst_Facade;
-    @EJB
-    private CmpAfhrsInstFacade cmp_afhrs_inst_Facade;
-    @EJB
-    private CmpDateInstFacade cmp_date_inst_Facade;
-    @EJB
-    private CompDueoffAfhrsInstFacade cmp_dueoff_afhrs_inst_Facade;
-    @EJB
-    private CmpCurAfhrsFacade cmp_cur_afhrs_Facade;
-    @EJB
-    private CompRemLifeFacade cmp_rem_life_Facade;
-    @EJB
-    private CmpRemarksFacade cmp_remarks_Facade;
-    @EJB
     private AirFrameBean afbObj;
-    
+    @EJB
+    private ComponentUtils cmpUtilObj;
     
     @Override
     public void init()
@@ -201,11 +185,48 @@ public class ControllerServlet extends HttpServlet {
             // Steps to implement this logic.
             
             // 1. read all Parameters from request
+            String CmpName = request.getParameter("cmpName");
+            String partNum = request.getParameter("partNum");
+            String srNum = request.getParameter("srNum");
+            String flHrs = request.getParameter("flHrs");
+            String flHrsType = request.getParameter("flHrs");
+            
+            
+            String lrInstHrs = request.getParameter("lrInstHrs");
+            String lrInstHrsType = request.getParameter("lrInstHrsType");
+            String afInstHrs = request.getParameter("afInstHrs");
+            String afInstHrsType = request.getParameter("afInstHrsType");
+            String InstDate = request.getParameter("InstDate");
+            String instDueHrs = request.getParameter("instDueHrs");
+            String instDueHrsType = request.getParameter("instDueHrsType");
+            
+            String crAfHrs = request.getParameter("crAfHrs");
+            String crAfHrsType = request.getParameter("crAfHrsType");
+            String rLifeHrs = request.getParameter("rLifeHrs");
+            String rLifeHrsType = request.getParameter("rLifeHrsType");
+            
+            String remText = request.getParameter("remText");
+            
             
             // 2. Insert all into DB using Insert Query.
-            
+            acObj = (AirCraft) getServletContext().getAttribute("craftObj");
+            boolean flag = false;
+            if(acObj != null)   {
+            flag = cmpUtilObj.addComponent(acObj, CmpName, partNum, srNum, flHrs, flHrsType, lrInstHrs, lrInstHrsType,
+                    afInstHrs, afInstHrsType, instDueHrs, instDueHrsType, InstDate,crAfHrs, crAfHrsType,
+                    rLifeHrs, rLifeHrsType, remText);
+            }
+            else    {
+                flag = false;
+            }
             // 3. Send User a Notification about added hours.
-            
+            if(flag)    {
+                userPath = "/trsuccess";
+            }
+            else
+            {
+                userPath="/trfail";
+            }
             // Function to be written : AddComponent; editComponent; RemoveComponent; 
         }
         else if(userPath.equals("/editComponent"))

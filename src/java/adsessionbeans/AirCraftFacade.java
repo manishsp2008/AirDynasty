@@ -18,6 +18,7 @@ public class AirCraftFacade extends AbstractFacade<AirCraft> {
     @PersistenceContext(unitName = "AirDynastyPU")
     private EntityManager em;
 
+    @Override
     protected EntityManager getEntityManager() {
         return em;
     }

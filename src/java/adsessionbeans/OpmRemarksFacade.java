@@ -18,6 +18,7 @@ public class OpmRemarksFacade extends AbstractFacade<OpmRemarks> {
     @PersistenceContext(unitName = "AirDynastyPU")
     private EntityManager em;
 
+    @Override
     protected EntityManager getEntityManager() {
         return em;
     }

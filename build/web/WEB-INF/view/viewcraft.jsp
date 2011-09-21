@@ -97,6 +97,12 @@
             <li><a href="/AirDynasty/viewOAFCIntvl">Oil and Fuel Change Records</a></li>
             <li><a href="/AirDynasty/viewOPMRec">Out of Phase Maintenance Records</a></li>
         </ul>
+        <h4>Manipulate Component Records(Admin access Only)</h4>
+        <ul>
+            <li><a href="/AirDynasty/addCmpRec.jsp">Add Component Record</a></li>
+        </ul>
+        
+        
            
     </body>
 </html>
