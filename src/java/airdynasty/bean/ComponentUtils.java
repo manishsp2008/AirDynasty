@@ -81,125 +81,97 @@ public class ComponentUtils {
             String InstDate, String crAfHrs, String crAfHrsType, String rlHrs,String rlHrsType, String remText) {
         
         try {
-        /*
-        Set<CmpSerialNumber> csnObjSet = new HashSet<CmpSerialNumber>();
-        Set<CmpFinitelife> cflObjSet = new HashSet<CmpFinitelife>() ;
-        Set<CompDueoffAfhrsInst> cdaObjSet = new HashSet<CompDueoffAfhrsInst>() ;
-        Set<CmpAfhrsInst> caiObjSet  = new HashSet<CmpAfhrsInst>();
-        Set<CmpDateInst> cdiObjSet  = new HashSet<CmpDateInst>();
-        Set<CmpLiferemInst> cliObjSet = new HashSet<CmpLiferemInst>() ;
-        Set<CmpCurAfhrs> ccaObjSet  = new HashSet<CmpCurAfhrs>();
-        Set<CompRemLife> crlObjSet = new HashSet<CompRemLife>() ;
-        Set<CmpRemarks> crObjSet  = new HashSet<CmpRemarks>();
-        
-        // Create Component Object
-        //int newId = cfObj.findAll().size() + 1 ; 
-        Components  cmpObj = new Components();
+        Components cmpObj = new Components();
+        cmpObj.setCompId(cfObj.count()+1);
         cmpObj.setCompPartname(cmpName);
         cmpObj.setCompPartnum(partNum);
         cmpObj.setCompAcId(acObj);
-        em.persist(cmpObj);
-        System.out.println("Component added successfully to DB");
-        //em.persist(cmpObj);
-        // Create serial number Object
-        //em.flush();
-        */
-        int csnId = cmp_sr_num_Facade.findAll().size() + 1;
-        CmpSerialNumber csnObj = new CmpSerialNumber(csnId, srNum);
-        em.persist(csnObj);
-        //csnObjSet.add(csnObj);
+            
+        CmpSerialNumber csnObj = new CmpSerialNumber();
+        csnObj.setSerialnumId(cmp_sr_num_Facade.count()+1);
+        csnObj.setSerialnumValue(srNum);
+        csnObj.setSerialnumCompId(cmpObj);
+        Set<CmpSerialNumber> csnObjSet = new HashSet<CmpSerialNumber>();
+        csnObjSet.add(csnObj);
+        cmpObj.setCmpSerialNumberSet(csnObjSet);
         
-        /*
-        //csnObj.setSerialnumCompId(cmpObj);
-        //em.persist(csnObj);
-        // Create finitelife hours object
-        //em.flush();
-        int flhId = cmp_finite_life_Facade.findAll().size() + 1;
-        CmpFinitelife cflObj = new CmpFinitelife(flhId, InstDueHrs, InstDueHrsType);
-        //cflObj.setCmpFinitelifeCompId(cmpObj);
+        CmpFinitelife cflObj = new CmpFinitelife();
+        cflObj.setCmpFinitelifeId(cmp_finite_life_Facade.count()+1);
+        cflObj.setCmpFinitelifeHrs(flHrs);
+        cflObj.setCmpFinitelifeHrsType(flHrsType);
+        cflObj.setCmpFinitelifeCompId(cmpObj);
+        Set<CmpFinitelife> cflObjSet = new HashSet<CmpFinitelife>() ;
         cflObjSet.add(cflObj);
-        //em.persist(cflObj);
-        // create inst life remain hours object
-       
-        int doaiId = cmp_dueoff_afhrs_inst_Facade.findAll().size() + 1;
-        CompDueoffAfhrsInst cdaObj = new CompDueoffAfhrsInst(doaiId, lrInstHrs, lrInstHrsType);
+        cmpObj.setCmpFinitelifeSet(cflObjSet);
+        
+        CompDueoffAfhrsInst cdaObj = new CompDueoffAfhrsInst();
+        cdaObj.setCdaId(cmp_dueoff_afhrs_inst_Facade.count()+1);
+        cdaObj.setCdaHrs(lrInstHrs);
+        cdaObj.setCdaCompId(cmpObj);
+        cdaObj.setCdaHrsType(lrInstHrsType);
+        Set<CompDueoffAfhrsInst> cdaObjSet = new HashSet<CompDueoffAfhrsInst>() ;
         cdaObjSet.add(cdaObj);
-        //doaiObj.setCdaCompId(cmpObj);
-        //em.persist(doaiObj);
-        // create inst hrs object
-       
-        int iafId = cmp_afhrs_inst_Facade.findAll().size() + 1;
-        CmpAfhrsInst iafObj = new CmpAfhrsInst(iafId, afInstHrs, afInstHrsType);
+        cmpObj.setCompDueoffAfhrsInstSet(cdaObjSet);
+                
+        CmpAfhrsInst iafObj = new CmpAfhrsInst();
+        iafObj.setCmpAfhrsInstId(cmp_afhrs_inst_Facade.count()+1);
+        iafObj.setCmpAfhrsInstHrs(afInstHrs);
+        iafObj.setCmpAfhrsInstCompId(cmpObj);
+        iafObj.setCmpAfhrsInstHrsType(afInstHrsType);
+        Set<CmpAfhrsInst> caiObjSet  = new HashSet<CmpAfhrsInst>();
         caiObjSet.add(iafObj);
-        //iafObj.setCmpAfhrsInstCompId(cmpObj);
-        //em.persist(iafObj);
-        // create inst due Date  object
-       
-        int instddId = cmp_date_inst_Facade.findAll().size() + 1;
+        cmpObj.setCmpAfhrsInstSet(caiObjSet);
+        
         int y = Integer.parseInt(InstDate.split("-")[2]);
         int m = Integer.parseInt(InstDate.split("-")[1]);
         int dt = Integer.parseInt(InstDate.split("-")[0]);
+        CmpDateInst iddObj = new CmpDateInst();
+        iddObj.setCmpDateInstId(cmp_date_inst_Facade.count()+1);
+        iddObj.setCmpDateInstDate(new Date(y,m,dt));
+        iddObj.setCmpDateInstCompId(cmpObj);
+        Set<CmpDateInst> cdiObjSet  = new HashSet<CmpDateInst>();
+        cmpObj.setCmpDateInstSet(cdiObjSet);
         
-        CmpDateInst iddObj = new CmpDateInst(instddId,new Date(y,m,dt));
-        cdiObjSet.add(iddObj);
+        CmpLiferemInst cliObj = new CmpLiferemInst();
+        cliObj.setCmplifeRemId(cmp_life_rem_inst_Facade.count()+1);
+        cliObj.setCmplifeRemHrs(InstDueHrs);
+        cliObj.setCmplifeRemHrsType(InstDueHrsType);
+        cliObj.setCmplifesCompId(cmpObj);
+        Set<CmpLiferemInst> cliObjSet = new HashSet<CmpLiferemInst>() ;
+        cmpObj.setCmpLiferemInstSet(cliObjSet);
         
-        //iddObj.setCmpDateInstCompId(cmpObj);
-        //em.persist(iddObj);
-        // create inst due hrs set
-       
-        int idhId = cmp_life_rem_inst_Facade.findAll().size() + 1;
-        CmpLiferemInst cliObj = new CmpLiferemInst(idhId, InstDueHrs, InstDueHrsType);
-        cliObjSet.add(cliObj);
-        //cliObj.setCmplifesCompId(cmpObj);
-        //em.persist(cliObj);
-        // cerate current af hrs details object
-       
-        int crafId = cmp_cur_afhrs_Facade.findAll().size() + 1;
-        CmpCurAfhrs ccaObj = new CmpCurAfhrs(crafId, crAfHrs, crAfHrsType);
-        ccaObjSet.add(ccaObj);
-        //ccaObj.setCmpCurAfhrsCompId(cmpObj);
-        //em.persist(ccaObj);
-        // create remaining life hrs object
-       
-        int rlhId = cmp_rem_life_Facade.findAll().size() + 1;
-        CompRemLife clrObj = new CompRemLife(rlhId, rlHrs, rlHrsType);
-        crlObjSet.add(clrObj);
-        //clrObj.setCrlCompId(cmpObj);
-        //em.persist(clrObj);
-        // create remarks object
-       
-        int rtId = cmp_remarks_Facade.findAll().size();
-        CmpRemarks crObj = new CmpRemarks(rtId);
+        CmpCurAfhrs ccaObj = new CmpCurAfhrs();
+        ccaObj.setCmpCurAfhrsId(cmp_cur_afhrs_Facade.count()+1);
+        ccaObj.setCmpCurAfhrsHrs(crAfHrs);
+        ccaObj.setCmpCurAfhrsHrsType(crAfHrsType);
+        ccaObj.setCmpCurAfhrsCompId(cmpObj);
+        Set<CmpCurAfhrs> ccaObjSet  = new HashSet<CmpCurAfhrs>();
+        cmpObj.setCmpCurAfhrsSet(ccaObjSet);
+        
+        CompRemLife clrObj = new CompRemLife();
+        clrObj.setCrlId(cmp_rem_life_Facade.count()+1);
+        clrObj.setCrlHrs(rlHrs);
+        clrObj.setCrlHrsType(rlHrsType);
+        clrObj.setCrlCompId(cmpObj);
+        Set<CompRemLife> crlObjSet = new HashSet<CompRemLife>() ;
+        cmpObj.setCompRemLifeSet(crlObjSet);
+        
+        CmpRemarks crObj = new CmpRemarks();
+        crObj.setCmpRemarksId(cmp_remarks_Facade.count()+1);
         crObj.setCmpRemarksText(remText);
-        crObjSet.add(crObj);
-        //crObj.setCmpRemarksCompId(cmpObj);
-        //em.persist(crObj);
-        // merge a Component.
-       
-        cmpObj.setCmpAfhrsInstSet((Set<CmpAfhrsInst>)caiObjSet);
-        cmpObj.setCmpCurAfhrsSet((Set<CmpCurAfhrs>)ccaObjSet);
-        cmpObj.setCmpDateInstSet((Set<CmpDateInst>)cdiObjSet);
-        cmpObj.setCmpFinitelifeSet((Set<CmpFinitelife>)cflObjSet);
-        cmpObj.setCmpLiferemInstSet((Set<CmpLiferemInst>)cliObjSet);
-        cmpObj.setCmpRemarksSet((Set<CmpRemarks>)crObjSet);        
-        cmpObj.setCmpSerialNumberSet((Set<CmpSerialNumber>)csnObjSet);        
-        cmpObj.setCompDueoffAfhrsInstSet((Set<CompDueoffAfhrsInst>)cdaObjSet);        
-        cmpObj.setCompRemLifeSet(( Set<CompRemLife>)crlObjSet);        
+        crObj.setCmpRemarksCompId(cmpObj);
+        Set<CmpRemarks> crObjSet  = new HashSet<CmpRemarks>();
+        cmpObj.setCmpRemarksSet(crObjSet);
         
-        cfObj.create(cmpObj);
-                
-         */       
-        context.setRollbackOnly();
+        em.persist(cmpObj);
+        
         return true;
-        
-        
-         }
+        }
         catch(Exception e)
         {
-            System.out.println(e.getMessage() + "-----------" + e.toString());
-            
-            
-            return false;
+        System.out.println("Error Message : " + e.getMessage());  
+        context.setRollbackOnly();
+        return false;
         }
         
     }

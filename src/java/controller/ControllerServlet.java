@@ -120,7 +120,7 @@ public class ControllerServlet extends HttpServlet {
             
             // Retrieve the Components of air craft.
             cmpObj = acObj.getComponentsSet();
-            
+                System.out.println("Number of Componenets Found are : " +  cmpObj.size());
             // Set Components in servlet context
             getServletContext().setAttribute("craftComps", cmpObj);
             
@@ -189,7 +189,7 @@ public class ControllerServlet extends HttpServlet {
             String partNum = request.getParameter("partNum");
             String srNum = request.getParameter("srNum");
             String flHrs = request.getParameter("flHrs");
-            String flHrsType = request.getParameter("flHrs");
+            String flHrsType = request.getParameter("flHrsType");
             
             
             String lrInstHrs = request.getParameter("lrInstHrs");
@@ -211,6 +211,7 @@ public class ControllerServlet extends HttpServlet {
             // 2. Insert all into DB using Insert Query.
             acObj = (AirCraft) getServletContext().getAttribute("craftObj");
             boolean flag = false;
+            System.out.println("Air Craft ID : " + acObj.getAcId());
             if(acObj != null)   {
             flag = cmpUtilObj.addComponent(acObj, CmpName, partNum, srNum, flHrs, flHrsType, lrInstHrs, lrInstHrsType,
                     afInstHrs, afInstHrsType, instDueHrs, instDueHrsType, InstDate,crAfHrs, crAfHrsType,
@@ -220,6 +221,7 @@ public class ControllerServlet extends HttpServlet {
                 flag = false;
             }
             // 3. Send User a Notification about added hours.
+            System.out.println("Value of Flag : " + flag);
             if(flag)    {
                 userPath = "/trsuccess";
             }

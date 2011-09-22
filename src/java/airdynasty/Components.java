@@ -226,5 +226,59 @@ public class Components implements Serializable {
     public String toString() {
         return "airdynasty.Components[ compId=" + compId + " ]";
     }
+    // Add Componenet Serial Number.
+    public void addCmpSerNum(CmpSerialNumber csnObj)  {
+        
+    csnObj.setSerialnumCompId(this);    
+    cmpSerialNumberSet.add(csnObj);
     
+    }
+    
+    // Add Component Finite Life Hours.
+    public void addCmpFLHrs(CmpFinitelife cflObj)   {
+        cflObj.setCmpFinitelifeCompId(this);
+        cmpFinitelifeSet.add(cflObj);
+    }
+    
+    // Add Due-off AF Inst Hrs to Componenet. 
+    public void addDAIHrs(CompDueoffAfhrsInst cdaObj)   {
+        cdaObj.setCdaCompId(this);
+        compDueoffAfhrsInstSet.add(cdaObj);
+    }
+    
+    // Add Installation AF Hrs.
+    public void addIAHrs(CmpAfhrsInst iafObj)   {
+        iafObj.setCmpAfhrsInstCompId(this);
+        cmpAfhrsInstSet.add(iafObj);
+    }
+    
+    // Add Installation date of component.
+    public void addIDate(CmpDateInst cdiObj)    {
+        cdiObj.setCmpDateInstCompId(this);
+        cmpDateInstSet.add(cdiObj);
+    }
+    
+    // Add Installation remaining life Hrs.
+    public void addIRLHrs(CmpLiferemInst criObj)  {
+        criObj.setCmplifesCompId(this);
+        cmpLiferemInstSet.add(criObj);
+    }
+    
+    // Add current AirFrame Hours.
+    public void addCAFHrs(CmpCurAfhrs ccaObj)   {
+        ccaObj.setCmpCurAfhrsCompId(this);
+        cmpCurAfhrsSet.add(ccaObj);
+    }
+    
+    // Add Remaining Life Hours.
+    public void addRLHrs(CompRemLife crlObj)    {
+        crlObj.setCrlCompId(this);
+        compRemLifeSet.add(crlObj);
+    }
+    
+    // Add Remarks Text to Component.
+    public void addRemText(CmpRemarks crObj)    {
+        crObj.setCmpRemarksCompId(this);
+        cmpRemarksSet.add(crObj);
+    }
 }
