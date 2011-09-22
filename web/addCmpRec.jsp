@@ -54,7 +54,7 @@
                     <td>Remaining Life Hrs</td><td><input name="rLifeHrs" type="text"/>&nbsp;&nbsp;<select name="rLifeHrsType"><option value="H">Hours</option><option value="D" >Date</option></select></td>
                 </tr>
                 <tr>
-                    <td>Remarks</td><td><input name="remtext" type="text"/></td>
+                    <td>Remarks</td><td><input name="remText" type="text"/></td>
                 </tr>
                 
             </table>

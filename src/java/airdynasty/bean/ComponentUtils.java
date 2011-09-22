@@ -106,9 +106,9 @@ public class ComponentUtils {
         
         CompDueoffAfhrsInst cdaObj = new CompDueoffAfhrsInst();
         cdaObj.setCdaId(cmp_dueoff_afhrs_inst_Facade.count()+1);
-        cdaObj.setCdaHrs(lrInstHrs);
+        cdaObj.setCdaHrs(InstDueHrs);
         cdaObj.setCdaCompId(cmpObj);
-        cdaObj.setCdaHrsType(lrInstHrsType);
+        cdaObj.setCdaHrsType(InstDueHrsType);
         Set<CompDueoffAfhrsInst> cdaObjSet = new HashSet<CompDueoffAfhrsInst>() ;
         cdaObjSet.add(cdaObj);
         cmpObj.setCompDueoffAfhrsInstSet(cdaObjSet);
@@ -130,14 +130,16 @@ public class ComponentUtils {
         iddObj.setCmpDateInstDate(new Date(y,m,dt));
         iddObj.setCmpDateInstCompId(cmpObj);
         Set<CmpDateInst> cdiObjSet  = new HashSet<CmpDateInst>();
+        cdiObjSet.add(iddObj);
         cmpObj.setCmpDateInstSet(cdiObjSet);
         
         CmpLiferemInst cliObj = new CmpLiferemInst();
         cliObj.setCmplifeRemId(cmp_life_rem_inst_Facade.count()+1);
-        cliObj.setCmplifeRemHrs(InstDueHrs);
-        cliObj.setCmplifeRemHrsType(InstDueHrsType);
+        cliObj.setCmplifeRemHrs(lrInstHrs);
+        cliObj.setCmplifeRemHrsType(lrInstHrsType);
         cliObj.setCmplifesCompId(cmpObj);
         Set<CmpLiferemInst> cliObjSet = new HashSet<CmpLiferemInst>() ;
+        cliObjSet.add(cliObj);
         cmpObj.setCmpLiferemInstSet(cliObjSet);
         
         CmpCurAfhrs ccaObj = new CmpCurAfhrs();
@@ -146,6 +148,7 @@ public class ComponentUtils {
         ccaObj.setCmpCurAfhrsHrsType(crAfHrsType);
         ccaObj.setCmpCurAfhrsCompId(cmpObj);
         Set<CmpCurAfhrs> ccaObjSet  = new HashSet<CmpCurAfhrs>();
+        ccaObjSet.add(ccaObj);
         cmpObj.setCmpCurAfhrsSet(ccaObjSet);
         
         CompRemLife clrObj = new CompRemLife();
@@ -154,6 +157,7 @@ public class ComponentUtils {
         clrObj.setCrlHrsType(rlHrsType);
         clrObj.setCrlCompId(cmpObj);
         Set<CompRemLife> crlObjSet = new HashSet<CompRemLife>() ;
+        crlObjSet.add(clrObj);
         cmpObj.setCompRemLifeSet(crlObjSet);
         
         CmpRemarks crObj = new CmpRemarks();
@@ -161,6 +165,7 @@ public class ComponentUtils {
         crObj.setCmpRemarksText(remText);
         crObj.setCmpRemarksCompId(cmpObj);
         Set<CmpRemarks> crObjSet  = new HashSet<CmpRemarks>();
+        crObjSet.add(crObj);
         cmpObj.setCmpRemarksSet(crObjSet);
         
         em.persist(cmpObj);

@@ -5,15 +5,6 @@
 package controller;
 
 import adsessionbeans.AirCraftFacade;
-import adsessionbeans.CmpAfhrsInstFacade;
-import adsessionbeans.CmpCurAfhrsFacade;
-import adsessionbeans.CmpDateInstFacade;
-import adsessionbeans.CmpFinitelifeFacade;
-import adsessionbeans.CmpLiferemInstFacade;
-import adsessionbeans.CmpRemarksFacade;
-import adsessionbeans.CmpSerialNumberFacade;
-import adsessionbeans.CompDueoffAfhrsInstFacade;
-import adsessionbeans.CompRemLifeFacade;
 import adsessionbeans.ComponentsFacade;
 import airdynasty.AfEngInsp;
 import airdynasty.AirCraft;
@@ -22,6 +13,7 @@ import airdynasty.OafChangeInt;
 import airdynasty.OutPhaseMnt;
 import airdynasty.bean.AirFrameBean;
 import airdynasty.bean.ComponentUtils;
+import airdynasty.bean.CraftUtils;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Set;
@@ -58,6 +50,8 @@ public class ControllerServlet extends HttpServlet {
     private AirFrameBean afbObj;
     @EJB
     private ComponentUtils cmpUtilObj;
+    @EJB
+    private CraftUtils cuObj;
     
     @Override
     public void init()
@@ -113,14 +107,15 @@ public class ControllerServlet extends HttpServlet {
             if(id != null) {
             
             // Retrieve Aircraft Object for request id.
-            acObj = acFacade.find(Integer.parseInt(id));
-            
+            //acObj = acFacade.find(Integer.parseInt(id));
+            acObj = cuObj.getCraftbyID(Integer.parseInt(id));
+                
             // Set object in servlet context
             getServletContext().setAttribute("craftObj", acObj);
             
             // Retrieve the Components of air craft.
             cmpObj = acObj.getComponentsSet();
-                System.out.println("Number of Componenets Found are : " +  cmpObj.size());
+            System.out.println("Number of Componenets Found are : " +  cmpObj.size());
             // Set Components in servlet context
             getServletContext().setAttribute("craftComps", cmpObj);
             
@@ -197,11 +192,11 @@ public class ControllerServlet extends HttpServlet {
             String afInstHrs = request.getParameter("afInstHrs");
             String afInstHrsType = request.getParameter("afInstHrsType");
             String InstDate = request.getParameter("InstDate");
-            String instDueHrs = request.getParameter("instDueHrs");
-            String instDueHrsType = request.getParameter("instDueHrsType");
+            String instDueHrs = request.getParameter("InstDueHrs");
+            String instDueHrsType = request.getParameter("InstDueHrsType");
             
-            String crAfHrs = request.getParameter("crAfHrs");
-            String crAfHrsType = request.getParameter("crAfHrsType");
+            String crAfHrs = request.getParameter("crAFHrs");
+            String crAfHrsType = request.getParameter("crAFHrsType");
             String rLifeHrs = request.getParameter("rLifeHrs");
             String rLifeHrsType = request.getParameter("rLifeHrsType");
             
