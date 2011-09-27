@@ -76,9 +76,9 @@ public class ComponentUtils {
     
     
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
-    public boolean addComponent(AirCraft acObj, String cmpName, String partNum, String srNum, String flHrs,String flHrsType,
-            String lrInstHrs,String lrInstHrsType, String afInstHrs,String afInstHrsType, String InstDueHrs,String InstDueHrsType,
-            String InstDate, String crAfHrs, String crAfHrsType, String rlHrs,String rlHrsType, String remText) {
+    public boolean addComponent(AirCraft acObj, String cmpName, String partNum, String srNum,String hrsType, String flHrs,
+            String lrInstHrs, String afInstHrs, String InstDueHrs,String InstDate, String crAfHrs,
+            String rlHrs, String remText) {
         
         try {
         Components cmpObj = new Components();
@@ -98,7 +98,7 @@ public class ComponentUtils {
         CmpFinitelife cflObj = new CmpFinitelife();
         cflObj.setCmpFinitelifeId(cmp_finite_life_Facade.count()+1);
         cflObj.setCmpFinitelifeHrs(flHrs);
-        cflObj.setCmpFinitelifeHrsType(flHrsType);
+        cflObj.setCmpFinitelifeHrsType(hrsType);
         cflObj.setCmpFinitelifeCompId(cmpObj);
         Set<CmpFinitelife> cflObjSet = new HashSet<CmpFinitelife>() ;
         cflObjSet.add(cflObj);
@@ -108,7 +108,7 @@ public class ComponentUtils {
         cdaObj.setCdaId(cmp_dueoff_afhrs_inst_Facade.count()+1);
         cdaObj.setCdaHrs(InstDueHrs);
         cdaObj.setCdaCompId(cmpObj);
-        cdaObj.setCdaHrsType(InstDueHrsType);
+        cdaObj.setCdaHrsType(hrsType);
         Set<CompDueoffAfhrsInst> cdaObjSet = new HashSet<CompDueoffAfhrsInst>() ;
         cdaObjSet.add(cdaObj);
         cmpObj.setCompDueoffAfhrsInstSet(cdaObjSet);
@@ -117,7 +117,7 @@ public class ComponentUtils {
         iafObj.setCmpAfhrsInstId(cmp_afhrs_inst_Facade.count()+1);
         iafObj.setCmpAfhrsInstHrs(afInstHrs);
         iafObj.setCmpAfhrsInstCompId(cmpObj);
-        iafObj.setCmpAfhrsInstHrsType(afInstHrsType);
+        iafObj.setCmpAfhrsInstHrsType(hrsType);
         Set<CmpAfhrsInst> caiObjSet  = new HashSet<CmpAfhrsInst>();
         caiObjSet.add(iafObj);
         cmpObj.setCmpAfhrsInstSet(caiObjSet);
@@ -136,7 +136,7 @@ public class ComponentUtils {
         CmpLiferemInst cliObj = new CmpLiferemInst();
         cliObj.setCmplifeRemId(cmp_life_rem_inst_Facade.count()+1);
         cliObj.setCmplifeRemHrs(lrInstHrs);
-        cliObj.setCmplifeRemHrsType(lrInstHrsType);
+        cliObj.setCmplifeRemHrsType(hrsType);
         cliObj.setCmplifesCompId(cmpObj);
         Set<CmpLiferemInst> cliObjSet = new HashSet<CmpLiferemInst>() ;
         cliObjSet.add(cliObj);
@@ -145,7 +145,7 @@ public class ComponentUtils {
         CmpCurAfhrs ccaObj = new CmpCurAfhrs();
         ccaObj.setCmpCurAfhrsId(cmp_cur_afhrs_Facade.count()+1);
         ccaObj.setCmpCurAfhrsHrs(crAfHrs);
-        ccaObj.setCmpCurAfhrsHrsType(crAfHrsType);
+        ccaObj.setCmpCurAfhrsHrsType(hrsType);
         ccaObj.setCmpCurAfhrsCompId(cmpObj);
         Set<CmpCurAfhrs> ccaObjSet  = new HashSet<CmpCurAfhrs>();
         ccaObjSet.add(ccaObj);
@@ -154,7 +154,7 @@ public class ComponentUtils {
         CompRemLife clrObj = new CompRemLife();
         clrObj.setCrlId(cmp_rem_life_Facade.count()+1);
         clrObj.setCrlHrs(rlHrs);
-        clrObj.setCrlHrsType(rlHrsType);
+        clrObj.setCrlHrsType(hrsType);
         clrObj.setCrlCompId(cmpObj);
         Set<CompRemLife> crlObjSet = new HashSet<CompRemLife>() ;
         crlObjSet.add(clrObj);

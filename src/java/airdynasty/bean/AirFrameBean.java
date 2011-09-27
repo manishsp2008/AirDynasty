@@ -41,7 +41,7 @@ public class AirFrameBean {
     private SessionContext context;
     
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
-    public void setRemAFHrs(AirCraft acObj, Double afHrs) {
+    public void setRemAFHrs(AirCraft acObj, String afHrs) {
         try {
         
         Set<Components> cmps = acObj.getComponentsSet();
@@ -58,7 +58,7 @@ public class AirFrameBean {
                 // Persisit CompRemLife Object.
                 
                 // Find Related value from database.
-                Double remHrs = Double.parseDouble(ccaTemp.getCdaHrs()) - afHrs ;
+                Double remHrs = Double.parseDouble(ccaTemp.getCdaHrs()) - Double.parseDouble(afHrs) ;
                
                 setRLHrs(acObj, remHrs);
         }
@@ -107,7 +107,7 @@ public class AirFrameBean {
     }
     
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
-    public void setCurrentAFHrs(AirCraft acObj, Double afHrs)
+    public void setCurrentAFHrs(AirCraft acObj, String afHrs)
     {
     
        

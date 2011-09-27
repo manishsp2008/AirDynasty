@@ -14,6 +14,8 @@ import airdynasty.OutPhaseMnt;
 import airdynasty.bean.AirFrameBean;
 import airdynasty.bean.ComponentUtils;
 import airdynasty.bean.CraftUtils;
+import airdynasty.bean.EngInsUtils;
+import airdynasty.bean.OPMUtils;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Set;
@@ -52,16 +54,20 @@ public class ControllerServlet extends HttpServlet {
     private ComponentUtils cmpUtilObj;
     @EJB
     private CraftUtils cuObj;
+    @EJB
+    private EngInsUtils eiuObj;
+    @EJB
+    private OPMUtils opmuObj; 
     
     @Override
     public void init()
     {
         
      // Load all air craft details in servlet.
-     getServletContext().setAttribute("aircrafts", acFacade.findAll());
+     ///getServletContext().setAttribute("aircrafts", acFacade.findAll());
      
      // Load all component details in servlet context.
-     getServletContext().setAttribute("components", cmpFacade.findAll());
+     //getServletContext().setAttribute("components", cmpFacade.findAll());
      /*
      getServletContext().setAttribute("cmp_srnum", cmp_sr_num_Facade.findAll());
      getServletContext().setAttribute("cmp_finite_life", cmp_finite_life_Facade.findAll());
@@ -93,11 +99,19 @@ public class ControllerServlet extends HttpServlet {
             System.out.println(userPath);    
         AirCraft acObj = null;
         Set<Components> cmpObj = null; 
-        Double afHrs = null;
+        String afHrs = null;
         
         if(userPath.equals("/viewCraftList"))
         {
-           userPath = "/aircraft";
+            // Load all air craft details in servlet.
+            //List<AirCraft> li = acFacade.findAll();
+            //getServletContext().setAttribute("aircrafts",li);
+     
+            // Load all component details in servlet context.
+            //List<Components> cmp = cmpFacade.findAll();
+            //getServletContext().setAttribute("components", cmp);
+           
+            userPath = "/aircraft";
         }
         else if(userPath.equals("/viewCraft"))
         {
@@ -105,7 +119,6 @@ public class ControllerServlet extends HttpServlet {
             String id = request.getQueryString();
             
             if(id != null) {
-            
             // Retrieve Aircraft Object for request id.
             //acObj = acFacade.find(Integer.parseInt(id));
             acObj = cuObj.getCraftbyID(Integer.parseInt(id));
@@ -118,7 +131,6 @@ public class ControllerServlet extends HttpServlet {
             System.out.println("Number of Componenets Found are : " +  cmpObj.size());
             // Set Components in servlet context
             getServletContext().setAttribute("craftComps", cmpObj);
-            
             
             }
             
@@ -136,8 +148,17 @@ public class ControllerServlet extends HttpServlet {
         else if(userPath.equals("/addCraftHRS"))
         {
             // Retireve parameters from request.
-            afHrs = Double.parseDouble(request.getParameter("afHRS"));
+            afHrs = request.getParameter("afHRS");
             
+            String engHRS = request.getParameter("engHRS");
+                    
+            String acStCnt = request.getParameter("acStCnt");        
+            
+            String acLnCnt = request.getParameter("acLnCnt");
+            
+            String engNGcyc = request.getParameter("engNGcyc");
+                    
+            String engNPcyc = request.getParameter("engNPcyc");         
             //Integer stCount = Integer.parseInt(request.getParameter("acStCnt"));
             //Integer lndCount = Integer.parseInt(request.getParameter("acLndCnt"));
             
@@ -145,6 +166,12 @@ public class ControllerServlet extends HttpServlet {
             
             // Set a hours to be substracted in servlet context.
             getServletContext().setAttribute("afHrs",afHrs);
+            getServletContext().setAttribute("engHRS", engHRS);
+            getServletContext().setAttribute("acStCnt", acStCnt);
+            getServletContext().setAttribute("acLnCnt", acLnCnt);
+            getServletContext().setAttribute("engNGCyc", engNGcyc);
+            getServletContext().setAttribute("engNPcyc", engNPcyc);
+            
             
             userPath = "/viewaddHrsRes";
             
@@ -152,7 +179,7 @@ public class ControllerServlet extends HttpServlet {
         }
         else if(userPath.equals("/updateCraftHRS"))
         {
-            afHrs = (Double) getServletContext().getAttribute("afHrs");
+            afHrs = (String) getServletContext().getAttribute("afHrs");
             
             acObj = (AirCraft) getServletContext().getAttribute("craftObj");
             
@@ -184,21 +211,21 @@ public class ControllerServlet extends HttpServlet {
             String partNum = request.getParameter("partNum");
             String srNum = request.getParameter("srNum");
             String flHrs = request.getParameter("flHrs");
-            String flHrsType = request.getParameter("flHrsType");
+            String hrsType = request.getParameter("HrsType");
             
             
             String lrInstHrs = request.getParameter("lrInstHrs");
-            String lrInstHrsType = request.getParameter("lrInstHrsType");
+            //String lrInstHrsType = request.getParameter("lrInstHrsType");
             String afInstHrs = request.getParameter("afInstHrs");
-            String afInstHrsType = request.getParameter("afInstHrsType");
+            //String afInstHrsType = request.getParameter("afInstHrsType");
             String InstDate = request.getParameter("InstDate");
             String instDueHrs = request.getParameter("InstDueHrs");
-            String instDueHrsType = request.getParameter("InstDueHrsType");
+            //String instDueHrsType = request.getParameter("InstDueHrsType");
             
             String crAfHrs = request.getParameter("crAFHrs");
-            String crAfHrsType = request.getParameter("crAFHrsType");
+            //String crAfHrsType = request.getParameter("crAFHrsType");
             String rLifeHrs = request.getParameter("rLifeHrs");
-            String rLifeHrsType = request.getParameter("rLifeHrsType");
+            //String rLifeHrsType = request.getParameter("rLifeHrsType");
             
             String remText = request.getParameter("remText");
             
@@ -208,9 +235,8 @@ public class ControllerServlet extends HttpServlet {
             boolean flag = false;
             System.out.println("Air Craft ID : " + acObj.getAcId());
             if(acObj != null)   {
-            flag = cmpUtilObj.addComponent(acObj, CmpName, partNum, srNum, flHrs, flHrsType, lrInstHrs, lrInstHrsType,
-                    afInstHrs, afInstHrsType, instDueHrs, instDueHrsType, InstDate,crAfHrs, crAfHrsType,
-                    rLifeHrs, rLifeHrsType, remText);
+            flag = cmpUtilObj.addComponent(acObj, CmpName, partNum, srNum, hrsType, flHrs, lrInstHrs,
+                    afInstHrs, instDueHrs, InstDate,crAfHrs, rLifeHrs, remText);
             }
             else    {
                 flag = false;
@@ -280,6 +306,59 @@ public class ControllerServlet extends HttpServlet {
             
         }
                 
+        }
+        else if(userPath.equals("/addEngInspec"))   {
+            
+            // Retrieve all input Parameters.
+            String ncText = request.getParameter("ncText");
+            String dueAFhrs = request.getParameter("dueAFhrs");
+            String dueENGhrs = request.getParameter("dueENGhrs");
+            String calDue = request.getParameter("calDue");
+            String remTime = request.getParameter("remTime");
+            String remText = request.getParameter("remText");
+            // Insert them into DB.
+            acObj = (AirCraft) getServletContext().getAttribute("craftObj");
+            boolean flag = true;
+            
+            if(acObj != null)   {
+                
+            flag = eiuObj.addEIRec(acObj, ncText, dueAFhrs, dueENGhrs, calDue, remTime, remText);
+            
+            // Show user confirmation messsage.
+            if(flag)    {
+                userPath = "/trsuccess";
+            }
+            else {
+                userPath = "/trfail";
+            }
+            }
+            
+        }
+        else if(userPath.equals("/addOPMRec"))   {
+            
+            //Read All input values
+            String ncText = request.getParameter("ncText");
+            String dueAFhrs = request.getParameter("dueAFhrs");
+            String dueENGhrs = request.getParameter("dueENGhrs");
+            String calDue = request.getParameter("calDue");
+            String remTime = request.getParameter("remTime");
+            String remText = request.getParameter("remText");
+            String intvl = request.getParameter("intvl");
+            String hrsType = request.getParameter("hrsType");
+            acObj = (AirCraft)getServletContext().getAttribute("craftObj");
+            boolean flag = false;
+            if(acObj != null)   {
+            // Insert them into Database.
+            //flag = opmuObj.addOPMRec(acObj, ncText, dueAFhrs, dueENGhrs, calDue, hrsType, intvl, remTime, remText);
+            }
+            // Show user a message
+            if(flag){
+                userPath = "/trsuccess";
+            }
+            else    {
+                userPath = "/trfail";
+            }
+            
         }
         // Creates URL for Servlet redirect.
         String url = "/WEB-INF/view" + userPath + ".jsp";

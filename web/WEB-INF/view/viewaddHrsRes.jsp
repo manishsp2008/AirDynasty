@@ -47,6 +47,35 @@
         </tr>
         </c:forEach>
         </table>
+        
+        <h3>Engine Hours</h3>
+        <table>
+         <tr><th>Sr. No.</th><th>Component Name</th><th>Part No.</th><th>Due-Off Installation hours(AF Hrs.)</th>
+        <th>Current Air Craft Hours(User Input)</th><th>Remaining Life Hours</th></tr>
+        <c:forEach var="comp" items="${craftComps}">
+        
+        <tr><td>1. </td><td>${comp.compPartname}</td><td>${comp.compPartnum}</td>
+            
+            <td>
+                <c:forEach var="insdhrs" items="${comp.compDueoffAfhrsInstCollection}">
+                    <c:out  value="${insdhrs.cdaHrs}"/><br/>
+                    
+                </c:forEach>
+            </td>
+            
+            <td>
+                <c:out value="${afHrs}"/>
+            </td>
+            
+            <td>
+                <c:forEach var="rlHrs" items="${comp.compDueoffAfhrsInstCollection}">
+                    <fmt:formatNumber type="number" var="remHrs" value="${rlHrs.cdaHrs - afHrs}" maxFractionDigits="2" />
+                    <c:out value="${remHrs}"/><br/>
+                </c:forEach>
+            </td>
+        </tr>
+        </c:forEach>
+        </table>
         <br/><br/><br/>
         <a href="/AirDynasty/updateCraftHRS">Confirm & Update</a>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

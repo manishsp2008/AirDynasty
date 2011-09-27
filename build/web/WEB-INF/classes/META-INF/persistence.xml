@@ -3,9 +3,7 @@
   <persistence-unit name="AirDynastyPU" transaction-type="JTA">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <jta-data-source>jdbc/airdynastyDS</jta-data-source>
-    <exclude-unlisted-classes>false</exclude-unlisted-classes>
-    <shared-cache-mode>NONE</shared-cache-mode>
-    <validation-mode>NONE</validation-mode>
+   
     <properties>
       <property name="eclipselink.logging.level" value="FINEST"/>
     </properties>

@@ -1,0 +1,10 @@
+SMAP
+user_jsp.java
+JSP
+*S JSP
+*F
++ 0 user.jsp
+WEB-INF/view/user.jsp
+*L
+5,14:44
+*E

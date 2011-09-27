@@ -14,12 +14,16 @@
     <body>
         <h3>Enter Air Craft Hours.</h3>
         <form action="/AirDynasty/addCraftHRS" method="get">
-            <table>
+            <table border="10">
                 <tr ><td >Air Craft Hours  </td><td><input type="text" name="afHRS"/></td></tr>
+                <tr><td>Engine Hours</td><td><input type="text" name="engHRS"/></td></tr>
                 <tr><td>Air Craft Start Count  </td><td><input type="text" name="acStCnt"/></td></tr>
                 <tr><td>Air Craft Landing Count  </td><td><input type="text" name="acLndCnt"/></td></tr>
+                <tr><td>Engine Cycles(Ng.)</td><td><input type="text" name="engNGcyc"/></td></tr>
+                <tr><td>Engine Cycles(Np.)</td><td><input type="text" name="engNPcyc"/></td></tr>
                 <tr><td>Air Craft flight Date(YYYY-MM-DD)  </td><td><input type="text" name="flDate"/></td></tr>
             </table>
+            <br/>
             <input type="submit" value="Submit"/>
         </form>
     </body>
