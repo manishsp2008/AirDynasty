@@ -27,31 +27,35 @@
                     <td>Serial Number</td><td><input name="srNum" type="text"/></td>
                 </tr>
                 <tr>
-                    <td>Finite Life Hrs</td><td><input name="flHrs" type="text"/>&nbsp;&nbsp;<select name="flHrsType"><option value="H">Hours</option><option value="D" >Date</option></select></td>
+                    <td>Finite Life Hrs</td><td><input name="flHrs" type="text"/>&nbsp;&nbsp;<select name="flHrsType">
+                            <option value="H">Hours</option>
+                            <option value="Y">Years</option>
+                            <option value="L">Landing Count</option>
+                        </select></td>
                 </tr>
             </table>
             <h4>Installation Details</h4>
             <table>
                  <tr>
-                    <td>Life Remaining Hrs</td><td><input name="lrInstHrs" type="text"/>&nbsp;&nbsp;<select name="lrInstHrsType"><option value="H">Hours</option><option value="D" >Date</option></select></td>
+                    <td>Life Remaining Hrs</td><td><input name="lrInstHrs" type="text"/>&nbsp;&nbsp;<select name="lrInstHrsType"><option value="H">Hours</option><option value="Y" >Years</option><option value="L">Landing Count</option></select></td>
                  </tr>
                  <tr>
-                    <td>Installation A/F Hrs</td><td><input name="afInstHrs" type="text"/>&nbsp;&nbsp;<select name="afInstHrsType"><option value="H">Hours</option><option value="D" >Date</option></select></td>
+                    <td>Installation A/F Hrs</td><td><input name="afInstHrs" type="text"/>&nbsp;&nbsp;<select name="afInstHrsType"><option value="H">Hours</option><option value="D" >Date</option><option value="L">Landing Count</option></select></td>
                  </tr>
                  <tr>
-                    <td>Installation Date</td><td><input name="InstDate" type="text"/>(dd-mm-yyyy)</td>
+                    <td>Installation Date</td><td><input name="InstDate" type="text"/>&nbsp;&nbsp;(DD-MM-YYYY)</td>
                  </tr>
                  <tr>
-                    <td>Installation Due Hrs</td><td><input name="InstDueHrs" type="text"/>&nbsp;&nbsp;<select name="InstDueHrsType"><option value="H">Hours</option><option value="D" >Date</option></select></td>
+                    <td>Installation Due Hrs</td><td><input name="InstDueHrs" type="text"/>&nbsp;&nbsp;<select name="InstDueHrsType"><option value="H">Hours</option><option value="D" >Date</option><option value="L">Landing Count</option></select></td>
                  </tr>
             </table>
             <h4>Current Component Details</h4>
             <table>
                 <tr>
-                    <td>Current A/F Hrs</td><td><input name="crAFHrs" type="text"/>&nbsp;&nbsp;<select name="crAFHrsType"><option value="H">Hours</option><option value="D" >Date</option></select></td>
+                    <td>Current A/F Hrs</td><td><input name="crAFHrs" type="text"/>&nbsp;&nbsp;<select name="crAFHrsType"><option value="H">Hours</option><option value="D" >Date</option><option value="L" >Landings</option></select></td>
                 </tr>
                 <tr>
-                    <td>Remaining Life Hrs</td><td><input name="rLifeHrs" type="text"/>&nbsp;&nbsp;<select name="rLifeHrsType"><option value="H">Hours</option><option value="D" >Date</option></select></td>
+                    <td>Remaining Life Hrs</td><td><input name="rLifeHrs" type="text"/>&nbsp;&nbsp;<select name="rLifeHrsType"><option value="H">Hours</option><option value="D" >Date</option><option value="L" >Landings</option></select></td>
                 </tr>
                 <tr>
                     <td>Remarks</td><td><input name="remText" type="text"/></td>

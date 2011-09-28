@@ -41,7 +41,7 @@ public class AirFrameBean {
     private SessionContext context;
     
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
-    public void setRemAFHrs(AirCraft acObj, Double afHrs) {
+    public void setRemAFHrs(AirCraft acObj, String afHrs, String acLndCnt, String flDate) {
         try {
         
         Set<Components> cmps = acObj.getComponentsSet();
@@ -58,9 +58,13 @@ public class AirFrameBean {
                 // Persisit CompRemLife Object.
                 
                 // Find Related value from database.
-                Double remHrs = Double.parseDouble(ccaTemp.getCdaHrs()) - afHrs ;
-               
-                setRLHrs(acObj, remHrs);
+                //String remHrs = ccaTemp.getCdaHrs() - afHrs ;
+                String subRes = AirFrameLogic.doSubtraction(ccaTemp.getCdaHrs(), afHrs, acLndCnt,flDate, ccaTemp.getCdaHrsType());
+                if(subRes != null && !subRes.isEmpty()) {
+                    
+                    setRLHrs(acObj, subRes, ccaTemp.getCdaHrsType());
+                    
+                }
         }
         
     }
@@ -75,7 +79,7 @@ public class AirFrameBean {
         }
     }
     
-    public void setRLHrs(AirCraft acObj, Double Hrs)
+    public void setRLHrs(AirCraft acObj, String Hrs, String hrsType)
     {
         try {
         
@@ -89,11 +93,12 @@ public class AirFrameBean {
             for(Iterator it = caObj.iterator(); it.hasNext();)  {
                 
                 CompRemLife ccaTemp = (CompRemLife) it.next();
+                if(hrsType.equals(ccaTemp.getCrlHrsType())){
                 
-                ccaTemp.setCrlHrs(String.valueOf(AirFrameLogic.roundTwoDec(Hrs)));
+                ccaTemp.setCrlHrs(Hrs);
                 
                 em.merge(ccaTemp);
-                
+                }
         }
         
     }    
@@ -107,44 +112,37 @@ public class AirFrameBean {
     }
     
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
-    public void setCurrentAFHrs(AirCraft acObj, Double afHrs)
+    public void setCurrentAFHrs(AirCraft acObj, String afHrs, String acLndCnt, String flDate)
     {
     
-       
         try {
-            
-        //em.getTransaction().begin();
-            
-        Set<Components> cmps = acObj.getComponentsSet();
-        
-        for(Iterator itr = cmps.iterator(); itr.hasNext();)  {
-            Components cmp = (Components)itr.next();
-            
-            Set<CmpCurAfhrs> caObj = cmp.getCmpCurAfhrsSet();
-            
-            for(Iterator it = caObj.iterator(); it.hasNext();)  {
+            Set<Components> cmps = acObj.getComponentsSet();
+
+            for(Iterator itr = cmps.iterator(); itr.hasNext();)  {
                 
-                CmpCurAfhrs ccaTemp = (CmpCurAfhrs) it.next();
-                
-                // Find a iterated object in database.
-                //CmpCurAfhrs ccaTemp = em.find(CmpCurAfhrs.class, cca.getCmpCurAfhrsId());
-                
-                ccaTemp.setCmpCurAfhrsHrs(String.valueOf(afHrs));
-                
-                em.merge(ccaTemp);
-                
-                //em.getTransaction().commit();
+                Components cmp = (Components)itr.next();
+
+                Set<CmpCurAfhrs> caObj = cmp.getCmpCurAfhrsSet();
+
+                for(Iterator it = caObj.iterator(); it.hasNext();)  {
+                    CmpCurAfhrs ccaTemp = (CmpCurAfhrs) it.next();
+                    if(ccaTemp.getCmpCurAfhrsHrsType().equals("H")) {
+                    ccaTemp.setCmpCurAfhrsHrs(String.valueOf(afHrs));
+                    }
+                    else if(ccaTemp.getCmpCurAfhrsHrsType().equals("D")){
+                    ccaTemp.setCmpCurAfhrsHrs(String.valueOf(flDate));
+                    }
+                    else if(ccaTemp.getCmpCurAfhrsHrsType().equals("L"))   {
+                    ccaTemp.setCmpCurAfhrsHrs(String.valueOf(acLndCnt));
+                    }    
+                    em.merge(ccaTemp);
+                }
             }
-            
-            
-        }    
-            
-            
-        }
-        catch(Exception e)
-        {
-            context.setRollbackOnly();
-        }
+            }
+            catch(Exception e)
+            {
+                context.setRollbackOnly();
+            }
     }
 
 }

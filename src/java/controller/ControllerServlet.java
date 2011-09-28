@@ -14,6 +14,7 @@ import airdynasty.OutPhaseMnt;
 import airdynasty.bean.AirFrameBean;
 import airdynasty.bean.ComponentUtils;
 import airdynasty.bean.CraftUtils;
+import airdynasty.bean.OAFCIUtils;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Set;
@@ -52,6 +53,9 @@ public class ControllerServlet extends HttpServlet {
     private ComponentUtils cmpUtilObj;
     @EJB
     private CraftUtils cuObj;
+    @EJB
+    private OAFCIUtils oafciObj;
+    
     
     @Override
     public void init()
@@ -93,7 +97,10 @@ public class ControllerServlet extends HttpServlet {
             System.out.println(userPath);    
         AirCraft acObj = null;
         Set<Components> cmpObj = null; 
-        Double afHrs = null;
+        
+        String afHrs = null;
+        String acLndCnt = null;
+        String flDate = null;
         
         if(userPath.equals("/viewCraftList"))
         {
@@ -136,15 +143,19 @@ public class ControllerServlet extends HttpServlet {
         else if(userPath.equals("/addCraftHRS"))
         {
             // Retireve parameters from request.
-            afHrs = Double.parseDouble(request.getParameter("afHRS"));
-            
+            afHrs = request.getParameter("afHRS");
+            acLndCnt = request.getParameter("acLndCnt");
+            flDate = request.getParameter("flDate");
             //Integer stCount = Integer.parseInt(request.getParameter("acStCnt"));
             //Integer lndCount = Integer.parseInt(request.getParameter("acLndCnt"));
             
             //String flightDate = request.getParameter("flDate");
             
             // Set a hours to be substracted in servlet context.
+            
             getServletContext().setAttribute("afHrs",afHrs);
+            getServletContext().setAttribute("acLndCnt",acLndCnt);
+            getServletContext().setAttribute("flDate",flDate);
             
             userPath = "/viewaddHrsRes";
             
@@ -152,17 +163,19 @@ public class ControllerServlet extends HttpServlet {
         }
         else if(userPath.equals("/updateCraftHRS"))
         {
-            afHrs = (Double) getServletContext().getAttribute("afHrs");
+            afHrs =  (String) getServletContext().getAttribute("afHrs");
+            acLndCnt = (String) getServletContext().getAttribute("acLndCnt");
+            flDate = (String) getServletContext().getAttribute("flDate");
             
             acObj = (AirCraft) getServletContext().getAttribute("craftObj");
             
             if(afHrs != null)   {
                 
                 // Update Current Air Frame hours in Database. 
-                afbObj.setCurrentAFHrs(acObj, afHrs);
+                afbObj.setCurrentAFHrs(acObj, afHrs, acLndCnt, flDate);
                 
                 // Update remaining Life Hours in Database.
-                afbObj.setRemAFHrs(acObj, afHrs);
+                afbObj.setRemAFHrs(acObj, afHrs, acLndCnt, flDate);
                 
                 userPath = "/AddHrsConfirm";
                 
@@ -280,6 +293,40 @@ public class ControllerServlet extends HttpServlet {
             
         }
                 
+        }
+        
+        else if(userPath.equals("/addOAFCIntvl"))   {
+            
+            // Read Parameters from Request.
+            String hrsType = request.getParameter("hrsType");
+            
+            String nmText = request.getParameter("nmText");
+            String specText = request.getParameter("specText");
+            String intHRS = request.getParameter("intHRS");
+            String dueHRS = request.getParameter("dueHRS");
+            String remTime = request.getParameter("remTime");
+            String remText = request.getParameter("remText");
+            
+            // Add Paramaeters in to DB.
+            acObj = (AirCraft) getServletContext().getAttribute("craftObj");
+            if(acObj != null)   {
+            
+            // Send response to user.
+            if(oafciObj.addNewRecord(acObj, hrsType, nmText, specText, intHRS, dueHRS, remTime, remText))
+                userPath = "/trsuccess";
+            else
+            {
+                userPath = "/trfail";
+            }
+            }
+            else
+            {
+                userPath = "/trfail";
+            }
+            
+            
+            
+            
         }
         // Creates URL for Servlet redirect.
         String url = "/WEB-INF/view" + userPath + ".jsp";

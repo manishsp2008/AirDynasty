@@ -48,6 +48,7 @@
     </table>
     <ul>
         <li><a href="/AirDynasty/viewCraftList">Back to AirCraft List</a></li>
+        <li><a href="/AirDynasty/addOAFCIRec.jsp">Add New Record</a></li>
     </ul>
     
         

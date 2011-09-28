@@ -20,15 +20,16 @@
     </head>
     <body>
         <h1>Status after adding Air Frame hours.</h1>
+        <% int i = 1;%>
         <table border="3">
         <tr><th>Sr. No.</th><th>Component Name</th><th>Part No.</th><th>Due-Off Installation hours(AF Hrs.)</th>
         <th>Current Air Craft Hours(User Input)</th><th>Remaining Life Hours</th></tr>
         <c:forEach var="comp" items="${craftComps}">
         
-        <tr><td>1. </td><td>${comp.compPartname}</td><td>${comp.compPartnum}</td>
+        <tr><td><%= i++ %> </td><td>${comp.compPartname}</td><td>${comp.compPartnum}</td>
             
             <td>
-                <c:forEach var="insdhrs" items="${comp.compDueoffAfhrsInstCollection}">
+                <c:forEach var="insdhrs" items="${comp.compDueoffAfhrsInstSet}">
                     <c:out  value="${insdhrs.cdaHrs}"/><br/>
                     
                 </c:forEach>
@@ -39,7 +40,7 @@
             </td>
             
             <td>
-                <c:forEach var="rlHrs" items="${comp.compDueoffAfhrsInstCollection}">
+                <c:forEach var="rlHrs" items="${comp.compDueoffAfhrsInstSet}">
                     <fmt:formatNumber type="number" var="remHrs" value="${rlHrs.cdaHrs - afHrs}" maxFractionDigits="2" />
                     <c:out value="${remHrs}"/><br/>
                 </c:forEach>
