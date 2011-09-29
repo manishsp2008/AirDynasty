@@ -28,6 +28,7 @@
         </c:forEach>
     </table>
     <ul>
+        <li><a href="/AirDynasty/addEIRec.jsp">Add New Record</a></li>
         <li><a href="/AirDynasty/viewCraftList">Back to AirCraft List</a></li>
     </ul>
     </body>

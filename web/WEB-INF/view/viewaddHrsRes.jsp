@@ -23,31 +23,39 @@
         <% int i = 1;%>
         <table border="3">
         <tr><th>Sr. No.</th><th>Component Name</th><th>Part No.</th><th>Due-Off Installation hours(AF Hrs.)</th>
-        <th>Current Air Craft Hours(User Input)</th><th>Remaining Life Hours</th></tr>
-        <c:forEach var="comp" items="${craftComps}">
+        <th>Current Air Craft Hours(User Input)</th><th>Remaining Life Hours</th><th>Remarks</th></tr>
+        <c:forEach var="comp" items="${tempCompSet}">
         
         <tr><td><%= i++ %> </td><td>${comp.compPartname}</td><td>${comp.compPartnum}</td>
             
             <td>
                 <c:forEach var="insdhrs" items="${comp.compDueoffAfhrsInstSet}">
                     <c:out  value="${insdhrs.cdaHrs}"/><br/>
-                    
                 </c:forEach>
             </td>
             
             <td>
-                <c:out value="${afHrs}"/>
+                <c:forEach var="crHrs" items="${comp.cmpCurAfhrsSet}">
+                    <c:out value="${crHrs.cmpCurAfhrsHrs}"/><br/>
+                </c:forEach>
             </td>
             
             <td>
-                <c:forEach var="rlHrs" items="${comp.compDueoffAfhrsInstSet}">
-                    <fmt:formatNumber type="number" var="remHrs" value="${rlHrs.cdaHrs - afHrs}" maxFractionDigits="2" />
-                    <c:out value="${remHrs}"/><br/>
+                <c:forEach var="rlHrs" items="${comp.compRemLifeSet}">
+                    <c:out value="${rlHrs.crlHrs}"/><br/>
                 </c:forEach>
             </td>
+            <td>
+                <c:forEach var="rmText" items="${comp.cmpRemarksSet}">
+                    <c:out value="${rmText.cmpRemarksText}"/><br/>
+                </c:forEach>
+            </td>
+            
         </tr>
         </c:forEach>
         </table>
+        
+        
         <br/><br/><br/>
         <a href="/AirDynasty/updateCraftHRS">Confirm & Update</a>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

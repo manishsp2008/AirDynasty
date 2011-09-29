@@ -4,9 +4,16 @@
  */
 package airdynasty.utils;
 
+import airdynasty.CmpCurAfhrs;
+import airdynasty.CompDueoffAfhrsInst;
+import airdynasty.CompRemLife;
+import airdynasty.Components;
 import java.text.DecimalFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.Set;
 
 /**
  *
@@ -44,17 +51,99 @@ public class AirFrameLogic {
         }
         else if(hrsType.equals("L"))   {
             
-            Long crCnt = Long.valueOf(curHrs);
-            Long afCnt = Long.valueOf(acLndCnt);
+            Integer crCnt = Integer.valueOf(curHrs);
+            Integer afCnt = Integer.valueOf(acLndCnt);
             
             return String.valueOf(crCnt - afCnt);
         }
-        return "";
+        return " ";
         }
         catch(Exception e)
         {
-            return "";
+            return " ";
         }
+        
+    }
+    
+    
+    public static void updateCompSet(Set<Components> cmpObjSet, String afHrs, String acLndCnt, String flDate) throws ParseException  {
+        
+        for (Iterator<Components> it = cmpObjSet.iterator(); it.hasNext();) {
+            
+            Components cmpObj = it.next();
+            
+            Set<CompRemLife> crlObjSet = cmpObj.getCompRemLifeSet();
+            
+            Set<CmpCurAfhrs> ccaObjSet = cmpObj.getCmpCurAfhrsSet();
+            
+            setCAHrs(ccaObjSet, afHrs, acLndCnt, flDate);
+            
+            updateRLHRS(crlObjSet, afHrs, acLndCnt, flDate);
+            
+        }
+        
+       
+    }
+    
+    private static void updateRLHRS(Set<CompRemLife> crlObjSet,String afHrs, String acLndCnt, String flDate) throws ParseException   {
+        
+        for (Iterator<CompRemLife> it = crlObjSet.iterator(); it.hasNext();) {
+            
+            CompRemLife crlObj = it.next();
+            
+            //if(crlObj.getCrlHrsType().equals("H")) {
+                
+                Set<CompDueoffAfhrsInst> cmpDOAHSet = crlObj.getCrlCompId().getCompDueoffAfhrsInstSet();
+                
+                for (Iterator<CompDueoffAfhrsInst> it1 =  cmpDOAHSet.iterator(); it1.hasNext();) {
+                    
+                    CompDueoffAfhrsInst cdaObj = it1.next();
+                    
+                    if(cdaObj.getCdaHrsType().equals("H")) {
+                    Double h1 = Double.valueOf(cdaObj.getCdaHrs());
+                    Double h2 = Double.valueOf(afHrs);
+                    String res = String.valueOf(AirFrameLogic.roundTwoDec(h1 - h2));
+                    crlObj.setCrlHrs(res);
+                    }
+                    if(cdaObj.getCdaHrsType().equals("D")) {
+                    SimpleDateFormat sdfObj = new SimpleDateFormat("dd-MM-yyyy");
+                    Date d1 = sdfObj.parse(cdaObj.getCdaHrs());
+                    Date d2 = sdfObj.parse(flDate);
+                    Long x = d1.getTime() - d2.getTime();
+                    String res = String.valueOf(x / 86400000);
+                    crlObj.setCrlHrs(res);
+                    }
+                    if(cdaObj.getCdaHrsType().equals("L")) {
+                    Integer l1 = Integer.valueOf(cdaObj.getCdaHrs());
+                    Integer l2 = Integer.valueOf(acLndCnt);
+                    String res = String.valueOf(l1 - l2);
+                    crlObj.setCrlHrs(res);
+                    }   
+                    
+                }
+                        
+        }
+        
+    }
+    
+    private static void setCAHrs(Set<CmpCurAfhrs> ccaObjSet, String afHrs, String acLndCnt, String flDate) {
+        
+            for (Iterator<CmpCurAfhrs> it1 = ccaObjSet.iterator(); it1.hasNext();) {
+                
+                CmpCurAfhrs ccaObj = it1.next();
+                
+                if(ccaObj.getCmpCurAfhrsHrsType().equals("H")) {
+                    
+                    ccaObj.setCmpCurAfhrsHrs(afHrs);
+                }
+                else if(ccaObj.getCmpCurAfhrsHrsType().equals("D")) {
+                    
+                    ccaObj.setCmpCurAfhrsHrs(flDate);
+                }
+                else if(ccaObj.getCmpCurAfhrsHrsType().equals("L")) {
+                    ccaObj.setCmpCurAfhrsHrs(acLndCnt);
+                }
+            }
         
     }
     

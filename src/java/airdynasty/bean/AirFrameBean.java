@@ -41,7 +41,9 @@ public class AirFrameBean {
     private SessionContext context;
     
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
+
     public void setRemAFHrs(AirCraft acObj, String afHrs, String acLndCnt, String flDate) {
+
         try {
         
         Set<Components> cmps = acObj.getComponentsSet();
@@ -58,6 +60,7 @@ public class AirFrameBean {
                 // Persisit CompRemLife Object.
                 
                 // Find Related value from database.
+
                 //String remHrs = ccaTemp.getCdaHrs() - afHrs ;
                 String subRes = AirFrameLogic.doSubtraction(ccaTemp.getCdaHrs(), afHrs, acLndCnt,flDate, ccaTemp.getCdaHrsType());
                 if(subRes != null && !subRes.isEmpty()) {
@@ -65,6 +68,11 @@ public class AirFrameBean {
                     setRLHrs(acObj, subRes, ccaTemp.getCdaHrsType());
                     
                 }
+
+                
+               
+                setRLHrs(acObj, subRes, ccaTemp.getCdaHrsType());
+
         }
         
     }
@@ -112,6 +120,7 @@ public class AirFrameBean {
     }
     
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
+
     public void setCurrentAFHrs(AirCraft acObj, String afHrs, String acLndCnt, String flDate)
     {
     
@@ -143,6 +152,21 @@ public class AirFrameBean {
             {
                 context.setRollbackOnly();
             }
+    }
+    
+    public boolean updateTable(AirCraft acObj, Set<Components> cmpObjSet) {
+        try {
+        acObj.setComponentsSet(cmpObjSet);
+        
+        em.merge(acObj);
+        
+        return true;
+        }
+        catch(Exception e)
+        {
+            context.setRollbackOnly();
+            return false;
+        }
     }
 
 }

@@ -25,7 +25,7 @@ import airdynasty.CmpSerialNumber;
 import airdynasty.CompDueoffAfhrsInst;
 import airdynasty.CompRemLife;
 import airdynasty.Components;
-import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.HashSet;
 import java.util.Set;
 import javax.annotation.Resource;
@@ -76,9 +76,9 @@ public class ComponentUtils {
     
     
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
-    public boolean addComponent(AirCraft acObj, String cmpName, String partNum, String srNum, String flHrs,String flHrsType,
-            String lrInstHrs,String lrInstHrsType, String afInstHrs,String afInstHrsType, String InstDueHrs,String InstDueHrsType,
-            String InstDate, String crAfHrs, String crAfHrsType, String rlHrs,String rlHrsType, String remText) {
+    public boolean addComponent(AirCraft acObj, String cmpName, String partNum, String srNum, String flHrs, String flHrsType,
+            String lrInstHrs, String lrInstHrsType, String afInstHrs, String afInstHrsType, String InstDueHrs, String InstDueHrsType, String InstDate,
+            String crAfHrs,String crAfHrsType, String rlHrs, String rlHrsType, String remText) {
         
         try {
         Components cmpObj = new Components();
@@ -122,12 +122,10 @@ public class ComponentUtils {
         caiObjSet.add(iafObj);
         cmpObj.setCmpAfhrsInstSet(caiObjSet);
         
-        int y = Integer.parseInt(InstDate.split("-")[2]);
-        int m = Integer.parseInt(InstDate.split("-")[1]);
-        int dt = Integer.parseInt(InstDate.split("-")[0]);
         CmpDateInst iddObj = new CmpDateInst();
         iddObj.setCmpDateInstId(cmp_date_inst_Facade.count()+1);
-        iddObj.setCmpDateInstDate(new Date(y,m,dt));
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        iddObj.setCmpDateInstDate(sdf.parse(InstDate));
         iddObj.setCmpDateInstCompId(cmpObj);
         Set<CmpDateInst> cdiObjSet  = new HashSet<CmpDateInst>();
         cdiObjSet.add(iddObj);

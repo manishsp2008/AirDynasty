@@ -77,6 +77,10 @@ INSERT INTO airdyna.opm_time_rem (`OPMTR_HRS`, `OPMTR_HRS_TYPE`, `OPMTR_OPM_ID`)
 INSERT INTO airdyna.opm_remarks (`OPMREM_TEXT`, `OPMREM_OPM_ID`) VALUES ('In Days', 1);
 
 --------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO airdyna.`user` (`USER_NAME`, `USER_REALNAME`, `USER_PASSWORD`, `USER_EMAILID`) VALUES ('admin', 'admin', 'admin', 'admin@admin.com');
+
+INSERT INTO airdyna.user_group (group_name, group_user_id) VALUES ('Administrator', 1);
+INSERT INTO airdyna.user_group (group_name, group_user_id) VALUES ('User', 1);
 
 
 

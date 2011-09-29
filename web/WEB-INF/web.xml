@@ -52,9 +52,21 @@
         <servlet-name>ControllerServlet</servlet-name>
         <url-pattern>/viewOPMRec</url-pattern>
     </servlet-mapping>
-      <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ControllerServlet</servlet-name>
         <url-pattern>/addCmpRec</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>/addOAFCIntvl</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>/addEngInspec</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>/addOPMRec</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ControllerServlet</servlet-name>
@@ -66,4 +78,5 @@
             30
         </session-timeout>
     </session-config>
+
 </web-app>

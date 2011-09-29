@@ -4,6 +4,7 @@
     Author     : A187252
 --%>
 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page import="java.util.Calendar"%>
 <%@page import="airdynasty.CmpSerialNumber"%>
 <%@page import="java.util.Set"%>
@@ -62,7 +63,8 @@
             </td>
             <td>
                 <c:forEach var="insdate" items="${comp.cmpDateInstSet}">
-                    <c:out  value="${insdate.cmpDateInstDate}"/><br/>
+                    <fmt:formatDate pattern="dd-MM-yyyy" value="${insdate.cmpDateInstDate}" var="fmtDate" />
+                    <c:out  value="${fmtDate}"/><br/>
                 </c:forEach>
             </td>
             <td>
