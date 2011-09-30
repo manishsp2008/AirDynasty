@@ -33,13 +33,11 @@
                     <c:out  value="${insdhrs.cdaHrs}"/><br/>
                 </c:forEach>
             </td>
-            
             <td>
                 <c:forEach var="crHrs" items="${comp.cmpCurAfhrsSet}">
                     <c:out value="${crHrs.cmpCurAfhrsHrs}"/><br/>
                 </c:forEach>
             </td>
-            
             <td>
                 <c:forEach var="rlHrs" items="${comp.compRemLifeSet}">
                     <c:out value="${rlHrs.crlHrs}"/><br/>
@@ -50,11 +48,9 @@
                     <c:out value="${rmText.cmpRemarksText}"/><br/>
                 </c:forEach>
             </td>
-            
         </tr>
         </c:forEach>
         </table>
-        
         
         <br/><br/><br/>
         <a href="/AirDynasty/updateCraftHRS">Confirm & Update</a>

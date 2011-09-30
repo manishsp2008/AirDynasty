@@ -23,7 +23,8 @@
         
         <ol>
             <li>Form Number : ${craftObj.acFormnum}</li>
-            <li>Date : <%= Calendar.getInstance().getTime() %></li>
+            <fmt:formatDate pattern="dd-MM-yyyy" value="<%= Calendar.getInstance().getTime() %>" var="sysDate" />
+            <li>Date : <c:out  value="${sysDate}"/><br/> </li>
             <li>AirFrame Hours : ${craftObj.acAfhrs}</li>
             <li>Engine Hours : ${craftObj.acEnghrs}</li>
             <li>Landing Count : ${craftObj.acLandingcount}</li>
@@ -94,7 +95,14 @@
         
         <h4>Related Operations</h4>
         <ul>
-            <li><a href="/AirDynasty/addHours.jsp">Add Air Craft Hours</a></li>
+            <c:choose>
+                <c:when test="${acID % 2 == 0}">
+                    <li><a href="/AirDynasty/addEngHrs.jsp">Add Engine Hours</a></li>
+                </c:when> 
+                <c:otherwise>
+                    <li><a href="/AirDynasty/addHours.jsp">Add Air Craft Hours</a></li>
+                </c:otherwise>
+            </c:choose>
             <li><a href="/AirDynasty/viewEngInspec">View A/f & Engine Inspection Records</a></li>
             <li><a href="/AirDynasty/viewOAFCIntvl">Oil and Fuel Change Records</a></li>
             <li><a href="/AirDynasty/viewOPMRec">Out of Phase Maintenance Records</a></li>

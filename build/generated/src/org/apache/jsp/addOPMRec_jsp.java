@@ -53,7 +53,7 @@ public final class addOPMRec_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <body>\r\n");
       out.write("        <h3>Add New OPM Record</h3>\r\n");
       out.write("       \r\n");
-      out.write("        <form name=\"myForm\" action=\"/AirDynasty/addOPMHrs\">\r\n");
+      out.write("        <form name=\"myForm\" action=\"/AirDynasty/addOPMRec\">\r\n");
       out.write("        <select name=\"hrsType\">\r\n");
       out.write("            <option value=\"A\">Air Frame Hours</option>\r\n");
       out.write("            <option value=\"D\">In Days</option>\r\n");

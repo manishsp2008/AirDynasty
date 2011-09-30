@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Air Dynasty - Add Craft Hours</title>
+        <title>Air Dynasty - Add Air Craft Hours</title>
     </head>
     <body>
         <h3>Enter Air Craft Hours.</h3>

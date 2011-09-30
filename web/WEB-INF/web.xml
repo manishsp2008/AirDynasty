@@ -72,6 +72,14 @@
         <servlet-name>ControllerServlet</servlet-name>
         <url-pattern>/addOAFCIntvl</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>/addEngHrs</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>/updateEngHRS</url-pattern>
+    </servlet-mapping>
     
     <session-config>
         <session-timeout>

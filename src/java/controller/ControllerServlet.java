@@ -40,6 +40,7 @@ import javax.servlet.http.HttpServletResponse;
         loadOnStartup=1,
         urlPatterns={ "/viewCraft","/addCraft","/editCraft","/viewCraftList",
                       "/addCraftHRS","/updateCraftHRS","/addComponent",
+                      "/addEngHrs","/updateEngHRS",
                       "/editComponent","/viewComponents","/addCmpRec",
                       "/addUser","/viewUser",
                       "/viewEngInspec","/addEngInspec","/editEngInspec",
@@ -112,6 +113,11 @@ public class ControllerServlet extends HttpServlet {
         String acLndCnt = null;
         String flDate = null;
         
+        String engHrs = null;
+        String ngCycs = null;
+        String npCycs = null;
+        String engDate = null;
+        
         if(userPath.equals("/viewCraftList"))
         {
             // Load all air craft details in servlet.
@@ -126,8 +132,10 @@ public class ControllerServlet extends HttpServlet {
         }
         else if(userPath.equals("/viewCraft"))
         {
-           // Retirieve craft id from rquest. 
+            // Retirieve craft id from rquest. 
             String id = request.getQueryString();
+            // Set id in servlet context
+            getServletContext().setAttribute("acID", Integer.valueOf(id));
             
             if(id != null) {
             // Retrieve Aircraft Object for request id.
@@ -155,65 +163,6 @@ public class ControllerServlet extends HttpServlet {
         else if(userPath.equals("/editCraft"))
         {
             // TODO : Edit Craft Logic needed to be written here.
-        }
-        else if(userPath.equals("/addCraftHRS"))
-        {
-            // Retireve parameters from request.
-            afHrs = request.getParameter("afHRS");
-            acLndCnt = request.getParameter("acLndCnt");
-            flDate = request.getParameter("flDate");
-            
-            acObj = (AirCraft) getServletContext().getAttribute("craftObj");
-            
-            if(acObj != null)   {
-               // Get whole componenet set
-                Set<Components> cmpObjSet = acObj.getComponentsSet();
-               // Reflect changes in Set 
-               AirFrameLogic.updateCompSet(cmpObjSet, afHrs, acLndCnt, flDate);
-               // Pass that set in servlet context
-               getServletContext().setAttribute("tempCompSet", cmpObjSet); 
-                
-            }
-
-            // Set a hours to be substracted in servlet context.
-            getServletContext().setAttribute("afHrs",afHrs);
-            getServletContext().setAttribute("acLndCnt",acLndCnt);
-            getServletContext().setAttribute("flDate",flDate);
-            
-            userPath = "/viewaddHrsRes";
-        }
-        else if(userPath.equals("/updateCraftHRS"))
-        {
-
-            afHrs =  (String) getServletContext().getAttribute("afHrs");
-            acLndCnt = (String) getServletContext().getAttribute("acLndCnt");
-            flDate = (String) getServletContext().getAttribute("flDate");
-
-            acObj = (AirCraft) getServletContext().getAttribute("craftObj");
-            Set<Components> cmpObjSet = (Set<Components>) getServletContext().getAttribute("tempCompSet");
-            boolean flag = false;
-            if(afHrs != null)   {
-                
-                // Update Current Air Frame hours in Database. 
-                //afbObj.setCurrentAFHrs(acObj, afHrs, acLndCnt, flDate);
-                
-                // Update remaining Life Hours in Database.
-                //afbObj.setRemAFHrs(acObj, afHrs, acLndCnt, flDate);
-                flag = afbObj.updateTable(acObj, cmpObjSet);
-                if(flag) {
-                userPath = "/AddHrsConfirm";
-                }
-                else
-                {
-                userPath = "/trfail";
-                }
-            }
-            else
-            {
-                userPath="/aircraft";
-            }
-                
-            
         }
         else if(userPath.equals("/addCmpRec"))
         {
@@ -310,7 +259,7 @@ public class ControllerServlet extends HttpServlet {
         
         else if(userPath.equals("/viewOPMRec"))   {
             
-            AirCraft tempAcObj = (AirCraft) getServletContext().getAttribute("craftObj"); 
+           AirCraft tempAcObj = (AirCraft) getServletContext().getAttribute("craftObj"); 
             
            if(tempAcObj != null)   {
                
@@ -321,11 +270,9 @@ public class ControllerServlet extends HttpServlet {
            userPath="/viewOPMRec";
             
             
-        }
+            }
                 
         }
-
-        
         else if(userPath.equals("/addOAFCIntvl"))   {
             
             // Read Parameters from Request.
@@ -411,6 +358,109 @@ public class ControllerServlet extends HttpServlet {
 
             
         }
+        else if(userPath.equals("/addCraftHRS"))
+        {
+            // Retireve parameters from request.
+            afHrs = request.getParameter("afHRS");
+            acLndCnt = request.getParameter("acLndCnt");
+            flDate = request.getParameter("flDate");
+            
+            acObj = (AirCraft) getServletContext().getAttribute("craftObj");
+            
+            if(acObj != null)   {
+               // Get all compoenets for selected Air Craft.
+                Set<Components> cmpObjSet = acObj.getComponentsSet();
+               // Reflect changes in Set 
+               AirFrameLogic.updateCompSet(cmpObjSet, afHrs, acLndCnt, flDate);
+               // Pass that set in servlet context
+               getServletContext().setAttribute("tempCompSet", cmpObjSet); 
+                
+            }
+
+            // Set a hours to be substracted in servlet context.
+            getServletContext().setAttribute("afHrs",afHrs);
+            getServletContext().setAttribute("acLndCnt",acLndCnt);
+            getServletContext().setAttribute("flDate",flDate);
+            
+            userPath = "/viewaddHrsRes";
+        }
+        else if(userPath.equals("/updateCraftHRS"))
+        {
+            
+            //afHrs =  (String) getServletContext().getAttribute("afHrs");
+            //acLndCnt = (String) getServletContext().getAttribute("acLndCnt");
+            //flDate = (String) getServletContext().getAttribute("flDate");
+
+            acObj = (AirCraft) getServletContext().getAttribute("craftObj");
+            Set<Components> cmpObjSet = (Set<Components>) getServletContext().getAttribute("tempCompSet");
+            boolean flag = false;
+            if(acObj != null)   {
+                
+                flag = afbObj.updateTable(acObj, cmpObjSet);
+                
+                if(flag) {  userPath = "/AddHrsConfirm";    }
+                else     {  userPath = "/trfail";           }
+            }
+            else
+            {
+                userPath="/aircraft";
+            }
+                
+            
+        }
+        else if(userPath.equals("/addEngHrs")) {
+            
+            // Read all parameters from request.
+             engHrs = request.getParameter("engHrs");
+             ngCycs = request.getParameter("ngCycs");
+             npCycs = request.getParameter("npCycs");
+             engDate = request.getParameter("engDate");  
+            
+            // Get AirCraft Object for which hours to be added
+            acObj = (AirCraft) getServletContext().getAttribute("craftObj");
+            
+            // Update them accordingly.
+            if(acObj != null) {
+                
+                // Get all components for selected Air Craft Engine.
+                Set<Components> cmpObjSet = acObj.getComponentsSet();
+                
+                //Reflect Changes in Componenets
+                AirFrameLogic.updateEngCompSet(cmpObjSet, engHrs, ngCycs, npCycs, engDate);
+                
+                // Pass compoenets to servlet Context.
+                getServletContext().setAttribute("tempEngCompSet", cmpObjSet);
+            }
+            
+            // Set a hours to be substracted in servlet context.
+            getServletContext().setAttribute("engHrs",engHrs);
+            getServletContext().setAttribute("ngCycs",ngCycs);
+            getServletContext().setAttribute("npCycs",npCycs);
+            getServletContext().setAttribute("engDate",engDate);
+            
+            // Show user preview of changes.
+            userPath = "/viewEngAHRes";
+        }
+        else if(userPath.equals("/updateEngHRS")) {
+            
+            acObj = (AirCraft) getServletContext().getAttribute("craftObj");
+            Set<Components> cmpObjSet = (Set<Components>) getServletContext().getAttribute("tempEngCompSet");
+            boolean flag = false;
+            if(acObj != null)   {
+                
+                flag = afbObj.updateTable(acObj, cmpObjSet);
+                
+                if(flag) {  userPath = "/AddHrsConfirm";    }
+                else     {  userPath = "/trfail";           }
+            }
+            else
+            {
+                userPath="/aircraft";
+            }
+        }
+        
+        
+        
         // Creates URL for Servlet redirect.
         String url = "/WEB-INF/view" + userPath + ".jsp";
         
