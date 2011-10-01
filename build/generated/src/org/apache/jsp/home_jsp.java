@@ -76,115 +76,117 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write('\r');
       out.write('\n');
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("<html>\n");
-      out.write("<head>\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("<html>\r\n");
+      out.write("<head>\r\n");
       out.write("    <link type=\"text/css\" rel=\"stylesheet\" href=\"");
       if (_jspx_meth_c_url_0(_jspx_page_context))
         return;
-      out.write("\"/>\n");
-      out.write("    <title>Apache Shiro Quickstart</title>\n");
-      out.write("</head>\n");
-      out.write("<body>\n");
-      out.write("\n");
-      out.write("<h1>Apache Shiro Quickstart</h1>\n");
-      out.write("\n");
+      out.write("\"/>\r\n");
+      out.write("    <title>Apache Shiro Quickstart</title>\r\n");
+      out.write("</head>\r\n");
+      out.write("<body>\r\n");
+      out.write("\r\n");
+      out.write("<h1>Apache Shiro Quickstart</h1>\r\n");
+      out.write("\r\n");
       out.write("<p>Hi ");
       if (_jspx_meth_shiro_guest_0(_jspx_page_context))
         return;
       if (_jspx_meth_shiro_user_0(_jspx_page_context))
         return;
-      out.write("!\n");
+      out.write("!\r\n");
       out.write("    ( ");
       if (_jspx_meth_shiro_user_1(_jspx_page_context))
         return;
-      out.write("\n");
+      out.write("\r\n");
       out.write("    ");
       if (_jspx_meth_shiro_guest_1(_jspx_page_context))
         return;
-      out.write(" )\n");
-      out.write("</p>\n");
-      out.write("\n");
-      out.write("<p>Welcome to the Apache Shiro Quickstart sample application.\n");
-      out.write("    This page represents the home page of any web application.</p>\n");
-      out.write("\n");
+      out.write(" )\r\n");
+      out.write("</p>\r\n");
+      out.write("\r\n");
+      out.write("<p>Welcome to the Apache Shiro Quickstart sample application.\r\n");
+      out.write("    This page represents the home page of any web application.</p>\r\n");
+      out.write("\r\n");
       if (_jspx_meth_shiro_user_2(_jspx_page_context))
         return;
+      out.write('\r');
       out.write('\n');
       if (_jspx_meth_shiro_guest_2(_jspx_page_context))
         return;
-      out.write("\n");
-      out.write("\n");
-      out.write("<h2>Roles</h2>\n");
-      out.write("\n");
-      out.write("<p>To show some taglibs, here are the roles you have and don't have. Log out and log back in under different user\n");
-      out.write("    accounts to see different roles.</p>\n");
-      out.write("\n");
-      out.write("<h3>Roles you have</h3>\n");
-      out.write("\n");
-      out.write("<p>\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("<h2>Roles</h2>\r\n");
+      out.write("\r\n");
+      out.write("<p>To show some taglibs, here are the roles you have and don't have. Log out and log back in under different user\r\n");
+      out.write("    accounts to see different roles.</p>\r\n");
+      out.write("\r\n");
+      out.write("<h3>Roles you have</h3>\r\n");
+      out.write("\r\n");
+      out.write("<p>\r\n");
       out.write("    ");
       if (_jspx_meth_shiro_hasRole_0(_jspx_page_context))
         return;
-      out.write("\n");
+      out.write("\r\n");
       out.write("    ");
       if (_jspx_meth_shiro_hasRole_1(_jspx_page_context))
         return;
-      out.write("\n");
+      out.write("\r\n");
       out.write("    ");
       if (_jspx_meth_shiro_hasRole_2(_jspx_page_context))
         return;
-      out.write("\n");
+      out.write("\r\n");
       out.write("    ");
       if (_jspx_meth_shiro_hasRole_3(_jspx_page_context))
         return;
-      out.write("\n");
+      out.write("\r\n");
       out.write("    ");
       if (_jspx_meth_shiro_hasRole_4(_jspx_page_context))
         return;
-      out.write("\n");
-      out.write("</p>\n");
-      out.write("\n");
-      out.write("<h3>Roles you DON'T have</h3>\n");
-      out.write("\n");
-      out.write("<p>\n");
+      out.write("\r\n");
+      out.write("</p>\r\n");
+      out.write("\r\n");
+      out.write("<h3>Roles you DON'T have</h3>\r\n");
+      out.write("\r\n");
+      out.write("<p>\r\n");
       out.write("    ");
       if (_jspx_meth_shiro_lacksRole_0(_jspx_page_context))
         return;
-      out.write("\n");
+      out.write("\r\n");
       out.write("    ");
       if (_jspx_meth_shiro_lacksRole_1(_jspx_page_context))
         return;
-      out.write("\n");
+      out.write("\r\n");
       out.write("    ");
       if (_jspx_meth_shiro_lacksRole_2(_jspx_page_context))
         return;
-      out.write("\n");
+      out.write("\r\n");
       out.write("    ");
       if (_jspx_meth_shiro_lacksRole_3(_jspx_page_context))
         return;
-      out.write("\n");
+      out.write("\r\n");
       out.write("    ");
       if (_jspx_meth_shiro_lacksRole_4(_jspx_page_context))
         return;
-      out.write("\n");
-      out.write("</p>\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("</body>\n");
-      out.write("</html>\n");
+      out.write("\r\n");
+      out.write("</p>\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("</body>\r\n");
+      out.write("</html>\r\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
@@ -436,7 +438,7 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
         out.write("<p>If you want to access the user-only <a href=\"");
         if (_jspx_meth_c_url_4((javax.servlet.jsp.tagext.JspTag) _jspx_th_shiro_guest_2, _jspx_page_context))
           return true;
-        out.write("\">account page</a>,\n");
+        out.write("\">account page</a>,\r\n");
         out.write("    you will need to log-in first.</p>");
         int evalDoAfterBody = _jspx_th_shiro_guest_2.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)

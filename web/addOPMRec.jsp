@@ -10,6 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Air Dynasty - Add New OPM Record</title>
+        <%@include file="includeS.jsp" %>
     </head>
     <body>
         <h3>Add New OPM Record</h3>

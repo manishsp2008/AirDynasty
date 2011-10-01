@@ -61,17 +61,19 @@ public final class logout_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write('\r');
       out.write('\n');
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write('\r');
       out.write('\n');
 
     /*
@@ -110,25 +112,25 @@ public final class logout_jsp extends org.apache.jasper.runtime.HttpJspBase
 
     SecurityUtils.getSubject().logout();
 
-      out.write("\n");
-      out.write("<html>\n");
-      out.write("<head>\n");
+      out.write("\r\n");
+      out.write("<html>\r\n");
+      out.write("<head>\r\n");
       out.write("    <link type=\"text/css\" rel=\"stylesheet\" href=\"");
       if (_jspx_meth_c_url_0(_jspx_page_context))
         return;
-      out.write("\"/>\n");
-      out.write("</head>\n");
-      out.write("<body>\n");
-      out.write("\n");
-      out.write("<h2>Log out</h2>\n");
-      out.write("\n");
+      out.write("\"/>\r\n");
+      out.write("</head>\r\n");
+      out.write("<body>\r\n");
+      out.write("\r\n");
+      out.write("<h2>Log out</h2>\r\n");
+      out.write("\r\n");
       out.write("<p>You have succesfully logged out. <a href=\"");
       if (_jspx_meth_c_url_1(_jspx_page_context))
         return;
-      out.write("\">Return to the home page.</a></p>\n");
-      out.write("\n");
-      out.write("</body>\n");
-      out.write("</html>\n");
+      out.write("\">Return to the home page.</a></p>\r\n");
+      out.write("\r\n");
+      out.write("</body>\r\n");
+      out.write("</html>\r\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;

@@ -21,6 +21,7 @@
 <html>
 <head>
     <link type="text/css" rel="stylesheet" href="<c:url value="css/style.css"/>"/>
+    <%@include file="includeS.jsp" %>
 </head>
 <body>
 

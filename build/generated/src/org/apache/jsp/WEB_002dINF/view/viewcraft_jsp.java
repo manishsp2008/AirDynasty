@@ -78,18 +78,18 @@ public final class viewcraft_jsp extends org.apache.jasper.runtime.HttpJspBase
 
       out.write("\r\n");
       out.write("\r\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
@@ -99,15 +99,20 @@ public final class viewcraft_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
       out.write("        <title>Air Dynasty - Air Craft Details</title>\r\n");
       out.write("        <style type=\"text/css\" title=\"currentStyle\">\r\n");
-      out.write("\t@import \"css/demo_page.css\"; @import \"/media/css/header.ccss\";\r\n");
-      out.write("\t@import \"css/demo_table_jui.css\";\r\n");
-      out.write("\t@import \"examples/examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css\";\r\n");
+      out.write("            @import \"media/css/demo_page.css\";\r\n");
+      out.write("\t    @import \"media/css/demo_table.css\";\r\n");
       out.write("\t</style>\r\n");
-      out.write("        <script type=\"text/javascript\" src=\"js/airdyna.js\" ></script>\r\n");
-      out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"js/jquery.js\"></script>\r\n");
-      out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"js/jquery.dataTables.js\"></script>\r\n");
+      out.write("\t\r\n");
+      out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.js\"></script>\r\n");
+      out.write("\t<script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.dataTables.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" charset=\"utf-8\">\r\n");
+      out.write("\t\t\t$(document).ready(function() {\r\n");
+      out.write("\t\t\t\t$('#example').dataTable();\r\n");
+      out.write("\t\t\t} );\r\n");
+      out.write("\t\t</script>\r\n");
       out.write("    </head>\r\n");
-      out.write("    <body>\r\n");
+      out.write("    \r\n");
+      out.write("    <body id=\"dt_example\">\r\n");
       out.write("        <h1>");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${craftObj.acName}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("</h1>\r\n");
@@ -158,11 +163,14 @@ public final class viewcraft_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        ");
 int i=1;
       out.write("\r\n");
-      out.write("        <table border=\"3\" id=\"adTable\">\r\n");
+      out.write("        <table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" class=\"display\" id=\"example\">\r\n");
+      out.write("        <thead>\r\n");
       out.write("        <tr><th>Sr. No.</th><th>Component Name</th><th>Part No.</th><th>Serial No.</th><th>Finite Life(TBO)</th>\r\n");
       out.write("        <th>Life Remaining (Installation)</th><th>Installation Air Frame Hours</th><th>Installation Date</th>\r\n");
       out.write("        <th>Installation Due Off Hours</th><th>Current Air Frame Hours</th><th>Remaining Life Hours</th>\r\n");
       out.write("        <th>Remarks</th></tr>\r\n");
+      out.write("        </thead>\r\n");
+      out.write("        <tbody>\r\n");
       out.write("        ");
       //  c:forEach
       org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
@@ -177,62 +185,62 @@ int i=1;
           do {
             out.write("\r\n");
             out.write("        \r\n");
-            out.write("        <tr><td>");
+            out.write("        <tr class=\"gradeA\"><td class=\"center\">");
             out.print(i++);
-            out.write("</td><td>");
+            out.write("</td><td class=\"center\">");
             out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${comp.compPartname}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-            out.write("</td><td>");
+            out.write("</td><td class=\"center\">");
             out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${comp.compPartnum}", java.lang.String.class, (PageContext)_jspx_page_context, null));
             out.write("</td>\r\n");
-            out.write("            <td>\r\n");
+            out.write("            <td class=\"center\">\r\n");
             out.write("                ");
             if (_jspx_meth_c_forEach_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
               return;
             out.write("\r\n");
             out.write("            </td>\r\n");
-            out.write("            <td>\r\n");
+            out.write("            <td class=\"center\">\r\n");
             out.write("                ");
             if (_jspx_meth_c_forEach_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
               return;
             out.write("\r\n");
             out.write("            </td>\r\n");
-            out.write("            <td>\r\n");
+            out.write("            <td class=\"center\">\r\n");
             out.write("                ");
             if (_jspx_meth_c_forEach_3((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
               return;
             out.write("\r\n");
             out.write("            </td>\r\n");
-            out.write("            <td>\r\n");
+            out.write("            <td class=\"center\">\r\n");
             out.write("                ");
             if (_jspx_meth_c_forEach_4((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
               return;
             out.write("\r\n");
             out.write("            </td>\r\n");
-            out.write("            <td>\r\n");
+            out.write("            <td class=\"center\">\r\n");
             out.write("                ");
             if (_jspx_meth_c_forEach_5((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
               return;
             out.write("\r\n");
             out.write("            </td>\r\n");
-            out.write("            <td>\r\n");
+            out.write("            <td class=\"center\">\r\n");
             out.write("                ");
             if (_jspx_meth_c_forEach_6((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
               return;
             out.write("\r\n");
             out.write("            </td>\r\n");
-            out.write("            <td>\r\n");
+            out.write("            <td class=\"center\">\r\n");
             out.write("                ");
             if (_jspx_meth_c_forEach_7((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
               return;
             out.write("\r\n");
             out.write("            </td>\r\n");
-            out.write("            <td>\r\n");
+            out.write("            <td class=\"center\">\r\n");
             out.write("                ");
             if (_jspx_meth_c_forEach_8((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
               return;
             out.write("\r\n");
             out.write("            </td>\r\n");
-            out.write("            <td>\r\n");
+            out.write("            <td class=\"center\">\r\n");
             out.write("                ");
             if (_jspx_meth_c_forEach_9((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
               return;
@@ -257,7 +265,7 @@ int i=1;
         _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
       }
       out.write("\r\n");
-      out.write("        \r\n");
+      out.write("        </tbody>\r\n");
       out.write("        </table>\r\n");
       out.write("        \r\n");
       out.write("        <h4>Related Operations</h4>\r\n");
@@ -270,7 +278,7 @@ int i=1;
       out.write("            <li><a href=\"/AirDynasty/viewOAFCIntvl\">Oil and Fuel Change Records</a></li>\r\n");
       out.write("            <li><a href=\"/AirDynasty/viewOPMRec\">Out of Phase Maintenance Records</a></li>\r\n");
       out.write("        </ul>\r\n");
-      out.write("        <h4>Manipulate Component Records(Admin access Only)</h4>\r\n");
+      out.write("        <h4>Manipulate Component Records</h4>\r\n");
       out.write("        <ul>\r\n");
       out.write("            <li><a href=\"/AirDynasty/addCmpRec.jsp\">Add Component Record</a></li>\r\n");
       out.write("        </ul>\r\n");

@@ -11,6 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Air Dynasty - Oil and Fuel Change Interval Record status</title>
+        <%@include file="includeS.jsp" %>
     </head>
     <body>
         <h1>Oil and Fuel Change Interval Records</h1>

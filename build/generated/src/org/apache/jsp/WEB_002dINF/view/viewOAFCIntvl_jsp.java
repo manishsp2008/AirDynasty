@@ -51,26 +51,26 @@ public final class viewOAFCIntvl_jsp extends org.apache.jasper.runtime.HttpJspBa
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("<!DOCTYPE html>\n");
-      out.write("<html>\n");
-      out.write("    <head>\n");
-      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <title>Air Dynasty - Oil and Fuel Change Interval Record status</title>\n");
-      out.write("    </head>\n");
-      out.write("    <body>\n");
-      out.write("        <h1>Oil and Fuel Change Interval Records</h1>\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("<!DOCTYPE html>\r\n");
+      out.write("<html>\r\n");
+      out.write("    <head>\r\n");
+      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
+      out.write("        <title>Air Dynasty - Oil and Fuel Change Interval Record status</title>\r\n");
+      out.write("    </head>\r\n");
+      out.write("    <body>\r\n");
+      out.write("        <h1>Oil and Fuel Change Interval Records</h1>\r\n");
       out.write("        ");
 int i=1;
-      out.write("\n");
-      out.write("        <table border=\"3\">\n");
-      out.write("         <tr>\n");
-      out.write("             <th>Sr. No.</th><th>Nomenclature</th><th>Specifications</th><th>Interval(Hrs/Years)</th>\n");
-      out.write("             <th>Due At</th><th>Time Remained(Hrs or Date)</th><th>Remarks</th>   \n");
-      out.write("         </tr>   \n");
+      out.write("\r\n");
+      out.write("        <table border=\"3\">\r\n");
+      out.write("         <tr>\r\n");
+      out.write("             <th>Sr. No.</th><th>Nomenclature</th><th>Specifications</th><th>Interval(Hrs/Years)</th>\r\n");
+      out.write("             <th>Due At</th><th>Time Remained(Hrs or Date)</th><th>Remarks</th>   \r\n");
+      out.write("         </tr>   \r\n");
       out.write("        ");
       //  c:forEach
       org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
@@ -83,40 +83,40 @@ int i=1;
         int _jspx_eval_c_forEach_0 = _jspx_th_c_forEach_0.doStartTag();
         if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
           do {
-            out.write("\n");
-            out.write("        <tr>\n");
+            out.write("\r\n");
+            out.write("        <tr>\r\n");
             out.write("            <td>");
             out.print(i++);
             out.write("</td><td>");
             out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${oafciSet.oafciNomenclature}", java.lang.String.class, (PageContext)_jspx_page_context, null));
             out.write("</td><td>");
             out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${oafciSet.oafciSpecs}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-            out.write("</td>\n");
-            out.write("            <td>\n");
+            out.write("</td>\r\n");
+            out.write("            <td>\r\n");
             out.write("            ");
             if (_jspx_meth_c_forEach_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
               return;
-            out.write("\n");
-            out.write("            </td>\n");
-            out.write("            <td>\n");
+            out.write("\r\n");
+            out.write("            </td>\r\n");
+            out.write("            <td>\r\n");
             out.write("            ");
             if (_jspx_meth_c_forEach_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
               return;
-            out.write("\n");
-            out.write("            </td>\n");
-            out.write("            <td>    \n");
+            out.write("\r\n");
+            out.write("            </td>\r\n");
+            out.write("            <td>    \r\n");
             out.write("            ");
             if (_jspx_meth_c_forEach_3((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
               return;
-            out.write("\n");
-            out.write("            </td>\n");
-            out.write("            <td>    \n");
+            out.write("\r\n");
+            out.write("            </td>\r\n");
+            out.write("            <td>    \r\n");
             out.write("            ");
             if (_jspx_meth_c_forEach_4((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
               return;
-            out.write("\n");
-            out.write("            </td>\n");
-            out.write("        </tr>\n");
+            out.write("\r\n");
+            out.write("            </td>\r\n");
+            out.write("        </tr>\r\n");
             out.write("        ");
             int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
             if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
@@ -134,16 +134,16 @@ int i=1;
         _jspx_th_c_forEach_0.doFinally();
         _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
       }
-      out.write("\n");
-      out.write("    </table>\n");
-      out.write("    <ul>\n");
-      out.write("        <li><a href=\"/AirDynasty/viewCraftList\">Back to AirCraft List</a></li>\n");
-      out.write("        <li><a href=\"/AirDynasty/addOAFCIRec.jsp\">Add New Record</a></li>\n");
-      out.write("    </ul>\n");
-      out.write("    \n");
-      out.write("        \n");
-      out.write("    </body>\n");
-      out.write("</html>\n");
+      out.write("\r\n");
+      out.write("    </table>\r\n");
+      out.write("    <ul>\r\n");
+      out.write("        <li><a href=\"/AirDynasty/viewCraftList\">Back to AirCraft List</a></li>\r\n");
+      out.write("        <li><a href=\"/AirDynasty/addOAFCIRec.jsp\">Add New Record</a></li>\r\n");
+      out.write("    </ul>\r\n");
+      out.write("    \r\n");
+      out.write("        \r\n");
+      out.write("    </body>\r\n");
+      out.write("</html>\r\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
@@ -172,12 +172,12 @@ int i=1;
       int _jspx_eval_c_forEach_1 = _jspx_th_c_forEach_1.doStartTag();
       if (_jspx_eval_c_forEach_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
-          out.write("\n");
+          out.write("\r\n");
           out.write("                ");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${myVar1.oafcinvlHrs}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("&nbsp;");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${myVar1.oafcinvlHrsType}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("<br/>\n");
+          out.write("<br/>\r\n");
           out.write("            ");
           int evalDoAfterBody = _jspx_th_c_forEach_1.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
@@ -213,12 +213,12 @@ int i=1;
       int _jspx_eval_c_forEach_2 = _jspx_th_c_forEach_2.doStartTag();
       if (_jspx_eval_c_forEach_2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
-          out.write("\n");
+          out.write("\r\n");
           out.write("                ");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${myVar2.oanfDahHrs}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("&nbsp;");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${myVar2.oanfdahHrsType}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("<br/>\n");
+          out.write("<br/>\r\n");
           out.write("            ");
           int evalDoAfterBody = _jspx_th_c_forEach_2.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
@@ -254,12 +254,12 @@ int i=1;
       int _jspx_eval_c_forEach_3 = _jspx_th_c_forEach_3.doStartTag();
       if (_jspx_eval_c_forEach_3 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
-          out.write("\n");
+          out.write("\r\n");
           out.write("                ");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${myVar3.oafdhHrs}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("&nbsp;");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${myVar3.oafdhHrsType}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("<br/>\n");
+          out.write("<br/>\r\n");
           out.write("            ");
           int evalDoAfterBody = _jspx_th_c_forEach_3.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
@@ -295,10 +295,10 @@ int i=1;
       int _jspx_eval_c_forEach_4 = _jspx_th_c_forEach_4.doStartTag();
       if (_jspx_eval_c_forEach_4 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
-          out.write("\n");
+          out.write("\r\n");
           out.write("                ");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${myVar4.oafremText}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("<br/>\n");
+          out.write("<br/>\r\n");
           out.write("            ");
           int evalDoAfterBody = _jspx_th_c_forEach_4.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)

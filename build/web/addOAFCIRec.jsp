@@ -10,6 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Air Dynasty - Add New Oil & Fuel Change Interval Record</title>
+        <%@include file="includeS.jsp" %>
     </head>
     <body>
         <form name="myForm" action="/AirDynasty/addOAFCIntvl" method="GET">

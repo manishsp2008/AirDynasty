@@ -17,6 +17,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Air Dynasty - Add Engine Hours Result Confirmation</title>
+        <%@include file="includeS.jsp" %>
     </head>
     <body>
         <h1>Status after adding Engine Hours.</h1>
