@@ -48,7 +48,7 @@ public final class addHours_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<html>\r\n");
       out.write("    <head>\r\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
-      out.write("        <title>Air Dynasty - Add Craft Hours</title>\r\n");
+      out.write("        <title>Air Dynasty - Add Air Craft Hours</title>\r\n");
       out.write("    </head>\r\n");
       out.write("    <body>\r\n");
       out.write("        <h3>Enter Air Craft Hours.</h3>\r\n");

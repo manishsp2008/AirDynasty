@@ -111,14 +111,12 @@ public final class viewaddHrsRes_jsp extends org.apache.jasper.runtime.HttpJspBa
               return;
             out.write("\r\n");
             out.write("            </td>\r\n");
-            out.write("            \r\n");
             out.write("            <td>\r\n");
             out.write("                ");
             if (_jspx_meth_c_forEach_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
               return;
             out.write("\r\n");
             out.write("            </td>\r\n");
-            out.write("            \r\n");
             out.write("            <td>\r\n");
             out.write("                ");
             if (_jspx_meth_c_forEach_3((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
@@ -131,7 +129,6 @@ public final class viewaddHrsRes_jsp extends org.apache.jasper.runtime.HttpJspBa
               return;
             out.write("\r\n");
             out.write("            </td>\r\n");
-            out.write("            \r\n");
             out.write("        </tr>\r\n");
             out.write("        ");
             int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
@@ -152,7 +149,6 @@ public final class viewaddHrsRes_jsp extends org.apache.jasper.runtime.HttpJspBa
       }
       out.write("\r\n");
       out.write("        </table>\r\n");
-      out.write("        \r\n");
       out.write("        \r\n");
       out.write("        <br/><br/><br/>\r\n");
       out.write("        <a href=\"/AirDynasty/updateCraftHRS\">Confirm & Update</a>\r\n");

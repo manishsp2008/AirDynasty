@@ -86,5 +86,66 @@
             30
         </session-timeout>
     </session-config>
+    
+    <filter>
+        <filter-name>ShiroFilter</filter-name>
+        <filter-class>org.apache.shiro.web.servlet.IniShiroFilter</filter-class>
+        <init-param>
+            <param-name>config</param-name>
+            <param-value>
+
+                # The IniShiroFilter configuration is very powerful and flexible, while still remaining succinct.
+                # Please read the org.apache.shiro.web.servlet.IniShiroFilter JavaDoc for information.
+
+                # move all of this to a 'shiro.ini' file at the root of the classpath and remove
+                # the 'config' init-param. Or you can specify the 'configPath' init-param and specify the
+                # path to a resource at any location (url, file or classpath). This may be desired if the
+                # config gets long and you want to keep web.xml clean.
+                [main]
+                # specify login page
+                authc.loginUrl = /login.jsp
+                # redirect after successful login 
+                authc.successUrl = /index1.jsp
+                [users]
+                # format: username = password, role1, role2, ..., roleN
+                root = secret,admin
+                guest = guest,guest
+                presidentskroob = 12345,president
+                darkhelmet = ludicrousspeed,darklord,schwartz
+                lonestarr = vespa,goodguy,schwartz
+
+                [roles]
+                # format; roleName = permission1, permission2, ..., permissionN
+                admin = *
+                schwartz = lightsaber:*
+                goodguy = winnebago:drive:eagle5
+
+                [filters]
+                shiro.loginUrl = /login.jsp
+
+                [urls]
+                # The /login.jsp is not restricted to authenticated users (otherwise no one could log in!), but
+                # the 'authc' filter must still be specified for it so it can process that url's
+                # login submissions. It is 'smart' enough to allow those requests through as specified by the
+                # shiro.loginUrl above.
+                /index1.jsp = authc
+                 /login.jsp = authc
+                #/** = authc
+                /addHours.jsp = authc
+                /account/** = authc
+                #/remoting/** = authc, roles[b2bClient], perms["remote:invoke:lan,wan"]
+                #/** = authc    
+            </param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>ShiroFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
 
 </web-app>

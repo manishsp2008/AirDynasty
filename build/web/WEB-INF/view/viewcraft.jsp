@@ -4,19 +4,22 @@
     Author     : A187252
 --%>
 
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@page import="java.util.Calendar"%>
-<%@page import="airdynasty.CmpSerialNumber"%>
-<%@page import="java.util.Set"%>
-<%@page import="airdynasty.Components"%>
+<%@ include file="include.jsp" %>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Air Dynasty - Air Craft Details</title>
+        <style type="text/css" title="currentStyle">
+	@import "css/demo_page.css"; @import "/media/css/header.ccss";
+	@import "css/demo_table_jui.css";
+	@import "examples/examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css";
+	</style>
+        <script type="text/javascript" src="js/airdyna.js" ></script>
+        <script type="text/javascript" language="javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" language="javascript" src="js/jquery.dataTables.js"></script>
     </head>
     <body>
         <h1>${craftObj.acName}</h1>
@@ -34,7 +37,7 @@
         </ol>
         <h3>Components</h3>
         <%int i=1;%>
-        <table border="3">
+        <table border="3" id="adTable">
         <tr><th>Sr. No.</th><th>Component Name</th><th>Part No.</th><th>Serial No.</th><th>Finite Life(TBO)</th>
         <th>Life Remaining (Installation)</th><th>Installation Air Frame Hours</th><th>Installation Date</th>
         <th>Installation Due Off Hours</th><th>Current Air Frame Hours</th><th>Remaining Life Hours</th>

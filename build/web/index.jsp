@@ -16,6 +16,6 @@
         <ol>
             <li><a href="/AirDynasty/viewCraftList">View Air Crafts</a></li>
         </ol>
-        
+        <jsp:forward page="home.jsp" />    
     </body>
 </html>

@@ -3,6 +3,7 @@ package org.apache.jsp.WEB_002dINF.view;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import org.apache.shiro.SecurityUtils;
 import java.util.Calendar;
 import airdynasty.CmpSerialNumber;
 import java.util.Set;
@@ -15,9 +16,17 @@ public final class viewcraft_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private static java.util.Vector _jspx_dependants;
 
+  static {
+    _jspx_dependants = new java.util.Vector(1);
+    _jspx_dependants.add("/WEB-INF/view/include.jsp");
+  }
+
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_fmt_formatDate_var_value_pattern_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_out_value_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_choose;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_when_test;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_otherwise;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
@@ -29,12 +38,18 @@ public final class viewcraft_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_tagPool_fmt_formatDate_var_value_pattern_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_out_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_forEach_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_choose = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_when_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_otherwise = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
     _jspx_tagPool_fmt_formatDate_var_value_pattern_nobody.release();
     _jspx_tagPool_c_out_value_nobody.release();
     _jspx_tagPool_c_forEach_var_items.release();
+    _jspx_tagPool_c_choose.release();
+    _jspx_tagPool_c_when_test.release();
+    _jspx_tagPool_c_otherwise.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -63,11 +78,18 @@ public final class viewcraft_jsp extends org.apache.jasper.runtime.HttpJspBase
 
       out.write("\r\n");
       out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
@@ -76,6 +98,14 @@ public final class viewcraft_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <head>\r\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
       out.write("        <title>Air Dynasty - Air Craft Details</title>\r\n");
+      out.write("        <style type=\"text/css\" title=\"currentStyle\">\r\n");
+      out.write("\t@import \"css/demo_page.css\"; @import \"/media/css/header.ccss\";\r\n");
+      out.write("\t@import \"css/demo_table_jui.css\";\r\n");
+      out.write("\t@import \"examples/examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css\";\r\n");
+      out.write("\t</style>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"js/airdyna.js\" ></script>\r\n");
+      out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"js/jquery.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"js/jquery.dataTables.js\"></script>\r\n");
       out.write("    </head>\r\n");
       out.write("    <body>\r\n");
       out.write("        <h1>");
@@ -128,7 +158,7 @@ public final class viewcraft_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        ");
 int i=1;
       out.write("\r\n");
-      out.write("        <table border=\"3\">\r\n");
+      out.write("        <table border=\"3\" id=\"adTable\">\r\n");
       out.write("        <tr><th>Sr. No.</th><th>Component Name</th><th>Part No.</th><th>Serial No.</th><th>Finite Life(TBO)</th>\r\n");
       out.write("        <th>Life Remaining (Installation)</th><th>Installation Air Frame Hours</th><th>Installation Date</th>\r\n");
       out.write("        <th>Installation Due Off Hours</th><th>Current Air Frame Hours</th><th>Remaining Life Hours</th>\r\n");
@@ -232,7 +262,10 @@ int i=1;
       out.write("        \r\n");
       out.write("        <h4>Related Operations</h4>\r\n");
       out.write("        <ul>\r\n");
-      out.write("            <li><a href=\"/AirDynasty/addHours.jsp\">Add Air Craft Hours</a></li>\r\n");
+      out.write("            ");
+      if (_jspx_meth_c_choose_0(_jspx_page_context))
+        return;
+      out.write("\r\n");
       out.write("            <li><a href=\"/AirDynasty/viewEngInspec\">View A/f & Engine Inspection Records</a></li>\r\n");
       out.write("            <li><a href=\"/AirDynasty/viewOAFCIntvl\">Oil and Fuel Change Records</a></li>\r\n");
       out.write("            <li><a href=\"/AirDynasty/viewOPMRec\">Out of Phase Maintenance Records</a></li>\r\n");
@@ -820,6 +853,95 @@ int i=1;
       return true;
     }
     _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_9);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_choose_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:choose
+    org.apache.taglibs.standard.tag.common.core.ChooseTag _jspx_th_c_choose_0 = (org.apache.taglibs.standard.tag.common.core.ChooseTag) _jspx_tagPool_c_choose.get(org.apache.taglibs.standard.tag.common.core.ChooseTag.class);
+    _jspx_th_c_choose_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_choose_0.setParent(null);
+    int _jspx_eval_c_choose_0 = _jspx_th_c_choose_0.doStartTag();
+    if (_jspx_eval_c_choose_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\r\n");
+        out.write("                ");
+        if (_jspx_meth_c_when_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_choose_0, _jspx_page_context))
+          return true;
+        out.write(" \r\n");
+        out.write("                ");
+        if (_jspx_meth_c_otherwise_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_choose_0, _jspx_page_context))
+          return true;
+        out.write("\r\n");
+        out.write("            ");
+        int evalDoAfterBody = _jspx_th_c_choose_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_choose_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_choose.reuse(_jspx_th_c_choose_0);
+      return true;
+    }
+    _jspx_tagPool_c_choose.reuse(_jspx_th_c_choose_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_when_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_choose_0, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:when
+    org.apache.taglibs.standard.tag.rt.core.WhenTag _jspx_th_c_when_0 = (org.apache.taglibs.standard.tag.rt.core.WhenTag) _jspx_tagPool_c_when_test.get(org.apache.taglibs.standard.tag.rt.core.WhenTag.class);
+    _jspx_th_c_when_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_when_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_choose_0);
+    _jspx_th_c_when_0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${acID % 2 == 0}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    int _jspx_eval_c_when_0 = _jspx_th_c_when_0.doStartTag();
+    if (_jspx_eval_c_when_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\r\n");
+        out.write("                    <li><a href=\"/AirDynasty/addEngHrs.jsp\">Add Engine Hours</a></li>\r\n");
+        out.write("                ");
+        int evalDoAfterBody = _jspx_th_c_when_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_when_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_0);
+      return true;
+    }
+    _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_otherwise_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_choose_0, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:otherwise
+    org.apache.taglibs.standard.tag.common.core.OtherwiseTag _jspx_th_c_otherwise_0 = (org.apache.taglibs.standard.tag.common.core.OtherwiseTag) _jspx_tagPool_c_otherwise.get(org.apache.taglibs.standard.tag.common.core.OtherwiseTag.class);
+    _jspx_th_c_otherwise_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_otherwise_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_choose_0);
+    int _jspx_eval_c_otherwise_0 = _jspx_th_c_otherwise_0.doStartTag();
+    if (_jspx_eval_c_otherwise_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\r\n");
+        out.write("                    <li><a href=\"/AirDynasty/addHours.jsp\">Add Air Craft Hours</a></li>\r\n");
+        out.write("                ");
+        int evalDoAfterBody = _jspx_th_c_otherwise_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_otherwise_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_otherwise.reuse(_jspx_th_c_otherwise_0);
+      return true;
+    }
+    _jspx_tagPool_c_otherwise.reuse(_jspx_th_c_otherwise_0);
     return false;
   }
 }
