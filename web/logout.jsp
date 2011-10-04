@@ -59,7 +59,7 @@
     <link type="text/css" rel="stylesheet" href="<c:url value="style.css"/>"/>
     <%@include file="includeS.jsp" %>
 </head>
-<body>
+  <body id="dt_example">
 
 <h2>Log out</h2>
 

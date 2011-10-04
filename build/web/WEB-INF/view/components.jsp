@@ -12,7 +12,7 @@
         <title>JSP Page</title>
         <%@include file="includeS.jsp" %>
     </head>
-    <body>
+      <body id="dt_example">
         <h1>Hello World!</h1>
     </body>
 </html>

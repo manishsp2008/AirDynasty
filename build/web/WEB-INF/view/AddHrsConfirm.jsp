@@ -12,7 +12,7 @@
         <title>Air Dynasty - Hours updated successfully</title>
         <%@include file="includeS.jsp" %>
     </head>
-    <body>
+     <body id="dt_example">
         <strong>
             Hours are successfully updated in database.
         </strong>

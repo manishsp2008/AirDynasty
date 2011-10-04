@@ -13,8 +13,8 @@
         <title>Air Dynasty - Air Craft Details Page</title>
         <%@include file="includeS.jsp" %>
     </head>
-    <body>
-        <h2>List of Air Crafts</h2>
+      <body id="dt_example">
+        <h1>List of Air Crafts</h1>
         <ol>
                 <c:forEach var="craft" items="${aircrafts}">
                 <li>

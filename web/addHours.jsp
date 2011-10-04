@@ -12,7 +12,7 @@
         <title>Air Dynasty - Add Air Craft Hours</title>
         <%@include file="includeS.jsp" %>
     </head>
-    <body>
+      <body id="dt_example">
         <h3>Enter Air Craft Hours.</h3>
         <form action="/AirDynasty/addCraftHRS" method="get">
             <table border="10">

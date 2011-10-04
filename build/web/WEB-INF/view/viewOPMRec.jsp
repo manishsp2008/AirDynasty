@@ -13,40 +13,44 @@
         <title>Air Dynasty - Out of Phase Maintenance records</title>
         <%@include file="includeS.jsp" %>
     </head>
-    <body>
+     <body id="dt_example">
         <h1>Out of Phase Maintenance Records</h1>
         <%int i=1;%>
-        <table border="3">
-         <tr>
+        <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+            <thead>
+         <tr class="gradeA">
              <th>Sr. No.</th><th>Nomenclature</th><th>Due Hours</th>
              <th>Calender Due Date</th><th>Interval(H/M/Y)</th><th>Time Remain (H/M/Y)</th><th>Remarks</th>   
-         </tr>   
+         </tr>
+            </thead>
+            <tbody>
         <c:forEach var="opmSet"  items="${OPMRecSet}">
-        <tr>
-            <td><%=i++%></td><td>${opmSet.opmNomenclature}</td><td>${opmSet.opmDueHrs}&nbsp;&nbsp;${opmSet.opmDueHrsType} [&nbsp;${opmSet.opmDueAt}&nbsp;]</td>
-            <td>${opmSet.opmCalDueDate}</td>
-            <td>
+        <tr class="gradeA">
+            <td class="center"><%=i++%></td><td class="center">${opmSet.opmNomenclature}</td><td class="center">${opmSet.opmDueHrs}&nbsp;&nbsp;${opmSet.opmDueHrsType} [&nbsp;${opmSet.opmDueAt}&nbsp;]</td>
+            <td class="center">${opmSet.opmCalDueDate}</td>
+            <td class="center">
             <c:forEach var="myVar1" items="${opmSet.opmIntervalSet}">
                 ${myVar1.opminvlHrs}&nbsp;${myVar1.opminvlHrsType}<br/>
             </c:forEach>
             </td>
-            <td>
+            <td class="center">
             <c:forEach var="myVar2" items="${opmSet.opmTimeRemSet}">
                 ${myVar2.opmtrHrs}&nbsp;${myVar2.opmtrHrsType}<br/>
             </c:forEach>
             </td>
-            <td>    
+            <td class="center">    
             <c:forEach var="myVar3" items="${opmSet.opmRemarksSet}">
                 ${myVar3.opmremText}<br/>
             </c:forEach>
             </td>
-            <td>    
+            <td class="center">    
             <c:forEach var="myVar4" items="${oafciSet.oafciRemarksSet}">
                 ${myVar4.oafremText}<br/>
             </c:forEach>
             </td>
         </tr>
         </c:forEach>
+            </tbody>
     </table>
     <ul>
         <li><a href="/AirDynasty/viewCraftList">Back to AirCraft List</a></li>

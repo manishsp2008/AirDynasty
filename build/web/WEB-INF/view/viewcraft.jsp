@@ -33,7 +33,7 @@
         <%int i=1;%>
         <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
         <thead>
-        <tr><th>Sr. No.</th><th>Component Name</th><th>Part No.</th><th>Serial No.</th><th>Finite Life(TBO)</th>
+        <tr class="gradeA"><th>Sr. No.</th><th>Component Name</th><th>Part No.</th><th>Serial No.</th><th>Finite Life(TBO)</th>
         <th>Life Remaining (Installation)</th><th>Installation Air Frame Hours</th><th>Installation Date</th>
         <th>Installation Due Off Hours</th><th>Current Air Frame Hours</th><th>Remaining Life Hours</th>
         <th>Remarks</th></tr>

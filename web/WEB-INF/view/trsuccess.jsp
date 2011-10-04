@@ -12,7 +12,7 @@
         <title>Air Dynasty</title>
         <%@include file="includeS.jsp" %>
     </head>
-    <body>
+     <body id="dt_example">
         <h1>Transaction Successful.</h1>
         
         <a href="/AirDynasty/viewCraftList">Home Page</a>

@@ -12,7 +12,7 @@
         <title>Air Dynasty - Add New Oil & Fuel Change Interval Record</title>
         <%@include file="includeS.jsp" %>
     </head>
-    <body>
+      <body id="dt_example">
         <form name="myForm" action="/AirDynasty/addOAFCIntvl" method="GET">
         <h1>Add New Oil & Fuel Change Interval Record</h1>
         <strong>Basic Details</strong>

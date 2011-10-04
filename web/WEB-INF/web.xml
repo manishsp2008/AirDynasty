@@ -110,15 +110,16 @@
                 # format: username = password, role1, role2, ..., roleN
                 root = secret,admin
                 guest = guest,guest
-                presidentskroob = 12345,president
-                darkhelmet = ludicrousspeed,darklord,schwartz
-                lonestarr = vespa,goodguy,schwartz
+                #presidentskroob = 12345,president
+                #darkhelmet = ludicrousspeed,darklord,schwartz
+                #lonestarr = vespa,goodguy,schwartz
 
                 [roles]
                 # format; roleName = permission1, permission2, ..., permissionN
                 admin = *
-                schwartz = lightsaber:*
-                goodguy = winnebago:drive:eagle5
+                guest = *
+                #schwartz = lightsaber:*
+                #goodguy = winnebago:drive:eagle5
 
                 [filters]
                 shiro.loginUrl = /login.jsp
@@ -129,10 +130,10 @@
                 # login submissions. It is 'smart' enough to allow those requests through as specified by the
                 # shiro.loginUrl above.
                 /index1.jsp = authc
-                 /login.jsp = authc
+                /login.jsp = authc
                 #/** = authc
-                /addHours.jsp = authc
-                /account/** = authc
+                #/addHours.jsp = authc
+                #/account/** = authc
                 #/remoting/** = authc, roles[b2bClient], perms["remote:invoke:lan,wan"]
                 #/** = authc    
             </param-value>

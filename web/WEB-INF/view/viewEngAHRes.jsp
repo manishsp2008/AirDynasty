@@ -19,34 +19,36 @@
         <title>Air Dynasty - Add Engine Hours Result Confirmation</title>
         <%@include file="includeS.jsp" %>
     </head>
-    <body>
+     <body id="dt_example">
         <h1>Status after adding Engine Hours.</h1>
         <% int i = 1;%>
-        <table border="3">
+        <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+        <thead>
         <tr><th>Sr. No.</th><th>Component Name</th><th>Part No.</th><th>Due-Off Installation hours(AF Hrs.)</th>
         <th>Current Engine Hours(User Input)</th><th>Remaining Life Hours</th><th>Remarks</th></tr>
+        </thead>
         <c:forEach var="comp" items="${tempEngCompSet}">
-        
-        <tr><td><%= i++ %> </td><td>${comp.compPartname}</td><td>${comp.compPartnum}</td>
+        <tbody>
+        <tr><td class="center"><%= i++ %> </td><td class="center">${comp.compPartname}</td><td class="center">${comp.compPartnum}</td>
             
-            <td>
+            <td class="center">
                 <c:forEach var="insdhrs" items="${comp.compDueoffAfhrsInstSet}">
                     <c:out  value="${insdhrs.cdaHrs}"/><br/>
                 </c:forEach>
             </td>
             
-            <td>
+            <td class="center">
                 <c:forEach var="crHrs" items="${comp.cmpCurAfhrsSet}">
                     <c:out value="${crHrs.cmpCurAfhrsHrs}"/><br/>
                 </c:forEach>
             </td>
             
-            <td>
+            <td class="center">
                 <c:forEach var="rlHrs" items="${comp.compRemLifeSet}">
                     <c:out value="${rlHrs.crlHrs}"/><br/>
                 </c:forEach>
             </td>
-            <td>
+            <td class="center">
                 <c:forEach var="rmText" items="${comp.cmpRemarksSet}">
                     <c:out value="${rmText.cmpRemarksText}"/><br/>
                 </c:forEach>
@@ -54,6 +56,7 @@
             
         </tr>
         </c:forEach>
+        </tbody>
         </table>
         
         

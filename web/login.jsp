@@ -23,15 +23,12 @@
     <link type="text/css" rel="stylesheet" href="<c:url value="css/style.css"/>"/>
     <%@include file="includeS.jsp" %>
 </head>
-<body>
+  <body id="dt_example">
 
 <h2>Please Log in</h2>
 
 <shiro:guest>
-    <p>Here are a few sample accounts to play with in the default text-based Realm (used for this
-        demo and test installs only). Do you remember the movie these names came from? ;)</p>
-
-
+    
     <style type="text/css">
         table.sample {
             border-width: 1px;
@@ -72,16 +69,8 @@
             <td>secret</td>
         </tr>
         <tr>
-            <td>presidentskroob</td>
-            <td>12345</td>
-        </tr>
-        <tr>
-            <td>darkhelmet</td>
-            <td>ludicrousspeed</td>
-        </tr>
-        <tr>
-            <td>lonestarr</td>
-            <td>vespa</td>
+            <td>guest</td>
+            <td>guest</td>
         </tr>
         </tbody>
     </table>

@@ -12,7 +12,7 @@
         <title>Air Dynasty - Add New OPM Record</title>
         <%@include file="includeS.jsp" %>
     </head>
-    <body>
+     <body id="dt_example">
         <h3>Add New OPM Record</h3>
        
         <form name="myForm" action="/AirDynasty/addOPMRec">
