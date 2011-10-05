@@ -11,6 +11,11 @@ public final class AddHrsConfirm_jsp extends org.apache.jasper.runtime.HttpJspBa
 
   private static java.util.Vector _jspx_dependants;
 
+  static {
+    _jspx_dependants = new java.util.Vector(1);
+    _jspx_dependants.add("/WEB-INF/view/includeS.jsp");
+  }
+
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public Object getDependants() {
@@ -49,8 +54,20 @@ public final class AddHrsConfirm_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("    <head>\r\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
       out.write("        <title>Air Dynasty - Hours updated successfully</title>\r\n");
+      out.write("        ");
+      out.write("        <style type=\"text/css\" title=\"currentStyle\">\r\n");
+      out.write("            @import \"media/css/demo_page.css\";\r\n");
+      out.write("            @import \"media/css/demo_table.css\";\r\n");
+      out.write("            @import \"css/smoothness/jquery-ui-1.8.16.custom.css\";\r\n");
+      out.write("            @import \"design/airdyna.css\";\r\n");
+      out.write("        </style>\r\n");
+      out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.dataTables.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"js/jquery-ui-1.8.16.custom.min.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"design/airdyna.js\"></script>\r\n");
+      out.write("\r\n");
       out.write("    </head>\r\n");
-      out.write("    <body>\r\n");
+      out.write("     <body id=\"dt_example\">\r\n");
       out.write("        <strong>\r\n");
       out.write("            Hours are successfully updated in database.\r\n");
       out.write("        </strong>\r\n");

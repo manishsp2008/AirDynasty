@@ -14,14 +14,14 @@
         <%@include file="includeS.jsp" %>
     </head>
       <body id="dt_example">
-        <h1>List of Air Crafts</h1>
-        <ol>
+        <h1>Air Crafts List</h1>
+        <h2>Air Craft-{9N-AEX}</h2>
+        <ul>
                 <c:forEach var="craft" items="${aircrafts}">
                 <li>
-                <a href="<c:url value="viewCraft?${craft.acId}"/>">${craft.acName}&nbsp;(${craft.acSerialnum})</a>
+                    <a href="<c:url value="viewCraft?${craft.acId}"/>">${craft.acName}&nbsp;(${craft.acSerialnum})</a>
                 </li>
                 </c:forEach>
-            
-        </ol>
+        </ul>
     </body>
 </html>

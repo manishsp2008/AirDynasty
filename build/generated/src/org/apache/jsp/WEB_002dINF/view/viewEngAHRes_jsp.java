@@ -16,6 +16,11 @@ public final class viewEngAHRes_jsp extends org.apache.jasper.runtime.HttpJspBas
 
   private static java.util.Vector _jspx_dependants;
 
+  static {
+    _jspx_dependants = new java.util.Vector(1);
+    _jspx_dependants.add("/WEB-INF/view/includeS.jsp");
+  }
+
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_out_value_nobody;
 
@@ -74,15 +79,29 @@ public final class viewEngAHRes_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("    <head>\r\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
       out.write("        <title>Air Dynasty - Add Engine Hours Result Confirmation</title>\r\n");
+      out.write("        ");
+      out.write("        <style type=\"text/css\" title=\"currentStyle\">\r\n");
+      out.write("            @import \"media/css/demo_page.css\";\r\n");
+      out.write("            @import \"media/css/demo_table.css\";\r\n");
+      out.write("            @import \"css/smoothness/jquery-ui-1.8.16.custom.css\";\r\n");
+      out.write("            @import \"design/airdyna.css\";\r\n");
+      out.write("        </style>\r\n");
+      out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.dataTables.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"js/jquery-ui-1.8.16.custom.min.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"design/airdyna.js\"></script>\r\n");
+      out.write("\r\n");
       out.write("    </head>\r\n");
-      out.write("    <body>\r\n");
+      out.write("     <body id=\"dt_example\">\r\n");
       out.write("        <h1>Status after adding Engine Hours.</h1>\r\n");
       out.write("        ");
  int i = 1;
       out.write("\r\n");
-      out.write("        <table border=\"3\">\r\n");
+      out.write("        <table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" class=\"display\" id=\"example\">\r\n");
+      out.write("        <thead>\r\n");
       out.write("        <tr><th>Sr. No.</th><th>Component Name</th><th>Part No.</th><th>Due-Off Installation hours(AF Hrs.)</th>\r\n");
       out.write("        <th>Current Engine Hours(User Input)</th><th>Remaining Life Hours</th><th>Remarks</th></tr>\r\n");
+      out.write("        </thead>\r\n");
       out.write("        ");
       //  c:forEach
       org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
@@ -96,36 +115,36 @@ public final class viewEngAHRes_jsp extends org.apache.jasper.runtime.HttpJspBas
         if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
           do {
             out.write("\r\n");
-            out.write("        \r\n");
-            out.write("        <tr><td>");
+            out.write("        <tbody>\r\n");
+            out.write("        <tr><td class=\"center\">");
             out.print( i++ );
-            out.write(" </td><td>");
+            out.write(" </td><td class=\"center\">");
             out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${comp.compPartname}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-            out.write("</td><td>");
+            out.write("</td><td class=\"center\">");
             out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${comp.compPartnum}", java.lang.String.class, (PageContext)_jspx_page_context, null));
             out.write("</td>\r\n");
             out.write("            \r\n");
-            out.write("            <td>\r\n");
+            out.write("            <td class=\"center\">\r\n");
             out.write("                ");
             if (_jspx_meth_c_forEach_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
               return;
             out.write("\r\n");
             out.write("            </td>\r\n");
             out.write("            \r\n");
-            out.write("            <td>\r\n");
+            out.write("            <td class=\"center\">\r\n");
             out.write("                ");
             if (_jspx_meth_c_forEach_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
               return;
             out.write("\r\n");
             out.write("            </td>\r\n");
             out.write("            \r\n");
-            out.write("            <td>\r\n");
+            out.write("            <td class=\"center\">\r\n");
             out.write("                ");
             if (_jspx_meth_c_forEach_3((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
               return;
             out.write("\r\n");
             out.write("            </td>\r\n");
-            out.write("            <td>\r\n");
+            out.write("            <td class=\"center\">\r\n");
             out.write("                ");
             if (_jspx_meth_c_forEach_4((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
               return;
@@ -151,6 +170,7 @@ public final class viewEngAHRes_jsp extends org.apache.jasper.runtime.HttpJspBas
         _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
       }
       out.write("\r\n");
+      out.write("        </tbody>\r\n");
       out.write("        </table>\r\n");
       out.write("        \r\n");
       out.write("        \r\n");

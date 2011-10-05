@@ -17,16 +17,15 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
   private static java.util.Vector _jspx_dependants;
 
   static {
-    _jspx_dependants = new java.util.Vector(1);
+    _jspx_dependants = new java.util.Vector(2);
     _jspx_dependants.add("/include.jsp");
+    _jspx_dependants.add("/includeS.jsp");
   }
 
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_url_value_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_shiro_guest;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_shiro_user;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_shiro_principal_nobody;
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_shiro_hasRole_name;
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_shiro_lacksRole_name;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
@@ -39,8 +38,6 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_tagPool_shiro_guest = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_shiro_user = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_shiro_principal_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _jspx_tagPool_shiro_hasRole_name = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _jspx_tagPool_shiro_lacksRole_name = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
@@ -48,8 +45,6 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_tagPool_shiro_guest.release();
     _jspx_tagPool_shiro_user.release();
     _jspx_tagPool_shiro_principal_nobody.release();
-    _jspx_tagPool_shiro_hasRole_name.release();
-    _jspx_tagPool_shiro_lacksRole_name.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -96,13 +91,43 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_meth_c_url_0(_jspx_page_context))
         return;
       out.write("\"/>\r\n");
-      out.write("    <title>Apache Shiro Quickstart</title>\r\n");
+      out.write("    <title>Air Dynasty</title>\r\n");
+      out.write("    ");
+      out.write("        <style type=\"text/css\" title=\"currentStyle\">\r\n");
+      out.write("            @import \"media/css/demo_page.css\";\r\n");
+      out.write("            @import \"media/css/demo_table.css\";\r\n");
+      out.write("            @import \"css/smoothness/jquery-ui-1.8.16.custom.css\";\r\n");
+      out.write("            @import \"design/airdyna.css\";\r\n");
+      out.write("        </style>\r\n");
+      out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.dataTables.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"js/jquery-ui-1.8.16.custom.min.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"design/airdyna.js\"></script>\r\n");
+      out.write("\r\n");
       out.write("</head>\r\n");
       out.write("<body>\r\n");
+      out.write("<div id=\"wrap\">\r\n");
+      out.write("    \r\n");
+      out.write("<div id=\"header\">\r\n");
+      out.write("     <div id=\"headerTopBar\" class=\"ui-corner-top\">\r\n");
+      out.write("        <div id=\"headerLinks\">\r\n");
+      out.write("            Header links\r\n");
+      out.write("        </div>\r\n");
+      out.write("        <div id=\"headerLoginBar\">\r\n");
+      out.write("            Header User Info    \r\n");
+      out.write("        </div>\r\n");
+      out.write("    </div>\r\n");
+      out.write("    <div id=\"headerMainBar\" class=\"ui-corner-bottom\">\r\n");
+      out.write("        <img src=\"images/logo.jpg\" id=\"headerImage\" />\r\n");
+      out.write("        <div id=\"headerTitle\">\r\n");
+      out.write("            Aircraft Management System\r\n");
+      out.write("        </div>\r\n");
+      out.write("    </div>\r\n");
+      out.write("</div>\r\n");
+      out.write("<div id=\"dt_example\" class=\"ui-corner-all\">\r\n");
+      out.write("<h1>Air Craft Management System</h1>\r\n");
       out.write("\r\n");
-      out.write("<h1>Apache Shiro Quickstart</h1>\r\n");
-      out.write("\r\n");
-      out.write("<p>Hi ");
+      out.write("<p>Hi, ");
       if (_jspx_meth_shiro_guest_0(_jspx_page_context))
         return;
       if (_jspx_meth_shiro_user_0(_jspx_page_context))
@@ -118,72 +143,44 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write(" )\r\n");
       out.write("</p>\r\n");
       out.write("\r\n");
-      out.write("<p>Welcome to the Apache Shiro Quickstart sample application.\r\n");
-      out.write("    This page represents the home page of any web application.</p>\r\n");
+      out.write("<p>Welcome to the air Dynasty ACMS. This page represents the home page of web application.</p>\r\n");
       out.write("\r\n");
       if (_jspx_meth_shiro_user_2(_jspx_page_context))
         return;
-      out.write('\r');
-      out.write('\n');
-      if (_jspx_meth_shiro_guest_2(_jspx_page_context))
-        return;
       out.write("\r\n");
       out.write("\r\n");
-      out.write("<h2>Roles</h2>\r\n");
+      out.write("<h2> Craft Panel Demo </h2>\r\n");
       out.write("\r\n");
-      out.write("<p>To show some taglibs, here are the roles you have and don't have. Log out and log back in under different user\r\n");
-      out.write("    accounts to see different roles.</p>\r\n");
+      out.write("<div id=\"craftPanel\">\r\n");
+      out.write("    <div id=\"firstRow\">\r\n");
+      out.write("        <div id=\"cell1\">\r\n");
+      out.write("            Form Name : Will be Here.\r\n");
+      out.write("        </div>\r\n");
+      out.write("        <div id=\"cell2\">\r\n");
+      out.write("            AirCraft Name : Will be Here.\r\n");
+      out.write("        </div>\r\n");
+      out.write("        <div id=\"cell3\">\r\n");
+      out.write("            Date : Will be Here.\r\n");
+      out.write("        </div>\r\n");
+      out.write("    </div>\r\n");
+      out.write("    <div id=\"secondRow\">\r\n");
+      out.write("        <div id=\"cell1\">\r\n");
+      out.write("            A/F Hrs : Will be Here\r\n");
+      out.write("        </div>\r\n");
+      out.write("        <div id=\"cell2\">\r\n");
+      out.write("            Engine Hrs : Will be Here\r\n");
+      out.write("        </div>\r\n");
+      out.write("    </div>\r\n");
+      out.write("    \r\n");
+      out.write("</div>\r\n");
       out.write("\r\n");
-      out.write("<h3>Roles you have</h3>\r\n");
+      out.write("</div>\r\n");
       out.write("\r\n");
-      out.write("<p>\r\n");
-      out.write("    ");
-      if (_jspx_meth_shiro_hasRole_0(_jspx_page_context))
-        return;
+      out.write("</div>\r\n");
       out.write("\r\n");
-      out.write("    ");
-      if (_jspx_meth_shiro_hasRole_1(_jspx_page_context))
-        return;
-      out.write("\r\n");
-      out.write("    ");
-      if (_jspx_meth_shiro_hasRole_2(_jspx_page_context))
-        return;
-      out.write("\r\n");
-      out.write("    ");
-      if (_jspx_meth_shiro_hasRole_3(_jspx_page_context))
-        return;
-      out.write("\r\n");
-      out.write("    ");
-      if (_jspx_meth_shiro_hasRole_4(_jspx_page_context))
-        return;
-      out.write("\r\n");
-      out.write("</p>\r\n");
-      out.write("\r\n");
-      out.write("<h3>Roles you DON'T have</h3>\r\n");
-      out.write("\r\n");
-      out.write("<p>\r\n");
-      out.write("    ");
-      if (_jspx_meth_shiro_lacksRole_0(_jspx_page_context))
-        return;
-      out.write("\r\n");
-      out.write("    ");
-      if (_jspx_meth_shiro_lacksRole_1(_jspx_page_context))
-        return;
-      out.write("\r\n");
-      out.write("    ");
-      if (_jspx_meth_shiro_lacksRole_2(_jspx_page_context))
-        return;
-      out.write("\r\n");
-      out.write("    ");
-      if (_jspx_meth_shiro_lacksRole_3(_jspx_page_context))
-        return;
-      out.write("\r\n");
-      out.write("    ");
-      if (_jspx_meth_shiro_lacksRole_4(_jspx_page_context))
-        return;
-      out.write("\r\n");
-      out.write("</p>\r\n");
-      out.write("\r\n");
+      out.write("<div id=\"footer\" class=\"ui-corner-top\">\r\n");
+      out.write("    Footer Bar\r\n");
+      out.write("</div>\r\n");
       out.write("\r\n");
       out.write("</body>\r\n");
       out.write("</html>\r\n");
@@ -346,7 +343,7 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
         out.write("<a href=\"");
         if (_jspx_meth_c_url_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_shiro_guest_1, _jspx_page_context))
           return true;
-        out.write("\">Log in</a> (sample accounts provided)");
+        out.write("\">Log in</a>");
         int evalDoAfterBody = _jspx_th_shiro_guest_1.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -389,10 +386,10 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
     int _jspx_eval_shiro_user_2 = _jspx_th_shiro_user_2.doStartTag();
     if (_jspx_eval_shiro_user_2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
-        out.write("<p>Visit your <a href=\"");
+        out.write("<p>Visit Application <a href=\"");
         if (_jspx_meth_c_url_3((javax.servlet.jsp.tagext.JspTag) _jspx_th_shiro_user_2, _jspx_page_context))
           return true;
-        out.write("\">account page</a>.</p>");
+        out.write("\">Main Page</a>.</p>");
         int evalDoAfterBody = _jspx_th_shiro_user_2.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -414,320 +411,13 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_url_3 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _jspx_tagPool_c_url_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
     _jspx_th_c_url_3.setPageContext(_jspx_page_context);
     _jspx_th_c_url_3.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_shiro_user_2);
-    _jspx_th_c_url_3.setValue("/account");
+    _jspx_th_c_url_3.setValue("/index1.jsp");
     int _jspx_eval_c_url_3 = _jspx_th_c_url_3.doStartTag();
     if (_jspx_th_c_url_3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_3);
       return true;
     }
     _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_3);
-    return false;
-  }
-
-  private boolean _jspx_meth_shiro_guest_2(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  shiro:guest
-    org.apache.shiro.web.tags.GuestTag _jspx_th_shiro_guest_2 = (org.apache.shiro.web.tags.GuestTag) _jspx_tagPool_shiro_guest.get(org.apache.shiro.web.tags.GuestTag.class);
-    _jspx_th_shiro_guest_2.setPageContext(_jspx_page_context);
-    _jspx_th_shiro_guest_2.setParent(null);
-    int _jspx_eval_shiro_guest_2 = _jspx_th_shiro_guest_2.doStartTag();
-    if (_jspx_eval_shiro_guest_2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      do {
-        out.write("<p>If you want to access the user-only <a href=\"");
-        if (_jspx_meth_c_url_4((javax.servlet.jsp.tagext.JspTag) _jspx_th_shiro_guest_2, _jspx_page_context))
-          return true;
-        out.write("\">account page</a>,\r\n");
-        out.write("    you will need to log-in first.</p>");
-        int evalDoAfterBody = _jspx_th_shiro_guest_2.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-    }
-    if (_jspx_th_shiro_guest_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_shiro_guest.reuse(_jspx_th_shiro_guest_2);
-      return true;
-    }
-    _jspx_tagPool_shiro_guest.reuse(_jspx_th_shiro_guest_2);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_url_4(javax.servlet.jsp.tagext.JspTag _jspx_th_shiro_guest_2, PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:url
-    org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_url_4 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _jspx_tagPool_c_url_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
-    _jspx_th_c_url_4.setPageContext(_jspx_page_context);
-    _jspx_th_c_url_4.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_shiro_guest_2);
-    _jspx_th_c_url_4.setValue("/account");
-    int _jspx_eval_c_url_4 = _jspx_th_c_url_4.doStartTag();
-    if (_jspx_th_c_url_4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_4);
-      return true;
-    }
-    _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_4);
-    return false;
-  }
-
-  private boolean _jspx_meth_shiro_hasRole_0(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  shiro:hasRole
-    org.apache.shiro.web.tags.HasRoleTag _jspx_th_shiro_hasRole_0 = (org.apache.shiro.web.tags.HasRoleTag) _jspx_tagPool_shiro_hasRole_name.get(org.apache.shiro.web.tags.HasRoleTag.class);
-    _jspx_th_shiro_hasRole_0.setPageContext(_jspx_page_context);
-    _jspx_th_shiro_hasRole_0.setParent(null);
-    _jspx_th_shiro_hasRole_0.setName("admin");
-    int _jspx_eval_shiro_hasRole_0 = _jspx_th_shiro_hasRole_0.doStartTag();
-    if (_jspx_eval_shiro_hasRole_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      do {
-        out.write("admin<br/>");
-        int evalDoAfterBody = _jspx_th_shiro_hasRole_0.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-    }
-    if (_jspx_th_shiro_hasRole_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_shiro_hasRole_name.reuse(_jspx_th_shiro_hasRole_0);
-      return true;
-    }
-    _jspx_tagPool_shiro_hasRole_name.reuse(_jspx_th_shiro_hasRole_0);
-    return false;
-  }
-
-  private boolean _jspx_meth_shiro_hasRole_1(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  shiro:hasRole
-    org.apache.shiro.web.tags.HasRoleTag _jspx_th_shiro_hasRole_1 = (org.apache.shiro.web.tags.HasRoleTag) _jspx_tagPool_shiro_hasRole_name.get(org.apache.shiro.web.tags.HasRoleTag.class);
-    _jspx_th_shiro_hasRole_1.setPageContext(_jspx_page_context);
-    _jspx_th_shiro_hasRole_1.setParent(null);
-    _jspx_th_shiro_hasRole_1.setName("president");
-    int _jspx_eval_shiro_hasRole_1 = _jspx_th_shiro_hasRole_1.doStartTag();
-    if (_jspx_eval_shiro_hasRole_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      do {
-        out.write("president<br/>");
-        int evalDoAfterBody = _jspx_th_shiro_hasRole_1.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-    }
-    if (_jspx_th_shiro_hasRole_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_shiro_hasRole_name.reuse(_jspx_th_shiro_hasRole_1);
-      return true;
-    }
-    _jspx_tagPool_shiro_hasRole_name.reuse(_jspx_th_shiro_hasRole_1);
-    return false;
-  }
-
-  private boolean _jspx_meth_shiro_hasRole_2(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  shiro:hasRole
-    org.apache.shiro.web.tags.HasRoleTag _jspx_th_shiro_hasRole_2 = (org.apache.shiro.web.tags.HasRoleTag) _jspx_tagPool_shiro_hasRole_name.get(org.apache.shiro.web.tags.HasRoleTag.class);
-    _jspx_th_shiro_hasRole_2.setPageContext(_jspx_page_context);
-    _jspx_th_shiro_hasRole_2.setParent(null);
-    _jspx_th_shiro_hasRole_2.setName("darklord");
-    int _jspx_eval_shiro_hasRole_2 = _jspx_th_shiro_hasRole_2.doStartTag();
-    if (_jspx_eval_shiro_hasRole_2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      do {
-        out.write("darklord<br/>");
-        int evalDoAfterBody = _jspx_th_shiro_hasRole_2.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-    }
-    if (_jspx_th_shiro_hasRole_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_shiro_hasRole_name.reuse(_jspx_th_shiro_hasRole_2);
-      return true;
-    }
-    _jspx_tagPool_shiro_hasRole_name.reuse(_jspx_th_shiro_hasRole_2);
-    return false;
-  }
-
-  private boolean _jspx_meth_shiro_hasRole_3(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  shiro:hasRole
-    org.apache.shiro.web.tags.HasRoleTag _jspx_th_shiro_hasRole_3 = (org.apache.shiro.web.tags.HasRoleTag) _jspx_tagPool_shiro_hasRole_name.get(org.apache.shiro.web.tags.HasRoleTag.class);
-    _jspx_th_shiro_hasRole_3.setPageContext(_jspx_page_context);
-    _jspx_th_shiro_hasRole_3.setParent(null);
-    _jspx_th_shiro_hasRole_3.setName("goodguy");
-    int _jspx_eval_shiro_hasRole_3 = _jspx_th_shiro_hasRole_3.doStartTag();
-    if (_jspx_eval_shiro_hasRole_3 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      do {
-        out.write("goodguy<br/>");
-        int evalDoAfterBody = _jspx_th_shiro_hasRole_3.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-    }
-    if (_jspx_th_shiro_hasRole_3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_shiro_hasRole_name.reuse(_jspx_th_shiro_hasRole_3);
-      return true;
-    }
-    _jspx_tagPool_shiro_hasRole_name.reuse(_jspx_th_shiro_hasRole_3);
-    return false;
-  }
-
-  private boolean _jspx_meth_shiro_hasRole_4(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  shiro:hasRole
-    org.apache.shiro.web.tags.HasRoleTag _jspx_th_shiro_hasRole_4 = (org.apache.shiro.web.tags.HasRoleTag) _jspx_tagPool_shiro_hasRole_name.get(org.apache.shiro.web.tags.HasRoleTag.class);
-    _jspx_th_shiro_hasRole_4.setPageContext(_jspx_page_context);
-    _jspx_th_shiro_hasRole_4.setParent(null);
-    _jspx_th_shiro_hasRole_4.setName("schwartz");
-    int _jspx_eval_shiro_hasRole_4 = _jspx_th_shiro_hasRole_4.doStartTag();
-    if (_jspx_eval_shiro_hasRole_4 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      do {
-        out.write("schwartz<br/>");
-        int evalDoAfterBody = _jspx_th_shiro_hasRole_4.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-    }
-    if (_jspx_th_shiro_hasRole_4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_shiro_hasRole_name.reuse(_jspx_th_shiro_hasRole_4);
-      return true;
-    }
-    _jspx_tagPool_shiro_hasRole_name.reuse(_jspx_th_shiro_hasRole_4);
-    return false;
-  }
-
-  private boolean _jspx_meth_shiro_lacksRole_0(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  shiro:lacksRole
-    org.apache.shiro.web.tags.LacksRoleTag _jspx_th_shiro_lacksRole_0 = (org.apache.shiro.web.tags.LacksRoleTag) _jspx_tagPool_shiro_lacksRole_name.get(org.apache.shiro.web.tags.LacksRoleTag.class);
-    _jspx_th_shiro_lacksRole_0.setPageContext(_jspx_page_context);
-    _jspx_th_shiro_lacksRole_0.setParent(null);
-    _jspx_th_shiro_lacksRole_0.setName("admin");
-    int _jspx_eval_shiro_lacksRole_0 = _jspx_th_shiro_lacksRole_0.doStartTag();
-    if (_jspx_eval_shiro_lacksRole_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      do {
-        out.write("admin<br/>");
-        int evalDoAfterBody = _jspx_th_shiro_lacksRole_0.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-    }
-    if (_jspx_th_shiro_lacksRole_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_shiro_lacksRole_name.reuse(_jspx_th_shiro_lacksRole_0);
-      return true;
-    }
-    _jspx_tagPool_shiro_lacksRole_name.reuse(_jspx_th_shiro_lacksRole_0);
-    return false;
-  }
-
-  private boolean _jspx_meth_shiro_lacksRole_1(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  shiro:lacksRole
-    org.apache.shiro.web.tags.LacksRoleTag _jspx_th_shiro_lacksRole_1 = (org.apache.shiro.web.tags.LacksRoleTag) _jspx_tagPool_shiro_lacksRole_name.get(org.apache.shiro.web.tags.LacksRoleTag.class);
-    _jspx_th_shiro_lacksRole_1.setPageContext(_jspx_page_context);
-    _jspx_th_shiro_lacksRole_1.setParent(null);
-    _jspx_th_shiro_lacksRole_1.setName("president");
-    int _jspx_eval_shiro_lacksRole_1 = _jspx_th_shiro_lacksRole_1.doStartTag();
-    if (_jspx_eval_shiro_lacksRole_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      do {
-        out.write("president<br/>");
-        int evalDoAfterBody = _jspx_th_shiro_lacksRole_1.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-    }
-    if (_jspx_th_shiro_lacksRole_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_shiro_lacksRole_name.reuse(_jspx_th_shiro_lacksRole_1);
-      return true;
-    }
-    _jspx_tagPool_shiro_lacksRole_name.reuse(_jspx_th_shiro_lacksRole_1);
-    return false;
-  }
-
-  private boolean _jspx_meth_shiro_lacksRole_2(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  shiro:lacksRole
-    org.apache.shiro.web.tags.LacksRoleTag _jspx_th_shiro_lacksRole_2 = (org.apache.shiro.web.tags.LacksRoleTag) _jspx_tagPool_shiro_lacksRole_name.get(org.apache.shiro.web.tags.LacksRoleTag.class);
-    _jspx_th_shiro_lacksRole_2.setPageContext(_jspx_page_context);
-    _jspx_th_shiro_lacksRole_2.setParent(null);
-    _jspx_th_shiro_lacksRole_2.setName("darklord");
-    int _jspx_eval_shiro_lacksRole_2 = _jspx_th_shiro_lacksRole_2.doStartTag();
-    if (_jspx_eval_shiro_lacksRole_2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      do {
-        out.write("darklord<br/>");
-        int evalDoAfterBody = _jspx_th_shiro_lacksRole_2.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-    }
-    if (_jspx_th_shiro_lacksRole_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_shiro_lacksRole_name.reuse(_jspx_th_shiro_lacksRole_2);
-      return true;
-    }
-    _jspx_tagPool_shiro_lacksRole_name.reuse(_jspx_th_shiro_lacksRole_2);
-    return false;
-  }
-
-  private boolean _jspx_meth_shiro_lacksRole_3(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  shiro:lacksRole
-    org.apache.shiro.web.tags.LacksRoleTag _jspx_th_shiro_lacksRole_3 = (org.apache.shiro.web.tags.LacksRoleTag) _jspx_tagPool_shiro_lacksRole_name.get(org.apache.shiro.web.tags.LacksRoleTag.class);
-    _jspx_th_shiro_lacksRole_3.setPageContext(_jspx_page_context);
-    _jspx_th_shiro_lacksRole_3.setParent(null);
-    _jspx_th_shiro_lacksRole_3.setName("goodguy");
-    int _jspx_eval_shiro_lacksRole_3 = _jspx_th_shiro_lacksRole_3.doStartTag();
-    if (_jspx_eval_shiro_lacksRole_3 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      do {
-        out.write("goodguy<br/>");
-        int evalDoAfterBody = _jspx_th_shiro_lacksRole_3.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-    }
-    if (_jspx_th_shiro_lacksRole_3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_shiro_lacksRole_name.reuse(_jspx_th_shiro_lacksRole_3);
-      return true;
-    }
-    _jspx_tagPool_shiro_lacksRole_name.reuse(_jspx_th_shiro_lacksRole_3);
-    return false;
-  }
-
-  private boolean _jspx_meth_shiro_lacksRole_4(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  shiro:lacksRole
-    org.apache.shiro.web.tags.LacksRoleTag _jspx_th_shiro_lacksRole_4 = (org.apache.shiro.web.tags.LacksRoleTag) _jspx_tagPool_shiro_lacksRole_name.get(org.apache.shiro.web.tags.LacksRoleTag.class);
-    _jspx_th_shiro_lacksRole_4.setPageContext(_jspx_page_context);
-    _jspx_th_shiro_lacksRole_4.setParent(null);
-    _jspx_th_shiro_lacksRole_4.setName("schwartz");
-    int _jspx_eval_shiro_lacksRole_4 = _jspx_th_shiro_lacksRole_4.doStartTag();
-    if (_jspx_eval_shiro_lacksRole_4 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      do {
-        out.write("schwartz<br/>");
-        int evalDoAfterBody = _jspx_th_shiro_lacksRole_4.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-    }
-    if (_jspx_th_shiro_lacksRole_4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_shiro_lacksRole_name.reuse(_jspx_th_shiro_lacksRole_4);
-      return true;
-    }
-    _jspx_tagPool_shiro_lacksRole_name.reuse(_jspx_th_shiro_lacksRole_4);
     return false;
   }
 }

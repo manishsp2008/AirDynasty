@@ -2,6 +2,7 @@
             @import "media/css/demo_page.css";
             @import "media/css/demo_table.css";
             @import "css/smoothness/jquery-ui-1.8.16.custom.css";
+            @import "design/airdyna.css";
         </style>
         <script type="text/javascript" language="javascript" src="media/js/jquery.js"></script>
         <script type="text/javascript" language="javascript" src="media/js/jquery.dataTables.js"></script>

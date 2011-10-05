@@ -11,6 +11,11 @@ public final class viewOPMRec_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private static java.util.Vector _jspx_dependants;
 
+  static {
+    _jspx_dependants = new java.util.Vector(1);
+    _jspx_dependants.add("/WEB-INF/view/includeS.jsp");
+  }
+
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
@@ -60,17 +65,32 @@ public final class viewOPMRec_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <head>\r\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
       out.write("        <title>Air Dynasty - Out of Phase Maintenance records</title>\r\n");
+      out.write("        ");
+      out.write("        <style type=\"text/css\" title=\"currentStyle\">\r\n");
+      out.write("            @import \"media/css/demo_page.css\";\r\n");
+      out.write("            @import \"media/css/demo_table.css\";\r\n");
+      out.write("            @import \"css/smoothness/jquery-ui-1.8.16.custom.css\";\r\n");
+      out.write("            @import \"design/airdyna.css\";\r\n");
+      out.write("        </style>\r\n");
+      out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.dataTables.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"js/jquery-ui-1.8.16.custom.min.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"design/airdyna.js\"></script>\r\n");
+      out.write("\r\n");
       out.write("    </head>\r\n");
-      out.write("    <body>\r\n");
+      out.write("     <body id=\"dt_example\">\r\n");
       out.write("        <h1>Out of Phase Maintenance Records</h1>\r\n");
       out.write("        ");
 int i=1;
       out.write("\r\n");
-      out.write("        <table border=\"3\">\r\n");
-      out.write("         <tr>\r\n");
+      out.write("        <table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" class=\"display\" id=\"example\">\r\n");
+      out.write("            <thead>\r\n");
+      out.write("         <tr class=\"gradeA\">\r\n");
       out.write("             <th>Sr. No.</th><th>Nomenclature</th><th>Due Hours</th>\r\n");
       out.write("             <th>Calender Due Date</th><th>Interval(H/M/Y)</th><th>Time Remain (H/M/Y)</th><th>Remarks</th>   \r\n");
-      out.write("         </tr>   \r\n");
+      out.write("         </tr>\r\n");
+      out.write("            </thead>\r\n");
+      out.write("            <tbody>\r\n");
       out.write("        ");
       //  c:forEach
       org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
@@ -84,40 +104,40 @@ int i=1;
         if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
           do {
             out.write("\r\n");
-            out.write("        <tr>\r\n");
-            out.write("            <td>");
+            out.write("        <tr class=\"gradeA\">\r\n");
+            out.write("            <td class=\"center\">");
             out.print(i++);
-            out.write("</td><td>");
+            out.write("</td><td class=\"center\">");
             out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${opmSet.opmNomenclature}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-            out.write("</td><td>");
+            out.write("</td><td class=\"center\">");
             out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${opmSet.opmDueHrs}", java.lang.String.class, (PageContext)_jspx_page_context, null));
             out.write("&nbsp;&nbsp;");
             out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${opmSet.opmDueHrsType}", java.lang.String.class, (PageContext)_jspx_page_context, null));
             out.write(" [&nbsp;");
             out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${opmSet.opmDueAt}", java.lang.String.class, (PageContext)_jspx_page_context, null));
             out.write("&nbsp;]</td>\r\n");
-            out.write("            <td>");
+            out.write("            <td class=\"center\">");
             out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${opmSet.opmCalDueDate}", java.lang.String.class, (PageContext)_jspx_page_context, null));
             out.write("</td>\r\n");
-            out.write("            <td>\r\n");
+            out.write("            <td class=\"center\">\r\n");
             out.write("            ");
             if (_jspx_meth_c_forEach_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
               return;
             out.write("\r\n");
             out.write("            </td>\r\n");
-            out.write("            <td>\r\n");
+            out.write("            <td class=\"center\">\r\n");
             out.write("            ");
             if (_jspx_meth_c_forEach_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
               return;
             out.write("\r\n");
             out.write("            </td>\r\n");
-            out.write("            <td>    \r\n");
+            out.write("            <td class=\"center\">    \r\n");
             out.write("            ");
             if (_jspx_meth_c_forEach_3((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
               return;
             out.write("\r\n");
             out.write("            </td>\r\n");
-            out.write("            <td>    \r\n");
+            out.write("            <td class=\"center\">    \r\n");
             out.write("            ");
             if (_jspx_meth_c_forEach_4((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
               return;
@@ -142,6 +162,7 @@ int i=1;
         _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
       }
       out.write("\r\n");
+      out.write("            </tbody>\r\n");
       out.write("    </table>\r\n");
       out.write("    <ul>\r\n");
       out.write("        <li><a href=\"/AirDynasty/viewCraftList\">Back to AirCraft List</a></li>\r\n");

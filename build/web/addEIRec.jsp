@@ -12,7 +12,7 @@
         <title>Air Dynasty - Add New Engine Inspection Record </title>
         <%@include file="includeS.jsp" %>
     </head>
-    <body>
+   <body id="dt_example">
         <h1>New Engine Inspection Record</h1>
         <form name="myForm" action="/AirDynasty/addEngInspec" method="get">
         <table>

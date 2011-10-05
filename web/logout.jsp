@@ -61,7 +61,7 @@
 </head>
   <body id="dt_example">
 
-<h2>Log out</h2>
+<h1>Log out</h1>
 
 <p>You have succesfully logged out. <a href="<c:url value="/home.jsp"/>">Return to the home page.</a></p>
 

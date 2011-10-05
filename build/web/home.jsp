@@ -21,50 +21,94 @@
 <html>
 <head>
     <link type="text/css" rel="stylesheet" href="<c:url value="/style.css"/>"/>
-    <title>Apache Shiro Quickstart</title>
+    <title>Air Dynasty</title>
     <%@include file="includeS.jsp" %>
 </head>
 <body>
+<div id="wrap">
+    
+<div id="header">
+     <div id="headerTopBar" class="ui-corner-top">
+        <div id="headerLinks">
+            Header links
+        </div>
+        <div id="headerLoginBar">
+            Header User Info    
+        </div>
+    </div>
+    <div id="headerMainBar" class="ui-corner-bottom">
+        <img src="images/logo.jpg" id="headerImage" />
+        <div id="headerTitle">
+            Aircraft Management System
+        </div>
+    </div>
+</div>
+<div id="dt_example" class="ui-corner-all">
+<h1>Air Craft Management System</h1>
 
-<h1>Apache Shiro Quickstart</h1>
-
-<p>Hi <shiro:guest>Guest</shiro:guest><shiro:user><shiro:principal/></shiro:user>!
+<p>Hi, <shiro:guest>Guest</shiro:guest><shiro:user><shiro:principal/></shiro:user>!
     ( <shiro:user><a href="<c:url value="/logout.jsp"/>">Log out</a></shiro:user>
-    <shiro:guest><a href="<c:url value="/login.jsp"/>">Log in</a> (sample accounts provided)</shiro:guest> )
+    <shiro:guest><a href="<c:url value="/login.jsp"/>">Log in</a></shiro:guest> )
 </p>
 
-<p>Welcome to the Apache Shiro Quickstart sample application.
-    This page represents the home page of any web application.</p>
+<p>Welcome to the air Dynasty ACMS. This page represents the home page of web application.</p>
 
-<shiro:user><p>Visit your <a href="<c:url value="/account"/>">account page</a>.</p></shiro:user>
-<shiro:guest><p>If you want to access the user-only <a href="<c:url value="/account"/>">account page</a>,
-    you will need to log-in first.</p></shiro:guest>
+<shiro:user><p>Visit Application <a href="<c:url value="/index1.jsp"/>">Main Page</a>.</p></shiro:user>
 
-<h2>Roles</h2>
+<h2> Craft Panel Demo </h2>
+<!--
+<div id="craftPanel">
+    <div id="firstRow">
+        <div id="cell1">
+            Form Name : Will be Here.
+        </div>
+        <div id="cell2">
+            AirCraft Name : Will be Here.
+        </div>
+        <div id="cell3">
+            Date : Will be Here.
+        </div>
+    </div>
+    <br/><br/>
+     <div id="firstRow">
+        <div id="cell1">
+            A/F Hours : Will be Here.
+        </div>
+        <div id="cell3">
+            Engine Hours : Will be Here.
+        </div>
+    </div>
+    <br/><br/>
+     <div id="firstRow">
+        <div id="cell1">
+            Landing Count : Will be Here.
+        </div>
+        <div id="cell3">
+            Start Count : Will be Here.
+        </div>
+    </div>
+</div>
 
-<p>To show some taglibs, here are the roles you have and don't have. Log out and log back in under different user
-    accounts to see different roles.</p>
+</div>
+-->
 
-<h3>Roles you have</h3>
+<div id="container">
+  <div id="left">
+      Form Number
+  </div>
+  <div id="middle">
+      Title
+  </div>
+  <div id="right">
+      Date
+  </div>
+</div>
 
-<p>
-    <shiro:hasRole name="admin">admin<br/></shiro:hasRole>
-    <shiro:hasRole name="president">president<br/></shiro:hasRole>
-    <shiro:hasRole name="darklord">darklord<br/></shiro:hasRole>
-    <shiro:hasRole name="goodguy">goodguy<br/></shiro:hasRole>
-    <shiro:hasRole name="schwartz">schwartz<br/></shiro:hasRole>
-</p>
+</div>
 
-<h3>Roles you DON'T have</h3>
-
-<p>
-    <shiro:lacksRole name="admin">admin<br/></shiro:lacksRole>
-    <shiro:lacksRole name="president">president<br/></shiro:lacksRole>
-    <shiro:lacksRole name="darklord">darklord<br/></shiro:lacksRole>
-    <shiro:lacksRole name="goodguy">goodguy<br/></shiro:lacksRole>
-    <shiro:lacksRole name="schwartz">schwartz<br/></shiro:lacksRole>
-</p>
-
+<div id="footer" class="ui-corner-top">
+    Footer Bar
+</div>
 
 </body>
 </html>

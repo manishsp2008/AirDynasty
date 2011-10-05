@@ -17,12 +17,12 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
   private static java.util.Vector _jspx_dependants;
 
   static {
-    _jspx_dependants = new java.util.Vector(1);
+    _jspx_dependants = new java.util.Vector(2);
     _jspx_dependants.add("/include.jsp");
+    _jspx_dependants.add("/includeS.jsp");
   }
 
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_url_value_nobody;
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_shiro_guest;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
@@ -32,12 +32,10 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   public void _jspInit() {
     _jspx_tagPool_c_url_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _jspx_tagPool_shiro_guest = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
     _jspx_tagPool_c_url_value_nobody.release();
-    _jspx_tagPool_shiro_guest.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -84,27 +82,35 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_meth_c_url_0(_jspx_page_context))
         return;
       out.write("\"/>\r\n");
+      out.write("    ");
+      out.write("        <style type=\"text/css\" title=\"currentStyle\">\r\n");
+      out.write("            @import \"media/css/demo_page.css\";\r\n");
+      out.write("            @import \"media/css/demo_table.css\";\r\n");
+      out.write("            @import \"css/smoothness/jquery-ui-1.8.16.custom.css\";\r\n");
+      out.write("            @import \"design/airdyna.css\";\r\n");
+      out.write("        </style>\r\n");
+      out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.dataTables.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"js/jquery-ui-1.8.16.custom.min.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"design/airdyna.js\"></script>\r\n");
+      out.write("\r\n");
       out.write("</head>\r\n");
-      out.write("<body>\r\n");
+      out.write("  <body id=\"dt_example\">\r\n");
       out.write("\r\n");
-      out.write("<h2>Please Log in</h2>\r\n");
-      out.write("\r\n");
-      if (_jspx_meth_shiro_guest_0(_jspx_page_context))
-        return;
-      out.write("\r\n");
+      out.write("<h1>Log in</h1>\r\n");
       out.write("\r\n");
       out.write("<form name=\"loginform\" action=\"\" method=\"post\">\r\n");
-      out.write("    <table align=\"left\" border=\"0\" cellspacing=\"0\" cellpadding=\"3\">\r\n");
+      out.write("    <table align=\"center\" border=\"0\" cellspacing=\"0\" cellpadding=\"3\">\r\n");
       out.write("        <tr>\r\n");
       out.write("            <td>Username:</td>\r\n");
-      out.write("            <td><input type=\"text\" name=\"username\" maxlength=\"30\"></td>\r\n");
+      out.write("            <td><input type=\"text\" name=\"username\" maxlength=\"30\"/></td>\r\n");
       out.write("        </tr>\r\n");
       out.write("        <tr>\r\n");
       out.write("            <td>Password:</td>\r\n");
-      out.write("            <td><input type=\"password\" name=\"password\" maxlength=\"30\"></td>\r\n");
+      out.write("            <td><input type=\"password\" name=\"password\" maxlength=\"30\"/></td>\r\n");
       out.write("        </tr>\r\n");
       out.write("        <tr>\r\n");
-      out.write("            <td colspan=\"2\" align=\"left\"><input type=\"checkbox\" name=\"rememberMe\"><font size=\"2\">Remember Me</font></td>\r\n");
+      out.write("            <td colspan=\"2\" align=\"left\"><input type=\"checkbox\" name=\"rememberMe\"/><font size=\"2\">Remember Me</font></td>\r\n");
       out.write("        </tr>\r\n");
       out.write("        <tr>\r\n");
       out.write("            <td colspan=\"2\" align=\"right\"><input type=\"submit\" name=\"submit\" value=\"Login\"></td>\r\n");
@@ -142,89 +148,6 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       return true;
     }
     _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_0);
-    return false;
-  }
-
-  private boolean _jspx_meth_shiro_guest_0(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  shiro:guest
-    org.apache.shiro.web.tags.GuestTag _jspx_th_shiro_guest_0 = (org.apache.shiro.web.tags.GuestTag) _jspx_tagPool_shiro_guest.get(org.apache.shiro.web.tags.GuestTag.class);
-    _jspx_th_shiro_guest_0.setPageContext(_jspx_page_context);
-    _jspx_th_shiro_guest_0.setParent(null);
-    int _jspx_eval_shiro_guest_0 = _jspx_th_shiro_guest_0.doStartTag();
-    if (_jspx_eval_shiro_guest_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      do {
-        out.write("\r\n");
-        out.write("    <p>Here are a few sample accounts to play with in the default text-based Realm (used for this\r\n");
-        out.write("        demo and test installs only). Do you remember the movie these names came from? ;)</p>\r\n");
-        out.write("\r\n");
-        out.write("\r\n");
-        out.write("    <style type=\"text/css\">\r\n");
-        out.write("        table.sample {\r\n");
-        out.write("            border-width: 1px;\r\n");
-        out.write("            border-style: outset;\r\n");
-        out.write("            border-color: blue;\r\n");
-        out.write("            border-collapse: separate;\r\n");
-        out.write("            background-color: rgb(255, 255, 240);\r\n");
-        out.write("        }\r\n");
-        out.write("\r\n");
-        out.write("        table.sample th {\r\n");
-        out.write("            border-width: 1px;\r\n");
-        out.write("            padding: 1px;\r\n");
-        out.write("            border-style: none;\r\n");
-        out.write("            border-color: blue;\r\n");
-        out.write("            background-color: rgb(255, 255, 240);\r\n");
-        out.write("        }\r\n");
-        out.write("\r\n");
-        out.write("        table.sample td {\r\n");
-        out.write("            border-width: 1px;\r\n");
-        out.write("            padding: 1px;\r\n");
-        out.write("            border-style: none;\r\n");
-        out.write("            border-color: blue;\r\n");
-        out.write("            background-color: rgb(255, 255, 240);\r\n");
-        out.write("        }\r\n");
-        out.write("    </style>\r\n");
-        out.write("\r\n");
-        out.write("\r\n");
-        out.write("    <table class=\"sample\">\r\n");
-        out.write("        <thead>\r\n");
-        out.write("        <tr>\r\n");
-        out.write("            <th>Username</th>\r\n");
-        out.write("            <th>Password</th>\r\n");
-        out.write("        </tr>\r\n");
-        out.write("        </thead>\r\n");
-        out.write("        <tbody>\r\n");
-        out.write("        <tr>\r\n");
-        out.write("            <td>root</td>\r\n");
-        out.write("            <td>secret</td>\r\n");
-        out.write("        </tr>\r\n");
-        out.write("        <tr>\r\n");
-        out.write("            <td>presidentskroob</td>\r\n");
-        out.write("            <td>12345</td>\r\n");
-        out.write("        </tr>\r\n");
-        out.write("        <tr>\r\n");
-        out.write("            <td>darkhelmet</td>\r\n");
-        out.write("            <td>ludicrousspeed</td>\r\n");
-        out.write("        </tr>\r\n");
-        out.write("        <tr>\r\n");
-        out.write("            <td>lonestarr</td>\r\n");
-        out.write("            <td>vespa</td>\r\n");
-        out.write("        </tr>\r\n");
-        out.write("        </tbody>\r\n");
-        out.write("    </table>\r\n");
-        out.write("    <br/><br/>\r\n");
-        int evalDoAfterBody = _jspx_th_shiro_guest_0.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-    }
-    if (_jspx_th_shiro_guest_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_shiro_guest.reuse(_jspx_th_shiro_guest_0);
-      return true;
-    }
-    _jspx_tagPool_shiro_guest.reuse(_jspx_th_shiro_guest_0);
     return false;
   }
 }

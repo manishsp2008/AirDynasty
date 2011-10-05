@@ -59,9 +59,9 @@
     <link type="text/css" rel="stylesheet" href="<c:url value="style.css"/>"/>
     <%@include file="includeS.jsp" %>
 </head>
-<body>
+  <body id="dt_example">
 
-<h2>Log out</h2>
+<h1>Log out</h1>
 
 <p>You have succesfully logged out. <a href="<c:url value="/home.jsp"/>">Return to the home page.</a></p>
 

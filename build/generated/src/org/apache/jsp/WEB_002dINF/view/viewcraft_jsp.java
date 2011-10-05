@@ -17,8 +17,9 @@ public final class viewcraft_jsp extends org.apache.jasper.runtime.HttpJspBase
   private static java.util.Vector _jspx_dependants;
 
   static {
-    _jspx_dependants = new java.util.Vector(1);
+    _jspx_dependants = new java.util.Vector(2);
     _jspx_dependants.add("/WEB-INF/view/include.jsp");
+    _jspx_dependants.add("/WEB-INF/view/includeS.jsp");
   }
 
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_fmt_formatDate_var_value_pattern_nobody;
@@ -98,28 +99,27 @@ public final class viewcraft_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <head>\r\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
       out.write("        <title>Air Dynasty - Air Craft Details</title>\r\n");
+      out.write("        ");
       out.write("        <style type=\"text/css\" title=\"currentStyle\">\r\n");
       out.write("            @import \"media/css/demo_page.css\";\r\n");
-      out.write("\t    @import \"media/css/demo_table.css\";\r\n");
-      out.write("\t</style>\r\n");
-      out.write("\t\r\n");
+      out.write("            @import \"media/css/demo_table.css\";\r\n");
+      out.write("            @import \"css/smoothness/jquery-ui-1.8.16.custom.css\";\r\n");
+      out.write("            @import \"design/airdyna.css\";\r\n");
+      out.write("        </style>\r\n");
       out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.js\"></script>\r\n");
-      out.write("\t<script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.dataTables.js\"></script>\r\n");
-      out.write("        <script type=\"text/javascript\" charset=\"utf-8\">\r\n");
-      out.write("\t\t\t$(document).ready(function() {\r\n");
-      out.write("\t\t\t\t$('#example').dataTable();\r\n");
-      out.write("\t\t\t} );\r\n");
-      out.write("\t\t</script>\r\n");
+      out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.dataTables.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"js/jquery-ui-1.8.16.custom.min.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"design/airdyna.js\"></script>\r\n");
+      out.write("\r\n");
       out.write("    </head>\r\n");
       out.write("    \r\n");
       out.write("    <body id=\"dt_example\">\r\n");
-      out.write("        <h1>");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${craftObj.acName}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("</h1>\r\n");
-      out.write("        \r\n");
       out.write("        <ol>\r\n");
       out.write("            <li>Form Number : ");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${craftObj.acFormnum}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("</li>\r\n");
+      out.write("            <li>Name : ");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${craftObj.acName}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("</li>\r\n");
       out.write("            ");
       //  fmt:formatDate
@@ -139,7 +139,7 @@ public final class viewcraft_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <li>Date : ");
       if (_jspx_meth_c_out_0(_jspx_page_context))
         return;
-      out.write("<br/> </li>\r\n");
+      out.write("</li>\r\n");
       out.write("            <li>AirFrame Hours : ");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${craftObj.acAfhrs}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("</li>\r\n");
@@ -152,10 +152,10 @@ public final class viewcraft_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <li>Start Count : ");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${craftObj.acStartcount}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("</li>\r\n");
-      out.write("            <li>Engine Ng. Cycs. : ");
+      out.write("            <li>Engine N/G Cycles : ");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${craftObj.acEngngcycs}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("</li>\r\n");
-      out.write("            <li>Np. Cycs. : ");
+      out.write("            <li>Engine N/P Cycles : ");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${craftObj.acNpcycs}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("</li>\r\n");
       out.write("        </ol>\r\n");
@@ -165,7 +165,7 @@ int i=1;
       out.write("\r\n");
       out.write("        <table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" class=\"display\" id=\"example\">\r\n");
       out.write("        <thead>\r\n");
-      out.write("        <tr><th>Sr. No.</th><th>Component Name</th><th>Part No.</th><th>Serial No.</th><th>Finite Life(TBO)</th>\r\n");
+      out.write("        <tr class=\"gradeA\"><th>Sr. No.</th><th>Component Name</th><th>Part No.</th><th>Serial No.</th><th>Finite Life(TBO)</th>\r\n");
       out.write("        <th>Life Remaining (Installation)</th><th>Installation Air Frame Hours</th><th>Installation Date</th>\r\n");
       out.write("        <th>Installation Due Off Hours</th><th>Current Air Frame Hours</th><th>Remaining Life Hours</th>\r\n");
       out.write("        <th>Remarks</th></tr>\r\n");
@@ -267,7 +267,7 @@ int i=1;
       out.write("\r\n");
       out.write("        </tbody>\r\n");
       out.write("        </table>\r\n");
-      out.write("        \r\n");
+      out.write("        <br/>\r\n");
       out.write("        <h4>Related Operations</h4>\r\n");
       out.write("        <ul>\r\n");
       out.write("            ");
@@ -282,9 +282,14 @@ int i=1;
       out.write("        <ul>\r\n");
       out.write("            <li><a href=\"/AirDynasty/addCmpRec.jsp\">Add Component Record</a></li>\r\n");
       out.write("        </ul>\r\n");
-      out.write("        \r\n");
-      out.write("        \r\n");
-      out.write("           \r\n");
+      out.write("        <!--\r\n");
+      out.write("        <h1> Test Area </h1>\r\n");
+      out.write("        <div class=\"ui-widget\">\r\n");
+      out.write("            <div class=\"ui-state-highlight ui-corner-all\" style=\"margin-top: 20px; padding: 0 .7em;\"> \r\n");
+      out.write("                    <p><span class=\"ui-icon ui-icon-info\" style=\"float: left; margin-right: .3em;\"></span>\r\n");
+      out.write("                    <strong>Hey!</strong> Sample ui-state-highlight style.</p>\r\n");
+      out.write("            </div>\r\n");
+      out.write("        </div> -->  \r\n");
       out.write("    </body>\r\n");
       out.write("</html>\r\n");
     } catch (Throwable t) {

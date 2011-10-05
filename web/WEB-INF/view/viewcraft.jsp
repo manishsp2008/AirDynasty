@@ -16,18 +16,17 @@
     </head>
     
     <body id="dt_example">
-        <h1>${craftObj.acName}</h1>
-        
         <ol>
             <li>Form Number : ${craftObj.acFormnum}</li>
+            <li>Name : ${craftObj.acName}</li>
             <fmt:formatDate pattern="dd-MM-yyyy" value="<%= Calendar.getInstance().getTime() %>" var="sysDate" />
-            <li>Date : <c:out  value="${sysDate}"/><br/> </li>
+            <li>Date : <c:out value="${sysDate}"/></li>
             <li>AirFrame Hours : ${craftObj.acAfhrs}</li>
             <li>Engine Hours : ${craftObj.acEnghrs}</li>
             <li>Landing Count : ${craftObj.acLandingcount}</li>
             <li>Start Count : ${craftObj.acStartcount}</li>
-            <li>Engine NG Cycles : ${craftObj.acEngngcycs}</li>
-            <li>Engine NP Cycles : ${craftObj.acNpcycs}</li>
+            <li>Engine N/G Cycles : ${craftObj.acEngngcycs}</li>
+            <li>Engine N/P Cycles : ${craftObj.acNpcycs}</li>
         </ol>
         <h3>Components</h3>
         <%int i=1;%>
@@ -111,12 +110,13 @@
         <ul>
             <li><a href="/AirDynasty/addCmpRec.jsp">Add Component Record</a></li>
         </ul>
+        <!--
         <h1> Test Area </h1>
         <div class="ui-widget">
             <div class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;"> 
                     <p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
                     <strong>Hey!</strong> Sample ui-state-highlight style.</p>
             </div>
-        </div>   
+        </div> -->  
     </body>
 </html>

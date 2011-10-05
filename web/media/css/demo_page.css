@@ -2,28 +2,82 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * General page setup
  */
-#dt_example {
-	font: 80%/1.45em "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
-	margin-left: 30px;
-        margin-top: 20px;
-        margin-right: 30px;
-        padding: 0;
-	color: #333;
-	background-color: #fff;
+ html, body {
+     height: 100%;
+ }
+ 
+#wrap {
+    min-height: 100%;
+}
+ 
+root { 
+    display: block;
+    margin:0;
+    padding:0;
 }
 
+#headerTopBar {
+    width:auto;
+    height:25px;
+    background-color: #aaa;
+    padding : 7px 10px 7px 10px; 
+}
+
+#headerMainBar {
+    width:auto;
+    height:95px;
+    background-color: #ddd;
+    padding : 7px 10px 7px 10px;
+    margin-top: 2px;
+}
+
+#headerImage {
+    padding:10px 10px 10px 10px ;
+    margin-left: 40px;
+}
+
+#headerTitle {
+    font-family: "Georgia", Arial;
+    font-size: 60px;
+    float:right;
+    margin-right: 130px;
+    padding:10px 10px 10px 10px ;
+}
+
+#headerLinks {
+    float: left;
+    margin-left: 50px;
+}
+
+#headerLoginBar {
+    float: right;
+    margin-right:140px;
+}
+
+
+#dt_example {
+	font: 90%/1.45em "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+	background-color: #fcffff;
+        overflow:auto;
+	margin-top: 5px;
+        padding-bottom: 50px;
+}
 
 #dt_example #container {
 	width: 800px;
+        height : 600px;
 	margin: 30px auto;
 	padding: 0;
+        background: #ddd;
 }
 
-
-#dt_example #footer {
-	margin: 50px auto 0 auto;
-	padding: 0;
-}
+#footer {
+        position: relative;
+	margin-top: -50px; /* negative value of footer height */
+	height: 50px;
+	clear:both;
+        background: #ccc;       
+}   
 
 #dt_example #demo {
 	margin: 30px auto 0 auto;
@@ -51,30 +105,32 @@
 
 #dt_example pre {
 	padding: 15px;
-	background-color: #F5F5F5;
-	border: 1px solid #CCCCCC;
+	background-color: #F2F2F2;
+	border: 1px dashed #111111;
 }
 
 #dt_example h1 {
-	margin-top: 2em;
-	font-size: 1.3em;
-	font-weight: normal;
-	line-height: 1.6em;
-	color: #4E6CA3;
-	border-bottom: 1px solid #B0BED9;
+	margin-top: 1em;
+	font-size: 1.9em;
+        font-family: Georgia;
+	font-weight: bold;
+	line-height: 1.5em;
+	color: #4E4E4E;
+	border-bottom: 0px groove #9E9E9E;
 	clear: both;
 }
 
 #dt_example h2 {
-	font-size: 1.2em;
+	font-size: 1.4em;
+        font-family: Georgia;
 	font-weight: normal;
-	line-height: 1.6em;
-	color: #4E6CA3;
+	line-height: 1.5em;
+	color: #4E4E4E;
 	clear: both;
 }
 
 #dt_example a {
-	color: #0063DC;
+        color : #0000ca;
 	text-decoration: none;
 }
 
@@ -83,7 +139,9 @@
 }
 
 #dt_example ul {
-	color: #4E6CA3;
+	color: #4E4E4E;
+        padding-top: 1px;
+        padding-bottom: 1px;
 }
 
 .css_right {
@@ -98,4 +156,67 @@
 	float: left;
 	width: 50%;
 	margin-bottom: 1em;
+}
+
+#topRow {
+    display: block;
+    height:50px;
+    background: #aaa;
+}
+
+#craftPanel {
+    background: #aaa;
+    
+}
+#craftPanel #firstRow {
+    background: #ddd;
+}
+#craftPanel #firstRow #cell1 {
+    float:left;
+    margin-left: 150px;
+}
+#craftPanel #firstRow #cell2 {
+    float:left;
+    margin-left: 150px;
+}
+#craftPanel #firstRow #cell3 {
+    float:right;
+    margin-right: 250px;
+}
+
+#craftPanel secondRow {
+    background: #ddd;
+}
+#craftPanel #secondRow #cell4 {
+    float:left;
+    margin-left: 150px;
+}
+#craftPanel #secondRow #cell5 {
+    float: left;
+    margin-left: 300px;
+}
+
+
+#craftPanel thirdRow {
+    
+}
+
+
+#container {
+podition: relative;
+}
+#left {
+position: absolute;
+top: 0px;
+left: 0px;
+width: 180px;
+}
+#middle {
+margin: 0px 180px 0px 180px;
+}
+#right {
+position: absolute;
+top: 0px;
+right: 0px;
+width: 180px;
 }

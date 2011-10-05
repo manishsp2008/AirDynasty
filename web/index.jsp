@@ -13,7 +13,7 @@
         <%@include file="includeS.jsp" %>
     </head>
       <body id="dt_example">
-        <h1>Air Dynasty Air Craft management System</h1>
+        <h1>Air Craft Management System</h1>
         <ol>
             <li><a href="/AirDynasty/viewCraftList">View Air Crafts</a></li>
         </ol>
