@@ -34,14 +34,22 @@ root {
 #headerImage {
     padding:10px 10px 10px 10px ;
     margin-left: 40px;
+    float:left;
 }
 
 #headerTitle {
     font-family: "Georgia", Arial;
-    font-size: 60px;
+    font-size: 50px;
+    float:left;
+    /*margin-right: 480px;*/
+    padding:20px 10px 10px 23px ;
+}
+
+#headerClock {
     float:right;
-    margin-right: 130px;
-    padding:10px 10px 10px 10px ;
+    margin-right: 40px;
+    padding:30px 10px 10px 10px ;
+
 }
 
 #headerLinks {
@@ -51,9 +59,20 @@ root {
 
 #headerLoginBar {
     float: right;
-    margin-right:140px;
+    margin-right:50px;
 }
 
+#footerLeftBar {
+    float : left;
+    margin-left : 50px;
+    padding : 15px 0px;
+}
+
+#footerRightBar {
+    float : right;
+    margin-right : 50px;
+    padding : 15px 0px;
+}
 
 #dt_example {
 	font: 90%/1.45em "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
@@ -61,6 +80,8 @@ root {
         overflow:auto;
 	margin-top: 5px;
         padding-bottom: 50px;
+        margin-left : 60px;
+        margin-right : 60px;
 }
 
 #dt_example #container {
@@ -164,40 +185,22 @@ root {
     background: #aaa;
 }
 
-.craftPanel {
-    
-    background: #aaa;
-}
-.craftPanel .firstRow {
-    background: #ddd;
-}
-.craftPanel .firstRow .cell1 {
-    float:left;
-    margin-left: 250px;
-    
-}
-.craftPanel .firstRow .cell2 {
-    float:left;
-    margin-left: 100px;
-    
-}
-.craftPanel .firstRow .cell3 {
-    float:right;
-    margin-right: 420px;
-    
-}
-.craftPanel .firstRow .cell4 {
-    float:left;
-    margin-left: 350px;
-    
-}
-.craftPanel .firstRow .cell5 {
-    float:right;
-    margin-right: 500px;
-    
-}
 
+#myContainer {
+        display: table;
+	margin-left: 300px;
+        margin-top : 25px;
+	background : #aaa;
+  }
 
+  #row  {
+    display: table-row;
+  }
+
+  #left, #right, #middle {
+    padding : 5px 25px;
+    display: table-cell;
+  }
 
 
 

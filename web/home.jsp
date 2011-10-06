@@ -27,85 +27,22 @@
 <body>
 <div id="wrap">
     
-<div id="header">
-     <div id="headerTopBar" class="ui-corner-top">
-        <div id="headerLinks">
-            Header links
-        </div>
-        <div id="headerLoginBar">
-            Header User Info    
-        </div>
-    </div>
-    <div id="headerMainBar" class="ui-corner-bottom">
-        <img src="images/logo.jpg" id="headerImage" />
-        <div id="headerTitle">
-            Aircraft Management System
-        </div>
-    </div>
-</div>
+<%@include file="header.jsp" %>
+
 <div id="dt_example" class="ui-corner-all">
 <h1>Air Craft Management System</h1>
-
+<!--
 <p>Hi, <shiro:guest>Guest</shiro:guest><shiro:user><shiro:principal/></shiro:user>!
     ( <shiro:user><a href="<c:url value="/logout.jsp"/>">Log out</a></shiro:user>
     <shiro:guest><a href="<c:url value="/login.jsp"/>">Log in</a></shiro:guest> )
 </p>
-
-<p>Welcome to the air Dynasty ACMS. This page represents the home page of web application.</p>
+-->
+<p>Welcome to the Air-Dynasty ACMS. This page represents the home page of web application.</p>
 
 <shiro:user><p>Visit Application <a href="<c:url value="/index1.jsp"/>">Main Page</a>.</p></shiro:user>
 
-<h2> Craft Panel Demo </h2>
-
-<div class="craftPanel">
-    <div class="firstRow">
-        <div class="cell1">
-            Form Name : Will be Here.
-        </div>
-        <div class="cell2">
-            AirCraft Name : Will be Here.
-        </div>
-        <div class="cell3">
-            Date : Will be Here.
-        </div>
-    </div>
-    <br/><br/><br/>
-     <div class="firstRow">
-        <div class="cell4">
-            A/F Hours : Will be Here.
-        </div>
-        <div class="cell5">
-            Engine Hours : Will be Here.
-        </div>
-    </div>
-    <br/><br/>
-     <div class="firstRow">
-        <div class="cell4">
-            Landing Count : Will be Here.
-        </div>
-        <div class="cell5">
-            Start Count : Will be Here.
-        </div>
-    </div>
-    <br/>
-    <br/>
-     <div class="firstRow">
-        <div class="cell4">
-            Engine N/G Cycles : Will be Here.
-        </div>
-        <div class="cell5">
-            Engine N/P Cycles : Will be Here.
-        </div>
-    </div>
-    
-</div>
-
 </div>
 </div>
-
-<div id="footer" class="ui-corner-top">
-    Footer Bar
-</div>
-
+<%@include file="footer.jsp" %>
 </body>
 </html>
