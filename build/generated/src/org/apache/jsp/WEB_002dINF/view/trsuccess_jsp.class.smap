@@ -3,12 +3,24 @@ trsuccess_jsp.java
 JSP
 *S JSP
 *F
-+ 0 trsuccess.jsp
-WEB-INF/view/trsuccess.jsp
++ 0 header.jspf
+WEB-INF/jspf/header.jspf
 + 1 includeS.jsp
+WEB-INF/jspf/../view/includeS.jsp
++ 2 trsuccess.jsp
+WEB-INF/view/trsuccess.jsp
++ 3 includeS.jsp
 WEB-INF/view/includeS.jsp
++ 4 footer.jspf
+WEB-INF/jspf/footer.jspf
 *L
-5,9:49
-1#1,11:58
-13#0,9:68
+1,3:52
+1#1,11:54
+3#0,19:64
+5#2,9:83
+1#3,11:92
+13#2,9:102
+1#4,3:110
+1#1,11:112
+3#4,6:122
 *E

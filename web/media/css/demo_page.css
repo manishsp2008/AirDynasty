@@ -164,59 +164,40 @@ root {
     background: #aaa;
 }
 
-#craftPanel {
+.craftPanel {
+    
     background: #aaa;
-    
 }
-#craftPanel #firstRow {
+.craftPanel .firstRow {
     background: #ddd;
 }
-#craftPanel #firstRow #cell1 {
+.craftPanel .firstRow .cell1 {
     float:left;
-    margin-left: 150px;
+    margin-left: 250px;
+    
 }
-#craftPanel #firstRow #cell2 {
+.craftPanel .firstRow .cell2 {
     float:left;
-    margin-left: 150px;
+    margin-left: 100px;
+    
 }
-#craftPanel #firstRow #cell3 {
+.craftPanel .firstRow .cell3 {
     float:right;
-    margin-right: 250px;
+    margin-right: 420px;
+    
 }
-
-#craftPanel secondRow {
-    background: #ddd;
-}
-#craftPanel #secondRow #cell4 {
+.craftPanel .firstRow .cell4 {
     float:left;
-    margin-left: 150px;
+    margin-left: 350px;
+    
 }
-#craftPanel #secondRow #cell5 {
-    float: left;
-    margin-left: 300px;
-}
-
-
-#craftPanel thirdRow {
+.craftPanel .firstRow .cell5 {
+    float:right;
+    margin-right: 500px;
     
 }
 
 
-#container {
-podition: relative;
-}
-#left {
-position: absolute;
-top: 0px;
-left: 0px;
-width: 180px;
-}
-#middle {
-margin: 0px 180px 0px 180px;
-}
-#right {
-position: absolute;
-top: 0px;
-right: 0px;
-width: 180px;
-}
+
+
+

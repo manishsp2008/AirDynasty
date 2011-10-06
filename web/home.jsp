@@ -56,54 +56,51 @@
 <shiro:user><p>Visit Application <a href="<c:url value="/index1.jsp"/>">Main Page</a>.</p></shiro:user>
 
 <h2> Craft Panel Demo </h2>
-<!--
-<div id="craftPanel">
-    <div id="firstRow">
-        <div id="cell1">
+
+<div class="craftPanel">
+    <div class="firstRow">
+        <div class="cell1">
             Form Name : Will be Here.
         </div>
-        <div id="cell2">
+        <div class="cell2">
             AirCraft Name : Will be Here.
         </div>
-        <div id="cell3">
+        <div class="cell3">
             Date : Will be Here.
         </div>
     </div>
-    <br/><br/>
-     <div id="firstRow">
-        <div id="cell1">
+    <br/><br/><br/>
+     <div class="firstRow">
+        <div class="cell4">
             A/F Hours : Will be Here.
         </div>
-        <div id="cell3">
+        <div class="cell5">
             Engine Hours : Will be Here.
         </div>
     </div>
     <br/><br/>
-     <div id="firstRow">
-        <div id="cell1">
+     <div class="firstRow">
+        <div class="cell4">
             Landing Count : Will be Here.
         </div>
-        <div id="cell3">
+        <div class="cell5">
             Start Count : Will be Here.
         </div>
     </div>
+    <br/>
+    <br/>
+     <div class="firstRow">
+        <div class="cell4">
+            Engine N/G Cycles : Will be Here.
+        </div>
+        <div class="cell5">
+            Engine N/P Cycles : Will be Here.
+        </div>
+    </div>
+    
 </div>
 
 </div>
--->
-
-<div id="container">
-  <div id="left">
-      Form Number
-  </div>
-  <div id="middle">
-      Title
-  </div>
-  <div id="right">
-      Date
-  </div>
-</div>
-
 </div>
 
 <div id="footer" class="ui-corner-top">

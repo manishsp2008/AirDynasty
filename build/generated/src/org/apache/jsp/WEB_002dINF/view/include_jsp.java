@@ -16,6 +16,13 @@ public final class include_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private static java.util.Vector _jspx_dependants;
 
+  static {
+    _jspx_dependants = new java.util.Vector(3);
+    _jspx_dependants.add("/WEB-INF/jspf/header.jspf");
+    _jspx_dependants.add("/WEB-INF/jspf/../view/includeS.jsp");
+    _jspx_dependants.add("/WEB-INF/jspf/footer.jspf");
+  }
+
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public Object getDependants() {
@@ -48,6 +55,35 @@ public final class include_jsp extends org.apache.jasper.runtime.HttpJspBase
 
       out.write("\r\n");
       out.write("\r\n");
+      out.write("        <style type=\"text/css\" title=\"currentStyle\">\r\n");
+      out.write("            @import \"media/css/demo_page.css\";\r\n");
+      out.write("            @import \"media/css/demo_table.css\";\r\n");
+      out.write("            @import \"css/smoothness/jquery-ui-1.8.16.custom.css\";\r\n");
+      out.write("            @import \"design/airdyna.css\";\r\n");
+      out.write("        </style>\r\n");
+      out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.dataTables.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"js/jquery-ui-1.8.16.custom.min.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"design/airdyna.js\"></script>\r\n");
+      out.write("\r\n");
+      out.write("<div id=\"header\" >\r\n");
+      out.write("    \r\n");
+      out.write("    <div id=\"headerTopBar\" class=\"ui-corner-top\">\r\n");
+      out.write("        <div id=\"headerLinks\">\r\n");
+      out.write("            Header links\r\n");
+      out.write("        </div>\r\n");
+      out.write("        <div id=\"headerLoginBar\">\r\n");
+      out.write("            Header User Info    \r\n");
+      out.write("        </div>\r\n");
+      out.write("    </div>\r\n");
+      out.write("    \r\n");
+      out.write("    <div id=\"headerMainBar\" class=\"ui-corner-bottom\">\r\n");
+      out.write("        <img src=\"images/logo.jpg\" id=\"headerImage\" />\r\n");
+      out.write("        <div id=\"headerTitle\">\r\n");
+      out.write("            Aircraft Management System\r\n");
+      out.write("        </div>\r\n");
+      out.write("    </div>\r\n");
+      out.write("</div>");
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
@@ -58,6 +94,25 @@ public final class include_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("        <style type=\"text/css\" title=\"currentStyle\">\r\n");
+      out.write("            @import \"media/css/demo_page.css\";\r\n");
+      out.write("            @import \"media/css/demo_table.css\";\r\n");
+      out.write("            @import \"css/smoothness/jquery-ui-1.8.16.custom.css\";\r\n");
+      out.write("            @import \"design/airdyna.css\";\r\n");
+      out.write("        </style>\r\n");
+      out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.dataTables.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"js/jquery-ui-1.8.16.custom.min.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"design/airdyna.js\"></script>\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("<div id=\"footerBar\">\r\n");
+      out.write("    Footer Bar\r\n");
+      out.write("</div>\r\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
