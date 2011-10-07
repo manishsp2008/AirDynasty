@@ -79,9 +79,11 @@ root {
 	background-color: #fcffff;
         overflow:auto;
 	margin-top: 5px;
-        padding-bottom: 50px;
+        /*padding-bottom: 50px;*/
         margin-left : 60px;
-        margin-right : 60px;
+        /*margin-right : 60px;*/
+        width: 92%;
+        
 }
 
 #dt_example #container {
@@ -200,7 +202,7 @@ root {
   #left, #right, #middle {
     padding : 5px 25px;
     display: table-cell;
+    
   }
-
-
-
+  
+ 
