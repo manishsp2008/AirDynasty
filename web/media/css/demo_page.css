@@ -2,65 +2,111 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * General page setup
  */
- html, body {
-     height: 100%;
+ * {
+     margin: 0;
+     padding : 0;
+ }
+ 
+ body {
+ background : none repeat scroll 0 0 #F5F5F5;
+ color : #302B23;
+ font: 90%/1.45em "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+ overflow : auto;     
  }
  
 #wrap {
     min-height: 100%;
 }
- 
-root { 
-    display: block;
-    margin:0;
-    padding:0;
+
+#header {
+    height : 120px;
+    background: #aaa;
+    
 }
 
 #headerTopBar {
-    width:auto;
     height:25px;
-    background-color: #aaa;
-    padding : 7px 10px 7px 10px; 
+    max-width : 1200px;
+    min-width : 980px;
+    margin: 0 auto;
 }
 
+#headerTopBar #headerLinks {
+    float:left;
+    
+}
+
+#headerTopBar #headerLoginBar {
+    float:right;
+}
+/*
 #headerMainBar {
-    width:auto;
     height:95px;
-    background-color: #ddd;
-    padding : 7px 10px 7px 10px;
-    margin-top: 2px;
+    max-width : 1200px;
+    min-width : 980px;
+    margin : 0 auto;
+}
+
+#headerMainBar #headerImage {
+    background:  url("images/logo.jpg") no-repeat scroll 0px 8px transparent;
+    float:left;
+}
+
+#headerImageBox {
+    display : block;
+    height : 95px;
+    width : 275px;
+}
+
+#headerMainBar #headerTitle {
+    font-family: "Georgia", Arial;
+    font-size: 3em;
+    text-align: center;
+    clear:none;
+    position: relative;
+    margin: 0 auto;
+}
+
+#headerMainBar #headerClock {
+    float:right;
+    z-index: 3;
+}
+*/
+
+#headerMainBar {
+    width: 100%;
+    vertical-align: middle;
 }
 
 #headerImage {
-    padding:10px 10px 10px 10px ;
-    margin-left: 40px;
+    background:  url("images/logo.jpg") no-repeat scroll 0px 8px transparent;
     float:left;
+    width: 400px;
+}
+
+#headerImageBox {
+    display : block;
+    height : 95px;
+
 }
 
 #headerTitle {
     font-family: "Georgia", Arial;
-    font-size: 50px;
-    float:left;
-    /*margin-right: 480px;*/
-    padding:20px 10px 10px 23px ;
+    font-size: 2em;
+    margin: 0 auto;
+    width : 400px;
 }
 
 #headerClock {
-    float:right;
-    margin-right: 40px;
-    padding:30px 10px 10px 10px ;
-
+    float : right;
+    width : 400px;
 }
 
-#headerLinks {
-    float: left;
-    margin-left: 50px;
-}
 
-#headerLoginBar {
-    float: right;
-    margin-right:50px;
-}
+
+
+
+
 
 #footerLeftBar {
     float : left;
@@ -76,8 +122,6 @@ root {
 
 #dt_example {
 	font: 90%/1.45em "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
-	background-color: #fcffff;
-        overflow:auto;
 	margin-top: 5px;
         /*padding-bottom: 50px;*/
         margin-left : 60px;
