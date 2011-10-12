@@ -23,10 +23,8 @@
 }
 
 #header {
-    height : 125px;
+    height : 140px;
     background: #aaa;
-    
-    
 }
 
 #headerTopBar {
@@ -94,7 +92,7 @@
 
 #headerImageBox {
     display : block;
-    height : 95px;
+    height : 100px;
     width : 300px;
 
 }
@@ -111,9 +109,8 @@
 
 #headerClock {
     float : right;
-    border: 1px solid #000;
     width: 25%;
-    height: 90px;
+    height: 100px;
     margin-right: 10px;
    
 }
@@ -152,7 +149,7 @@
     
     margin-left: 10px;
 }
-/*
+
 #dt_example #container {
 	width: 800px;
         height : 600px;
@@ -190,26 +187,37 @@
 	background-color: #F2F2F2;
 	border: 1px dashed #111111;
 }
-*/
+
 #dt_example h1 {
 	margin-top: 1em;
 	font-size: 1.75em;
         font-family: Georgia;
 	font-weight: bold;
-	line-height: 1.25em;
+	line-height: 1.5em;
 	color: #302B23;
-	border-bottom: 1px groove #A5A5A5;
+	border-bottom: 2px groove #ddd;
 	clear: both;
         margin-bottom: 1em;
 }
 
 #dt_example h2 {
-	font-size: 1.4em;
+        margin-top: 1em;
+	font-size: 1.40em;
         font-family: Georgia;
-	font-weight: normal;
+	font-weight: bolder;
 	line-height: 1.5em;
-	color: #4E4E4E;
+	color: #302B23;
 	clear: both;
+        margin-bottom: 1em;
+}
+
+#CraftTitle {
+    background: whitesmoke;
+    font-size: 2em;
+    font-family: verdana, arial, sans-serif;
+    font-weight: bold;
+    padding: 10px 10px 10px 10px;
+    text-align: center;
 }
 
 #dt_example a {
@@ -225,6 +233,13 @@
 	color: #4E4E4E;
         padding-top: 1px;
         padding-bottom: 1px;
+        margin-left: 20px;
+}
+#dt_example ol {
+	color: #4E4E4E;
+        padding-top: 1px;
+        padding-bottom: 1px;
+        margin-left: 20px;
 }
 
 
@@ -250,19 +265,20 @@
 
 
 #myContainer {
-        display: table;
-	margin-left: 300px;
-        margin-top : 25px;
-	background : #aaa;
-  }
+    display: table;
+    margin-top : 25px;
+    padding : 5px 5px 5px 5px;
+    margin : 0 auto;
+}
 
   #row  {
     display: table-row;
   }
 
-  #left, #right, #middle {
+  #left1, #left1, #right, #middle {
     padding : 5px 25px;
     display: table-cell;
+   
     
   }
   

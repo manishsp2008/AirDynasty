@@ -1,13 +1,6 @@
-/* 
-    Document   : airdyna
-    Created on : Oct 5, 2011, 12:21:18 AM
-    Author     : Dell
-    Description:
-        Purpose of the stylesheet follows.
-*/
-
-/* 
-   TODO customize this sample style
-   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
-*/
-
+#fancyClock{
+	margin:0px auto;
+	height:100px;
+	border:1px solid #111111;
+	width:300px;
+}

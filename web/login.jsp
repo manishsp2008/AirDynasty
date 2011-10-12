@@ -23,7 +23,11 @@
     
     <%@include file="includeS.jsp" %>
 </head>
-  <body id="dt_example">
+  <body>
+<div id="wrap">
+  <%@include file="header.jsp" %>
+<div id="dt_example" >
+
 
 <h1>Log in</h1>
 
@@ -46,5 +50,9 @@
     </table>
 </form>
 
+
+</div>
+</div>
+<%@include file="footer.jsp" %>
 </body>
 </html>

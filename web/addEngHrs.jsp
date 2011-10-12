@@ -12,7 +12,11 @@
         <title>Air Dynasty - Add Engine Hours</title>
         <%@include file="includeS.jsp" %>
     </head>
-      <body id="dt_example">
+      <body>
+<div id="wrap">
+  <%@include file="header.jsp" %>
+<div id="dt_example" >
+
         <h3>Enter Engine Hours.</h3>
         <form action="/AirDynasty/addEngHrs" method="get">
             <table border="10">
@@ -24,5 +28,9 @@
             <br/>
             <input type="submit" value="Submit"/>
         </form>
-    </body>
+  
+</div>
+</div>
+<%@include file="footer.jsp" %>
+</body>
 </html>
