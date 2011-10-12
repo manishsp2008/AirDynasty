@@ -58,7 +58,7 @@ public final class addHours_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <style type=\"text/css\" title=\"currentStyle\">\r\n");
       out.write("            @import \"media/css/demo_page.css\";\r\n");
       out.write("            @import \"media/css/demo_table.css\";\r\n");
-      out.write("            @import \"css/smoothness/jquery-ui-1.8.16.custom.css\";\r\n");
+      out.write("            @import \"css/custom-theme/jquery-ui-1.8.16.custom.css\";\r\n");
       out.write("            @import \"design/airdyna.css\";\r\n");
       out.write("        </style>\r\n");
       out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.js\"></script>\r\n");

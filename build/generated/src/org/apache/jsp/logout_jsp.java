@@ -116,15 +116,11 @@ public final class logout_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("<html>\r\n");
       out.write("<head>\r\n");
-      out.write("    <link type=\"text/css\" rel=\"stylesheet\" href=\"");
-      if (_jspx_meth_c_url_0(_jspx_page_context))
-        return;
-      out.write("\"/>\r\n");
       out.write("    ");
       out.write("        <style type=\"text/css\" title=\"currentStyle\">\r\n");
       out.write("            @import \"media/css/demo_page.css\";\r\n");
       out.write("            @import \"media/css/demo_table.css\";\r\n");
-      out.write("            @import \"css/smoothness/jquery-ui-1.8.16.custom.css\";\r\n");
+      out.write("            @import \"css/custom-theme/jquery-ui-1.8.16.custom.css\";\r\n");
       out.write("            @import \"design/airdyna.css\";\r\n");
       out.write("        </style>\r\n");
       out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.js\"></script>\r\n");
@@ -138,7 +134,7 @@ public final class logout_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<h1>Log out</h1>\r\n");
       out.write("\r\n");
       out.write("<p>You have succesfully logged out. <a href=\"");
-      if (_jspx_meth_c_url_1(_jspx_page_context))
+      if (_jspx_meth_c_url_0(_jspx_page_context))
         return;
       out.write("\">Return to the home page.</a></p>\r\n");
       out.write("\r\n");
@@ -165,31 +161,13 @@ public final class logout_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_url_0 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _jspx_tagPool_c_url_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
     _jspx_th_c_url_0.setPageContext(_jspx_page_context);
     _jspx_th_c_url_0.setParent(null);
-    _jspx_th_c_url_0.setValue("style.css");
+    _jspx_th_c_url_0.setValue("/home.jsp");
     int _jspx_eval_c_url_0 = _jspx_th_c_url_0.doStartTag();
     if (_jspx_th_c_url_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_0);
       return true;
     }
     _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_0);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_url_1(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:url
-    org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_url_1 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _jspx_tagPool_c_url_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
-    _jspx_th_c_url_1.setPageContext(_jspx_page_context);
-    _jspx_th_c_url_1.setParent(null);
-    _jspx_th_c_url_1.setValue("/home.jsp");
-    int _jspx_eval_c_url_1 = _jspx_th_c_url_1.doStartTag();
-    if (_jspx_th_c_url_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_1);
-      return true;
-    }
-    _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_1);
     return false;
   }
 }

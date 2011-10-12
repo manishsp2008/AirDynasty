@@ -1,68 +1,158 @@
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * General page setup
- */
+ * {
+     margin: 0;
+     padding : 0;
+     
+ }
  html, body {
      height: 100%;
  }
  
+ body {
+ background : none repeat scroll 0 0 #F5F5F5;
+ color : #302B23;
+ font: 90%/1.45em "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+ overflow : auto;     
+ }
+ 
 #wrap {
     min-height: 100%;
+    max-width : 1200px;
+    min-width : 980px;
+    margin: 0 auto;
 }
- 
-root { 
-    display: block;
-    margin:0;
-    padding:0;
+
+#header {
+    height : 125px;
+    background: #aaa;
+    
+    
 }
 
 #headerTopBar {
-    width:auto;
     height:25px;
-    background-color: #aaa;
-    padding : 7px 10px 7px 10px; 
+    border-bottom: 2px solid #D5D5D5;
+    
 }
 
+#headerTopBar #headerLinks {
+    float:left;
+    margin-left: 10px;
+    
+}
+
+#headerTopBar #headerLoginBar {
+    float:right;
+    margin-right: 10px;
+}
+/*
 #headerMainBar {
-    width:auto;
     height:95px;
-    background-color: #ddd;
-    padding : 7px 10px 7px 10px;
-    margin-top: 2px;
+    max-width : 1200px;
+    min-width : 980px;
+    margin : 0 auto;
+}
+
+#headerMainBar #headerImage {
+    background:  url("images/logo.jpg") no-repeat scroll 0px 8px transparent;
+    float:left;
+}
+
+#headerImageBox {
+    display : block;
+    height : 95px;
+    width : 275px;
+}
+
+#headerMainBar #headerTitle {
+    font-family: "Georgia", Arial;
+    font-size: 3em;
+    text-align: center;
+    clear:none;
+    position: relative;
+    margin: 0 auto;
+}
+
+#headerMainBar #headerClock {
+    float:right;
+    z-index: 3;
+}
+*/
+
+#headerMainBar {
+    width: 100%;
+    vertical-align: middle;
+    margin-top: 5px;
 }
 
 #headerImage {
-    padding:10px 10px 10px 10px ;
-    margin-left: 40px;
+    background:  url("images/logo.jpg") no-repeat scroll 0px 8px transparent;
+    float:left;
+    margin-left : 10px;
+    
+}
+
+#headerImageBox {
+    display : block;
+    height : 95px;
+    width : 300px;
+
 }
 
 #headerTitle {
+    margin: 0 auto;
+    width : 50%;
+}
+#headerTitleBox {
     font-family: "Georgia", Arial;
-    font-size: 60px;
-    float:right;
-    margin-right: 130px;
-    padding:10px 10px 10px 10px ;
+    font-size: 2.5em;
+    padding: 26px 1px 1px 56px;
 }
 
-#headerLinks {
-    float: left;
-    margin-left: 50px;
+#headerClock {
+    float : right;
+    border: 1px solid #000;
+    width: 25%;
+    height: 90px;
+    margin-right: 10px;
+   
 }
 
-#headerLoginBar {
-    float: right;
-    margin-right:140px;
+#footer {
+    max-width : 1200px;
+    min-width : 980px;
+    margin: 0 auto;
+    position: relative;
+    margin-top: -50px; /* negative value of footer height */
+    height: 50px;
+    clear:both;
+    background: #A5A5A5;       
 }
 
+#footerLeftBar {
+    float : left;
+    margin-left : 10px;
+    padding : 15px 0px;
+}
+
+#footerRightBar {
+    float : right;
+    margin-right : 10px;
+    padding : 15px 0px;
+}
 
 #dt_example {
-	font: 90%/1.45em "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
-	background-color: #fcffff;
-        overflow:auto;
+	font: 100%/1.45em "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
 	margin-top: 5px;
         padding-bottom: 50px;
+       
+        color : #302B23;
 }
-
+#dt_example p {
+    
+    margin-left: 10px;
+}
+/*
 #dt_example #container {
 	width: 800px;
         height : 600px;
@@ -70,14 +160,6 @@ root {
 	padding: 0;
         background: #ddd;
 }
-
-#footer {
-        position: relative;
-	margin-top: -50px; /* negative value of footer height */
-	height: 50px;
-	clear:both;
-        background: #ccc;       
-}   
 
 #dt_example #demo {
 	margin: 30px auto 0 auto;
@@ -108,16 +190,17 @@ root {
 	background-color: #F2F2F2;
 	border: 1px dashed #111111;
 }
-
+*/
 #dt_example h1 {
 	margin-top: 1em;
-	font-size: 1.9em;
+	font-size: 1.75em;
         font-family: Georgia;
 	font-weight: bold;
-	line-height: 1.5em;
-	color: #4E4E4E;
-	border-bottom: 0px groove #9E9E9E;
+	line-height: 1.25em;
+	color: #302B23;
+	border-bottom: 1px groove #A5A5A5;
 	clear: both;
+        margin-bottom: 1em;
 }
 
 #dt_example h2 {
@@ -144,6 +227,7 @@ root {
         padding-bottom: 1px;
 }
 
+
 .css_right {
 	float: right;
 }
@@ -164,40 +248,22 @@ root {
     background: #aaa;
 }
 
-.craftPanel {
-    
-    background: #aaa;
-}
-.craftPanel .firstRow {
-    background: #ddd;
-}
-.craftPanel .firstRow .cell1 {
-    float:left;
-    margin-left: 250px;
-    
-}
-.craftPanel .firstRow .cell2 {
-    float:left;
-    margin-left: 100px;
-    
-}
-.craftPanel .firstRow .cell3 {
-    float:right;
-    margin-right: 420px;
-    
-}
-.craftPanel .firstRow .cell4 {
-    float:left;
-    margin-left: 350px;
-    
-}
-.craftPanel .firstRow .cell5 {
-    float:right;
-    margin-right: 500px;
-    
-}
 
+#myContainer {
+        display: table;
+	margin-left: 300px;
+        margin-top : 25px;
+	background : #aaa;
+  }
 
+  #row  {
+    display: table-row;
+  }
 
-
-
+  #left, #right, #middle {
+    padding : 5px 25px;
+    display: table-cell;
+    
+  }
+  
+ 

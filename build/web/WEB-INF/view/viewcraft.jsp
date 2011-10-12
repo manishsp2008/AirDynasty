@@ -16,18 +16,41 @@
     </head>
     
     <body id="dt_example">
-        <ol>
-            <li>Form Number : ${craftObj.acFormnum}</li>
-            <li>Name : ${craftObj.acName}</li>
-            <fmt:formatDate pattern="dd-MM-yyyy" value="<%= Calendar.getInstance().getTime() %>" var="sysDate" />
-            <li>Date : <c:out value="${sysDate}"/></li>
-            <li>AirFrame Hours : ${craftObj.acAfhrs}</li>
-            <li>Engine Hours : ${craftObj.acEnghrs}</li>
-            <li>Landing Count : ${craftObj.acLandingcount}</li>
-            <li>Start Count : ${craftObj.acStartcount}</li>
-            <li>Engine N/G Cycles : ${craftObj.acEngngcycs}</li>
-            <li>Engine N/P Cycles : ${craftObj.acNpcycs}</li>
-        </ol>
+     
+     <h1>Aircraft Details Page</h1>
+        
+        <fmt:formatDate pattern="dd-MM-yyyy" value="<%= Calendar.getInstance().getTime() %>" var="sysDate" />
+     
+     <div id="myContainer">
+        <div id="row">
+
+  	<div id="left">
+        <p>&nbsp;</p>
+        <h4>Form Number : ${craftObj.acFormnum}</h4>
+        <p>AirFrame Hours : ${craftObj.acAfhrs}</p>
+        <p>Landing Count : ${craftObj.acLandingcount}</p>
+        <p>Engine N/G Cycles : ${craftObj.acEngngcycs}</p>
+  	</div>
+
+  	<div id="middle">
+        <h1>${craftObj.acName} </h1>
+        <p></p>
+        <p></p>
+        <p></p>
+        </div>
+
+  	<div id="right">
+        <p>&nbsp;</p>
+    	<h4><u>Date : <c:out value="${sysDate}"/></u></h4>
+    	<p>Engine Hours : ${craftObj.acEnghrs}</p>
+	<p>Start Count : ${craftObj.acStartcount}</p>
+        <p>Engine N/P Cycles : ${craftObj.acNpcycs}</p>
+  	</div>
+
+	</div>
+     </div>
+
+        
         <h3>Components</h3>
         <%int i=1;%>
         <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
