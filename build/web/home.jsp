@@ -18,14 +18,9 @@
     
 <%@include file="header.jsp" %>
 
-<div id="dt_example" class="ui-corner-all">
+<div id="dt_example" >
 <h1>Air Craft Management System</h1>
-<!--
-<p>Hi, <shiro:guest>Guest</shiro:guest><shiro:user><shiro:principal/></shiro:user>!
-    ( <shiro:user><a href="<c:url value="/logout.jsp"/>">Log out</a></shiro:user>
-    <shiro:guest><a href="<c:url value="/login.jsp"/>">Log in</a></shiro:guest> )
-</p>
--->
+
 <p>Welcome to the Air-Dynasty ACMS. This page represents the home page of web application.</p>
 
 <shiro:user><p>Visit Application <a href="<c:url value="/index1.jsp"/>">Main Page</a>.</p></shiro:user>

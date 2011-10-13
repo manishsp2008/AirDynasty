@@ -17,11 +17,17 @@ public final class viewcraft_jsp extends org.apache.jasper.runtime.HttpJspBase
   private static java.util.Vector _jspx_dependants;
 
   static {
-    _jspx_dependants = new java.util.Vector(2);
+    _jspx_dependants = new java.util.Vector(4);
     _jspx_dependants.add("/WEB-INF/view/include.jsp");
     _jspx_dependants.add("/WEB-INF/view/includeS.jsp");
+    _jspx_dependants.add("/WEB-INF/view/header.jsp");
+    _jspx_dependants.add("/WEB-INF/view/footer.jsp");
   }
 
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_shiro_guest;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_shiro_user;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_shiro_principal_nobody;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_url_value_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_fmt_formatDate_var_value_pattern_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_out_value_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
@@ -36,6 +42,10 @@ public final class viewcraft_jsp extends org.apache.jasper.runtime.HttpJspBase
   }
 
   public void _jspInit() {
+    _jspx_tagPool_shiro_guest = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_shiro_user = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_shiro_principal_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_url_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_fmt_formatDate_var_value_pattern_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_out_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_forEach_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
@@ -45,6 +55,10 @@ public final class viewcraft_jsp extends org.apache.jasper.runtime.HttpJspBase
   }
 
   public void _jspDestroy() {
+    _jspx_tagPool_shiro_guest.release();
+    _jspx_tagPool_shiro_user.release();
+    _jspx_tagPool_shiro_principal_nobody.release();
+    _jspx_tagPool_c_url_value_nobody.release();
     _jspx_tagPool_fmt_formatDate_var_value_pattern_nobody.release();
     _jspx_tagPool_c_out_value_nobody.release();
     _jspx_tagPool_c_forEach_var_items.release();
@@ -91,9 +105,6 @@ public final class viewcraft_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html>\r\n");
       out.write("    <head>\r\n");
@@ -110,12 +121,65 @@ public final class viewcraft_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.dataTables.js\"></script>\r\n");
       out.write("        <script type=\"text/javascript\" src=\"js/jquery-ui-1.8.16.custom.min.js\"></script>\r\n");
       out.write("        <script type=\"text/javascript\" src=\"design/airdyna.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"design/jquery.tzineClock/jquery.tzineClock.js\"></script>\r\n");
+      out.write("        \r\n");
+      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"design/jquery.tzineClock/jquery.tzineClock.css\" />\r\n");
       out.write("\r\n");
       out.write("    </head>\r\n");
       out.write("    \r\n");
-      out.write("    <body id=\"dt_example\">\r\n");
+      out.write("    <body>\r\n");
+      out.write("        <div id=\"wrap\">\r\n");
+      out.write("        ");
+      out.write("<div id=\"header\">\r\n");
+      out.write("     <div id=\"headerTopBar\"  >\r\n");
+      out.write("        <div id=\"headerLinks\">\r\n");
+      out.write("            Link1 | Link2 | Link3\r\n");
+      out.write("        </div>\r\n");
+      out.write("         <div id=\"headerLoginBar\">\r\n");
+      out.write("            Hi, ");
+      if (_jspx_meth_shiro_guest_0(_jspx_page_context))
+        return;
+      if (_jspx_meth_shiro_user_0(_jspx_page_context))
+        return;
+      out.write("!\r\n");
+      out.write("            &nbsp;( ");
+      if (_jspx_meth_shiro_user_1(_jspx_page_context))
+        return;
+      out.write("\r\n");
+      out.write("            ");
+      if (_jspx_meth_shiro_guest_1(_jspx_page_context))
+        return;
+      out.write(" )\r\n");
+      out.write("        </div>\r\n");
+      out.write("        \r\n");
+      out.write("    </div>\r\n");
+      out.write("    <div id=\"headerMainBar\" class=\"ui-corner-bottom\">\r\n");
+      out.write("        \r\n");
+      out.write("        <div id=\"headerImage\">\r\n");
+      out.write("            <div id=\"headerImageBox\"></div>\r\n");
+      out.write("        </div>\r\n");
+      out.write("        <div id=\"headerClock\">\r\n");
+      out.write("            <div id=\"fancyClock\">\r\n");
+      out.write("            </div>\r\n");
+      out.write("        </div>\r\n");
+      out.write("        <div id=\"headerTitle\">\r\n");
+      out.write("            <div id=\"headerTitleBox\">\r\n");
+      out.write("            Aircraft Management System\r\n");
+      out.write("            </div>\r\n");
+      out.write("        </div>\r\n");
+      out.write("        \r\n");
+      out.write("    </div>\r\n");
+      out.write("</div>");
+      out.write("\r\n");
+      out.write("        <div id=\"dt_example\" >\r\n");
       out.write("     \r\n");
-      out.write("     <h1>Aircraft Details Page</h1>\r\n");
+      out.write("        <h1>Aircraft Details Page</h1>\r\n");
+      out.write("        \r\n");
+      out.write("        <div id=\"CraftTitle\">\r\n");
+      out.write("        ");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${craftObj.acName}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\r\n");
+      out.write("        </div>\r\n");
       out.write("        \r\n");
       out.write("        ");
       //  fmt:formatDate
@@ -132,47 +196,49 @@ public final class viewcraft_jsp extends org.apache.jasper.runtime.HttpJspBase
       }
       _jspx_tagPool_fmt_formatDate_var_value_pattern_nobody.reuse(_jspx_th_fmt_formatDate_0);
       out.write("\r\n");
-      out.write("     \r\n");
-      out.write("     <div id=\"myContainer\">\r\n");
+      out.write("         <div class=\"ui-widget\" >\r\n");
+      out.write("\t<div style=\"margin-top: 20px; padding: 0pt 0.7em;\" class=\"ui-state-highlight ui-corner-all\"> \r\n");
+      out.write("\t\t\t\r\n");
+      out.write("        <div id=\"myContainer\">\r\n");
       out.write("        <div id=\"row\">\r\n");
       out.write("\r\n");
-      out.write("  \t<div id=\"left\">\r\n");
-      out.write("        <p>&nbsp;</p>\r\n");
-      out.write("        <h4>Form Number : ");
+      out.write("  \t<div id=\"left1\">\r\n");
+      out.write("        <p>Form Number : ");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${craftObj.acFormnum}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("</h4>\r\n");
+      out.write("</p>\r\n");
+      out.write("        <p>&nbsp;</p>\r\n");
       out.write("        <p>AirFrame Hours : ");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${craftObj.acAfhrs}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("</p>\r\n");
+      out.write("        </div>\r\n");
+      out.write("\r\n");
+      out.write("        <div id=\"left2\">\r\n");
       out.write("        <p>Landing Count : ");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${craftObj.acLandingcount}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("</p>\r\n");
+      out.write("        <p>&nbsp;</p>\r\n");
       out.write("        <p>Engine N/G Cycles : ");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${craftObj.acEngngcycs}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("</p>\r\n");
       out.write("  \t</div>\r\n");
-      out.write("\r\n");
-      out.write("  \t<div id=\"middle\">\r\n");
-      out.write("        <h1>");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${craftObj.acName}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write(" </h1>\r\n");
-      out.write("        <p></p>\r\n");
-      out.write("        <p></p>\r\n");
-      out.write("        <p></p>\r\n");
-      out.write("        </div>\r\n");
-      out.write("\r\n");
-      out.write("  \t<div id=\"right\">\r\n");
-      out.write("        <p>&nbsp;</p>\r\n");
-      out.write("    \t<h4><u>Date : ");
+      out.write("  \t\r\n");
+      out.write("        \r\n");
+      out.write("        <div id=\"middle\">\r\n");
+      out.write("        <p>Date : ");
       if (_jspx_meth_c_out_0(_jspx_page_context))
         return;
-      out.write("</u></h4>\r\n");
+      out.write("</p>\r\n");
+      out.write("        <p>&nbsp;</p>\r\n");
       out.write("    \t<p>Engine Hours : ");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${craftObj.acEnghrs}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("</p>\r\n");
-      out.write("\t<p>Start Count : ");
+      out.write("\t</div>\r\n");
+      out.write("\r\n");
+      out.write("  \t<div id=\"right\">\r\n");
+      out.write("        <p>Start Count : ");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${craftObj.acStartcount}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("</p>\r\n");
+      out.write("        <p>&nbsp;</p>\r\n");
       out.write("        <p>Engine N/P Cycles : ");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${craftObj.acNpcycs}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("</p>\r\n");
@@ -180,9 +246,11 @@ public final class viewcraft_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\t</div>\r\n");
       out.write("     </div>\r\n");
-      out.write("\r\n");
+      out.write("</p>\r\n");
+      out.write("\t</div>\r\n");
+      out.write("</div>\r\n");
       out.write("        \r\n");
-      out.write("        <h3>Components</h3>\r\n");
+      out.write("        <h2>Components</h2>\r\n");
       out.write("        ");
 int i=1;
       out.write("\r\n");
@@ -292,28 +360,37 @@ int i=1;
       out.write("        </table>\r\n");
       out.write("        <br/>\r\n");
       out.write("        <h4>Related Operations</h4>\r\n");
-      out.write("        <ul>\r\n");
-      out.write("            ");
+      out.write("        \r\n");
+      out.write("        <table>\r\n");
+      out.write("            <tr>\r\n");
+      out.write("                <td style=\"width: 25%; text-align: left\">            \r\n");
+      out.write("                ");
       if (_jspx_meth_c_choose_0(_jspx_page_context))
         return;
       out.write("\r\n");
-      out.write("            <li><a href=\"/AirDynasty/viewEngInspec\">View A/f & Engine Inspection Records</a></li>\r\n");
-      out.write("            <li><a href=\"/AirDynasty/viewOAFCIntvl\">Oil and Fuel Change Records</a></li>\r\n");
-      out.write("            <li><a href=\"/AirDynasty/viewOPMRec\">Out of Phase Maintenance Records</a></li>\r\n");
-      out.write("        </ul>\r\n");
+      out.write("                </td>\r\n");
+      out.write("                <td style=\"width: 25%;text-align: center\"><a href=\"/AirDynasty/viewEngInspec\">View A/f & Engine Inspection Records</td>\r\n");
+      out.write("                <td style=\"width: 25%; text-align: center\"><a href=\"/AirDynasty/viewOAFCIntvl\">Oil and Fuel Change Records</td>\r\n");
+      out.write("                <td style=\"width: 25%;text-align: right\"><a href=\"/AirDynasty/viewOPMRec\">Out of Phase Maintenance Records</a></td>\r\n");
+      out.write("            </tr>\r\n");
+      out.write("        </table>\r\n");
       out.write("        <h4>Manipulate Component Records</h4>\r\n");
       out.write("        <ul>\r\n");
       out.write("            <li><a href=\"/AirDynasty/addCmpRec.jsp\">Add Component Record</a></li>\r\n");
       out.write("        </ul>\r\n");
-      out.write("        <!--\r\n");
-      out.write("        <h1> Test Area </h1>\r\n");
-      out.write("        <div class=\"ui-widget\">\r\n");
-      out.write("            <div class=\"ui-state-highlight ui-corner-all\" style=\"margin-top: 20px; padding: 0 .7em;\"> \r\n");
-      out.write("                    <p><span class=\"ui-icon ui-icon-info\" style=\"float: left; margin-right: .3em;\"></span>\r\n");
-      out.write("                    <strong>Hey!</strong> Sample ui-state-highlight style.</p>\r\n");
-      out.write("            </div>\r\n");
-      out.write("        </div> -->  \r\n");
-      out.write("    </body>\r\n");
+      out.write("        \r\n");
+      out.write("    </div>\r\n");
+      out.write("</div>\r\n");
+      out.write("<div id=\"footer\" class=\"ui-corner-top\">\r\n");
+      out.write("    <div id=\"footerLeftBar\">\r\n");
+      out.write("        Air-Dynasty Aircraft Management System.  \r\n");
+      out.write("    </div>\r\n");
+      out.write("    <div id=\"footerRightBar\">\r\n");
+      out.write("        Copyright Notice.\r\n");
+      out.write("    </div>\r\n");
+      out.write("</div>\r\n");
+      out.write("\r\n");
+      out.write("</body>\r\n");
       out.write("</html>\r\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
@@ -326,6 +403,166 @@ int i=1;
     } finally {
       _jspxFactory.releasePageContext(_jspx_page_context);
     }
+  }
+
+  private boolean _jspx_meth_shiro_guest_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  shiro:guest
+    org.apache.shiro.web.tags.GuestTag _jspx_th_shiro_guest_0 = (org.apache.shiro.web.tags.GuestTag) _jspx_tagPool_shiro_guest.get(org.apache.shiro.web.tags.GuestTag.class);
+    _jspx_th_shiro_guest_0.setPageContext(_jspx_page_context);
+    _jspx_th_shiro_guest_0.setParent(null);
+    int _jspx_eval_shiro_guest_0 = _jspx_th_shiro_guest_0.doStartTag();
+    if (_jspx_eval_shiro_guest_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("Guest");
+        int evalDoAfterBody = _jspx_th_shiro_guest_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_shiro_guest_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_shiro_guest.reuse(_jspx_th_shiro_guest_0);
+      return true;
+    }
+    _jspx_tagPool_shiro_guest.reuse(_jspx_th_shiro_guest_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_shiro_user_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  shiro:user
+    org.apache.shiro.web.tags.UserTag _jspx_th_shiro_user_0 = (org.apache.shiro.web.tags.UserTag) _jspx_tagPool_shiro_user.get(org.apache.shiro.web.tags.UserTag.class);
+    _jspx_th_shiro_user_0.setPageContext(_jspx_page_context);
+    _jspx_th_shiro_user_0.setParent(null);
+    int _jspx_eval_shiro_user_0 = _jspx_th_shiro_user_0.doStartTag();
+    if (_jspx_eval_shiro_user_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        if (_jspx_meth_shiro_principal_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_shiro_user_0, _jspx_page_context))
+          return true;
+        int evalDoAfterBody = _jspx_th_shiro_user_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_shiro_user_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_shiro_user.reuse(_jspx_th_shiro_user_0);
+      return true;
+    }
+    _jspx_tagPool_shiro_user.reuse(_jspx_th_shiro_user_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_shiro_principal_0(javax.servlet.jsp.tagext.JspTag _jspx_th_shiro_user_0, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  shiro:principal
+    org.apache.shiro.web.tags.PrincipalTag _jspx_th_shiro_principal_0 = (org.apache.shiro.web.tags.PrincipalTag) _jspx_tagPool_shiro_principal_nobody.get(org.apache.shiro.web.tags.PrincipalTag.class);
+    _jspx_th_shiro_principal_0.setPageContext(_jspx_page_context);
+    _jspx_th_shiro_principal_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_shiro_user_0);
+    int _jspx_eval_shiro_principal_0 = _jspx_th_shiro_principal_0.doStartTag();
+    if (_jspx_th_shiro_principal_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_shiro_principal_nobody.reuse(_jspx_th_shiro_principal_0);
+      return true;
+    }
+    _jspx_tagPool_shiro_principal_nobody.reuse(_jspx_th_shiro_principal_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_shiro_user_1(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  shiro:user
+    org.apache.shiro.web.tags.UserTag _jspx_th_shiro_user_1 = (org.apache.shiro.web.tags.UserTag) _jspx_tagPool_shiro_user.get(org.apache.shiro.web.tags.UserTag.class);
+    _jspx_th_shiro_user_1.setPageContext(_jspx_page_context);
+    _jspx_th_shiro_user_1.setParent(null);
+    int _jspx_eval_shiro_user_1 = _jspx_th_shiro_user_1.doStartTag();
+    if (_jspx_eval_shiro_user_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("<a href=\"");
+        if (_jspx_meth_c_url_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_shiro_user_1, _jspx_page_context))
+          return true;
+        out.write("\">Log out</a>");
+        int evalDoAfterBody = _jspx_th_shiro_user_1.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_shiro_user_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_shiro_user.reuse(_jspx_th_shiro_user_1);
+      return true;
+    }
+    _jspx_tagPool_shiro_user.reuse(_jspx_th_shiro_user_1);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_url_0(javax.servlet.jsp.tagext.JspTag _jspx_th_shiro_user_1, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:url
+    org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_url_0 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _jspx_tagPool_c_url_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
+    _jspx_th_c_url_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_url_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_shiro_user_1);
+    _jspx_th_c_url_0.setValue("/logout.jsp");
+    int _jspx_eval_c_url_0 = _jspx_th_c_url_0.doStartTag();
+    if (_jspx_th_c_url_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_0);
+      return true;
+    }
+    _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_shiro_guest_1(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  shiro:guest
+    org.apache.shiro.web.tags.GuestTag _jspx_th_shiro_guest_1 = (org.apache.shiro.web.tags.GuestTag) _jspx_tagPool_shiro_guest.get(org.apache.shiro.web.tags.GuestTag.class);
+    _jspx_th_shiro_guest_1.setPageContext(_jspx_page_context);
+    _jspx_th_shiro_guest_1.setParent(null);
+    int _jspx_eval_shiro_guest_1 = _jspx_th_shiro_guest_1.doStartTag();
+    if (_jspx_eval_shiro_guest_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("<a href=\"");
+        if (_jspx_meth_c_url_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_shiro_guest_1, _jspx_page_context))
+          return true;
+        out.write("\">Log in</a>");
+        int evalDoAfterBody = _jspx_th_shiro_guest_1.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_shiro_guest_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_shiro_guest.reuse(_jspx_th_shiro_guest_1);
+      return true;
+    }
+    _jspx_tagPool_shiro_guest.reuse(_jspx_th_shiro_guest_1);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_url_1(javax.servlet.jsp.tagext.JspTag _jspx_th_shiro_guest_1, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:url
+    org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_url_1 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _jspx_tagPool_c_url_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
+    _jspx_th_c_url_1.setPageContext(_jspx_page_context);
+    _jspx_th_c_url_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_shiro_guest_1);
+    _jspx_th_c_url_1.setValue("/login.jsp");
+    int _jspx_eval_c_url_1 = _jspx_th_c_url_1.doStartTag();
+    if (_jspx_th_c_url_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_1);
+      return true;
+    }
+    _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_1);
+    return false;
   }
 
   private boolean _jspx_meth_c_out_0(PageContext _jspx_page_context)
@@ -904,15 +1141,15 @@ int i=1;
     if (_jspx_eval_c_choose_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\r\n");
-        out.write("                ");
+        out.write("                    ");
         if (_jspx_meth_c_when_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_choose_0, _jspx_page_context))
           return true;
         out.write(" \r\n");
-        out.write("                ");
+        out.write("                    ");
         if (_jspx_meth_c_otherwise_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_choose_0, _jspx_page_context))
           return true;
         out.write("\r\n");
-        out.write("            ");
+        out.write("                ");
         int evalDoAfterBody = _jspx_th_c_choose_0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -939,8 +1176,8 @@ int i=1;
     if (_jspx_eval_c_when_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\r\n");
-        out.write("                    <li><a href=\"/AirDynasty/addEngHrs.jsp\">Add Engine Hours</a></li>\r\n");
-        out.write("                ");
+        out.write("                        <li><a href=\"/AirDynasty/addEngHrs.jsp\">Add Engine Hours</a></li>\r\n");
+        out.write("                    ");
         int evalDoAfterBody = _jspx_th_c_when_0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -966,8 +1203,8 @@ int i=1;
     if (_jspx_eval_c_otherwise_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\r\n");
-        out.write("                    <li><a href=\"/AirDynasty/addHours.jsp\">Add Air Craft Hours</a></li>\r\n");
-        out.write("                ");
+        out.write("                        <li><a href=\"/AirDynasty/addHours.jsp\">Add Air Craft Hours</a></li>\r\n");
+        out.write("                    ");
         int evalDoAfterBody = _jspx_th_c_otherwise_0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;

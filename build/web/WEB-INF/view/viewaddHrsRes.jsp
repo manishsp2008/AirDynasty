@@ -19,7 +19,10 @@
         <title>Air Dynasty - Add Hours Result Confirmation</title>
         <%@include file="includeS.jsp" %>
     </head>
-      <body id="dt_example">
+      <body>
+<div id="wrap">
+  <%@include file="header.jsp" %>
+<div id="dt_example" >
         <h1>Status after adding Air Frame hours.</h1>
         <% int i = 1;%>
         <table cellpadding="0" cellspacing="0" border="0" class="display" id="example"> 
@@ -61,5 +64,8 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="/AirDynasty/viewCraftList"> Go Back</a>
         
-    </body>
+    </div>
+</div>
+<%@include file="footer.jsp" %>
+</body>
 </html>

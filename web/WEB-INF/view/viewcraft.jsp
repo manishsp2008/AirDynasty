@@ -60,7 +60,7 @@
 
 	</div>
      </div>
-</p>
+
 	</div>
 </div>
         
@@ -130,15 +130,15 @@
         <br/>
         <h4>Related Operations</h4>
         
-        <table>
+        <table style="margin : 0 auto;">
             <tr>
                 <td style="width: 25%; text-align: left">            
                 <c:choose>
                     <c:when test="${acID % 2 == 0}">
-                        <li><a href="/AirDynasty/addEngHrs.jsp">Add Engine Hours</a></li>
+                        <a href="/AirDynasty/addEngHrs.jsp">Add Engine Hours</a>
                     </c:when> 
                     <c:otherwise>
-                        <li><a href="/AirDynasty/addHours.jsp">Add Air Craft Hours</a></li>
+                        <a href="/AirDynasty/addHours.jsp">Add Air Craft Hours</a>
                     </c:otherwise>
                 </c:choose>
                 </td>

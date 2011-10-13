@@ -12,10 +12,13 @@ public final class viewOPMRec_jsp extends org.apache.jasper.runtime.HttpJspBase
   private static java.util.Vector _jspx_dependants;
 
   static {
-    _jspx_dependants = new java.util.Vector(1);
+    _jspx_dependants = new java.util.Vector(3);
     _jspx_dependants.add("/WEB-INF/view/includeS.jsp");
+    _jspx_dependants.add("/WEB-INF/view/header.jsp");
+    _jspx_dependants.add("/WEB-INF/view/footer.jsp");
   }
 
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_url_value_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
@@ -25,10 +28,12 @@ public final class viewOPMRec_jsp extends org.apache.jasper.runtime.HttpJspBase
   }
 
   public void _jspInit() {
+    _jspx_tagPool_c_url_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_forEach_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
+    _jspx_tagPool_c_url_value_nobody.release();
     _jspx_tagPool_c_forEach_var_items.release();
   }
 
@@ -76,9 +81,51 @@ public final class viewOPMRec_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.dataTables.js\"></script>\r\n");
       out.write("        <script type=\"text/javascript\" src=\"js/jquery-ui-1.8.16.custom.min.js\"></script>\r\n");
       out.write("        <script type=\"text/javascript\" src=\"design/airdyna.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"design/jquery.tzineClock/jquery.tzineClock.js\"></script>\r\n");
+      out.write("        \r\n");
+      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"design/jquery.tzineClock/jquery.tzineClock.css\" />\r\n");
       out.write("\r\n");
       out.write("    </head>\r\n");
-      out.write("     <body id=\"dt_example\">\r\n");
+      out.write("    <body>\r\n");
+      out.write("<div id=\"wrap\">\r\n");
+      out.write("  ");
+      out.write("<div id=\"header\">\r\n");
+      out.write("     <div id=\"headerTopBar\"  >\r\n");
+      out.write("        <div id=\"headerLinks\">\r\n");
+      out.write("            Link1 | Link2 | Link3\r\n");
+      out.write("        </div>\r\n");
+      out.write("         <div id=\"headerLoginBar\">\r\n");
+      out.write("            Hi, <shiro:guest>Guest</shiro:guest><shiro:user><shiro:principal/></shiro:user>!\r\n");
+      out.write("            &nbsp;( <shiro:user><a href=\"");
+      if (_jspx_meth_c_url_0(_jspx_page_context))
+        return;
+      out.write("\">Log out</a></shiro:user>\r\n");
+      out.write("            <shiro:guest><a href=\"");
+      if (_jspx_meth_c_url_1(_jspx_page_context))
+        return;
+      out.write("\">Log in</a></shiro:guest> )\r\n");
+      out.write("        </div>\r\n");
+      out.write("        \r\n");
+      out.write("    </div>\r\n");
+      out.write("    <div id=\"headerMainBar\" class=\"ui-corner-bottom\">\r\n");
+      out.write("        \r\n");
+      out.write("        <div id=\"headerImage\">\r\n");
+      out.write("            <div id=\"headerImageBox\"></div>\r\n");
+      out.write("        </div>\r\n");
+      out.write("        <div id=\"headerClock\">\r\n");
+      out.write("            <div id=\"fancyClock\">\r\n");
+      out.write("            </div>\r\n");
+      out.write("        </div>\r\n");
+      out.write("        <div id=\"headerTitle\">\r\n");
+      out.write("            <div id=\"headerTitleBox\">\r\n");
+      out.write("            Aircraft Management System\r\n");
+      out.write("            </div>\r\n");
+      out.write("        </div>\r\n");
+      out.write("        \r\n");
+      out.write("    </div>\r\n");
+      out.write("</div>");
+      out.write("\r\n");
+      out.write("<div id=\"dt_example\" >\r\n");
       out.write("        <h1>Out of Phase Maintenance Records</h1>\r\n");
       out.write("        ");
 int i=1;
@@ -169,7 +216,18 @@ int i=1;
       out.write("        <li><a href=\"/AirDynasty/addOPMRec.jsp\">Add New Record</a></li>\r\n");
       out.write("    </ul>\r\n");
       out.write("        \r\n");
-      out.write("    </body>\r\n");
+      out.write("    </div>\r\n");
+      out.write("</div>\r\n");
+      out.write("<div id=\"footer\" class=\"ui-corner-top\">\r\n");
+      out.write("    <div id=\"footerLeftBar\">\r\n");
+      out.write("        Air-Dynasty Aircraft Management System.  \r\n");
+      out.write("    </div>\r\n");
+      out.write("    <div id=\"footerRightBar\">\r\n");
+      out.write("        Copyright Notice.\r\n");
+      out.write("    </div>\r\n");
+      out.write("</div>\r\n");
+      out.write("\r\n");
+      out.write("</body>\r\n");
       out.write("</html>\r\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
@@ -182,6 +240,42 @@ int i=1;
     } finally {
       _jspxFactory.releasePageContext(_jspx_page_context);
     }
+  }
+
+  private boolean _jspx_meth_c_url_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:url
+    org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_url_0 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _jspx_tagPool_c_url_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
+    _jspx_th_c_url_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_url_0.setParent(null);
+    _jspx_th_c_url_0.setValue("/logout.jsp");
+    int _jspx_eval_c_url_0 = _jspx_th_c_url_0.doStartTag();
+    if (_jspx_th_c_url_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_0);
+      return true;
+    }
+    _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_url_1(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:url
+    org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_url_1 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _jspx_tagPool_c_url_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
+    _jspx_th_c_url_1.setPageContext(_jspx_page_context);
+    _jspx_th_c_url_1.setParent(null);
+    _jspx_th_c_url_1.setValue("/login.jsp");
+    int _jspx_eval_c_url_1 = _jspx_th_c_url_1.doStartTag();
+    if (_jspx_th_c_url_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_1);
+      return true;
+    }
+    _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_1);
+    return false;
   }
 
   private boolean _jspx_meth_c_forEach_1(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_0)

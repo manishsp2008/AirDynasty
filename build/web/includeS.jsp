@@ -8,3 +8,6 @@
         <script type="text/javascript" language="javascript" src="media/js/jquery.dataTables.js"></script>
         <script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script>
         <script type="text/javascript" src="design/airdyna.js"></script>
+        <script type="text/javascript" src="design/jquery.tzineClock/jquery.tzineClock.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="design/jquery.tzineClock/jquery.tzineClock.css" />

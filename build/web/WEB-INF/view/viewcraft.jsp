@@ -15,43 +15,56 @@
         <%@include file="includeS.jsp" %>
     </head>
     
-    <body id="dt_example">
+    <body>
+        <div id="wrap">
+        <%@include file="header.jsp" %>
+        <div id="dt_example" >
      
-     <h1>Aircraft Details Page</h1>
+        <h1>Aircraft Details Page</h1>
+        
+        <div id="CraftTitle">
+        ${craftObj.acName}
+        </div>
         
         <fmt:formatDate pattern="dd-MM-yyyy" value="<%= Calendar.getInstance().getTime() %>" var="sysDate" />
-     
-     <div id="myContainer">
+         <div class="ui-widget" >
+	<div style="margin-top: 20px; padding: 0pt 0.7em;" class="ui-state-highlight ui-corner-all"> 
+			
+        <div id="myContainer">
         <div id="row">
 
-  	<div id="left">
+  	<div id="left1">
+        <p>Form Number : ${craftObj.acFormnum}</p>
         <p>&nbsp;</p>
-        <h4>Form Number : ${craftObj.acFormnum}</h4>
         <p>AirFrame Hours : ${craftObj.acAfhrs}</p>
-        <p>Landing Count : ${craftObj.acLandingcount}</p>
-        <p>Engine N/G Cycles : ${craftObj.acEngngcycs}</p>
-  	</div>
-
-  	<div id="middle">
-        <h1>${craftObj.acName} </h1>
-        <p></p>
-        <p></p>
-        <p></p>
         </div>
 
-  	<div id="right">
+        <div id="left2">
+        <p>Landing Count : ${craftObj.acLandingcount}</p>
         <p>&nbsp;</p>
-    	<h4><u>Date : <c:out value="${sysDate}"/></u></h4>
+        <p>Engine N/G Cycles : ${craftObj.acEngngcycs}</p>
+  	</div>
+  	
+        
+        <div id="middle">
+        <p>Date : <c:out value="${sysDate}"/></p>
+        <p>&nbsp;</p>
     	<p>Engine Hours : ${craftObj.acEnghrs}</p>
-	<p>Start Count : ${craftObj.acStartcount}</p>
+	</div>
+
+  	<div id="right">
+        <p>Start Count : ${craftObj.acStartcount}</p>
+        <p>&nbsp;</p>
         <p>Engine N/P Cycles : ${craftObj.acNpcycs}</p>
   	</div>
 
 	</div>
      </div>
 
+	</div>
+</div>
         
-        <h3>Components</h3>
+        <h2>Components</h2>
         <%int i=1;%>
         <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
         <thead>
@@ -116,30 +129,31 @@
         </table>
         <br/>
         <h4>Related Operations</h4>
-        <ul>
-            <c:choose>
-                <c:when test="${acID % 2 == 0}">
-                    <li><a href="/AirDynasty/addEngHrs.jsp">Add Engine Hours</a></li>
-                </c:when> 
-                <c:otherwise>
-                    <li><a href="/AirDynasty/addHours.jsp">Add Air Craft Hours</a></li>
-                </c:otherwise>
-            </c:choose>
-            <li><a href="/AirDynasty/viewEngInspec">View A/f & Engine Inspection Records</a></li>
-            <li><a href="/AirDynasty/viewOAFCIntvl">Oil and Fuel Change Records</a></li>
-            <li><a href="/AirDynasty/viewOPMRec">Out of Phase Maintenance Records</a></li>
-        </ul>
+        
+        <table style="margin : 0 auto;">
+            <tr>
+                <td style="width: 25%; text-align: left">            
+                <c:choose>
+                    <c:when test="${acID % 2 == 0}">
+                        <a href="/AirDynasty/addEngHrs.jsp">Add Engine Hours</a>
+                    </c:when> 
+                    <c:otherwise>
+                        <a href="/AirDynasty/addHours.jsp">Add Air Craft Hours</a>
+                    </c:otherwise>
+                </c:choose>
+                </td>
+                <td style="width: 25%;text-align: center"><a href="/AirDynasty/viewEngInspec">View A/f & Engine Inspection Records</td>
+                <td style="width: 25%; text-align: center"><a href="/AirDynasty/viewOAFCIntvl">Oil and Fuel Change Records</td>
+                <td style="width: 25%;text-align: right"><a href="/AirDynasty/viewOPMRec">Out of Phase Maintenance Records</a></td>
+            </tr>
+        </table>
         <h4>Manipulate Component Records</h4>
         <ul>
             <li><a href="/AirDynasty/addCmpRec.jsp">Add Component Record</a></li>
         </ul>
-        <!--
-        <h1> Test Area </h1>
-        <div class="ui-widget">
-            <div class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;"> 
-                    <p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
-                    <strong>Hey!</strong> Sample ui-state-highlight style.</p>
-            </div>
-        </div> -->  
-    </body>
+        
+    </div>
+</div>
+<%@include file="footer.jsp" %>
+</body>
 </html>

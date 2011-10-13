@@ -12,8 +12,10 @@ public final class addCmpRec_jsp extends org.apache.jasper.runtime.HttpJspBase
   private static java.util.Vector _jspx_dependants;
 
   static {
-    _jspx_dependants = new java.util.Vector(1);
+    _jspx_dependants = new java.util.Vector(3);
     _jspx_dependants.add("/includeS.jsp");
+    _jspx_dependants.add("/header.jsp");
+    _jspx_dependants.add("/footer.jsp");
   }
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
@@ -65,9 +67,46 @@ public final class addCmpRec_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.dataTables.js\"></script>\r\n");
       out.write("        <script type=\"text/javascript\" src=\"js/jquery-ui-1.8.16.custom.min.js\"></script>\r\n");
       out.write("        <script type=\"text/javascript\" src=\"design/airdyna.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"design/jquery.tzineClock/jquery.tzineClock.js\"></script>\r\n");
+      out.write("        \r\n");
+      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"design/jquery.tzineClock/jquery.tzineClock.css\" />\r\n");
       out.write("\r\n");
       out.write("    </head>\r\n");
-      out.write("    <body id=\"dt_example\">\r\n");
+      out.write("   <body>\r\n");
+      out.write("<div id=\"wrap\">\r\n");
+      out.write("  ");
+      out.write("<div id=\"header\">\r\n");
+      out.write("     <div id=\"headerTopBar\"  >\r\n");
+      out.write("        <div id=\"headerLinks\">\r\n");
+      out.write("            Link1 | Link2 | Link3\r\n");
+      out.write("        </div>\r\n");
+      out.write("         <div id=\"headerLoginBar\">\r\n");
+      out.write("            Hi, <shiro:guest>Guest</shiro:guest><shiro:user><shiro:principal/></shiro:user>!\r\n");
+      out.write("            &nbsp;( <shiro:user><a href=\"<c:url value=\"/logout.jsp\"/>\">Log out</a></shiro:user>\r\n");
+      out.write("            <shiro:guest><a href=\"<c:url value=\"/login.jsp\"/>\">Log in</a></shiro:guest> )\r\n");
+      out.write("        </div>\r\n");
+      out.write("        \r\n");
+      out.write("    </div>\r\n");
+      out.write("    <div id=\"headerMainBar\" class=\"ui-corner-bottom\">\r\n");
+      out.write("        \r\n");
+      out.write("        <div id=\"headerImage\">\r\n");
+      out.write("            <div id=\"headerImageBox\"></div>\r\n");
+      out.write("        </div>\r\n");
+      out.write("        <div id=\"headerClock\">\r\n");
+      out.write("            <div id=\"fancyClock\">\r\n");
+      out.write("            </div>\r\n");
+      out.write("        </div>\r\n");
+      out.write("        <div id=\"headerTitle\">\r\n");
+      out.write("            <div id=\"headerTitleBox\">\r\n");
+      out.write("            Aircraft Management System\r\n");
+      out.write("            </div>\r\n");
+      out.write("        </div>\r\n");
+      out.write("        \r\n");
+      out.write("    </div>\r\n");
+      out.write("</div>");
+      out.write("\r\n");
+      out.write("<div id=\"dt_example\" >\r\n");
+      out.write("\r\n");
       out.write("        <h1>Add New Air Frame Component Record</h1>\r\n");
       out.write("        <br/>\r\n");
       out.write("        Hours Type(H/D/L) - <select name=\"HrsType\"><option value=\"H\">Hours</option><option value=\"D\" >Date</option><option value=\"L\">Landings</option></select>\r\n");
@@ -124,7 +163,19 @@ public final class addCmpRec_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <input type=\"submit\" value=\"Add Component\" style=\"margin-left: 90px\" />\r\n");
       out.write("        </form>\r\n");
       out.write("        \r\n");
-      out.write("    </body>\r\n");
+      out.write("    \r\n");
+      out.write("</div>\r\n");
+      out.write("</div>\r\n");
+      out.write("<div id=\"footer\" class=\"ui-corner-top\">\r\n");
+      out.write("    <div id=\"footerLeftBar\">\r\n");
+      out.write("        Air-Dynasty Aircraft Management System.  \r\n");
+      out.write("    </div>\r\n");
+      out.write("    <div id=\"footerRightBar\">\r\n");
+      out.write("        Copyright Notice.\r\n");
+      out.write("    </div>\r\n");
+      out.write("</div>\r\n");
+      out.write("\r\n");
+      out.write("</body>\r\n");
       out.write("</html>\r\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

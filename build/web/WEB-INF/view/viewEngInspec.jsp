@@ -13,7 +13,10 @@
         <title>Air Dynasty - Air Frame and Engine Inspection Records </title>
         <%@include file="includeS.jsp" %>
     </head>
-      <body id="dt_example">
+      <body>
+<div id="wrap">
+  <%@include file="header.jsp" %>
+<div id="dt_example" >
         <h1>Air Frame and Engine Inspection records</h1>
         <%int i=1;%>
     <table cellpadding="0" cellspacing="0" border="0" class="display" id="example"> 
@@ -35,5 +38,8 @@
         <li><a href="/AirDynasty/addEIRec.jsp">Add New Record</a></li>
         <li><a href="/AirDynasty/viewCraftList">Back to AirCraft List</a></li>
     </ul>
-    </body>
+   </div>
+</div>
+<%@include file="footer.jsp" %>
+</body>
 </html>

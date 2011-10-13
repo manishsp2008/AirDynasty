@@ -13,7 +13,10 @@
         <title>Air Dynasty - Air Craft Details Page</title>
         <%@include file="includeS.jsp" %>
     </head>
-      <body id="dt_example">
+      <body>
+<div id="wrap">
+  <%@include file="header.jsp" %>
+<div id="dt_example" >
         <h1>Air Crafts List</h1>
         <h2>Air Craft-{9N-AEX}</h2>
         <ul>
@@ -23,5 +26,8 @@
                 </li>
                 </c:forEach>
         </ul>
-    </body>
+    </div>
+</div>
+<%@include file="footer.jsp" %>
+</body>
 </html>

@@ -7,8 +7,16 @@ JSP
 WEB-INF/view/user.jsp
 + 1 includeS.jsp
 WEB-INF/view/includeS.jsp
++ 2 header.jsp
+WEB-INF/view/header.jsp
++ 3 footer.jsp
+WEB-INF/view/footer.jsp
 *L
-5,9:49
-1#1,11:58
-13#0,7:68
+5,9:51
+1#1,14:60
+13#0,5:73
+1#2,29:78
+17#0,6:107
+1#3,9:112
+22#0,4:120
 *E

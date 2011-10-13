@@ -17,15 +17,36 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
   private static java.util.Vector _jspx_dependants;
 
   static {
-    _jspx_dependants = new java.util.Vector(2);
+    _jspx_dependants = new java.util.Vector(4);
     _jspx_dependants.add("/include.jsp");
     _jspx_dependants.add("/includeS.jsp");
+    _jspx_dependants.add("/header.jsp");
+    _jspx_dependants.add("/footer.jsp");
   }
+
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_shiro_guest;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_shiro_user;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_shiro_principal_nobody;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_url_value_nobody;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public Object getDependants() {
     return _jspx_dependants;
+  }
+
+  public void _jspInit() {
+    _jspx_tagPool_shiro_guest = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_shiro_user = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_shiro_principal_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_url_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+  }
+
+  public void _jspDestroy() {
+    _jspx_tagPool_shiro_guest.release();
+    _jspx_tagPool_shiro_user.release();
+    _jspx_tagPool_shiro_principal_nobody.release();
+    _jspx_tagPool_c_url_value_nobody.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -52,9 +73,6 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write('\r');
-      out.write('\n');
-      out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
@@ -69,7 +87,6 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<html>\r\n");
       out.write("<head>\r\n");
       out.write("    \r\n");
-      out.write("    ");
       out.write("        <style type=\"text/css\" title=\"currentStyle\">\r\n");
       out.write("            @import \"media/css/demo_page.css\";\r\n");
       out.write("            @import \"media/css/demo_table.css\";\r\n");
@@ -80,30 +97,90 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.dataTables.js\"></script>\r\n");
       out.write("        <script type=\"text/javascript\" src=\"js/jquery-ui-1.8.16.custom.min.js\"></script>\r\n");
       out.write("        <script type=\"text/javascript\" src=\"design/airdyna.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"design/jquery.tzineClock/jquery.tzineClock.js\"></script>\r\n");
+      out.write("        \r\n");
+      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"design/jquery.tzineClock/jquery.tzineClock.css\" />\r\n");
       out.write("\r\n");
       out.write("</head>\r\n");
-      out.write("  <body id=\"dt_example\">\r\n");
+      out.write("<body>\r\n");
+      out.write("\r\n");
+      out.write("<div id=\"wrap\">\r\n");
+      out.write("<div id=\"header\" class=\"ui-corner-bottom\">\r\n");
+      out.write("     <div id=\"headerTopBar\" class=\"ui-corner-bottom\"  >\r\n");
+      out.write("        <div id=\"headerLinks\">\r\n");
+      out.write("            Link1 | Link2 | Link3\r\n");
+      out.write("        </div>\r\n");
+      out.write("         <div id=\"headerLoginBar\">\r\n");
+      out.write("            Hi, ");
+      if (_jspx_meth_shiro_guest_0(_jspx_page_context))
+        return;
+      if (_jspx_meth_shiro_user_0(_jspx_page_context))
+        return;
+      out.write("!\r\n");
+      out.write("            &nbsp;( ");
+      if (_jspx_meth_shiro_user_1(_jspx_page_context))
+        return;
+      out.write("\r\n");
+      out.write("            ");
+      if (_jspx_meth_shiro_guest_1(_jspx_page_context))
+        return;
+      out.write(" )\r\n");
+      out.write("        </div>\r\n");
+      out.write("        \r\n");
+      out.write("    </div>\r\n");
+      out.write("    <div id=\"headerMainBar\" class=\"ui-corner-bottom\" >\r\n");
+      out.write("        \r\n");
+      out.write("        <div id=\"headerImage\">\r\n");
+      out.write("            <div id=\"headerImageBox\"></div>\r\n");
+      out.write("        </div>\r\n");
+      out.write("        <div id=\"headerClock\">\r\n");
+      out.write("            <div id=\"fancyClock\">\r\n");
+      out.write("            </div>\r\n");
+      out.write("        </div>\r\n");
+      out.write("        <div id=\"headerTitle\">\r\n");
+      out.write("            <div id=\"headerTitleBox\">\r\n");
+      out.write("            Aircraft Management System\r\n");
+      out.write("            </div>\r\n");
+      out.write("        </div>\r\n");
+      out.write("        \r\n");
+      out.write("    </div>\r\n");
+      out.write("</div>");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("<div id=\"dt_example\" >\r\n");
       out.write("\r\n");
       out.write("<h1>Log in</h1>\r\n");
       out.write("\r\n");
       out.write("<form name=\"loginform\" action=\"\" method=\"post\">\r\n");
-      out.write("    <table align=\"center\" border=\"0\" cellspacing=\"0\" cellpadding=\"3\">\r\n");
-      out.write("        <tr>\r\n");
-      out.write("            <td>Username:</td>\r\n");
+      out.write("    <table  border=\"0\" cellspacing=\"0\" cellpadding=\"3\" style=\"margin : 0 auto;\">\r\n");
+      out.write("        <tr style=\"height: 35px\">\r\n");
+      out.write("            <td>Username &nbsp;&nbsp; </td>\r\n");
       out.write("            <td><input type=\"text\" name=\"username\" maxlength=\"30\"/></td>\r\n");
       out.write("        </tr>\r\n");
-      out.write("        <tr>\r\n");
-      out.write("            <td>Password:</td>\r\n");
+      out.write("        <tr style=\"height: 35px\">\r\n");
+      out.write("            <td>Password &nbsp;&nbsp; </td>\r\n");
       out.write("            <td><input type=\"password\" name=\"password\" maxlength=\"30\"/></td>\r\n");
       out.write("        </tr>\r\n");
-      out.write("        <tr>\r\n");
-      out.write("            <td colspan=\"2\" align=\"left\"><input type=\"checkbox\" name=\"rememberMe\"/><font size=\"2\">Remember Me</font></td>\r\n");
+      out.write("        <tr style=\"height: 35px\">\r\n");
+      out.write("            <td colspan=\"2\" align=\"left\"><p><input type=\"checkbox\" name=\"rememberMe\"/><font size=\"2\">&nbsp;&nbsp;Remember Me</font></p></td>\r\n");
       out.write("        </tr>\r\n");
-      out.write("        <tr>\r\n");
+      out.write("        <tr style=\"height: 35px\">\r\n");
       out.write("            <td colspan=\"2\" align=\"right\"><input type=\"submit\" name=\"submit\" value=\"Login\"></td>\r\n");
       out.write("        </tr>\r\n");
       out.write("    </table>\r\n");
       out.write("</form>\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("</div>\r\n");
+      out.write("</div>\r\n");
+      out.write("<div id=\"footer\" class=\"ui-corner-top\">\r\n");
+      out.write("    <div id=\"footerLeftBar\">\r\n");
+      out.write("        Air-Dynasty Aircraft Management System.  \r\n");
+      out.write("    </div>\r\n");
+      out.write("    <div id=\"footerRightBar\">\r\n");
+      out.write("        Copyright Notice.\r\n");
+      out.write("    </div>\r\n");
+      out.write("</div>\r\n");
       out.write("\r\n");
       out.write("</body>\r\n");
       out.write("</html>\r\n");
@@ -118,5 +195,165 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
     } finally {
       _jspxFactory.releasePageContext(_jspx_page_context);
     }
+  }
+
+  private boolean _jspx_meth_shiro_guest_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  shiro:guest
+    org.apache.shiro.web.tags.GuestTag _jspx_th_shiro_guest_0 = (org.apache.shiro.web.tags.GuestTag) _jspx_tagPool_shiro_guest.get(org.apache.shiro.web.tags.GuestTag.class);
+    _jspx_th_shiro_guest_0.setPageContext(_jspx_page_context);
+    _jspx_th_shiro_guest_0.setParent(null);
+    int _jspx_eval_shiro_guest_0 = _jspx_th_shiro_guest_0.doStartTag();
+    if (_jspx_eval_shiro_guest_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("Guest");
+        int evalDoAfterBody = _jspx_th_shiro_guest_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_shiro_guest_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_shiro_guest.reuse(_jspx_th_shiro_guest_0);
+      return true;
+    }
+    _jspx_tagPool_shiro_guest.reuse(_jspx_th_shiro_guest_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_shiro_user_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  shiro:user
+    org.apache.shiro.web.tags.UserTag _jspx_th_shiro_user_0 = (org.apache.shiro.web.tags.UserTag) _jspx_tagPool_shiro_user.get(org.apache.shiro.web.tags.UserTag.class);
+    _jspx_th_shiro_user_0.setPageContext(_jspx_page_context);
+    _jspx_th_shiro_user_0.setParent(null);
+    int _jspx_eval_shiro_user_0 = _jspx_th_shiro_user_0.doStartTag();
+    if (_jspx_eval_shiro_user_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        if (_jspx_meth_shiro_principal_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_shiro_user_0, _jspx_page_context))
+          return true;
+        int evalDoAfterBody = _jspx_th_shiro_user_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_shiro_user_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_shiro_user.reuse(_jspx_th_shiro_user_0);
+      return true;
+    }
+    _jspx_tagPool_shiro_user.reuse(_jspx_th_shiro_user_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_shiro_principal_0(javax.servlet.jsp.tagext.JspTag _jspx_th_shiro_user_0, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  shiro:principal
+    org.apache.shiro.web.tags.PrincipalTag _jspx_th_shiro_principal_0 = (org.apache.shiro.web.tags.PrincipalTag) _jspx_tagPool_shiro_principal_nobody.get(org.apache.shiro.web.tags.PrincipalTag.class);
+    _jspx_th_shiro_principal_0.setPageContext(_jspx_page_context);
+    _jspx_th_shiro_principal_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_shiro_user_0);
+    int _jspx_eval_shiro_principal_0 = _jspx_th_shiro_principal_0.doStartTag();
+    if (_jspx_th_shiro_principal_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_shiro_principal_nobody.reuse(_jspx_th_shiro_principal_0);
+      return true;
+    }
+    _jspx_tagPool_shiro_principal_nobody.reuse(_jspx_th_shiro_principal_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_shiro_user_1(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  shiro:user
+    org.apache.shiro.web.tags.UserTag _jspx_th_shiro_user_1 = (org.apache.shiro.web.tags.UserTag) _jspx_tagPool_shiro_user.get(org.apache.shiro.web.tags.UserTag.class);
+    _jspx_th_shiro_user_1.setPageContext(_jspx_page_context);
+    _jspx_th_shiro_user_1.setParent(null);
+    int _jspx_eval_shiro_user_1 = _jspx_th_shiro_user_1.doStartTag();
+    if (_jspx_eval_shiro_user_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("<a href=\"");
+        if (_jspx_meth_c_url_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_shiro_user_1, _jspx_page_context))
+          return true;
+        out.write("\">Log out</a>");
+        int evalDoAfterBody = _jspx_th_shiro_user_1.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_shiro_user_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_shiro_user.reuse(_jspx_th_shiro_user_1);
+      return true;
+    }
+    _jspx_tagPool_shiro_user.reuse(_jspx_th_shiro_user_1);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_url_0(javax.servlet.jsp.tagext.JspTag _jspx_th_shiro_user_1, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:url
+    org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_url_0 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _jspx_tagPool_c_url_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
+    _jspx_th_c_url_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_url_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_shiro_user_1);
+    _jspx_th_c_url_0.setValue("/logout.jsp");
+    int _jspx_eval_c_url_0 = _jspx_th_c_url_0.doStartTag();
+    if (_jspx_th_c_url_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_0);
+      return true;
+    }
+    _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_shiro_guest_1(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  shiro:guest
+    org.apache.shiro.web.tags.GuestTag _jspx_th_shiro_guest_1 = (org.apache.shiro.web.tags.GuestTag) _jspx_tagPool_shiro_guest.get(org.apache.shiro.web.tags.GuestTag.class);
+    _jspx_th_shiro_guest_1.setPageContext(_jspx_page_context);
+    _jspx_th_shiro_guest_1.setParent(null);
+    int _jspx_eval_shiro_guest_1 = _jspx_th_shiro_guest_1.doStartTag();
+    if (_jspx_eval_shiro_guest_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("<a href=\"");
+        if (_jspx_meth_c_url_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_shiro_guest_1, _jspx_page_context))
+          return true;
+        out.write("\">Log in</a>");
+        int evalDoAfterBody = _jspx_th_shiro_guest_1.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_shiro_guest_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_shiro_guest.reuse(_jspx_th_shiro_guest_1);
+      return true;
+    }
+    _jspx_tagPool_shiro_guest.reuse(_jspx_th_shiro_guest_1);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_url_1(javax.servlet.jsp.tagext.JspTag _jspx_th_shiro_guest_1, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:url
+    org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_url_1 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _jspx_tagPool_c_url_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
+    _jspx_th_c_url_1.setPageContext(_jspx_page_context);
+    _jspx_th_c_url_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_shiro_guest_1);
+    _jspx_th_c_url_1.setValue("/login.jsp");
+    int _jspx_eval_c_url_1 = _jspx_th_c_url_1.doStartTag();
+    if (_jspx_th_c_url_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_1);
+      return true;
+    }
+    _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_1);
+    return false;
   }
 }

@@ -1,5 +1,5 @@
-<div id="header">
-     <div id="headerTopBar"  >
+<div id="header" class="ui-corner-bottom">
+     <div id="headerTopBar" class="ui-corner-bottom"  >
         <div id="headerLinks">
             Link1 | Link2 | Link3
         </div>
@@ -10,13 +10,14 @@
         </div>
         
     </div>
-    <div id="headerMainBar" class="ui-corner-bottom">
+    <div id="headerMainBar" class="ui-corner-bottom" >
         
         <div id="headerImage">
             <div id="headerImageBox"></div>
         </div>
         <div id="headerClock">
-            Put Something Good Here.
+            <div id="fancyClock">
+            </div>
         </div>
         <div id="headerTitle">
             <div id="headerTitleBox">

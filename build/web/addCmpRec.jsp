@@ -12,7 +12,11 @@
         <title>Air Dynasty - Add New Air Frame Component Record </title>
         <%@include file="includeS.jsp" %>
     </head>
-    <body id="dt_example">
+   <body>
+<div id="wrap">
+  <%@include file="header.jsp" %>
+<div id="dt_example" >
+
         <h1>Add New Air Frame Component Record</h1>
         <br/>
         Hours Type(H/D/L) - <select name="HrsType"><option value="H">Hours</option><option value="D" >Date</option><option value="L">Landings</option></select>
@@ -69,5 +73,9 @@
             <input type="submit" value="Add Component" style="margin-left: 90px" />
         </form>
         
-    </body>
+    
+</div>
+</div>
+<%@include file="footer.jsp" %>
+</body>
 </html>

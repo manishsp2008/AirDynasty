@@ -41,8 +41,8 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("<div id=\"header\">\r\n");
-      out.write("     <div id=\"headerTopBar\" >\r\n");
+      out.write("<div id=\"header\" class=\"ui-corner-bottom\">\r\n");
+      out.write("     <div id=\"headerTopBar\" class=\"ui-corner-bottom\"  >\r\n");
       out.write("        <div id=\"headerLinks\">\r\n");
       out.write("            Link1 | Link2 | Link3\r\n");
       out.write("        </div>\r\n");
@@ -53,13 +53,14 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        </div>\r\n");
       out.write("        \r\n");
       out.write("    </div>\r\n");
-      out.write("    <div id=\"headerMainBar\" >\r\n");
+      out.write("    <div id=\"headerMainBar\" class=\"ui-corner-bottom\" >\r\n");
       out.write("        \r\n");
       out.write("        <div id=\"headerImage\">\r\n");
       out.write("            <div id=\"headerImageBox\"></div>\r\n");
       out.write("        </div>\r\n");
       out.write("        <div id=\"headerClock\">\r\n");
-      out.write("            Put Something Good Here.\r\n");
+      out.write("            <div id=\"fancyClock\">\r\n");
+      out.write("            </div>\r\n");
       out.write("        </div>\r\n");
       out.write("        <div id=\"headerTitle\">\r\n");
       out.write("            <div id=\"headerTitleBox\">\r\n");

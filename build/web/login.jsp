@@ -1,50 +1,41 @@
-<%--
-  ~ Licensed to the Apache Software Foundation (ASF) under one
-  ~ or more contributor license agreements.  See the NOTICE file
-  ~ distributed with this work for additional information
-  ~ regarding copyright ownership.  The ASF licenses this file
-  ~ to you under the Apache License, Version 2.0 (the
-  ~ "License"); you may not use this file except in compliance
-  ~ with the License.  You may obtain a copy of the License at
-  ~
-  ~     http://www.apache.org/licenses/LICENSE-2.0
-  ~
-  ~ Unless required by applicable law or agreed to in writing,
-  ~ software distributed under the License is distributed on an
-  ~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-  ~ KIND, either express or implied.  See the License for the
-  ~ specific language governing permissions and limitations
-  ~ under the License.
-  --%>
 <%@ include file="include.jsp" %>
 
 <html>
 <head>
     
-    <%@include file="includeS.jsp" %>
+<%@include file="includeS.jsp" %>
 </head>
-  <body id="dt_example">
+<body>
+
+<div id="wrap">
+<%@include file="header.jsp" %>
+
+<div id="dt_example" >
 
 <h1>Log in</h1>
 
 <form name="loginform" action="" method="post">
-    <table align="center" border="0" cellspacing="0" cellpadding="3">
-        <tr>
-            <td>Username:</td>
+    <table  border="0" cellspacing="0" cellpadding="3" style="margin : 0 auto;">
+        <tr style="height: 35px">
+            <td>Username &nbsp;&nbsp; </td>
             <td><input type="text" name="username" maxlength="30"/></td>
         </tr>
-        <tr>
-            <td>Password:</td>
+        <tr style="height: 35px">
+            <td>Password &nbsp;&nbsp; </td>
             <td><input type="password" name="password" maxlength="30"/></td>
         </tr>
-        <tr>
-            <td colspan="2" align="left"><input type="checkbox" name="rememberMe"/><font size="2">Remember Me</font></td>
+        <tr style="height: 35px">
+            <td colspan="2" align="left"><p><input type="checkbox" name="rememberMe"/><font size="2">&nbsp;&nbsp;Remember Me</font></p></td>
         </tr>
-        <tr>
+        <tr style="height: 35px">
             <td colspan="2" align="right"><input type="submit" name="submit" value="Login"></td>
         </tr>
     </table>
 </form>
 
+
+</div>
+</div>
+<%@include file="footer.jsp" %>
 </body>
 </html>

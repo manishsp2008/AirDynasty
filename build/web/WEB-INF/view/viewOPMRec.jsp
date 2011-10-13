@@ -13,7 +13,10 @@
         <title>Air Dynasty - Out of Phase Maintenance records</title>
         <%@include file="includeS.jsp" %>
     </head>
-     <body id="dt_example">
+    <body>
+<div id="wrap">
+  <%@include file="header.jsp" %>
+<div id="dt_example" >
         <h1>Out of Phase Maintenance Records</h1>
         <%int i=1;%>
         <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
@@ -57,5 +60,8 @@
         <li><a href="/AirDynasty/addOPMRec.jsp">Add New Record</a></li>
     </ul>
         
-    </body>
+    </div>
+</div>
+<%@include file="footer.jsp" %>
+</body>
 </html>
