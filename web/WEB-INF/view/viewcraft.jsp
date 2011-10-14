@@ -128,31 +128,54 @@
         </tbody>
         </table>
         <br/>
-        <h4>Related Operations</h4>
+        <h3>Related Operations</h3>
         
         <table style="margin : 0 auto;">
+            <tr>
+                <td style="width: 25%;text-align: center">
+                    <button id="viewEIR" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" onclick="window.location='/AirDynasty/viewEngInspec' ">
+                        <span class="ui-button-text">A/F & Engine IR</span>
+                    </button>
+                </td>   
+                <td style="width: 25%; text-align: center">
+                    <button id="viewEIR" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" onclick="window.location='/AirDynasty/viewOAFCIntvl' ">
+                        <span class="ui-button-text">Oil & Fuel CR</span>
+                    </button>
+                </td>
+                <td style="width: 25%; text-align: center">
+                    <button id="viewEIR" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" onclick="window.location='/AirDynasty/viewOPMRec' ">
+                        <span class="ui-button-text">Out of Phase MR</span>
+                    </button>
+                </td>
+            </tr>
+        </table>
+       
+        <h3>Manipulate Component Records</h3>
+
+       <table style="margin : 0 auto;">
             <tr>
                 <td style="width: 25%; text-align: left">            
                 <c:choose>
                     <c:when test="${acID % 2 == 0}">
-                        <a href="/AirDynasty/addEngHrs.jsp">Add Engine Hours</a>
+                        <button id="viewEIR" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" onclick="window.location='/AirDynasty/addEngHrs.jsp' ">
+                            <span class="ui-button-text">Add Engine Hours</span>
+                        </button>
                     </c:when> 
                     <c:otherwise>
-                        <a href="/AirDynasty/addHours.jsp">Add Air Craft Hours</a>
+                        <button id="viewEIR" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" onclick="window.location='/AirDynasty/addHours.jsp' ">
+                            <span class="ui-button-text">Add Aircraft Hours</span>
+                        </button>
                     </c:otherwise>
                 </c:choose>
                 </td>
-                <td style="width: 25%;text-align: center"><a href="/AirDynasty/viewEngInspec">View A/f & Engine Inspection Records</td>
-                <td style="width: 25%; text-align: center"><a href="/AirDynasty/viewOAFCIntvl">Oil and Fuel Change Records</td>
-                <td style="width: 25%;text-align: right"><a href="/AirDynasty/viewOPMRec">Out of Phase Maintenance Records</a></td>
+                <td style="width: 25%;text-align: center">
+                    <button id="viewEIR" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" onclick="window.location='/AirDynasty/addCmpRec.jsp' ">
+                            <span class="ui-button-text">Add Component Record</span>
+                    </button>
+                </td>
             </tr>
         </table>
-        <h4>Manipulate Component Records</h4>
-        <ul>
-            <li><a href="/AirDynasty/addCmpRec.jsp">Add Component Record</a></li>
-        </ul>
-        
-    </div>
+        </div>
 </div>
 <%@include file="footer.jsp" %>
 </body>

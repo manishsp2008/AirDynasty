@@ -36,6 +36,7 @@
 	clear: both;
 	_height: 302px;
 	zoom: 1; /* Feeling sorry for IE */
+        margin-bottom: 25px;
 }
 
 .dataTables_processing {

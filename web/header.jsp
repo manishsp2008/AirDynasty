@@ -1,11 +1,12 @@
 <div id="header" class="ui-corner-bottom">
-     <div id="headerTopBar" class="ui-corner-bottom"  >
+     <div id="headerTopBar" class="ui-corner-top">
         <div id="headerLinks">
             Link1 | Link2 | Link3
         </div>
          <div id="headerLoginBar">
-            Hi, <shiro:guest>Guest</shiro:guest><shiro:user><shiro:principal/></shiro:user>!
-            &nbsp;( <shiro:user><a href="<c:url value="/logout.jsp"/>">Log out</a></shiro:user>
+            Hello <shiro:guest>Guest</shiro:guest><shiro:user><shiro:principal/></shiro:user>
+            &nbsp;|&nbsp;
+            (<shiro:user><a href="<c:url value="/logout.jsp"/>">Log out</a></shiro:user>
             <shiro:guest><a href="<c:url value="/login.jsp"/>">Log in</a></shiro:guest> )
         </div>
         

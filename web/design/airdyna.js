@@ -12,4 +12,17 @@ $(document).ready(function() {
 	} );
         
         $('#fancyClock').tzineClock();
+        
+        $("#viewEIR").onclick(function(){
+            
+          window.location = "http://www.google.co.in"  
+            
+            
+        });
+            
+            
+            
+            
+        
 } );
+

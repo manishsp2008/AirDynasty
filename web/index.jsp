@@ -17,7 +17,7 @@
   <%@include file="header.jsp" %>
 <div id="dt_example" >
 
-        <h1>Air Craft Management System</h1>
+        <h1>Aircraft Management System</h1>
         <ol>
             <li><a href="/AirDynasty/viewCraftList">View Air Crafts</a></li>
         </ol>

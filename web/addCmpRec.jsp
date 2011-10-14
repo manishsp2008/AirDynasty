@@ -22,7 +22,7 @@
         Hours Type(H/D/L) - <select name="HrsType"><option value="H">Hours</option><option value="D" >Date</option><option value="L">Landings</option></select>
         <br/>
         <form name="myForm" action="/AirDynasty/addCmpRec" method="get">
-            <h4>Basic Details</h4>
+            <h3>Basic Details</h3>
             <table>
                 <tr>
                     <td>Component Name</td><td><input name="cmpName" type="text"/></td>
@@ -42,7 +42,7 @@
                         </select></td>
                 </tr>
             </table>
-            <h4>Installation Details</h4>
+            <h3>Installation Details</h3>
             <table>
                  <tr>
                     <td>Life Remaining Hrs</td><td><input name="lrInstHrs" type="text"/>&nbsp;&nbsp;<select name="lrInstHrsType"><option value="H">Hours</option><option value="Y" >Years</option><option value="L">Landing Count</option></select></td>
@@ -57,7 +57,7 @@
                     <td>Installation Due Hrs</td><td><input name="InstDueHrs" type="text"/>&nbsp;&nbsp;<select name="InstDueHrsType"><option value="H">Hours</option><option value="D" >Date</option><option value="L">Landing Count</option></select></td>
                  </tr>
             </table>
-            <h4>Current Component Details</h4>
+            <h3>Current Component Details</h3>
             <table>
                 <tr>
                     <td>Current A/F Hrs</td><td><input name="crAFHrs" type="text"/>&nbsp;&nbsp;<select name="crAFHrsType"><option value="H">Hours</option><option value="D" >Date</option><option value="L" >Landings</option></select></td>
