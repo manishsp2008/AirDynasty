@@ -7,6 +7,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@ include file="include.jsp" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -15,18 +16,25 @@
     </head>
       <body>
 <div id="wrap">
-  <%@include file="header.jsp" %>
+  
+<%@include file="header.jsp" %>
+
 <div id="dt_example" >
         <h1>Air Crafts List</h1>
-        <h2>Air Craft-{9N-AEX}</h2>
-        <ul>
+        <br/>
                 <c:forEach var="craft" items="${aircrafts}">
-                <li>
-                    <a href="<c:url value="viewCraft?${craft.acId}"/>">${craft.acName}&nbsp;(${craft.acSerialnum})</a>
-                </li>
+                    <c:choose>
+                        <c:when test="${craft.acId % 2 == 0}">
+                            <a href="<c:url value="viewCraft?${craft.acId}"/>">Engine Name - ${craft.acName}&nbsp;(${craft.acSerialnum})</a><br/>
+                        </c:when> 
+                        <c:otherwise>
+                            <div id="CraftTitle">${craft.acName} </div>  
+                            <a href="<c:url value="viewCraft?${craft.acId}"/>">Aircraft Name - ${craft.acName}</a><br/>
+                        </c:otherwise>
+                    </c:choose>
                 </c:forEach>
-        </ul>
-    </div>
+</div>
+
 </div>
 <%@include file="footer.jsp" %>
 </body>
