@@ -21,18 +21,19 @@
 
 <div id="dt_example" >
         <h1>Air Crafts List</h1>
-        <br/>
-                <c:forEach var="craft" items="${aircrafts}">
-                    <c:choose>
-                        <c:when test="${craft.acId % 2 == 0}">
-                            <a href="<c:url value="viewCraft?${craft.acId}"/>">Engine Name - ${craft.acName}&nbsp;(${craft.acSerialnum})</a><br/>
-                        </c:when> 
-                        <c:otherwise>
-                            <div id="CraftTitle">${craft.acName} </div>  
-                            <a href="<c:url value="viewCraft?${craft.acId}"/>">Aircraft Name - ${craft.acName}</a><br/>
-                        </c:otherwise>
-                    </c:choose>
-                </c:forEach>
+        
+        <c:forEach var="craft" items="${aircrafts}">
+            <c:choose>
+                <c:when test="${craft.acId % 2 == 0}">
+                    <a href="<c:url value="viewCraft?${craft.acId}"/>">Engine Name - ${craft.acName}&nbsp;(${craft.acSerialnum})</a><br/>
+                </c:when> 
+                <c:otherwise>
+                    <div id="CraftTitle">${craft.acName} </div>  
+                    <a href="<c:url value="viewCraft?${craft.acId}"/>">Aircraft Name - ${craft.acName}</a><br/>
+                </c:otherwise>
+            </c:choose>
+        </c:forEach>
+        
 </div>
 
 </div>

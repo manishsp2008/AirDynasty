@@ -1,6 +1,6 @@
 .clock{
 	/* The .clock div. Created dynamically by jQuery */
-	background-color:#D5D5D5;
+	background : inherit;
 	height:100px;
 	width:100px;
 	position:relative;
@@ -25,7 +25,7 @@
 .clock .bg, .clock .front{
 	width:50px;
 	height:100px;
-	background-color:#D5D5D5;
+	background : inherit;
 	position:absolute;
 	top:0;
 }

@@ -14,8 +14,8 @@
     
      <div id="headerMainBar" class="ui-corner-bottom" >
         
-        <div id="headerImage">
-            <div id="headerImageBox"></div>
+        <div id="headerImage" class="ui-corner-all">
+            <div id="headerImageBox" ></div>
         </div>
         <div id="headerClock">
             <div id="fancyClock">

@@ -10,6 +10,7 @@ html, body {
  
 body {
      background : none repeat scroll 0 0 #FFFFFF;
+     background: -moz-linear-gradient(center #FFFFFF #EEEEEE);
      color : #302B23;
      font: 90%/1.45em "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
      overflow : auto;     
@@ -24,14 +25,14 @@ body {
 
  #header {
     height : 140px;
-    background: #D5D5D5;
+    background : -moz-linear-gradient(top, #DDDDDD, #AAAAAA);
  }
 
  #headerTopBar {
     height:25px;
     border-bottom: 2px solid #FFFFFF;
     color : #D5D5D5;
-    background: #302B23;
+    background: -moz-linear-gradient(top , #3F3F3F, #2B2B2B);
     
  }
 
@@ -48,6 +49,7 @@ body {
 
 #headerTopBar a {
     color: #F2F2F2;
+    text-decoration: none;
     
 }
 
@@ -92,15 +94,19 @@ body {
 }
 
 #headerImage {
-    background:  url("images/logo.jpg") no-repeat scroll 0px 12px transparent;
+    background-color: inherit;
+    background: -moz-radial-gradient(rgba(221,221,221,0), rgba(170,170,170,1)), url("images/logo.jpg") no-repeat scroll;
+    /*ackground: url("images/logo.jpg") no-repeat;*/
     float:left;
     margin-left : 10px;
+    margin-top: 10px;
+    border: 5px solid #DDDDDD;
 }
 
 #headerImageBox {
     display : block;
-    height : 100px;
-    width : 300px;
+    height : 75px;
+    width : 275px;
 }
 
 #headerTitle {
@@ -132,7 +138,7 @@ body {
     margin-top: 50px; /* negative value of footer height */
     height: 50px;
     clear:both;
-    background: #D5D5D5;       
+    background : -moz-linear-gradient(top, #DDDDDD, #AAAAAA);
 }
 
 #footerLeftBar {
