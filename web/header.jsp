@@ -5,7 +5,7 @@
             <a href="about.jsp">About</a>
         </div>
          <div id="headerLoginBar">
-            Hello,<shiro:guest>Guest</shiro:guest><shiro:user><shiro:principal/></shiro:user>
+            Hello,&nbsp;<shiro:guest>Guest</shiro:guest><shiro:user><shiro:principal/></shiro:user>
             &nbsp;|&nbsp;
             ( <shiro:user><a href="/AirDynasty/logout.jsp">Log out</a></shiro:user>
             <shiro:guest><a href="/AirDynasty/login.jsp">Log in</a></shiro:guest> )

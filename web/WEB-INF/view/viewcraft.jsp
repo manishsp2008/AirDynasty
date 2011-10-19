@@ -27,7 +27,7 @@
         </div>
         
         <fmt:formatDate pattern="dd-MM-yyyy" value="<%= Calendar.getInstance().getTime() %>" var="sysDate" />
-         <div class="ui-widget" >
+        <div class="ui-widget" >
 	<div style="margin-top: 20px; padding: 0pt 0.7em;" class="ui-state-highlight ui-corner-all"> 
 			
         <div id="myContainer">
@@ -74,13 +74,15 @@
         <th>Remarks</th></tr>
         </thead>
         <tbody>
-        <c:forEach var="comp" items="${craftComps}">
         
+        <c:forEach var="lrInst" items="${comp.cmpLiferemInstSet}">
         <tr class="gradeA"><td class="center"><%=i++%></td><td class="center">${comp.compPartname}</td><td class="center">${comp.compPartnum}</td>
             <td class="center">
+                <select>
                 <c:forEach var="srnum" items="${comp.cmpSerialNumberSet}">
-                    <c:out  value="${srnum.serialnumValue}"/><br/>
+                    <option><c:out  value="${srnum.serialnumValue}"/></option>
                 </c:forEach>
+                </select>
             </td>
             <td class="center">
                 <c:forEach var="ftlife" items="${comp.cmpFinitelifeSet}">
@@ -124,6 +126,7 @@
                 </c:forEach>
             </td>
         </tr>
+            </c:forEach>
         </c:forEach>
         </tbody>
         </table>
