@@ -27,107 +27,81 @@
         </div>
         
         <fmt:formatDate pattern="dd-MM-yyyy" value="<%= Calendar.getInstance().getTime() %>" var="sysDate" />
-        <div class="ui-widget" >
-	<div style="margin-top: 20px; padding: 0pt 0.7em;" class="ui-state-highlight ui-corner-all"> 
+ <div class="ui-widget" >
+	
+     <div style="margin-top: 20px; padding: 0pt 0.7em;" class="ui-state-highlight ui-corner-all"> 
 			
         <div id="myContainer">
-        <div id="row">
+            <div id="row">
 
-  	<div id="left1">
-        <p>Form Number : ${craftObj.acFormnum}</p>
-        <p>&nbsp;</p>
-        <p>AirFrame Hours : ${craftObj.acAfhrs}</p>
+                <div id="left1">
+                <p>Form Number : ${craftObj.acFormnum}</p>
+                <p>&nbsp;</p>
+                <p>AirFrame Hours : ${craftObj.acAfhrs}</p>
+                </div>
+
+                <div id="left2">
+                <p>Landing Count : ${craftObj.acLandingcount}</p>
+                <p>&nbsp;</p>
+                <p>Engine N/G Cycles : ${craftObj.acEngngcycs}</p>
+                </div>
+
+
+                <div id="middle">
+                <p>Date : <c:out value="${sysDate}"/></p>
+                <p>&nbsp;</p>
+                <p>Engine Hours : ${craftObj.acEnghrs}</p>
+                </div>
+
+                <div id="right">
+                <p>Start Count : ${craftObj.acStartcount}</p>
+                <p>&nbsp;</p>
+                <p>Engine N/P Cycles : ${craftObj.acNpcycs}</p>
+                </div>
+
+            </div>
         </div>
 
-        <div id="left2">
-        <p>Landing Count : ${craftObj.acLandingcount}</p>
-        <p>&nbsp;</p>
-        <p>Engine N/G Cycles : ${craftObj.acEngngcycs}</p>
-  	</div>
-  	
-        
-        <div id="middle">
-        <p>Date : <c:out value="${sysDate}"/></p>
-        <p>&nbsp;</p>
-    	<p>Engine Hours : ${craftObj.acEnghrs}</p>
-	</div>
-
-  	<div id="right">
-        <p>Start Count : ${craftObj.acStartcount}</p>
-        <p>&nbsp;</p>
-        <p>Engine N/P Cycles : ${craftObj.acNpcycs}</p>
-  	</div>
-
-	</div>
-     </div>
-
-	</div>
+    </div>
 </div>
         
         <h2>Components</h2>
         <%int i=1;%>
         <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
         <thead>
-        <tr class="gradeA"><th>Sr. No.</th><th>Component Name</th><th>Part No.</th><th>Serial No.</th><th>Finite Life(TBO)</th>
-        <th>Life Remaining (Installation)</th><th>Installation Air Frame Hours</th><th>Installation Date</th>
+        <tr class="gradeA"><th>Sr. No.</th><th>Component Name</th><th>Part No.</th>
         <th>Installation Due Off Hours</th><th>Current Air Frame Hours</th><th>Remaining Life Hours</th>
         <th>Remarks</th></tr>
         </thead>
         <tbody>
         <c:forEach var="comp" items="${craftComps}" >
+        
+        <c:set var="idoList" value="${comp.compDueoffAfhrsInstArray}"/>
+        <c:set var="cahList" value="${comp.cmpCurAfhrsArray}"/>
+        <c:set var="rlList" value="${comp.compRemLifeArray}"/>
+        <c:set var="remList" value="${comp.cmpRemarksSetArray}"/>
+        
+        <c:forEach varStatus="loop" items="${idoList}" >
             
         <tr class="gradeA"><td class="center"><%=i++%></td><td class="center">${comp.compPartname}</td><td class="center">${comp.compPartnum}</td>
+            
             <td class="center">
-                <select>
-                <c:forEach var="srnum" items="${comp.cmpSerialNumberSet}">
-                    <option><c:out  value="${srnum.serialnumValue}"/></option>
-                </c:forEach>
-                </select>
+                    <c:out  value="${idoList[loop.index]}" /><br/>
             </td>
             <td class="center">
-                <c:forEach var="ftlife" items="${comp.cmpFinitelifeSet}">
-                    <c:out  value="${ftlife.cmpFinitelifeHrs}"/><br/>
-                </c:forEach>
+                    <c:out  value="${cahList[loop.index]}"/><br/>
             </td>
             <td class="center">
-                <c:forEach var="lreminst" items="${comp.cmpLiferemInstSet}">
-                    <c:out  value="${lreminst.cmplifeRemHrs}"/><br/>
-                </c:forEach>
+                    <c:out  value="${rlList[loop.index]}"/><br/>
             </td>
             <td class="center">
-                <c:forEach var="iafhrs" items="${comp.cmpAfhrsInstSet}">
-                    <c:out  value="${iafhrs.cmpAfhrsInstHrs}"/><br/>
-                </c:forEach>
+                    <c:out  value="${remList[loop.index]}"/><br/>
             </td>
-            <td class="center">
-                <c:forEach var="insdate" items="${comp.cmpDateInstSet}">
-                    <fmt:formatDate pattern="dd-MM-yyyy" value="${insdate.cmpDateInstDate}" var="fmtDate" />
-                    <c:out  value="${fmtDate}"/><br/>
-                </c:forEach>
-            </td>
-            <td class="center">
-                <c:forEach var="insdhrs" items="${comp.compDueoffAfhrsInstSet}">
-                    <c:out  value="${insdhrs.cdaHrs}" /><br/>
-                </c:forEach>
-            </td>
-            <td class="center">
-                <c:forEach var="crafhrs" items="${comp.cmpCurAfhrsSet}">
-                    <c:out  value="${crafhrs.cmpCurAfhrsHrs}"/><br/>
-                </c:forEach>
-            </td>
-            <td class="center">
-                <c:forEach var="rlhrs" items="${comp.compRemLifeSet}">
-                    <c:out  value="${rlhrs.crlHrs}"/><br/>
-                </c:forEach>
-            </td>
-            <td class="center">
-                <c:forEach var="remark" items="${comp.cmpRemarksSet}">
-                    <c:out  value="${remark.cmpRemarksText}"/><br/>
-                </c:forEach>
-            </td>
+            
         </tr>
-            </c:forEach>
         
+        </c:forEach>
+        </c:forEach>
         </tbody>
         </table>
         <br/>

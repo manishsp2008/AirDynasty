@@ -5,6 +5,9 @@
 package airdynasty;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -117,6 +120,8 @@ public class Components implements Serializable {
     public Set<CmpAfhrsInst> getCmpAfhrsInstSet() {
         return cmpAfhrsInstSet;
     }
+    
+    
 
     public void setCmpAfhrsInstSet(Set<CmpAfhrsInst> cmpAfhrsInstSet) {
         this.cmpAfhrsInstSet = cmpAfhrsInstSet;
@@ -125,6 +130,20 @@ public class Components implements Serializable {
     @XmlTransient
     public Set<CmpCurAfhrs> getCmpCurAfhrsSet() {
         return cmpCurAfhrsSet;
+    }
+    
+    public String[] getCmpCurAfhrsArray()
+    {
+        Set<CmpCurAfhrs> tempSet = getCmpCurAfhrsSet();
+        List<String> temp = new ArrayList<String>();
+        
+        for (Iterator<CmpCurAfhrs> it = tempSet.iterator(); it.hasNext();) {
+     
+            CmpCurAfhrs ccaObj = it.next();
+            temp.add(ccaObj.getCmpCurAfhrsHrs());
+        }
+        return temp.toArray(new String[0]) ;
+       
     }
 
     public void setCmpCurAfhrsSet(Set<CmpCurAfhrs> cmpCurAfhrsSet) {
@@ -144,6 +163,19 @@ public class Components implements Serializable {
     public Set<CompRemLife> getCompRemLifeSet() {
         return compRemLifeSet;
     }
+    
+    public String[] getCompRemLifeArray()
+    {
+        Set<CompRemLife> tempSet = getCompRemLifeSet();
+        List<String> temp = new ArrayList<String>();
+        for (Iterator<CompRemLife> it = tempSet.iterator(); it.hasNext();) {
+            
+            CompRemLife crlObj = it.next();
+            temp.add(crlObj.getCrlHrs());
+        }
+        return temp.toArray(new String[0]);
+    }
+
 
     public void setCompRemLifeSet(Set<CompRemLife> compRemLifeSet) {
         this.compRemLifeSet = compRemLifeSet;
@@ -162,6 +194,18 @@ public class Components implements Serializable {
     public Set<CmpLiferemInst> getCmpLiferemInstSet() {
         return cmpLiferemInstSet;
     }
+    
+    public String[] getCmpLiferemInstSetArray()
+    {
+        Set<CmpLiferemInst> tempSet = getCmpLiferemInstSet();
+        List<String> temp = new ArrayList<String>();
+        for (Iterator<CmpLiferemInst> it = tempSet.iterator(); it.hasNext();) {
+            
+            CmpLiferemInst cliObj = it.next();
+            temp.add(cliObj.getCmplifeRemHrs());
+        }
+        return temp.toArray(new String[0]);
+    }
 
     public void setCmpLiferemInstSet(Set<CmpLiferemInst> cmpLiferemInstSet) {
         this.cmpLiferemInstSet = cmpLiferemInstSet;
@@ -170,6 +214,18 @@ public class Components implements Serializable {
     @XmlTransient
     public Set<CmpRemarks> getCmpRemarksSet() {
         return cmpRemarksSet;
+    }
+    
+    public String[] getCmpRemarksSetArray()
+    {
+        Set<CmpRemarks> tempSet = getCmpRemarksSet();
+        List<String> temp = new ArrayList<String>();
+        for (Iterator<CmpRemarks> it = tempSet.iterator(); it.hasNext();) {
+            
+            CmpRemarks crObj = it.next();
+            temp.add(crObj.getCmpRemarksText());
+        }
+        return temp.toArray(new String[0]);
     }
 
     public void setCmpRemarksSet(Set<CmpRemarks> cmpRemarksSet) {
@@ -188,6 +244,25 @@ public class Components implements Serializable {
     public Set<CompDueoffAfhrsInst> getCompDueoffAfhrsInstSet() {
         return compDueoffAfhrsInstSet;
     }
+    
+    public String[] getCompDueoffAfhrsInstArray()
+    {
+        Set<CompDueoffAfhrsInst> tempSet = getCompDueoffAfhrsInstSet(); 
+        
+        List<String> temp = new ArrayList<String>();
+        
+        for (Iterator<CompDueoffAfhrsInst> it = tempSet.iterator(); it.hasNext();) {
+            
+            CompDueoffAfhrsInst cdaObj = it.next();
+            
+            temp.add(cdaObj.getCdaHrs());
+            
+        }
+        
+        return temp.toArray(new String[0]);
+       
+    }
+    
 
     public void setCompDueoffAfhrsInstSet(Set<CompDueoffAfhrsInst> compDueoffAfhrsInstSet) {
         this.compDueoffAfhrsInstSet = compDueoffAfhrsInstSet;

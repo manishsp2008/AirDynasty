@@ -5,7 +5,10 @@
 package airdynasty;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -141,6 +144,21 @@ public class OutPhaseMnt implements Serializable {
     public Set<OpmInterval> getOpmIntervalSet() {
         return opmIntervalSet;
     }
+    
+    public String[] getOpmIntervalArray() {
+        
+        Set<OpmInterval> tempSet = getOpmIntervalSet();
+        List<String> temp = new ArrayList<String>();
+        
+        for (Iterator<OpmInterval> it = tempSet.iterator(); it.hasNext();) {
+            
+            OpmInterval opiObj = it.next();
+            temp.add(opiObj.getOpminvlHrs());
+        }
+        
+        return temp.toArray(new String[0]);
+        
+    }
 
     public void setOpmIntervalSet(Set<OpmInterval> opmIntervalSet) {
         this.opmIntervalSet = opmIntervalSet;
@@ -158,6 +176,20 @@ public class OutPhaseMnt implements Serializable {
     public Set<OpmRemarks> getOpmRemarksSet() {
         return opmRemarksSet;
     }
+    
+    public String[] getOpmRemarksArray() {
+        
+        Set<OpmRemarks> tempSet = getOpmRemarksSet();
+        List<String> temp = new ArrayList<String>();
+        
+        for (Iterator<OpmRemarks> it = tempSet.iterator(); it.hasNext();) {
+            
+            OpmRemarks orObj = it.next();
+            temp.add(orObj.getOpmremText());
+        }
+        return temp.toArray(new String[0]);
+        
+    }
 
     public void setOpmRemarksSet(Set<OpmRemarks> opmRemarksSet) {
         this.opmRemarksSet = opmRemarksSet;
@@ -166,6 +198,20 @@ public class OutPhaseMnt implements Serializable {
     @XmlTransient
     public Set<OpmTimeRem> getOpmTimeRemSet() {
         return opmTimeRemSet;
+    }
+    
+    public String[] getOpmTimeRemArray() {
+        
+        Set<OpmTimeRem> tempSet = getOpmTimeRemSet();
+        List<String> temp = new ArrayList<String>();
+        
+        for (Iterator<OpmTimeRem> it = tempSet.iterator(); it.hasNext();) {
+            
+            OpmTimeRem orObj = it.next();
+            temp.add(orObj.getOpmtrHrs());
+        }
+        return temp.toArray(new String[0]);
+        
     }
 
     public void setOpmTimeRemSet(Set<OpmTimeRem> opmTimeRemSet) {

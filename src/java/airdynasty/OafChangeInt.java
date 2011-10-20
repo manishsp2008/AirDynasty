@@ -5,6 +5,9 @@
 package airdynasty;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -107,14 +110,44 @@ public class OafChangeInt implements Serializable {
     public Set<OafciDueAtHrs> getOafciDueAtHrsSet() {
         return oafciDueAtHrsSet;
     }
+    
+    public String[] getOafciDueAtHrsArray() {
+        
+        Set<OafciDueAtHrs> tempSet = getOafciDueAtHrsSet();
+        List<String> temp = new ArrayList<String>();
+        
+        for (Iterator<OafciDueAtHrs> it = tempSet.iterator(); it.hasNext();) {
+            
+            OafciDueAtHrs odhObj = it.next();
+            temp.add(odhObj.getOanfDahHrs());
+        }
+        
+        return temp.toArray(new String[0]);
+    }
+
 
     public void setOafciDueAtHrsSet(Set<OafciDueAtHrs> oafciDueAtHrsSet) {
         this.oafciDueAtHrsSet = oafciDueAtHrsSet;
     }
-
+    
     @XmlTransient
     public Set<OafciInterval> getOafciIntervalSet() {
         return oafciIntervalSet;
+    }
+    
+    public String[] getOafciIntervalArray() {
+        
+        Set<OafciInterval> tempSet = getOafciIntervalSet();
+        List<String> temp = new ArrayList<String>();
+        
+        for (Iterator<OafciInterval> it = tempSet.iterator(); it.hasNext();) {
+            
+            OafciInterval oafciObj = it.next();
+            temp.add(oafciObj.getOafcinvlHrs());
+        }
+        
+        return temp.toArray(new String[0]);
+        
     }
 
     public void setOafciIntervalSet(Set<OafciInterval> oafciIntervalSet) {
@@ -125,6 +158,22 @@ public class OafChangeInt implements Serializable {
     public Set<OafciDueHrs> getOafciDueHrsSet() {
         return oafciDueHrsSet;
     }
+    
+    public String[] getOafciDueHrsArray() {
+        
+        Set<OafciDueHrs> tempSet = getOafciDueHrsSet();
+        List<String> temp = new ArrayList<String>();
+        
+        for (Iterator<OafciDueHrs> it = tempSet.iterator(); it.hasNext();) {
+            
+            OafciDueHrs oafdhObj = it.next();
+            temp.add(oafdhObj.getOafdhHrs());
+        }
+        
+        return temp.toArray(new String[0]);
+        
+    }
+    
 
     public void setOafciDueHrsSet(Set<OafciDueHrs> oafciDueHrsSet) {
         this.oafciDueHrsSet = oafciDueHrsSet;
@@ -141,6 +190,21 @@ public class OafChangeInt implements Serializable {
     @XmlTransient
     public Set<OafciRemarks> getOafciRemarksSet() {
         return oafciRemarksSet;
+    }
+    
+    public String[] getOafciRemarksArray() {
+        
+        Set<OafciRemarks> tempSet = getOafciRemarksSet();
+        List<String> temp = new ArrayList<String>();
+        
+        for (Iterator<OafciRemarks> it = tempSet.iterator(); it.hasNext();) {
+            
+            OafciRemarks oafremObj = it.next();
+            temp.add(oafremObj.getOafremText());
+        }
+        
+        return temp.toArray(new String[0]);
+        
     }
 
     public void setOafciRemarksSet(Set<OafciRemarks> oafciRemarksSet) {
