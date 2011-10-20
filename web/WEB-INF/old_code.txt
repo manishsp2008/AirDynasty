@@ -119,6 +119,10 @@
                 <c:forEach var="rlhrs" items="${comp.compRemLifeSet}">
                     <c:out  value="${rlhrs.crlHrs}"/><br/>
                 </c:forEach>
+
+http://175.41.165.17:4848/
+
+
             </td>
             <td class="center">
                 <c:forEach var="remark" items="${comp.cmpRemarksSet}">

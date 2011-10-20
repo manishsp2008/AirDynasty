@@ -74,8 +74,8 @@
         <th>Remarks</th></tr>
         </thead>
         <tbody>
-        
-        <c:forEach var="lrInst" items="${comp.cmpLiferemInstSet}">
+        <c:forEach var="comp" items="${craftComps}" >
+            
         <tr class="gradeA"><td class="center"><%=i++%></td><td class="center">${comp.compPartname}</td><td class="center">${comp.compPartnum}</td>
             <td class="center">
                 <select>
@@ -127,7 +127,7 @@
             </td>
         </tr>
             </c:forEach>
-        </c:forEach>
+        
         </tbody>
         </table>
         <br/>
