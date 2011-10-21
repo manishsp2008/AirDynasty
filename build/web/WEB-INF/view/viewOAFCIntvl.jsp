@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="include.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,6 +19,38 @@
 <div id="dt_example" >
         <h1>Oil and Fuel Change Interval Records</h1>
         <%int i=1;%>
+        
+     <fmt:formatDate pattern="dd-MM-yyyy" value="<%= Calendar.getInstance().getTime() %>" var="sysDate" />
+     <div class="ui-widget" >
+         <div style="margin-top: 20px; padding: 0pt 0.7em;" class="ui-state-highlight ui-corner-all"> 
+            <div id="myContainer">
+                <div id="row">
+                    <div id="left1">
+                    <p>Form Number : ${craftObj.acFormnum}</p>
+                    <p>&nbsp;</p>
+                    <p>AirFrame Hours : ${craftObj.acAfhrs}</p>
+                    </div>
+                    <div id="left2">
+                    <p>Landing Count : ${craftObj.acLandingcount}</p>
+                    <p>&nbsp;</p>
+                    <p>Engine N/G Cycles : ${craftObj.acEngngcycs}</p>
+                    </div>
+                    <div id="middle">
+                    <p>Date : <c:out value="${sysDate}"/></p>
+                    <p>&nbsp;</p>
+                    <p>Engine Hours : ${craftObj.acEnghrs}</p>
+                    </div>
+                    <div id="right">
+                    <p>Start Count : ${craftObj.acStartcount}</p>
+                    <p>&nbsp;</p>
+                    <p>Engine N/P Cycles : ${craftObj.acNpcycs}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+        <h2>Records</h2>                    
         <table cellpadding="0" cellspacing="0" border="0" class="display" id="example"> 
             <thead>
          <tr class="gradeA">
@@ -28,29 +60,29 @@
             </thead>
             <tbody>
         <c:forEach var="oafciSet" items="${OAFCIntvlSet}">
+            
+        <c:set var="oinvList" value="${oafciSet.oafciIntervalArray}"  />
+        <c:set var="odahList" value="${oafciSet.oafciDueAtHrsArray}" />
+        <c:set var="odhList" value="${oafciSet.oafciDueHrsArray}" />
+        <c:set var="ormList" value="${oafciSet.oafciRemarksArray}" />
+            
+        <c:forEach varStatus="loop" items="${oinvList}" >
         <tr class="gradeA">
             <td class="center"><%=i++%></td><td class="center">${oafciSet.oafciNomenclature}</td><td class="center">${oafciSet.oafciSpecs}</td>
             <td class="center">
-            <c:forEach var="myVar1" items="${oafciSet.oafciIntervalSet}">
-                ${myVar1.oafcinvlHrs}&nbsp;${myVar1.oafcinvlHrsType}<br/>
-            </c:forEach>
+                <c:out value="${oinvList[loop.index]}" />
             </td>
             <td class="center">
-            <c:forEach var="myVar2" items="${oafciSet.oafciDueAtHrsSet}">
-                ${myVar2.oanfDahHrs}&nbsp;${myVar2.oanfdahHrsType}<br/>
-            </c:forEach>
+                <c:out value="${odahList[loop.index]}" />
             </td>
             <td class="center">    
-            <c:forEach var="myVar3" items="${oafciSet.oafciDueHrsSet}">
-                ${myVar3.oafdhHrs}&nbsp;${myVar3.oafdhHrsType}<br/>
-            </c:forEach>
+                <c:out value="${odhList[loop.index]}" />
             </td>
             <td class="center">    
-            <c:forEach var="myVar4" items="${oafciSet.oafciRemarksSet}">
-                ${myVar4.oafremText}<br/>
-            </c:forEach>
+                <c:out value="${ormList[loop.index]}" />
             </td>
         </tr>
+        </c:forEach>
         </c:forEach>
             </tbody>
     </table>

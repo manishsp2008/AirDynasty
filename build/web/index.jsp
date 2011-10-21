@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@ include file="include.jsp" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -17,7 +18,7 @@
   <%@include file="header.jsp" %>
 <div id="dt_example" >
 
-        <h1>Air Craft Management System</h1>
+        <h1>Aircraft Management System</h1>
         <ol>
             <li><a href="/AirDynasty/viewCraftList">View Air Crafts</a></li>
         </ol>

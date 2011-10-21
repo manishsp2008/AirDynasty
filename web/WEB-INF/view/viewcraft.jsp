@@ -79,7 +79,7 @@
         <c:set var="idoList" value="${comp.compDueoffAfhrsInstArray}"/>
         <c:set var="cahList" value="${comp.cmpCurAfhrsArray}"/>
         <c:set var="rlList" value="${comp.compRemLifeArray}"/>
-        <c:set var="remList" value="${comp.cmpRemarksSetArray}"/>
+        <c:set var="remList" value="${comp.cmpRemarksArray}"/>
         
         <c:forEach varStatus="loop" items="${idoList}" >
             

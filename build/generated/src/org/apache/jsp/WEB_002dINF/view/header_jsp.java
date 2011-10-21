@@ -41,22 +41,24 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("<div id=\"header\">\r\n");
-      out.write("     <div id=\"headerTopBar\"  >\r\n");
+      out.write("<div id=\"header\" class=\"ui-corner-bottom\">\r\n");
+      out.write("     <div id=\"headerTopBar\" class=\"ui-corner-top\">\r\n");
       out.write("        <div id=\"headerLinks\">\r\n");
-      out.write("            Link1 | Link2 | Link3\r\n");
+      out.write("            <a href=\"/AirDynasty/\" >Home</a> &emsp; <a href=\"/AirDynasty/viewCraftList\">Aircraft List</a> &emsp; <a href=\"/AirDynasty/Help.jsp\">Help</a> &emsp;\r\n");
+      out.write("            <a href=\"about.jsp\">About</a>\r\n");
       out.write("        </div>\r\n");
       out.write("         <div id=\"headerLoginBar\">\r\n");
-      out.write("            Hi, <shiro:guest>Guest</shiro:guest><shiro:user><shiro:principal/></shiro:user>!\r\n");
-      out.write("            &nbsp;( <shiro:user><a href=\"<c:url value=\"/logout.jsp\"/>\">Log out</a></shiro:user>\r\n");
-      out.write("            <shiro:guest><a href=\"<c:url value=\"/login.jsp\"/>\">Log in</a></shiro:guest> )\r\n");
+      out.write("            Hello,&nbsp;<shiro:guest>Guest</shiro:guest><shiro:user><shiro:principal/></shiro:user>\r\n");
+      out.write("            &nbsp;|&nbsp;\r\n");
+      out.write("            ( <shiro:user><a href=\"/AirDynasty/logout.jsp\">Log out</a></shiro:user>\r\n");
+      out.write("            <shiro:guest><a href=\"/AirDynasty/login.jsp\">Log in</a></shiro:guest> )\r\n");
       out.write("        </div>\r\n");
+      out.write("     </div>\r\n");
+      out.write("    \r\n");
+      out.write("     <div id=\"headerMainBar\" class=\"ui-corner-bottom\" >\r\n");
       out.write("        \r\n");
-      out.write("    </div>\r\n");
-      out.write("    <div id=\"headerMainBar\" class=\"ui-corner-bottom\">\r\n");
-      out.write("        \r\n");
-      out.write("        <div id=\"headerImage\">\r\n");
-      out.write("            <div id=\"headerImageBox\"></div>\r\n");
+      out.write("        <div id=\"headerImage\" class=\"ui-corner-all\">\r\n");
+      out.write("            <div id=\"headerImageBox\" ></div>\r\n");
       out.write("        </div>\r\n");
       out.write("        <div id=\"headerClock\">\r\n");
       out.write("            <div id=\"fancyClock\">\r\n");
@@ -68,7 +70,7 @@ public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            </div>\r\n");
       out.write("        </div>\r\n");
       out.write("        \r\n");
-      out.write("    </div>\r\n");
+      out.write("     </div>\r\n");
       out.write("</div>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

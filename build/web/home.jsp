@@ -21,9 +21,11 @@
 <div id="dt_example" >
 <h1>Air Craft Management System</h1>
 
-<p>Welcome to the Air-Dynasty ACMS. This page represents the home page of web application.</p>
+<p>Welcome to the Air-Dynasty Aircraft Management System. This page represents home page of web application.</p>
+<br/>
 
 <shiro:user><p>Visit Application <a href="<c:url value="/index1.jsp"/>">Main Page</a>.</p></shiro:user>
+<shiro:guest><p>Please <a href="<c:url value="/login.jsp"/>">Log in</a>.</p></shiro:guest>
 
 </div>
 </div>

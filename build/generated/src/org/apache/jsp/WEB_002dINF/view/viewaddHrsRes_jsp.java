@@ -3,10 +3,10 @@ package org.apache.jsp.WEB_002dINF.view;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import org.apache.shiro.SecurityUtils;
 import java.util.Calendar;
 import airdynasty.CmpSerialNumber;
-import java.util.Collections;
-import java.util.Collection;
+import java.util.Set;
 import airdynasty.Components;
 
 public final class viewaddHrsRes_jsp extends org.apache.jasper.runtime.HttpJspBase
@@ -17,13 +17,16 @@ public final class viewaddHrsRes_jsp extends org.apache.jasper.runtime.HttpJspBa
   private static java.util.Vector _jspx_dependants;
 
   static {
-    _jspx_dependants = new java.util.Vector(3);
+    _jspx_dependants = new java.util.Vector(4);
+    _jspx_dependants.add("/WEB-INF/view/include.jsp");
     _jspx_dependants.add("/WEB-INF/view/includeS.jsp");
     _jspx_dependants.add("/WEB-INF/view/header.jsp");
     _jspx_dependants.add("/WEB-INF/view/footer.jsp");
   }
 
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_url_value_nobody;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_shiro_guest;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_shiro_user;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_shiro_principal_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_out_value_nobody;
 
@@ -34,13 +37,17 @@ public final class viewaddHrsRes_jsp extends org.apache.jasper.runtime.HttpJspBa
   }
 
   public void _jspInit() {
-    _jspx_tagPool_c_url_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_shiro_guest = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_shiro_user = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_shiro_principal_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_forEach_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_out_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
-    _jspx_tagPool_c_url_value_nobody.release();
+    _jspx_tagPool_shiro_guest.release();
+    _jspx_tagPool_shiro_user.release();
+    _jspx_tagPool_shiro_principal_nobody.release();
     _jspx_tagPool_c_forEach_var_items.release();
     _jspx_tagPool_c_out_value_nobody.release();
   }
@@ -69,6 +76,9 @@ public final class viewaddHrsRes_jsp extends org.apache.jasper.runtime.HttpJspBa
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write('\r');
+      out.write('\n');
+      out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
@@ -103,28 +113,35 @@ public final class viewaddHrsRes_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("      <body>\r\n");
       out.write("<div id=\"wrap\">\r\n");
       out.write("  ");
-      out.write("<div id=\"header\">\r\n");
-      out.write("     <div id=\"headerTopBar\"  >\r\n");
+      out.write("<div id=\"header\" class=\"ui-corner-bottom\">\r\n");
+      out.write("     <div id=\"headerTopBar\" class=\"ui-corner-top\">\r\n");
       out.write("        <div id=\"headerLinks\">\r\n");
-      out.write("            Link1 | Link2 | Link3\r\n");
+      out.write("            <a href=\"/AirDynasty/\" >Home</a> &emsp; <a href=\"/AirDynasty/viewCraftList\">Aircraft List</a> &emsp; <a href=\"/AirDynasty/Help.jsp\">Help</a> &emsp;\r\n");
+      out.write("            <a href=\"about.jsp\">About</a>\r\n");
       out.write("        </div>\r\n");
       out.write("         <div id=\"headerLoginBar\">\r\n");
-      out.write("            Hi, <shiro:guest>Guest</shiro:guest><shiro:user><shiro:principal/></shiro:user>!\r\n");
-      out.write("            &nbsp;( <shiro:user><a href=\"");
-      if (_jspx_meth_c_url_0(_jspx_page_context))
+      out.write("            Hello,&nbsp;");
+      if (_jspx_meth_shiro_guest_0(_jspx_page_context))
         return;
-      out.write("\">Log out</a></shiro:user>\r\n");
-      out.write("            <shiro:guest><a href=\"");
-      if (_jspx_meth_c_url_1(_jspx_page_context))
+      if (_jspx_meth_shiro_user_0(_jspx_page_context))
         return;
-      out.write("\">Log in</a></shiro:guest> )\r\n");
+      out.write("\r\n");
+      out.write("            &nbsp;|&nbsp;\r\n");
+      out.write("            ( ");
+      if (_jspx_meth_shiro_user_1(_jspx_page_context))
+        return;
+      out.write("\r\n");
+      out.write("            ");
+      if (_jspx_meth_shiro_guest_1(_jspx_page_context))
+        return;
+      out.write(" )\r\n");
       out.write("        </div>\r\n");
+      out.write("     </div>\r\n");
+      out.write("    \r\n");
+      out.write("     <div id=\"headerMainBar\" class=\"ui-corner-bottom\" >\r\n");
       out.write("        \r\n");
-      out.write("    </div>\r\n");
-      out.write("    <div id=\"headerMainBar\" class=\"ui-corner-bottom\">\r\n");
-      out.write("        \r\n");
-      out.write("        <div id=\"headerImage\">\r\n");
-      out.write("            <div id=\"headerImageBox\"></div>\r\n");
+      out.write("        <div id=\"headerImage\" class=\"ui-corner-all\">\r\n");
+      out.write("            <div id=\"headerImageBox\" ></div>\r\n");
       out.write("        </div>\r\n");
       out.write("        <div id=\"headerClock\">\r\n");
       out.write("            <div id=\"fancyClock\">\r\n");
@@ -136,7 +153,7 @@ public final class viewaddHrsRes_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("            </div>\r\n");
       out.write("        </div>\r\n");
       out.write("        \r\n");
-      out.write("    </div>\r\n");
+      out.write("     </div>\r\n");
       out.write("</div>");
       out.write("\r\n");
       out.write("<div id=\"dt_example\" >\r\n");
@@ -226,7 +243,7 @@ public final class viewaddHrsRes_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("</div>\r\n");
       out.write("<div id=\"footer\" class=\"ui-corner-top\">\r\n");
       out.write("    <div id=\"footerLeftBar\">\r\n");
-      out.write("        Air-Dynasty Aircraft Management System.  \r\n");
+      out.write("        Air Dynasty Aircraft Management System.  \r\n");
       out.write("    </div>\r\n");
       out.write("    <div id=\"footerRightBar\">\r\n");
       out.write("        Copyright Notice.\r\n");
@@ -248,39 +265,121 @@ public final class viewaddHrsRes_jsp extends org.apache.jasper.runtime.HttpJspBa
     }
   }
 
-  private boolean _jspx_meth_c_url_0(PageContext _jspx_page_context)
+  private boolean _jspx_meth_shiro_guest_0(PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
-    //  c:url
-    org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_url_0 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _jspx_tagPool_c_url_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
-    _jspx_th_c_url_0.setPageContext(_jspx_page_context);
-    _jspx_th_c_url_0.setParent(null);
-    _jspx_th_c_url_0.setValue("/logout.jsp");
-    int _jspx_eval_c_url_0 = _jspx_th_c_url_0.doStartTag();
-    if (_jspx_th_c_url_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_0);
+    //  shiro:guest
+    org.apache.shiro.web.tags.GuestTag _jspx_th_shiro_guest_0 = (org.apache.shiro.web.tags.GuestTag) _jspx_tagPool_shiro_guest.get(org.apache.shiro.web.tags.GuestTag.class);
+    _jspx_th_shiro_guest_0.setPageContext(_jspx_page_context);
+    _jspx_th_shiro_guest_0.setParent(null);
+    int _jspx_eval_shiro_guest_0 = _jspx_th_shiro_guest_0.doStartTag();
+    if (_jspx_eval_shiro_guest_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("Guest");
+        int evalDoAfterBody = _jspx_th_shiro_guest_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_shiro_guest_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_shiro_guest.reuse(_jspx_th_shiro_guest_0);
       return true;
     }
-    _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_0);
+    _jspx_tagPool_shiro_guest.reuse(_jspx_th_shiro_guest_0);
     return false;
   }
 
-  private boolean _jspx_meth_c_url_1(PageContext _jspx_page_context)
+  private boolean _jspx_meth_shiro_user_0(PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
-    //  c:url
-    org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_url_1 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _jspx_tagPool_c_url_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
-    _jspx_th_c_url_1.setPageContext(_jspx_page_context);
-    _jspx_th_c_url_1.setParent(null);
-    _jspx_th_c_url_1.setValue("/login.jsp");
-    int _jspx_eval_c_url_1 = _jspx_th_c_url_1.doStartTag();
-    if (_jspx_th_c_url_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_1);
+    //  shiro:user
+    org.apache.shiro.web.tags.UserTag _jspx_th_shiro_user_0 = (org.apache.shiro.web.tags.UserTag) _jspx_tagPool_shiro_user.get(org.apache.shiro.web.tags.UserTag.class);
+    _jspx_th_shiro_user_0.setPageContext(_jspx_page_context);
+    _jspx_th_shiro_user_0.setParent(null);
+    int _jspx_eval_shiro_user_0 = _jspx_th_shiro_user_0.doStartTag();
+    if (_jspx_eval_shiro_user_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        if (_jspx_meth_shiro_principal_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_shiro_user_0, _jspx_page_context))
+          return true;
+        int evalDoAfterBody = _jspx_th_shiro_user_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_shiro_user_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_shiro_user.reuse(_jspx_th_shiro_user_0);
       return true;
     }
-    _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_1);
+    _jspx_tagPool_shiro_user.reuse(_jspx_th_shiro_user_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_shiro_principal_0(javax.servlet.jsp.tagext.JspTag _jspx_th_shiro_user_0, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  shiro:principal
+    org.apache.shiro.web.tags.PrincipalTag _jspx_th_shiro_principal_0 = (org.apache.shiro.web.tags.PrincipalTag) _jspx_tagPool_shiro_principal_nobody.get(org.apache.shiro.web.tags.PrincipalTag.class);
+    _jspx_th_shiro_principal_0.setPageContext(_jspx_page_context);
+    _jspx_th_shiro_principal_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_shiro_user_0);
+    int _jspx_eval_shiro_principal_0 = _jspx_th_shiro_principal_0.doStartTag();
+    if (_jspx_th_shiro_principal_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_shiro_principal_nobody.reuse(_jspx_th_shiro_principal_0);
+      return true;
+    }
+    _jspx_tagPool_shiro_principal_nobody.reuse(_jspx_th_shiro_principal_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_shiro_user_1(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  shiro:user
+    org.apache.shiro.web.tags.UserTag _jspx_th_shiro_user_1 = (org.apache.shiro.web.tags.UserTag) _jspx_tagPool_shiro_user.get(org.apache.shiro.web.tags.UserTag.class);
+    _jspx_th_shiro_user_1.setPageContext(_jspx_page_context);
+    _jspx_th_shiro_user_1.setParent(null);
+    int _jspx_eval_shiro_user_1 = _jspx_th_shiro_user_1.doStartTag();
+    if (_jspx_eval_shiro_user_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("<a href=\"/AirDynasty/logout.jsp\">Log out</a>");
+        int evalDoAfterBody = _jspx_th_shiro_user_1.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_shiro_user_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_shiro_user.reuse(_jspx_th_shiro_user_1);
+      return true;
+    }
+    _jspx_tagPool_shiro_user.reuse(_jspx_th_shiro_user_1);
+    return false;
+  }
+
+  private boolean _jspx_meth_shiro_guest_1(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  shiro:guest
+    org.apache.shiro.web.tags.GuestTag _jspx_th_shiro_guest_1 = (org.apache.shiro.web.tags.GuestTag) _jspx_tagPool_shiro_guest.get(org.apache.shiro.web.tags.GuestTag.class);
+    _jspx_th_shiro_guest_1.setPageContext(_jspx_page_context);
+    _jspx_th_shiro_guest_1.setParent(null);
+    int _jspx_eval_shiro_guest_1 = _jspx_th_shiro_guest_1.doStartTag();
+    if (_jspx_eval_shiro_guest_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("<a href=\"/AirDynasty/login.jsp\">Log in</a>");
+        int evalDoAfterBody = _jspx_th_shiro_guest_1.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_shiro_guest_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_shiro_guest.reuse(_jspx_th_shiro_guest_1);
+      return true;
+    }
+    _jspx_tagPool_shiro_guest.reuse(_jspx_th_shiro_guest_1);
     return false;
   }
 

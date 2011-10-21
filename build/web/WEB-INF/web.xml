@@ -109,7 +109,7 @@
                 [users]
                 # format: username = password, role1, role2, ..., roleN
                 root = secret,admin
-                guest = guest,guest
+                user = guest,guest
                 #presidentskroob = 12345,president
                 #darkhelmet = ludicrousspeed,darklord,schwartz
                 #lonestarr = vespa,goodguy,schwartz
@@ -117,7 +117,7 @@
                 [roles]
                 # format; roleName = permission1, permission2, ..., permissionN
                 admin = *
-                guest = *
+                guest = /index1.jsp
                 #schwartz = lightsaber:*
                 #goodguy = winnebago:drive:eagle5
 

@@ -5,12 +5,12 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="include.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Air Dynasty - Out of Phase Maintenance records</title>
+        <title>Air Dynasty - Out of Phase Maintenance Records</title>
         <%@include file="includeS.jsp" %>
     </head>
     <body>
@@ -19,6 +19,38 @@
 <div id="dt_example" >
         <h1>Out of Phase Maintenance Records</h1>
         <%int i=1;%>
+        
+             <fmt:formatDate pattern="dd-MM-yyyy" value="<%= Calendar.getInstance().getTime() %>" var="sysDate" />
+     <div class="ui-widget" >
+         <div style="margin-top: 20px; padding: 0pt 0.7em;" class="ui-state-highlight ui-corner-all"> 
+            <div id="myContainer">
+                <div id="row">
+                    <div id="left1">
+                    <p>Form Number : ${craftObj.acFormnum}</p>
+                    <p>&nbsp;</p>
+                    <p>AirFrame Hours : ${craftObj.acAfhrs}</p>
+                    </div>
+                    <div id="left2">
+                    <p>Landing Count : ${craftObj.acLandingcount}</p>
+                    <p>&nbsp;</p>
+                    <p>Engine N/G Cycles : ${craftObj.acEngngcycs}</p>
+                    </div>
+                    <div id="middle">
+                    <p>Date : <c:out value="${sysDate}"/></p>
+                    <p>&nbsp;</p>
+                    <p>Engine Hours : ${craftObj.acEnghrs}</p>
+                    </div>
+                    <div id="right">
+                    <p>Start Count : ${craftObj.acStartcount}</p>
+                    <p>&nbsp;</p>
+                    <p>Engine N/P Cycles : ${craftObj.acNpcycs}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+        <h2>Records</h2>                    
         <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
             <thead>
          <tr class="gradeA">
@@ -28,30 +60,29 @@
             </thead>
             <tbody>
         <c:forEach var="opmSet"  items="${OPMRecSet}">
-        <tr class="gradeA">
+            
+            <c:set var="opinvList" value="${opmSet.opmIntervalArray}" />
+            <c:set var="optrList" value="${opmSet.opmTimeRemArray}" />
+            <c:set var="opremList" value="${opmSet.opmRemarksArray}" />
+         <c:forEach varStatus="loop" items="opinvList">
+        
+         <tr class="gradeA">
             <td class="center"><%=i++%></td><td class="center">${opmSet.opmNomenclature}</td><td class="center">${opmSet.opmDueHrs}&nbsp;&nbsp;${opmSet.opmDueHrsType} [&nbsp;${opmSet.opmDueAt}&nbsp;]</td>
+            
             <td class="center">${opmSet.opmCalDueDate}</td>
+            
             <td class="center">
-            <c:forEach var="myVar1" items="${opmSet.opmIntervalSet}">
-                ${myVar1.opminvlHrs}&nbsp;${myVar1.opminvlHrsType}<br/>
-            </c:forEach>
+                <c:out value="${opinvList[loop.index]}" />
             </td>
             <td class="center">
-            <c:forEach var="myVar2" items="${opmSet.opmTimeRemSet}">
-                ${myVar2.opmtrHrs}&nbsp;${myVar2.opmtrHrsType}<br/>
-            </c:forEach>
+                <c:out value="${optrList[loop.index]}" />
             </td>
             <td class="center">    
-            <c:forEach var="myVar3" items="${opmSet.opmRemarksSet}">
-                ${myVar3.opmremText}<br/>
-            </c:forEach>
-            </td>
-            <td class="center">    
-            <c:forEach var="myVar4" items="${oafciSet.oafciRemarksSet}">
-                ${myVar4.oafremText}<br/>
-            </c:forEach>
+                <c:out value="${opremList[loop.index]}" />
             </td>
         </tr>
+        
+        </c:forEach>
         </c:forEach>
             </tbody>
     </table>

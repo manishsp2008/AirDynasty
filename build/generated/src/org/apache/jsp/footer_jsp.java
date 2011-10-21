@@ -43,7 +43,7 @@ public final class footer_jsp extends org.apache.jasper.runtime.HttpJspBase
 
       out.write("<div id=\"footer\" class=\"ui-corner-top\">\r\n");
       out.write("    <div id=\"footerLeftBar\">\r\n");
-      out.write("        Air-Dynasty Aircraft Management System.  \r\n");
+      out.write("        Air Dynasty Aircraft Management System.  \r\n");
       out.write("    </div>\r\n");
       out.write("    <div id=\"footerRightBar\">\r\n");
       out.write("        Copyright Notice.\r\n");

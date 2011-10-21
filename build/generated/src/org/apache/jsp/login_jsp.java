@@ -27,7 +27,6 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_shiro_guest;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_shiro_user;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_shiro_principal_nobody;
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_url_value_nobody;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
@@ -39,14 +38,12 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_tagPool_shiro_guest = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_shiro_user = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_shiro_principal_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _jspx_tagPool_c_url_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
     _jspx_tagPool_shiro_guest.release();
     _jspx_tagPool_shiro_user.release();
     _jspx_tagPool_shiro_principal_nobody.release();
-    _jspx_tagPool_c_url_value_nobody.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -106,18 +103,20 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("<div id=\"wrap\">\r\n");
       out.write("<div id=\"header\" class=\"ui-corner-bottom\">\r\n");
-      out.write("     <div id=\"headerTopBar\" class=\"ui-corner-bottom\"  >\r\n");
+      out.write("     <div id=\"headerTopBar\" class=\"ui-corner-top\">\r\n");
       out.write("        <div id=\"headerLinks\">\r\n");
-      out.write("            Link1 | Link2 | Link3\r\n");
+      out.write("            <a href=\"/AirDynasty/\" >Home</a> &emsp; <a href=\"/AirDynasty/viewCraftList\">Aircraft List</a> &emsp; <a href=\"/AirDynasty/Help.jsp\">Help</a> &emsp;\r\n");
+      out.write("            <a href=\"about.jsp\">About</a>\r\n");
       out.write("        </div>\r\n");
       out.write("         <div id=\"headerLoginBar\">\r\n");
-      out.write("            Hi, ");
+      out.write("            Hello,&nbsp;");
       if (_jspx_meth_shiro_guest_0(_jspx_page_context))
         return;
       if (_jspx_meth_shiro_user_0(_jspx_page_context))
         return;
-      out.write("!\r\n");
-      out.write("            &nbsp;( ");
+      out.write("\r\n");
+      out.write("            &nbsp;|&nbsp;\r\n");
+      out.write("            ( ");
       if (_jspx_meth_shiro_user_1(_jspx_page_context))
         return;
       out.write("\r\n");
@@ -126,12 +125,12 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
         return;
       out.write(" )\r\n");
       out.write("        </div>\r\n");
+      out.write("     </div>\r\n");
+      out.write("    \r\n");
+      out.write("     <div id=\"headerMainBar\" class=\"ui-corner-bottom\" >\r\n");
       out.write("        \r\n");
-      out.write("    </div>\r\n");
-      out.write("    <div id=\"headerMainBar\" class=\"ui-corner-bottom\" >\r\n");
-      out.write("        \r\n");
-      out.write("        <div id=\"headerImage\">\r\n");
-      out.write("            <div id=\"headerImageBox\"></div>\r\n");
+      out.write("        <div id=\"headerImage\" class=\"ui-corner-all\">\r\n");
+      out.write("            <div id=\"headerImageBox\" ></div>\r\n");
       out.write("        </div>\r\n");
       out.write("        <div id=\"headerClock\">\r\n");
       out.write("            <div id=\"fancyClock\">\r\n");
@@ -143,14 +142,17 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            </div>\r\n");
       out.write("        </div>\r\n");
       out.write("        \r\n");
-      out.write("    </div>\r\n");
+      out.write("     </div>\r\n");
       out.write("</div>");
       out.write("\r\n");
       out.write("\r\n");
       out.write("<div id=\"dt_example\" >\r\n");
       out.write("\r\n");
-      out.write("<h1>Log in</h1>\r\n");
+      out.write("<h1>Log In</h1>\r\n");
+      out.write("<div class=\"ui-widget\" >\r\n");
       out.write("\r\n");
+      out.write("    <div style=\"padding: 20px; margin: 50px auto; width: 400px;\" class=\"ui-state-highlight ui-corner-all\"> \r\n");
+      out.write("\t\r\n");
       out.write("<form name=\"loginform\" action=\"\" method=\"post\">\r\n");
       out.write("    <table  border=\"0\" cellspacing=\"0\" cellpadding=\"3\" style=\"margin : 0 auto;\">\r\n");
       out.write("        <tr style=\"height: 35px\">\r\n");
@@ -165,17 +167,21 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <td colspan=\"2\" align=\"left\"><p><input type=\"checkbox\" name=\"rememberMe\"/><font size=\"2\">&nbsp;&nbsp;Remember Me</font></p></td>\r\n");
       out.write("        </tr>\r\n");
       out.write("        <tr style=\"height: 35px\">\r\n");
-      out.write("            <td colspan=\"2\" align=\"right\"><input type=\"submit\" name=\"submit\" value=\"Login\"></td>\r\n");
+      out.write("            <td colspan=\"2\" align=\"right\">\r\n");
+      out.write("                 <input class=\"ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only\" type=\"submit\" role=\"button\" value=\"Login\"/>\r\n");
+      out.write("            </td>\r\n");
       out.write("        </tr>\r\n");
       out.write("    </table>\r\n");
       out.write("</form>\r\n");
       out.write("\r\n");
+      out.write("    </div>\r\n");
+      out.write("</div>\r\n");
       out.write("\r\n");
       out.write("</div>\r\n");
       out.write("</div>\r\n");
       out.write("<div id=\"footer\" class=\"ui-corner-top\">\r\n");
       out.write("    <div id=\"footerLeftBar\">\r\n");
-      out.write("        Air-Dynasty Aircraft Management System.  \r\n");
+      out.write("        Air Dynasty Aircraft Management System.  \r\n");
       out.write("    </div>\r\n");
       out.write("    <div id=\"footerRightBar\">\r\n");
       out.write("        Copyright Notice.\r\n");
@@ -276,10 +282,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
     int _jspx_eval_shiro_user_1 = _jspx_th_shiro_user_1.doStartTag();
     if (_jspx_eval_shiro_user_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
-        out.write("<a href=\"");
-        if (_jspx_meth_c_url_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_shiro_user_1, _jspx_page_context))
-          return true;
-        out.write("\">Log out</a>");
+        out.write("<a href=\"/AirDynasty/logout.jsp\">Log out</a>");
         int evalDoAfterBody = _jspx_th_shiro_user_1.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -290,24 +293,6 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       return true;
     }
     _jspx_tagPool_shiro_user.reuse(_jspx_th_shiro_user_1);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_url_0(javax.servlet.jsp.tagext.JspTag _jspx_th_shiro_user_1, PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:url
-    org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_url_0 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _jspx_tagPool_c_url_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
-    _jspx_th_c_url_0.setPageContext(_jspx_page_context);
-    _jspx_th_c_url_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_shiro_user_1);
-    _jspx_th_c_url_0.setValue("/logout.jsp");
-    int _jspx_eval_c_url_0 = _jspx_th_c_url_0.doStartTag();
-    if (_jspx_th_c_url_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_0);
-      return true;
-    }
-    _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_0);
     return false;
   }
 
@@ -322,10 +307,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
     int _jspx_eval_shiro_guest_1 = _jspx_th_shiro_guest_1.doStartTag();
     if (_jspx_eval_shiro_guest_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
-        out.write("<a href=\"");
-        if (_jspx_meth_c_url_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_shiro_guest_1, _jspx_page_context))
-          return true;
-        out.write("\">Log in</a>");
+        out.write("<a href=\"/AirDynasty/login.jsp\">Log in</a>");
         int evalDoAfterBody = _jspx_th_shiro_guest_1.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -336,24 +318,6 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       return true;
     }
     _jspx_tagPool_shiro_guest.reuse(_jspx_th_shiro_guest_1);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_url_1(javax.servlet.jsp.tagext.JspTag _jspx_th_shiro_guest_1, PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:url
-    org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_url_1 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _jspx_tagPool_c_url_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
-    _jspx_th_c_url_1.setPageContext(_jspx_page_context);
-    _jspx_th_c_url_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_shiro_guest_1);
-    _jspx_th_c_url_1.setValue("/login.jsp");
-    int _jspx_eval_c_url_1 = _jspx_th_c_url_1.doStartTag();
-    if (_jspx_th_c_url_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_1);
-      return true;
-    }
-    _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_1);
     return false;
   }
 }

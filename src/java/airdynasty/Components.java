@@ -136,14 +136,12 @@ public class Components implements Serializable {
     {
         Set<CmpCurAfhrs> tempSet = getCmpCurAfhrsSet();
         List<String> temp = new ArrayList<String>();
-        
         for (Iterator<CmpCurAfhrs> it = tempSet.iterator(); it.hasNext();) {
      
             CmpCurAfhrs ccaObj = it.next();
             temp.add(ccaObj.getCmpCurAfhrsHrs());
         }
         return temp.toArray(new String[0]) ;
-       
     }
 
     public void setCmpCurAfhrsSet(Set<CmpCurAfhrs> cmpCurAfhrsSet) {
@@ -195,7 +193,7 @@ public class Components implements Serializable {
         return cmpLiferemInstSet;
     }
     
-    public String[] getCmpLiferemInstSetArray()
+    public String[] getCmpLiferemInstArray()
     {
         Set<CmpLiferemInst> tempSet = getCmpLiferemInstSet();
         List<String> temp = new ArrayList<String>();
@@ -216,7 +214,7 @@ public class Components implements Serializable {
         return cmpRemarksSet;
     }
     
-    public String[] getCmpRemarksSetArray()
+    public String[] getCmpRemarksArray()
     {
         Set<CmpRemarks> tempSet = getCmpRemarksSet();
         List<String> temp = new ArrayList<String>();
@@ -248,19 +246,14 @@ public class Components implements Serializable {
     public String[] getCompDueoffAfhrsInstArray()
     {
         Set<CompDueoffAfhrsInst> tempSet = getCompDueoffAfhrsInstSet(); 
-        
         List<String> temp = new ArrayList<String>();
-        
         for (Iterator<CompDueoffAfhrsInst> it = tempSet.iterator(); it.hasNext();) {
             
             CompDueoffAfhrsInst cdaObj = it.next();
-            
             temp.add(cdaObj.getCdaHrs());
             
         }
-        
         return temp.toArray(new String[0]);
-       
     }
     
 
