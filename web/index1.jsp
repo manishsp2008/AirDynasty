@@ -19,10 +19,8 @@
 <div id="dt_example" >
 
         <h1>Air Craft Management System</h1>
-        <ol>
-            <li><a href="/AirDynasty/viewCraftList">View Air Crafts</a></li>
-        </ol>
-   
+            
+        <a href="/AirDynasty/viewCraftList" class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" alt="View Aircrafts registered in system." ><span class="ui-button-text">View Aircrafts</span></a>
 </div>
 </div>
 <%@include file="footer.jsp" %>

@@ -9,7 +9,7 @@ html, body {
 }
  
 body {
-
+        
      color : #302B23;
      font: 95%/1.45em "Columbia","Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
      overflow : auto;  
@@ -21,11 +21,12 @@ body {
     max-width : 1200px;
     min-width : 980px;
     margin: 0 auto;
+    width: 100%
 }
 
  #header {
     height : 140px;
-    background : -moz-linear-gradient(top, #DDDDDD, #AAAAAA);
+    background : -moz-linear-gradient(top, #DDDDDD, #E5E5E5);
     
  }
 
@@ -98,12 +99,12 @@ body {
 
 #headerImage {
     background-color: inherit;
-    background: -moz-radial-gradient(rgba(221,221,221,0), rgba(170,170,170,1)), url("images/logo.jpg") no-repeat scroll;
+    background: url("images/logo.jpg") no-repeat scroll;
     /*ackground: url("images/logo.jpg") no-repeat;*/
     float:left;
     margin-left : 10px;
     margin-top: 10px;
-    border: 5px solid #302B23;
+    border: 5px solid #FFFFFF;
 }
 
 #headerImageBox {
@@ -219,13 +220,15 @@ body {
 
 #dt_example h2 {
     margin-top: 1em;
-    font-size: 1.25em;
+    font-size: 1.40em;
     font-family: Cambria;
     font-weight: 500;
     padding : 1px 1px 2px 10px;
     color: #302B23;
     clear: both;
     margin-bottom: 1em;
+    line-height: 1.5em;
+    border-bottom: 1.5px dashed seagreen;
 }
 
 #dt_example h3 {

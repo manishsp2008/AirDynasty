@@ -20,7 +20,7 @@
         <%@include file="header.jsp" %>
         <div id="dt_example" >
      
-        <h1>Aircraft Details Page</h1>
+        <h1>Aircraft Details</h1>
         
         <div id="CraftTitle">
         ${craftObj.acName}
@@ -69,8 +69,8 @@
         <%int i=1;%>
         <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
         <thead>
-        <tr class="gradeA"><th>Sr. No.</th><th>Component Name</th><th>Part No.</th>
-        <th>Installation Due Off Hours</th><th>Current Air Frame Hours</th><th>Remaining Life Hours</th>
+        <tr ><th>Sr. No.</th><th>Component Name</th><th>Part No.</th>
+        <th>Due Off Hrs(Inst.)</th><th>Current A/F Hrs</th><th>Rem. Life Hrs</th>
         <th>Remarks</th></tr>
         </thead>
         <tbody>
@@ -83,21 +83,28 @@
         
         <c:forEach varStatus="loop" items="${idoList}" >
             
-        <tr class="gradeA"><td class="center"><%=i++%></td><td class="center">${comp.compPartname}</td><td class="center">${comp.compPartnum}</td>
+            <tr class="gradeA" onclick="window.location='/AirDynasty/viewComponent?${comp.compId}'"><td class="center"><%=i++%></td><td class="center">${comp.compPartname}</td><td class="center">${comp.compPartnum}</td>
             
-            <td class="center">
-                    <c:out  value="${idoList[loop.index]}" /><br/>
+            <td class="left">
+                    <c:out  value="${idoList[loop.index]}" />
             </td>
-            <td class="center">
-                    <c:out  value="${cahList[loop.index]}"/><br/>
+            <td class="left">
+                <c:choose>
+                    <c:when test="${fn:length(cahList[loop.index]) > 1}">
+                        <c:out value="${cahList[loop.index]}"/>
+                    </c:when>
+                    <c:otherwise>
+                        <c:out value="${cahList[0]}" />
+                    </c:otherwise>
+                </c:choose>
             </td>
-            <td class="center">
-                    <c:out  value="${rlList[loop.index]}"/><br/>
+            <td class="left">
+                    <c:out value="${rlList[loop.index ]}" />
             </td>
-            <td class="center">
+            <td class="left">
                     <c:out  value="${remList[loop.index]}"/><br/>
             </td>
-            
+
         </tr>
         
         </c:forEach>
@@ -107,7 +114,7 @@
         <br/>
         <h3>Related Operations</h3>
         
-        <table style="margin : 0 auto;">
+        <table >
             <tr>
                 <td style="width: 25%;text-align: center">
                     <button id="viewEIR" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" onclick="window.location='/AirDynasty/viewEngInspec' ">
@@ -129,9 +136,9 @@
        
         <h3>Manipulate Component Records</h3>
 
-       <table style="margin : 0 auto;">
+       <table >
             <tr>
-                <td style="width: 25%; text-align: left">            
+                <td style="text-align: center;width :25%">            
                 <c:choose>
                     <c:when test="${acID % 2 == 0}">
                         <button id="viewEIR" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" onclick="window.location='/AirDynasty/addEngHrs.jsp' ">
@@ -150,6 +157,7 @@
                             <span class="ui-button-text">Add Component Record</span>
                     </button>
                 </td>
+                <td style="width: 25%;text-align: center">&nbsp;</td>
             </tr>
         </table>
         </div>
