@@ -4,8 +4,11 @@
  */
 package controller;
 
+import adsessionbeans.AfEngInspFacade;
 import adsessionbeans.AirCraftFacade;
 import adsessionbeans.ComponentsFacade;
+import adsessionbeans.OafChangeIntFacade;
+import adsessionbeans.OutPhaseMntFacade;
 import airdynasty.AfEngInsp;
 import airdynasty.AirCraft;
 import airdynasty.Components;
@@ -42,11 +45,12 @@ import javax.servlet.http.HttpServletResponse;
         urlPatterns={ "/viewCraft","/addCraft","/editCraft","/viewCraftList",
                       "/addCraftHRS","/updateCraftHRS","/addComponent",
                       "/addEngHrs","/updateEngHRS",
-                      "/editComponent","/viewComponents","/addCmpRec",
+                      "/editComponent","/viewComponent","/addCmpRec",
                       "/addUser","/viewUser",
                       "/viewEngInspec","/addEngInspec","/editEngInspec",
                       "/viewOAFCIntvl","/addOAFCIntvl","/editOAFCIntvl",
-                      "/viewOPMRec","/addOPMRec","/editOPMRec"
+                      "/viewOPMRec","/addOPMRec","/editOPMRec",
+                      "/viewEIR","/viewOFCR","/viewOPMR"
                     }
         )
 public class ControllerServlet extends HttpServlet {
@@ -55,6 +59,12 @@ public class ControllerServlet extends HttpServlet {
     private AirCraftFacade acFacade;
     @EJB
     private ComponentsFacade cmpFacade;
+    @EJB
+    private AfEngInspFacade aeiFacade;
+    @EJB
+    private OafChangeIntFacade ociFacade;
+    @EJB
+    private OutPhaseMntFacade opmFacade;
     @EJB
     private AirFrameBean afbObj;
     @EJB
@@ -223,9 +233,16 @@ public class ControllerServlet extends HttpServlet {
         {
             // TODO : Edit component details needed to be written here.
         }
-        else if(userPath.equals("/viewComponents"))
+        else if(userPath.equals("/viewComponent"))
         {
-            // TODO : View Component Code needed to be written here.
+            String compID = request.getQueryString();
+            
+            Components myComp = cmpFacade.find(Integer.parseInt(compID));
+            
+            request.getSession().setAttribute("myComp", myComp);
+            
+            userPath = "/viewComponent";
+            
         }
         else if(userPath.equals("/viewEngInspec"))   {
             
@@ -459,8 +476,24 @@ public class ControllerServlet extends HttpServlet {
                 userPath="/aircraft";
             }
         }
-        
-        
+        else if(userPath.equals("/viewEIR")) {
+            String id = request.getQueryString();
+            AfEngInsp aeiObj = aeiFacade.find(Integer.parseInt(id));
+            request.getServletContext().setAttribute("myEIR", aeiObj);
+            userPath = "/viewEIR";
+        }
+        else if(userPath.equals("/viewOFCR")) {
+            String id = request.getQueryString();
+            OafChangeInt ociObj = ociFacade.find(Integer.parseInt(id));
+            request.getServletContext().setAttribute("myOFCR", ociObj);
+            userPath = "/viewOFCR";
+        }
+        else if(userPath.equals("/viewOPMR")) {
+            String id = request.getQueryString();
+            OutPhaseMnt opmObj = opmFacade.find(Integer.parseInt(id));
+            request.getServletContext().setAttribute("myOPM", opmObj);
+            userPath = "/viewOPMR";
+        }
         
         // Creates URL for Servlet redirect.
         String url = "/WEB-INF/view" + userPath + ".jsp";

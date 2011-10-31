@@ -80,10 +80,7 @@ $.fn.dataTableExt.oPagination.listbox = {
 	}
 };
 
-
         $(document).ready(function() {
-        
-       
         
 	$('#example').dataTable( {
 		"bJQueryUI": true,
@@ -94,14 +91,19 @@ $.fn.dataTableExt.oPagination.listbox = {
                 "bStateSave" : true,
                 "sScrollX": "100%",
 		"bScrollCollapse": true,
-                "sDom": 'T<"clear">lfrtip'
-
-	} );
+                "sDom": '<"H"Tfr>t<"F"ip>',
+                "oTableTools": {
+			"aButtons": [
+				"copy", "csv", "xls", "pdf",
+				{
+					"sExtends":    "collection",
+					"sButtonText": "Save",
+					"aButtons":    [ "csv", "xls", "pdf" ]
+				}
+                                    ]
+                                }
+                });
         
         $('#fancyClock').tzineClock();
-        
-        
-
-        
 } );
 

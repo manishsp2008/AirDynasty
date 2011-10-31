@@ -18,7 +18,7 @@
   <%@include file="header.jsp" %>
 <div id="dt_example" >
 
-        <h1>New Engine Inspection Record</h1>
+        <h1>Add New Engine Inspection Record</h1>
         <form name="myForm" action="/AirDynasty/addEngInspec" method="get">
         <table>
             <tr>
@@ -40,7 +40,7 @@
                 <td>Remarks</td><td><input type="text" name="remText"/></td>
             </tr>
         </table>
-        
+            <br/><br/>
         <input type="submit" value="Submit"/>
         </form>
    

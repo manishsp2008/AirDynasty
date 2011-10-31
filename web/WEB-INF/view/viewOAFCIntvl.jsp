@@ -67,7 +67,7 @@
         <c:set var="ormList" value="${oafciSet.oafciRemarksArray}" />
             
         <c:forEach varStatus="loop" items="${oinvList}" >
-        <tr class="gradeA">
+            <tr class="gradeA" onclick="window.location='/AirDynasty/viewOFCR?${oafciSet.oafciId}'">
             <td class="center"><%=i++%></td><td class="center">${oafciSet.oafciNomenclature}</td><td class="center">${oafciSet.oafciSpecs}</td>
             <td class="center">
                 <c:out value="${oinvList[loop.index]}" />
@@ -81,7 +81,7 @@
             <td class="center">    
                 <c:out value="${ormList[loop.index]}" />
             </td>
-        </tr>
+            </tr>
         </c:forEach>
         </c:forEach>
             </tbody>

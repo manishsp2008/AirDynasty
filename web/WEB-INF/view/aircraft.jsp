@@ -25,11 +25,11 @@
         <c:forEach var="craft" items="${aircrafts}">
             <c:choose>
                 <c:when test="${craft.acId % 2 == 0}">
-                    <a href="<c:url value="viewCraft?${craft.acId}"/>" class="ui-button ui-widget ui-state-default  ui-button-text-only" role="button" ><span class="ui-button-text">AF Engine ${craft.acName}&nbsp;(${craft.acSerialnum})</span></a><br/>
+                    <a href="<c:url value="viewCraft?${craft.acId}"/>" class="ui-button ui-widget ui-state-default  ui-button-text-only" role="button" ><span class="ui-button-text">Engine - ${craft.acName}</span></a><br/><br/>
                 </c:when> 
                 <c:otherwise>
                     <div id="CraftTitle">${craft.acName} </div>  
-                    <a href="<c:url value="viewCraft?${craft.acId}" />" class="ui-button ui-widget ui-state-default ui-button-text-only" role="button"><span class="ui-button-text">Aircraft  ${craft.acName}</span></a><br/>
+                    <a href="<c:url value="viewCraft?${craft.acId}" />" class="ui-button ui-widget ui-state-default ui-button-text-only" role="button"><span class="ui-button-text">Aircraft - ${craft.acName}</span></a><br/><br/>
                 </c:otherwise>
             </c:choose>
         </c:forEach>

@@ -113,7 +113,9 @@
         </table>
         <br/>
         <h3>Related Operations</h3>
-        
+        <c:choose><c:when test="${acID % 2 == 0}">
+                <i style="margin-left: 25px;">No Related Operations Found.</i>        
+        </c:when><c:otherwise>
         <table >
             <tr>
                 <td style="width: 25%;text-align: center">
@@ -133,7 +135,7 @@
                 </td>
             </tr>
         </table>
-       
+       </c:otherwise></c:choose>
         <h3>Manipulate Component Records</h3>
 
        <table >

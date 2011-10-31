@@ -17,7 +17,7 @@
 <div id="wrap">
   <%@include file="header.jsp" %>
 <div id="dt_example" >
-     <h1>Air Frame and Engine Inspection records</h1>
+     <h1>Air Frame and Engine Inspection Records</h1>
      <%int i=1;%>
      
      <div id="CraftTitle">
@@ -62,7 +62,7 @@
         </tr> </thead>
         <tbody>
         <c:forEach var="eiSet" items="${EngInspSet}">
-        <tr class="gradeA">
+            <tr class="gradeA" onclick="window.location='/AirDynasty/viewEIR?${eiSet.aesId}'">
             <td class="center"><%=i++%></td><td class="center">${eiSet.aesNomenclature}</td><td class="center">${eiSet.aesDueAfHrs}</td>
             <td class="center">${eiSet.aesDueEngHrs}</td><td class="center">${eiSet.aesCalDueDate}</td><td class="center">${eiSet.aesDueTime}</td>
         </tr>

@@ -461,46 +461,22 @@ tr.even.gradeU td.sorting_3 {
 /*
  * Row highlighting example
  */
-.ex_highlight #example tbody tr.even:hover, #example tbody tr.even td.highlighted {
+#example tr:hover {
 	background-color: #ECFFB3;
+        cursor: pointer;
 }
 
-.ex_highlight #example tbody tr.odd:hover, #example tbody tr.odd td.highlighted {
-	background-color: #E6FF99;
-}
-
-.ex_highlight_row #example tr.even:hover {
-	background-color: #ECFFB3;
-}
-
-.ex_highlight_row #example tr.even:hover td.sorting_1 {
+#example tr:hover td.sorting_1 {
 	background-color: #DDFF75;
 }
 
-.ex_highlight_row #example tr.even:hover td.sorting_2 {
+#example tr:hover td.sorting_2 {
 	background-color: #E7FF9E;
 }
 
-.ex_highlight_row #example tr.even:hover td.sorting_3 {
+#example tr:hover td.sorting_3 {
 	background-color: #E2FF89;
 }
-
-.ex_highlight_row #example tr.odd:hover {
-	background-color: #E6FF99;
-}
-
-.ex_highlight_row #example tr.odd:hover td.sorting_1 {
-	background-color: #D6FF5C;
-}
-
-.ex_highlight_row #example tr.odd:hover td.sorting_2 {
-	background-color: #E0FF84;
-}
-
-.ex_highlight_row #example tr.odd:hover td.sorting_3 {
-	background-color: #DBFF70;
-}
-
 
 /*
  * KeyTable
@@ -536,8 +512,14 @@ div.box {
 	border: 1px solid #8080FF;
 	background-color: #E5E5FF;
 }
-
+/*
 table.display tr:hover {
     font-weight: bolder;
     cursor : pointer;
 }
+
+#example tr:hover {
+    background-color: #D6FF5C;
+    cursor: pointer;
+}
+*/

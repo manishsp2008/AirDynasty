@@ -34,7 +34,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ControllerServlet</servlet-name>
-        <url-pattern>/viewComponents</url-pattern>
+        <url-pattern>/viewComponent</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ControllerServlet</servlet-name>
@@ -80,7 +80,18 @@
         <servlet-name>ControllerServlet</servlet-name>
         <url-pattern>/updateEngHRS</url-pattern>
     </servlet-mapping>
-    
+    <servlet-mapping>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>/viewEIR</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>/viewOFCR</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>/viewOPMR</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

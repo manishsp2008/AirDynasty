@@ -18,15 +18,15 @@
   <%@include file="header.jsp" %>
 <div id="dt_example" >
 
-        <h3>Enter Engine Hours.</h3>
+        <h1>Enter Engine Hours.</h1>
         <form action="/AirDynasty/addEngHrs" method="get">
-            <table border="10">
+            <table border="0">
                 <tr><td>Engine Hours  </td><td><input type="text" name="engHrs"/></td></tr>
                 <tr><td>Engine Ng. Cycles </td><td><input type="text" name="ngCycs"/></td></tr>
                 <tr><td>Engine Np. Cycles </td><td><input type="text" name="npCycs"/></td></tr>
                 <tr><td>Air Craft Flight Date(DD-MM-YYYY) </td><td><input type="text" name="engDate"/></td></tr>
             </table>
-            <br/>
+            <br/><br/>
             <input type="submit" value="Submit"/>
         </form>
   
