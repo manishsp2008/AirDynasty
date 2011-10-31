@@ -4,7 +4,9 @@
     Author     : Dell
 --%>
 
-<%@page import="airdynasty.utils.AirFrameLogic"%>
+<%@page import="airdynasty.bean.ComponentUtils"%>
+<%@page import="java.util.List" %>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@ include file="include.jsp" %>
@@ -22,15 +24,31 @@
         <h1>Air Craft Management System</h1>
             
         <a href="/AirDynasty/viewCraftList" class="ui-button ui-widget ui-state-default ui-button-text-only" role="button" alt="View Aircrafts registered in system." ><span class="ui-button-text">View Aircrafts</span></a>
-        <% AirFrameLogic afcObj = new AirFrameLogic(); %>
+        
+        <% ComponentUtils cuObj = new ComponentUtils();
+            Set<Components> comps = cuObj.getAPData((List<Components>)getServletContext().getAttribute("components"));
+        %>
         <h2> Alert Panel </h2>
         <table border="1" >
-            <thead><tr><td>Component Name</td><td>Component Number</td><td>Component Due at Inst</td><td>Component Remaining Life</td></tr></thead>
-            <c:forEach var="comp" items="<%=afcObj.getAlertPanelData()%>">
+            <thead><tr><td>Component Name</td><td>Component Number</td><td>Due At</td><td>Remaining Life</td><td>Remarks</td></tr></thead>
+            <c:forEach var="comp" items="<%=comps%>">
                 
-                <tbody><tr><td>${comp.compPartname}</td><td>${comp.compPartnum}</td><td></td><td></td></tr></tbody>
+                <c:set var="idoList" value="${comp.compDueoffAfhrsInstArray}"/>
+                <c:set var="rlList" value="${comp.compRemLifeArray}"/>
+                <c:set var="remList" value="${comp.cmpRemarksArray}"/>
                 
+                <c:forEach varStatus="loop" items="${idoList}" >
+                    
+                <tbody><tr class="gradeA" onclick="window.location='/AirDynasty/viewComponent?${comp.compId}'"><td>${comp.compPartname}</td><td>${comp.compPartnum}</td><td class="left">
+                    <c:out  value="${idoList[loop.index]}" />
+                    </td><td class="left">
+                    <c:out value="${rlList[loop.index ]}" />
+            </td>
+            <td class="left">
+                    <c:out  value="${remList[loop.index]}"/><br/>
+            </td></tr></tbody>
                 
+                </c:forEach>
             </c:forEach>
         </table>
         

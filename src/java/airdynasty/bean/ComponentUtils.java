@@ -27,6 +27,8 @@ import airdynasty.CompRemLife;
 import airdynasty.Components;
 import java.text.SimpleDateFormat;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 import javax.annotation.Resource;
 import javax.ejb.EJB;
@@ -38,6 +40,7 @@ import javax.ejb.TransactionAttributeType;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
 import javax.persistence.PersistenceContext;
+
 
 /**
  *
@@ -176,6 +179,52 @@ public class ComponentUtils {
         context.setRollbackOnly();
         return false;
         }
+        
+    }
+    
+    @TransactionAttribute(TransactionAttributeType.REQUIRED)
+    public Set<Components> getAPData(List<Components> comps) {
+        
+        // 1. Find all the components.
+        //List<Components> comps = cfObj.findAll();
+        
+        // 2. Search if any of the component is below the deadline.
+        
+        // Add all such components in one set.
+        Set<Components> cmpIDSet = new HashSet<Components>();
+        
+        for (Components comp : comps) {
+          
+            Set<CompRemLife> crlObjSet = comp.getCompRemLifeSet();
+            for (Iterator<CompRemLife> it = crlObjSet.iterator(); it.hasNext();) {
+                
+                CompRemLife crlObj = it.next();
+                String hrsType = crlObj.getCrlHrsType();
+                if(hrsType.equals("H")) {
+                   Double hrs = Double.parseDouble(crlObj.getCrlHrs());
+                   // If hrs_type = H then hours limit is 1000.
+                   if(hrs < 1000.00) {
+                     cmpIDSet.add(crlObj.getCrlCompId());  
+                   }
+                }
+                else if(hrsType.equals("D")) {
+                    Double days = Double.parseDouble(crlObj.getCrlHrs());
+                    // If hrs_type = D then hours limit is 25 days.
+                    if(days < 25.00) {
+                     cmpIDSet.add(crlObj.getCrlCompId());   
+                    }
+                }
+                else if(hrsType.equals("L")) {
+                    Integer count = Integer.parseInt(crlObj.getCrlHrs());
+                    // If hrs_type = L then hours limit is 1000 counts.
+                    if(count < 1000) {
+                     cmpIDSet.add(crlObj.getCrlCompId());
+                    }
+                }
+        }
+        }
+        
+        return cmpIDSet;
         
     }
 

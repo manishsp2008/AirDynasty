@@ -26,6 +26,10 @@ import javax.ejb.EJB;
 public class AirFrameLogic {
     @EJB
     private ComponentsFacade cfObj ;
+
+    public AirFrameLogic() {
+    
+    }
     
     public static Double roundTwoDec(Double num)   {
         
