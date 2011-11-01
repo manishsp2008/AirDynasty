@@ -478,6 +478,23 @@ tr.even.gradeU td.sorting_3 {
 	background-color: #E2FF89;
 }
 
+#alertTable tr:hover {
+	background-color: #ECFFB3;
+        cursor: pointer;
+}
+
+#alertTable tr:hover td.sorting_1 {
+	background-color: #DDFF75;
+}
+
+#alertTable tr:hover td.sorting_2 {
+	background-color: #E7FF9E;
+}
+
+#alertTable tr:hover td.sorting_3 {
+	background-color: #E2FF89;
+}
+
 /*
  * KeyTable
  */

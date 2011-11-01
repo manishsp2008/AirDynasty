@@ -37,7 +37,7 @@
             </tbody>
         </table>
             <br/><br/>
-            <a href="/AirDynasty/viewCraftList">Back</a>
+            <a class="ui-button ui-widget ui-corner-all ui-state-default ui-button-text-only" href="javascript:history.go(-1)" onMouseOver="self.status=document.referrer;return true"><span class="ui-button-text">Back</span></a>
       </div>
       </div>
       <%@include file="footer.jsp" %>

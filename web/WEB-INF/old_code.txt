@@ -187,3 +187,59 @@ http://175.41.165.17:4848/
 <%@include file="footer.jsp" %>
 </body>
 </html>
+
+
+
+<!DOCTYPE html> <html> 
+<head> <meta charset='utf-8'> <title>Cool Canvas Page</title> <style> canvas{ border: 1px solid rgb(0,0,0); } </style> </head>
+
+ <body> 
+ 
+ <canvas height="600" width="600" id="drawAngle">
+	If you see this that means that your browser doesn't support
+	the cool new HTML5 canvas elements.  Boy are <em>you</em>
+	missing out!  You might want to upgrade.
+    </canvas>
+ </body> 
+ 
+ <script> 
+ 
+ var X = 50;
+ var Y = 200;
+ var angle = 30;
+ var stLine = document.getElementById("drawAngle").getContext('2d');
+ stLine.lineWidth = 2; 
+ 
+ stLine.moveTo(X,Y); // Move cursor to point (50,100)
+ stLine.lineTo(5*X,Y); // Draw Line from (50,100) to (250,100).
+ stLine.lineTo(5*X-5,Y-5); // Draw Line from (250,100) to (245,95).
+ 
+ stLine.arcTo(5*X,Y,5*X-5,Y+5,15); // Draw an Arc from ... to ...
+ 
+ stLine.lineTo(5*X,Y); // Draw Line from (245,95) to (255,105).
+ 
+ stLine.stroke();
+ stLine.fill();
+ 
+  var incLine = document.getElementById('drawAngle').getContext('2d');
+  incLine.lineWidth = 2;
+  incLine.beginPath();
+  incLine.moveTo(X,Y);
+  incLine.rotate(-1*angle * Math.PI / 180);
+   
+  incLine.lineTo(4.5*X,Y);
+  incLine.lineTo(4.5*X-5,Y-5); 
+ 
+  incLine.arcTo(4.5*X,Y,4.5*X-5,Y+5,15); 
+ 
+  incLine.lineTo(4.5*X,Y); 
+ 
+  incLine.stroke();
+  incLine.fill();
+  incLine.closePath();
+  
+ </script> 
+ 
+ </html>
+
+

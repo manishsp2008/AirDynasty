@@ -105,5 +105,12 @@ $.fn.dataTableExt.oPagination.listbox = {
                 });
         
         $('#fancyClock').tzineClock();
+        
+        $('#alertTable').dataTable({
+            "bAutoWidth" : false,
+            "bPaginate" : false,
+            "bScrollCollapse": true,
+            "bJQueryUI" : false
+        });
 } );
 

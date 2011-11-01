@@ -26,7 +26,7 @@ body {
 
  #header {
     height : 140px;
-    background : -moz-linear-gradient(top center, #EEEEEE, #4E4E4E);
+    background : -moz-linear-gradient(top center, #EEEEEE, #AAAAAA);
  }
 
  #headerTopBar {

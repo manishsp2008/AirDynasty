@@ -29,24 +29,29 @@
             Set<Components> comps = cuObj.getAPData((List<Components>)getServletContext().getAttribute("components"));
         %>
         <h2> Alert Panel </h2>
-        <table border="1" >
+        <table cellpadding="5" cellspacing="2" class="display" id="alertTable">
             <thead><tr><td>Component Name</td><td>Component Number</td><td>Due At</td><td>Remaining Life</td><td>Remarks</td></tr></thead>
             <c:forEach var="comp" items="<%=comps%>">
                 
                 <c:set var="idoList" value="${comp.compDueoffAfhrsInstArray}"/>
                 <c:set var="rlList" value="${comp.compRemLifeArray}"/>
                 <c:set var="remList" value="${comp.cmpRemarksArray}"/>
-                
                 <c:forEach varStatus="loop" items="${idoList}" >
                     
-                <tbody><tr class="gradeA" onclick="window.location='/AirDynasty/viewComponent?${comp.compId}'"><td>${comp.compPartname}</td><td>${comp.compPartnum}</td><td class="left">
+                <tbody>
+                    <tr class="gradeU" onclick="window.location='/AirDynasty/viewComponent?${comp.compId}'" >
+                    <td>${comp.compPartname}</td><td>${comp.compPartnum}</td>
+                    <td class="left">
                     <c:out  value="${idoList[loop.index]}" />
-                    </td><td class="left">
+                    </td>
+                    <td class="left">
                     <c:out value="${rlList[loop.index ]}" />
-            </td>
-            <td class="left">
+                    </td>
+                    <td class="left">
                     <c:out  value="${remList[loop.index]}"/><br/>
-            </td></tr></tbody>
+                    </td>
+                    </tr>
+                </tbody>
                 
                 </c:forEach>
             </c:forEach>
