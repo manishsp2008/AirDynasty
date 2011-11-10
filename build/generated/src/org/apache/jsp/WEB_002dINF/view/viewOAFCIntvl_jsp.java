@@ -109,12 +109,16 @@ public final class viewOAFCIntvl_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("            @import \"media/css/demo_table.css\";\r\n");
       out.write("            @import \"css/custom-theme/jquery-ui-1.8.16.custom.css\";\r\n");
       out.write("            @import \"design/airdyna.css\";\r\n");
+      out.write("            @import \"media/css/TableTools_JUI.css\";\r\n");
       out.write("        </style>\r\n");
       out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.js\"></script>\r\n");
       out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.dataTables.js\"></script>\r\n");
       out.write("        <script type=\"text/javascript\" src=\"js/jquery-ui-1.8.16.custom.min.js\"></script>\r\n");
       out.write("        <script type=\"text/javascript\" src=\"design/airdyna.js\"></script>\r\n");
       out.write("        <script type=\"text/javascript\" src=\"design/jquery.tzineClock/jquery.tzineClock.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"media/js/ZeroClipboard.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"media/js/TableTools.js\"></script>\r\n");
+      out.write("        \r\n");
       out.write("        \r\n");
       out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"design/jquery.tzineClock/jquery.tzineClock.css\" />\r\n");
       out.write("\r\n");
@@ -285,7 +289,9 @@ int i=1;
               if (_jspx_eval_c_forEach_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
                 do {
                   out.write("\r\n");
-                  out.write("        <tr class=\"gradeA\">\r\n");
+                  out.write("            <tr class=\"gradeA\" onclick=\"window.location='/AirDynasty/viewOFCR?");
+                  out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${oafciSet.oafciId}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+                  out.write("'\">\r\n");
                   out.write("            <td class=\"center\">");
                   out.print(i++);
                   out.write("</td><td class=\"center\">");
@@ -317,7 +323,7 @@ int i=1;
                     return;
                   out.write("\r\n");
                   out.write("            </td>\r\n");
-                  out.write("        </tr>\r\n");
+                  out.write("            </tr>\r\n");
                   out.write("        ");
                   int evalDoAfterBody = _jspx_th_c_forEach_1.doAfterBody();
                   if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)

@@ -103,12 +103,16 @@ public final class viewEngInspec_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("            @import \"media/css/demo_table.css\";\r\n");
       out.write("            @import \"css/custom-theme/jquery-ui-1.8.16.custom.css\";\r\n");
       out.write("            @import \"design/airdyna.css\";\r\n");
+      out.write("            @import \"media/css/TableTools_JUI.css\";\r\n");
       out.write("        </style>\r\n");
       out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.js\"></script>\r\n");
       out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.dataTables.js\"></script>\r\n");
       out.write("        <script type=\"text/javascript\" src=\"js/jquery-ui-1.8.16.custom.min.js\"></script>\r\n");
       out.write("        <script type=\"text/javascript\" src=\"design/airdyna.js\"></script>\r\n");
       out.write("        <script type=\"text/javascript\" src=\"design/jquery.tzineClock/jquery.tzineClock.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"media/js/ZeroClipboard.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"media/js/TableTools.js\"></script>\r\n");
+      out.write("        \r\n");
       out.write("        \r\n");
       out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"design/jquery.tzineClock/jquery.tzineClock.css\" />\r\n");
       out.write("\r\n");
@@ -160,7 +164,7 @@ public final class viewEngInspec_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("</div>");
       out.write("\r\n");
       out.write("<div id=\"dt_example\" >\r\n");
-      out.write("     <h1>Air Frame and Engine Inspection records</h1>\r\n");
+      out.write("     <h1>Air Frame and Engine Inspection Records</h1>\r\n");
       out.write("     ");
 int i=1;
       out.write("\r\n");
@@ -252,7 +256,9 @@ int i=1;
         if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
           do {
             out.write("\r\n");
-            out.write("        <tr class=\"gradeA\">\r\n");
+            out.write("            <tr class=\"gradeA\" onclick=\"window.location='/AirDynasty/viewEIR?");
+            out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${eiSet.aesId}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+            out.write("'\">\r\n");
             out.write("            <td class=\"center\">");
             out.print(i++);
             out.write("</td><td class=\"center\">");

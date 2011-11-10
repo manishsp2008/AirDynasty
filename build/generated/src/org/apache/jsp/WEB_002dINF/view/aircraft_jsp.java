@@ -110,12 +110,16 @@ public final class aircraft_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            @import \"media/css/demo_table.css\";\r\n");
       out.write("            @import \"css/custom-theme/jquery-ui-1.8.16.custom.css\";\r\n");
       out.write("            @import \"design/airdyna.css\";\r\n");
+      out.write("            @import \"media/css/TableTools_JUI.css\";\r\n");
       out.write("        </style>\r\n");
       out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.js\"></script>\r\n");
       out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.dataTables.js\"></script>\r\n");
       out.write("        <script type=\"text/javascript\" src=\"js/jquery-ui-1.8.16.custom.min.js\"></script>\r\n");
       out.write("        <script type=\"text/javascript\" src=\"design/airdyna.js\"></script>\r\n");
       out.write("        <script type=\"text/javascript\" src=\"design/jquery.tzineClock/jquery.tzineClock.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"media/js/ZeroClipboard.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"media/js/TableTools.js\"></script>\r\n");
+      out.write("        \r\n");
       out.write("        \r\n");
       out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"design/jquery.tzineClock/jquery.tzineClock.css\" />\r\n");
       out.write("\r\n");
@@ -410,11 +414,9 @@ public final class aircraft_jsp extends org.apache.jasper.runtime.HttpJspBase
         out.write("                    <a href=\"");
         if (_jspx_meth_c_url_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_when_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
           return true;
-        out.write("\">Engine Name - ");
+        out.write("\" class=\"ui-button ui-widget ui-state-default  ui-button-text-only\" role=\"button\" ><span class=\"ui-button-text\">Engine - ");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${craft.acName}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("&nbsp;(");
-        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${craft.acSerialnum}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write(")</a><br/>\r\n");
+        out.write("</span></a><br/><br/>\r\n");
         out.write("                ");
         int evalDoAfterBody = _jspx_th_c_when_0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
@@ -465,9 +467,9 @@ public final class aircraft_jsp extends org.apache.jasper.runtime.HttpJspBase
         out.write("                    <a href=\"");
         if (_jspx_meth_c_url_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_otherwise_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
           return true;
-        out.write("\">Aircraft Name - ");
+        out.write("\" class=\"ui-button ui-widget ui-state-default ui-button-text-only\" role=\"button\"><span class=\"ui-button-text\">Aircraft - ");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${craft.acName}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("</a><br/>\r\n");
+        out.write("</span></a><br/><br/>\r\n");
         out.write("                ");
         int evalDoAfterBody = _jspx_th_c_otherwise_0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)

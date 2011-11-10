@@ -17,11 +17,12 @@
 <div id="wrap">
   <%@include file="header.jsp" %>
 <div id="dt_example" >
-        <strong>
-            Hours are successfully updated in database.
-        </strong>
+        <div style="margin-top: 20px; padding: 0 .7em;" class="ui-state-highlight ui-corner-all"> 
+					<p><span style="float: left; margin-right: .3em;" class="ui-icon ui-icon-info"></span>
+					Data added into system successfully.
+				</div>
         <br/>
-        <a href="/AirDynasty/viewCraftList" >Main Page</a>
+        <a href="/AirDynasty/viewCraftList" class="ui-button ui-widget ui-state-default ui-button-text-only" >Main Page</a>
         
    </div>
 </div>

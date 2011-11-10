@@ -94,12 +94,16 @@ public final class trsuccess_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            @import \"media/css/demo_table.css\";\r\n");
       out.write("            @import \"css/custom-theme/jquery-ui-1.8.16.custom.css\";\r\n");
       out.write("            @import \"design/airdyna.css\";\r\n");
+      out.write("            @import \"media/css/TableTools_JUI.css\";\r\n");
       out.write("        </style>\r\n");
       out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.js\"></script>\r\n");
       out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.dataTables.js\"></script>\r\n");
       out.write("        <script type=\"text/javascript\" src=\"js/jquery-ui-1.8.16.custom.min.js\"></script>\r\n");
       out.write("        <script type=\"text/javascript\" src=\"design/airdyna.js\"></script>\r\n");
       out.write("        <script type=\"text/javascript\" src=\"design/jquery.tzineClock/jquery.tzineClock.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"media/js/ZeroClipboard.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"media/js/TableTools.js\"></script>\r\n");
+      out.write("        \r\n");
       out.write("        \r\n");
       out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"design/jquery.tzineClock/jquery.tzineClock.css\" />\r\n");
       out.write("\r\n");

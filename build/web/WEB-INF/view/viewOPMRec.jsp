@@ -53,7 +53,7 @@
         <h2>Records</h2>                    
         <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
             <thead>
-         <tr class="gradeA">
+                <tr class="gradeA">
              <th>Sr. No.</th><th>Nomenclature</th><th>Due Hours</th>
              <th>Calender Due Date</th><th>Interval(H/M/Y)</th><th>Time Remain (H/M/Y)</th><th>Remarks</th>   
          </tr>
@@ -66,7 +66,7 @@
             <c:set var="opremList" value="${opmSet.opmRemarksArray}" />
          <c:forEach varStatus="loop" items="opinvList">
         
-         <tr class="gradeA">
+         <tr class="gradeA"  onclick="window.location='/AirDynasty/viewOPMR?${opmSet.opmId}'">
             <td class="center"><%=i++%></td><td class="center">${opmSet.opmNomenclature}</td><td class="center">${opmSet.opmDueHrs}&nbsp;&nbsp;${opmSet.opmDueHrsType} [&nbsp;${opmSet.opmDueAt}&nbsp;]</td>
             
             <td class="center">${opmSet.opmCalDueDate}</td>

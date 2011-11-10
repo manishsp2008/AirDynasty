@@ -20,7 +20,7 @@
 
         <form name="myForm" action="/AirDynasty/addOAFCIntvl" method="GET">
         <h1>Add New Oil & Fuel Change Interval Record</h1>
-        <table>
+        <table id="addPageTable">
             <tr colspan="2"><td>Basic Details</td></tr>
             <tr><td>Nomenclature </td><td><input type="text" name="nmText"/></td> </tr>
             <tr><td>Specification </td><td><input type="text" name="specText"/></td> </tr>
@@ -32,7 +32,7 @@
             <tr><td>Remarks</td><td><input type="text" name="remText"/></td> </tr>
         </table>
         <br/><br/>
-        <input type="submit" value="Add Record"/>
+        <input class="ui-button ui-widget ui-state-default ui-button-text-only" type="submit" value="Add Record"/>
     </form>
   
 </div>

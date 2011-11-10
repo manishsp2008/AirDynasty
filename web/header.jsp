@@ -1,7 +1,7 @@
 <div id="header" class="ui-corner-bottom">
      <div id="headerTopBar" class="ui-corner-top">
         <div id="headerLinks">
-            <a href="/AirDynasty/" >Home</a> &emsp; <a href="/AirDynasty/viewCraftList">Aircraft List</a> &emsp; <a href="/AirDynasty/Help.jsp">Help</a> &emsp;
+            <a href="/AirDynasty/" >Home</a> &emsp; <a href="/AirDynasty/viewCraftList">Aircraft List</a> &emsp; <a href="/AirDynasty/index1.jsp">Alert Panel</a> &emsp; <a href="/AirDynasty/Help.jsp">Help</a> &emsp;
             <a href="about.jsp">About</a>
         </div>
          <div id="headerLoginBar">

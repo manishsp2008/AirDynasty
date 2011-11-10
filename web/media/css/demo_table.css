@@ -458,6 +458,8 @@ tr.even.gradeU td.sorting_3 {
 }
 
 
+
+
 /*
  * Row highlighting example
  */
@@ -478,10 +480,16 @@ tr.even.gradeU td.sorting_3 {
 	background-color: #E2FF89;
 }
 
+#alertTable thead tr:hover {
+        cursor: pointer;
+}
+
+
 #alertTable tr:hover {
 	background-color: #ECFFB3;
         cursor: pointer;
 }
+
 
 #alertTable tr:hover td.sorting_1 {
 	background-color: #DDFF75;
@@ -494,6 +502,23 @@ tr.even.gradeU td.sorting_3 {
 #alertTable tr:hover td.sorting_3 {
 	background-color: #E2FF89;
 }
+
+/**
+AlertTable Formatting
+**/
+
+
+#alertTable thead {
+    background : -moz-linear-gradient(top center, #3F3F3F, #2B2B2B);
+    color: #E0E2FF;
+    text-align: left;
+}
+
+#alertTable tbody tr {
+    background: whitesmoke;
+}
+
+
 
 /*
  * KeyTable

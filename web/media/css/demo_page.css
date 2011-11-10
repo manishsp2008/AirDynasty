@@ -162,7 +162,11 @@ body {
     padding-bottom: 50px;
     color : #302B23;
 }
-
+#addPageTable tr td {
+    
+    padding : 5px;
+    
+}
 #dt_example p {
     margin-left: 10px;
 }

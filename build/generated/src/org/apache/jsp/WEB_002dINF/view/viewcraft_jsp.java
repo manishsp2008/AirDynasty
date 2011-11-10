@@ -12,6 +12,12 @@ import airdynasty.Components;
 public final class viewcraft_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
+static private org.apache.jasper.runtime.ProtectedFunctionMapper _jspx_fnmap_0;
+
+static {
+  _jspx_fnmap_0= org.apache.jasper.runtime.ProtectedFunctionMapper.getMapForFunction("fn:length", org.apache.taglibs.standard.functions.Functions.class, "length", new Class[] {java.lang.Object.class});
+}
+
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
 
   private static java.util.Vector _jspx_dependants;
@@ -119,12 +125,16 @@ public final class viewcraft_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            @import \"media/css/demo_table.css\";\r\n");
       out.write("            @import \"css/custom-theme/jquery-ui-1.8.16.custom.css\";\r\n");
       out.write("            @import \"design/airdyna.css\";\r\n");
+      out.write("            @import \"media/css/TableTools_JUI.css\";\r\n");
       out.write("        </style>\r\n");
       out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.js\"></script>\r\n");
       out.write("        <script type=\"text/javascript\" language=\"javascript\" src=\"media/js/jquery.dataTables.js\"></script>\r\n");
       out.write("        <script type=\"text/javascript\" src=\"js/jquery-ui-1.8.16.custom.min.js\"></script>\r\n");
       out.write("        <script type=\"text/javascript\" src=\"design/airdyna.js\"></script>\r\n");
       out.write("        <script type=\"text/javascript\" src=\"design/jquery.tzineClock/jquery.tzineClock.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"media/js/ZeroClipboard.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"media/js/TableTools.js\"></script>\r\n");
+      out.write("        \r\n");
       out.write("        \r\n");
       out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"design/jquery.tzineClock/jquery.tzineClock.css\" />\r\n");
       out.write("\r\n");
@@ -178,7 +188,7 @@ public final class viewcraft_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("        <div id=\"dt_example\" >\r\n");
       out.write("     \r\n");
-      out.write("        <h1>Aircraft Details Page</h1>\r\n");
+      out.write("        <h1>Aircraft Details</h1>\r\n");
       out.write("        \r\n");
       out.write("        <div id=\"CraftTitle\">\r\n");
       out.write("        ");
@@ -262,8 +272,8 @@ int i=1;
       out.write("\r\n");
       out.write("        <table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" class=\"display\" id=\"example\">\r\n");
       out.write("        <thead>\r\n");
-      out.write("        <tr class=\"gradeA\"><th>Sr. No.</th><th>Component Name</th><th>Part No.</th>\r\n");
-      out.write("        <th>Installation Due Off Hours</th><th>Current Air Frame Hours</th><th>Remaining Life Hours</th>\r\n");
+      out.write("        <tr ><th>Sr. No.</th><th>Component Name</th><th>Part No.</th>\r\n");
+      out.write("        <th>Due Off Hrs(Inst.)</th><th>Current A/F Hrs</th><th>Rem. Life Hrs</th>\r\n");
       out.write("        <th>Remarks</th></tr>\r\n");
       out.write("        </thead>\r\n");
       out.write("        <tbody>\r\n");
@@ -312,7 +322,9 @@ int i=1;
                 do {
                   out.write("\r\n");
                   out.write("            \r\n");
-                  out.write("        <tr class=\"gradeA\"><td class=\"center\">");
+                  out.write("            <tr class=\"gradeA\" onclick=\"window.location='/AirDynasty/viewComponent?");
+                  out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${comp.compId}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+                  out.write("'\"><td class=\"center\">");
                   out.print(i++);
                   out.write("</td><td class=\"center\">");
                   out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${comp.compPartname}", java.lang.String.class, (PageContext)_jspx_page_context, null));
@@ -320,31 +332,31 @@ int i=1;
                   out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${comp.compPartnum}", java.lang.String.class, (PageContext)_jspx_page_context, null));
                   out.write("</td>\r\n");
                   out.write("            \r\n");
-                  out.write("            <td class=\"center\">\r\n");
+                  out.write("            <td class=\"left\">\r\n");
                   out.write("                    ");
                   if (_jspx_meth_c_out_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_1, _jspx_page_context, _jspx_push_body_count_c_forEach_1))
                     return;
-                  out.write("<br/>\r\n");
+                  out.write("\r\n");
                   out.write("            </td>\r\n");
-                  out.write("            <td class=\"center\">\r\n");
-                  out.write("                    ");
-                  if (_jspx_meth_c_out_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_1, _jspx_page_context, _jspx_push_body_count_c_forEach_1))
+                  out.write("            <td class=\"left\">\r\n");
+                  out.write("                ");
+                  if (_jspx_meth_c_choose_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_1, _jspx_page_context, _jspx_push_body_count_c_forEach_1))
                     return;
-                  out.write("<br/>\r\n");
+                  out.write("\r\n");
                   out.write("            </td>\r\n");
-                  out.write("            <td class=\"center\">\r\n");
-                  out.write("                    ");
-                  if (_jspx_meth_c_out_3((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_1, _jspx_page_context, _jspx_push_body_count_c_forEach_1))
-                    return;
-                  out.write("<br/>\r\n");
-                  out.write("            </td>\r\n");
-                  out.write("            <td class=\"center\">\r\n");
+                  out.write("            <td class=\"left\">\r\n");
                   out.write("                    ");
                   if (_jspx_meth_c_out_4((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_1, _jspx_page_context, _jspx_push_body_count_c_forEach_1))
                     return;
+                  out.write("\r\n");
+                  out.write("            </td>\r\n");
+                  out.write("            <td class=\"left\">\r\n");
+                  out.write("                    ");
+                  if (_jspx_meth_c_out_5((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_1, _jspx_page_context, _jspx_push_body_count_c_forEach_1))
+                    return;
                   out.write("<br/>\r\n");
                   out.write("            </td>\r\n");
-                  out.write("            \r\n");
+                  out.write("\r\n");
                   out.write("        </tr>\r\n");
                   out.write("        \r\n");
                   out.write("        ");
@@ -387,34 +399,17 @@ int i=1;
       out.write("        </table>\r\n");
       out.write("        <br/>\r\n");
       out.write("        <h3>Related Operations</h3>\r\n");
-      out.write("        \r\n");
-      out.write("        <table style=\"margin : 0 auto;\">\r\n");
-      out.write("            <tr>\r\n");
-      out.write("                <td style=\"width: 25%;text-align: center\">\r\n");
-      out.write("                    <button id=\"viewEIR\" class=\"ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only\" onclick=\"window.location='/AirDynasty/viewEngInspec' \">\r\n");
-      out.write("                        <span class=\"ui-button-text\">A/F & Engine IR</span>\r\n");
-      out.write("                    </button>\r\n");
-      out.write("                </td>   \r\n");
-      out.write("                <td style=\"width: 25%; text-align: center\">\r\n");
-      out.write("                    <button id=\"viewEIR\" class=\"ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only\" onclick=\"window.location='/AirDynasty/viewOAFCIntvl' \">\r\n");
-      out.write("                        <span class=\"ui-button-text\">Oil & Fuel CR</span>\r\n");
-      out.write("                    </button>\r\n");
-      out.write("                </td>\r\n");
-      out.write("                <td style=\"width: 25%; text-align: center\">\r\n");
-      out.write("                    <button id=\"viewEIR\" class=\"ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only\" onclick=\"window.location='/AirDynasty/viewOPMRec' \">\r\n");
-      out.write("                        <span class=\"ui-button-text\">Out of Phase MR</span>\r\n");
-      out.write("                    </button>\r\n");
-      out.write("                </td>\r\n");
-      out.write("            </tr>\r\n");
-      out.write("        </table>\r\n");
-      out.write("       \r\n");
+      out.write("        ");
+      if (_jspx_meth_c_choose_1(_jspx_page_context))
+        return;
+      out.write("\r\n");
       out.write("        <h3>Manipulate Component Records</h3>\r\n");
       out.write("\r\n");
-      out.write("       <table style=\"margin : 0 auto;\">\r\n");
+      out.write("       <table >\r\n");
       out.write("            <tr>\r\n");
-      out.write("                <td style=\"width: 25%; text-align: left\">            \r\n");
+      out.write("                <td style=\"text-align: center;width :25%\">            \r\n");
       out.write("                ");
-      if (_jspx_meth_c_choose_0(_jspx_page_context))
+      if (_jspx_meth_c_choose_2(_jspx_page_context))
         return;
       out.write("\r\n");
       out.write("                </td>\r\n");
@@ -423,6 +418,7 @@ int i=1;
       out.write("                            <span class=\"ui-button-text\">Add Component Record</span>\r\n");
       out.write("                    </button>\r\n");
       out.write("                </td>\r\n");
+      out.write("                <td style=\"width: 25%;text-align: center\">&nbsp;</td>\r\n");
       out.write("            </tr>\r\n");
       out.write("        </table>\r\n");
       out.write("        </div>\r\n");
@@ -681,14 +677,79 @@ int i=1;
     return false;
   }
 
-  private boolean _jspx_meth_c_out_2(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_1, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_1)
+  private boolean _jspx_meth_c_choose_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_1, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_1)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:choose
+    org.apache.taglibs.standard.tag.common.core.ChooseTag _jspx_th_c_choose_0 = (org.apache.taglibs.standard.tag.common.core.ChooseTag) _jspx_tagPool_c_choose.get(org.apache.taglibs.standard.tag.common.core.ChooseTag.class);
+    _jspx_th_c_choose_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_choose_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_1);
+    int _jspx_eval_c_choose_0 = _jspx_th_c_choose_0.doStartTag();
+    if (_jspx_eval_c_choose_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\r\n");
+        out.write("                    ");
+        if (_jspx_meth_c_when_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_choose_0, _jspx_page_context, _jspx_push_body_count_c_forEach_1))
+          return true;
+        out.write("\r\n");
+        out.write("                    ");
+        if (_jspx_meth_c_otherwise_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_choose_0, _jspx_page_context, _jspx_push_body_count_c_forEach_1))
+          return true;
+        out.write("\r\n");
+        out.write("                ");
+        int evalDoAfterBody = _jspx_th_c_choose_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_choose_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_choose.reuse(_jspx_th_c_choose_0);
+      return true;
+    }
+    _jspx_tagPool_c_choose.reuse(_jspx_th_c_choose_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_when_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_choose_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_1)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:when
+    org.apache.taglibs.standard.tag.rt.core.WhenTag _jspx_th_c_when_0 = (org.apache.taglibs.standard.tag.rt.core.WhenTag) _jspx_tagPool_c_when_test.get(org.apache.taglibs.standard.tag.rt.core.WhenTag.class);
+    _jspx_th_c_when_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_when_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_choose_0);
+    _jspx_th_c_when_0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${fn:length(cahList[loop.index]) > 1}", java.lang.Boolean.class, (PageContext)_jspx_page_context, _jspx_fnmap_0)).booleanValue());
+    int _jspx_eval_c_when_0 = _jspx_th_c_when_0.doStartTag();
+    if (_jspx_eval_c_when_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\r\n");
+        out.write("                        ");
+        if (_jspx_meth_c_out_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_when_0, _jspx_page_context, _jspx_push_body_count_c_forEach_1))
+          return true;
+        out.write("\r\n");
+        out.write("                    ");
+        int evalDoAfterBody = _jspx_th_c_when_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_when_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_0);
+      return true;
+    }
+    _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_out_2(javax.servlet.jsp.tagext.JspTag _jspx_th_c_when_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_1)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  c:out
     org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_2 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
     _jspx_th_c_out_2.setPageContext(_jspx_page_context);
-    _jspx_th_c_out_2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_1);
+    _jspx_th_c_out_2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_when_0);
     _jspx_th_c_out_2.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${cahList[loop.index]}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
     int _jspx_eval_c_out_2 = _jspx_th_c_out_2.doStartTag();
     if (_jspx_th_c_out_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -699,15 +760,45 @@ int i=1;
     return false;
   }
 
-  private boolean _jspx_meth_c_out_3(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_1, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_1)
+  private boolean _jspx_meth_c_otherwise_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_choose_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_1)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:otherwise
+    org.apache.taglibs.standard.tag.common.core.OtherwiseTag _jspx_th_c_otherwise_0 = (org.apache.taglibs.standard.tag.common.core.OtherwiseTag) _jspx_tagPool_c_otherwise.get(org.apache.taglibs.standard.tag.common.core.OtherwiseTag.class);
+    _jspx_th_c_otherwise_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_otherwise_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_choose_0);
+    int _jspx_eval_c_otherwise_0 = _jspx_th_c_otherwise_0.doStartTag();
+    if (_jspx_eval_c_otherwise_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\r\n");
+        out.write("                        ");
+        if (_jspx_meth_c_out_3((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_otherwise_0, _jspx_page_context, _jspx_push_body_count_c_forEach_1))
+          return true;
+        out.write("\r\n");
+        out.write("                    ");
+        int evalDoAfterBody = _jspx_th_c_otherwise_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_otherwise_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_otherwise.reuse(_jspx_th_c_otherwise_0);
+      return true;
+    }
+    _jspx_tagPool_c_otherwise.reuse(_jspx_th_c_otherwise_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_out_3(javax.servlet.jsp.tagext.JspTag _jspx_th_c_otherwise_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_1)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  c:out
     org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_3 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
     _jspx_th_c_out_3.setPageContext(_jspx_page_context);
-    _jspx_th_c_out_3.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_1);
-    _jspx_th_c_out_3.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${rlList[loop.index]}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_c_out_3.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_otherwise_0);
+    _jspx_th_c_out_3.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${cahList[0]}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
     int _jspx_eval_c_out_3 = _jspx_th_c_out_3.doStartTag();
     if (_jspx_th_c_out_3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_3);
@@ -725,7 +816,7 @@ int i=1;
     org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_4 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
     _jspx_th_c_out_4.setPageContext(_jspx_page_context);
     _jspx_th_c_out_4.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_1);
-    _jspx_th_c_out_4.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${remList[loop.index]}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_c_out_4.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${rlList[loop.index ]}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
     int _jspx_eval_c_out_4 = _jspx_th_c_out_4.doStartTag();
     if (_jspx_th_c_out_4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_4);
@@ -735,96 +826,215 @@ int i=1;
     return false;
   }
 
-  private boolean _jspx_meth_c_choose_0(PageContext _jspx_page_context)
+  private boolean _jspx_meth_c_out_5(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_1, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_1)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:out
+    org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_5 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
+    _jspx_th_c_out_5.setPageContext(_jspx_page_context);
+    _jspx_th_c_out_5.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_1);
+    _jspx_th_c_out_5.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${remList[loop.index]}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int _jspx_eval_c_out_5 = _jspx_th_c_out_5.doStartTag();
+    if (_jspx_th_c_out_5.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_5);
+      return true;
+    }
+    _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_5);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_choose_1(PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  c:choose
-    org.apache.taglibs.standard.tag.common.core.ChooseTag _jspx_th_c_choose_0 = (org.apache.taglibs.standard.tag.common.core.ChooseTag) _jspx_tagPool_c_choose.get(org.apache.taglibs.standard.tag.common.core.ChooseTag.class);
-    _jspx_th_c_choose_0.setPageContext(_jspx_page_context);
-    _jspx_th_c_choose_0.setParent(null);
-    int _jspx_eval_c_choose_0 = _jspx_th_c_choose_0.doStartTag();
-    if (_jspx_eval_c_choose_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+    org.apache.taglibs.standard.tag.common.core.ChooseTag _jspx_th_c_choose_1 = (org.apache.taglibs.standard.tag.common.core.ChooseTag) _jspx_tagPool_c_choose.get(org.apache.taglibs.standard.tag.common.core.ChooseTag.class);
+    _jspx_th_c_choose_1.setPageContext(_jspx_page_context);
+    _jspx_th_c_choose_1.setParent(null);
+    int _jspx_eval_c_choose_1 = _jspx_th_c_choose_1.doStartTag();
+    if (_jspx_eval_c_choose_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
-        out.write("\r\n");
-        out.write("                    ");
-        if (_jspx_meth_c_when_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_choose_0, _jspx_page_context))
+        if (_jspx_meth_c_when_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_choose_1, _jspx_page_context))
           return true;
-        out.write(" \r\n");
-        out.write("                    ");
-        if (_jspx_meth_c_otherwise_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_choose_0, _jspx_page_context))
+        if (_jspx_meth_c_otherwise_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_choose_1, _jspx_page_context))
           return true;
-        out.write("\r\n");
-        out.write("                ");
-        int evalDoAfterBody = _jspx_th_c_choose_0.doAfterBody();
+        int evalDoAfterBody = _jspx_th_c_choose_1.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
       } while (true);
     }
-    if (_jspx_th_c_choose_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_choose.reuse(_jspx_th_c_choose_0);
+    if (_jspx_th_c_choose_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_choose.reuse(_jspx_th_c_choose_1);
       return true;
     }
-    _jspx_tagPool_c_choose.reuse(_jspx_th_c_choose_0);
+    _jspx_tagPool_c_choose.reuse(_jspx_th_c_choose_1);
     return false;
   }
 
-  private boolean _jspx_meth_c_when_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_choose_0, PageContext _jspx_page_context)
+  private boolean _jspx_meth_c_when_1(javax.servlet.jsp.tagext.JspTag _jspx_th_c_choose_1, PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  c:when
-    org.apache.taglibs.standard.tag.rt.core.WhenTag _jspx_th_c_when_0 = (org.apache.taglibs.standard.tag.rt.core.WhenTag) _jspx_tagPool_c_when_test.get(org.apache.taglibs.standard.tag.rt.core.WhenTag.class);
-    _jspx_th_c_when_0.setPageContext(_jspx_page_context);
-    _jspx_th_c_when_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_choose_0);
-    _jspx_th_c_when_0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${acID % 2 == 0}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
-    int _jspx_eval_c_when_0 = _jspx_th_c_when_0.doStartTag();
-    if (_jspx_eval_c_when_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+    org.apache.taglibs.standard.tag.rt.core.WhenTag _jspx_th_c_when_1 = (org.apache.taglibs.standard.tag.rt.core.WhenTag) _jspx_tagPool_c_when_test.get(org.apache.taglibs.standard.tag.rt.core.WhenTag.class);
+    _jspx_th_c_when_1.setPageContext(_jspx_page_context);
+    _jspx_th_c_when_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_choose_1);
+    _jspx_th_c_when_1.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${acID % 2 == 0}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    int _jspx_eval_c_when_1 = _jspx_th_c_when_1.doStartTag();
+    if (_jspx_eval_c_when_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\r\n");
+        out.write("                <i style=\"margin-left: 25px;\">No Related Operations Found.</i>        \r\n");
+        out.write("        ");
+        int evalDoAfterBody = _jspx_th_c_when_1.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_when_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_1);
+      return true;
+    }
+    _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_1);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_otherwise_1(javax.servlet.jsp.tagext.JspTag _jspx_th_c_choose_1, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:otherwise
+    org.apache.taglibs.standard.tag.common.core.OtherwiseTag _jspx_th_c_otherwise_1 = (org.apache.taglibs.standard.tag.common.core.OtherwiseTag) _jspx_tagPool_c_otherwise.get(org.apache.taglibs.standard.tag.common.core.OtherwiseTag.class);
+    _jspx_th_c_otherwise_1.setPageContext(_jspx_page_context);
+    _jspx_th_c_otherwise_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_choose_1);
+    int _jspx_eval_c_otherwise_1 = _jspx_th_c_otherwise_1.doStartTag();
+    if (_jspx_eval_c_otherwise_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\r\n");
+        out.write("        <table >\r\n");
+        out.write("            <tr>\r\n");
+        out.write("                <td style=\"width: 25%;text-align: center\">\r\n");
+        out.write("                    <button id=\"viewEIR\" class=\"ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only\" onclick=\"window.location='/AirDynasty/viewEngInspec' \">\r\n");
+        out.write("                        <span class=\"ui-button-text\">A/F & Engine IR</span>\r\n");
+        out.write("                    </button>\r\n");
+        out.write("                </td>   \r\n");
+        out.write("                <td style=\"width: 25%; text-align: center\">\r\n");
+        out.write("                    <button id=\"viewEIR\" class=\"ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only\" onclick=\"window.location='/AirDynasty/viewOAFCIntvl' \">\r\n");
+        out.write("                        <span class=\"ui-button-text\">Oil & Fuel CR</span>\r\n");
+        out.write("                    </button>\r\n");
+        out.write("                </td>\r\n");
+        out.write("                <td style=\"width: 25%; text-align: center\">\r\n");
+        out.write("                    <button id=\"viewEIR\" class=\"ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only\" onclick=\"window.location='/AirDynasty/viewOPMRec' \">\r\n");
+        out.write("                        <span class=\"ui-button-text\">Out of Phase MR</span>\r\n");
+        out.write("                    </button>\r\n");
+        out.write("                </td>\r\n");
+        out.write("            </tr>\r\n");
+        out.write("        </table>\r\n");
+        out.write("       ");
+        int evalDoAfterBody = _jspx_th_c_otherwise_1.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_otherwise_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_otherwise.reuse(_jspx_th_c_otherwise_1);
+      return true;
+    }
+    _jspx_tagPool_c_otherwise.reuse(_jspx_th_c_otherwise_1);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_choose_2(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:choose
+    org.apache.taglibs.standard.tag.common.core.ChooseTag _jspx_th_c_choose_2 = (org.apache.taglibs.standard.tag.common.core.ChooseTag) _jspx_tagPool_c_choose.get(org.apache.taglibs.standard.tag.common.core.ChooseTag.class);
+    _jspx_th_c_choose_2.setPageContext(_jspx_page_context);
+    _jspx_th_c_choose_2.setParent(null);
+    int _jspx_eval_c_choose_2 = _jspx_th_c_choose_2.doStartTag();
+    if (_jspx_eval_c_choose_2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\r\n");
+        out.write("                    ");
+        if (_jspx_meth_c_when_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_choose_2, _jspx_page_context))
+          return true;
+        out.write(" \r\n");
+        out.write("                    ");
+        if (_jspx_meth_c_otherwise_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_choose_2, _jspx_page_context))
+          return true;
+        out.write("\r\n");
+        out.write("                ");
+        int evalDoAfterBody = _jspx_th_c_choose_2.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_choose_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_choose.reuse(_jspx_th_c_choose_2);
+      return true;
+    }
+    _jspx_tagPool_c_choose.reuse(_jspx_th_c_choose_2);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_when_2(javax.servlet.jsp.tagext.JspTag _jspx_th_c_choose_2, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:when
+    org.apache.taglibs.standard.tag.rt.core.WhenTag _jspx_th_c_when_2 = (org.apache.taglibs.standard.tag.rt.core.WhenTag) _jspx_tagPool_c_when_test.get(org.apache.taglibs.standard.tag.rt.core.WhenTag.class);
+    _jspx_th_c_when_2.setPageContext(_jspx_page_context);
+    _jspx_th_c_when_2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_choose_2);
+    _jspx_th_c_when_2.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${acID % 2 == 0}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    int _jspx_eval_c_when_2 = _jspx_th_c_when_2.doStartTag();
+    if (_jspx_eval_c_when_2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\r\n");
         out.write("                        <button id=\"viewEIR\" class=\"ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only\" onclick=\"window.location='/AirDynasty/addEngHrs.jsp' \">\r\n");
         out.write("                            <span class=\"ui-button-text\">Add Engine Hours</span>\r\n");
         out.write("                        </button>\r\n");
         out.write("                    ");
-        int evalDoAfterBody = _jspx_th_c_when_0.doAfterBody();
+        int evalDoAfterBody = _jspx_th_c_when_2.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
       } while (true);
     }
-    if (_jspx_th_c_when_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_0);
+    if (_jspx_th_c_when_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_2);
       return true;
     }
-    _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_0);
+    _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_2);
     return false;
   }
 
-  private boolean _jspx_meth_c_otherwise_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_choose_0, PageContext _jspx_page_context)
+  private boolean _jspx_meth_c_otherwise_2(javax.servlet.jsp.tagext.JspTag _jspx_th_c_choose_2, PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  c:otherwise
-    org.apache.taglibs.standard.tag.common.core.OtherwiseTag _jspx_th_c_otherwise_0 = (org.apache.taglibs.standard.tag.common.core.OtherwiseTag) _jspx_tagPool_c_otherwise.get(org.apache.taglibs.standard.tag.common.core.OtherwiseTag.class);
-    _jspx_th_c_otherwise_0.setPageContext(_jspx_page_context);
-    _jspx_th_c_otherwise_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_choose_0);
-    int _jspx_eval_c_otherwise_0 = _jspx_th_c_otherwise_0.doStartTag();
-    if (_jspx_eval_c_otherwise_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+    org.apache.taglibs.standard.tag.common.core.OtherwiseTag _jspx_th_c_otherwise_2 = (org.apache.taglibs.standard.tag.common.core.OtherwiseTag) _jspx_tagPool_c_otherwise.get(org.apache.taglibs.standard.tag.common.core.OtherwiseTag.class);
+    _jspx_th_c_otherwise_2.setPageContext(_jspx_page_context);
+    _jspx_th_c_otherwise_2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_choose_2);
+    int _jspx_eval_c_otherwise_2 = _jspx_th_c_otherwise_2.doStartTag();
+    if (_jspx_eval_c_otherwise_2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\r\n");
         out.write("                        <button id=\"viewEIR\" class=\"ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only\" onclick=\"window.location='/AirDynasty/addHours.jsp' \">\r\n");
         out.write("                            <span class=\"ui-button-text\">Add Aircraft Hours</span>\r\n");
         out.write("                        </button>\r\n");
         out.write("                    ");
-        int evalDoAfterBody = _jspx_th_c_otherwise_0.doAfterBody();
+        int evalDoAfterBody = _jspx_th_c_otherwise_2.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
       } while (true);
     }
-    if (_jspx_th_c_otherwise_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_otherwise.reuse(_jspx_th_c_otherwise_0);
+    if (_jspx_th_c_otherwise_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_otherwise.reuse(_jspx_th_c_otherwise_2);
       return true;
     }
-    _jspx_tagPool_c_otherwise.reuse(_jspx_th_c_otherwise_0);
+    _jspx_tagPool_c_otherwise.reuse(_jspx_th_c_otherwise_2);
     return false;
   }
 }

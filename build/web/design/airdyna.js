@@ -80,8 +80,8 @@ $.fn.dataTableExt.oPagination.listbox = {
 	}
 };
 
-
-$(document).ready(function() {
+        $(document).ready(function() {
+        
 	$('#example').dataTable( {
 		"bJQueryUI": true,
 		"sPaginationType": "listbox",
@@ -90,22 +90,27 @@ $(document).ready(function() {
                 "bPaginate" : true,
                 "bStateSave" : true,
                 "sScrollX": "100%",
-		"bScrollCollapse": true
-
-	} );
+		"bScrollCollapse": true,
+                "sDom": '<"H"Tfr>t<"F"ip>',
+                "oTableTools": {
+			"aButtons": [
+				"copy", "csv", "xls", "pdf",
+				{
+					"sExtends":    "collection",
+					"sButtonText": "Save",
+					"aButtons":    [ "csv", "xls", "pdf" ]
+				}
+                                    ]
+                                }
+                });
         
         $('#fancyClock').tzineClock();
         
-        $("#viewEIR").onclick(function(){
-            
-          window.location = "http://www.google.co.in"  
-            
-            
+        $('#alertTable').dataTable({
+            "bAutoWidth" : false,
+            "bPaginate" : false,
+            "bScrollCollapse": true,
+            "bJQueryUI" : false
         });
-            
-            
-            
-            
-        
 } );
 

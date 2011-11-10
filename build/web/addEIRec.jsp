@@ -18,9 +18,9 @@
   <%@include file="header.jsp" %>
 <div id="dt_example" >
 
-        <h1>New Engine Inspection Record</h1>
+        <h1>Add New Engine Inspection Record</h1>
         <form name="myForm" action="/AirDynasty/addEngInspec" method="get">
-        <table>
+        <table id="addPageTable">
             <tr>
                 <td>Nomenclature</td><td><input type="text" name="ncText"/></td>
             </tr>
@@ -40,8 +40,8 @@
                 <td>Remarks</td><td><input type="text" name="remText"/></td>
             </tr>
         </table>
-        
-        <input type="submit" value="Submit"/>
+            <br/><br/>
+        <input class="ui-button ui-widget ui-state-default ui-button-text-only" type="submit" value="Submit"/>
         </form>
    
 </div>

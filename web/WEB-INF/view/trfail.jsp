@@ -17,9 +17,12 @@
 <div id="wrap">
   <%@include file="header.jsp" %>
 <div id="dt_example" >
-        <h1>Transaction Fail.</h1>
+        <div style="padding: 0 .7em;" class="ui-state-error ui-corner-all"> 
+	<p><span style="float: left; margin-right: .3em;" class="ui-icon ui-icon-alert"></span> 
+	Transaction Failed.
+</div>
         
-        <a href="/AirDynasty/viewCraftList">Home Page</a>
+    <a href="/AirDynasty/viewCraftList" class="ui-button ui-widget ui-state-default ui-button-text-only" style="padding: 7px">Home Page</a>
     </div>
 </div>
 <%@include file="footer.jsp" %>

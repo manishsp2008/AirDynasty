@@ -20,7 +20,7 @@
 
         <h1>Add New Engine Inspection Record</h1>
         <form name="myForm" action="/AirDynasty/addEngInspec" method="get">
-        <table>
+        <table id="addPageTable">
             <tr>
                 <td>Nomenclature</td><td><input type="text" name="ncText"/></td>
             </tr>
@@ -41,7 +41,7 @@
             </tr>
         </table>
             <br/><br/>
-        <input type="submit" value="Submit"/>
+        <input class="ui-button ui-widget ui-state-default ui-button-text-only" type="submit" value="Submit"/>
         </form>
    
 </div>
