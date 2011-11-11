@@ -252,3 +252,7 @@ Very sorry for reply after such along reply, i am quite busy with company work a
 
 An Application is not yet fully production ready(As i have not yet wriiten tesing code) but you can get idea about all the features i have designed. Based on features i have kept, we can discuss out for final version features which may include some additional features or sunbstractions of some of the existing functionalities.
 
+Write more.
+
+
+
